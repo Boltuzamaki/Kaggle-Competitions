@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NeuroGolf · Mission Control</title>
+<style>
+:root{
+ --bg:#05060c; --panel:rgba(255,255,255,.045); --panel2:rgba(255,255,255,.06);
+ --line:rgba(255,255,255,.09); --txt:#e8ecf4; --dim:#8b93a7;
+ --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --violet:#a78bfa; --slate:#4b5468;
+ --glow-green:0 0 14px rgba(52,211,153,.55); --glow-amber:0 0 14px rgba(251,191,36,.5);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:'Segoe UI',system-ui,-apple-system,Inter,sans-serif;background:var(--bg);color:var(--txt);
+ background-image:
+   radial-gradient(900px 500px at 12% -10%,rgba(34,211,238,.10),transparent 60%),
+   radial-gradient(800px 500px at 100% 0%,rgba(167,139,250,.12),transparent 55%),
+   radial-gradient(700px 700px at 50% 120%,rgba(52,211,153,.08),transparent 60%);
+ background-attachment:fixed;}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+ background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+ background-size:44px 44px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 85%);}
+.shell{position:relative;z-index:1}
+
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);
+ background:linear-gradient(180deg,rgba(8,10,18,.92),rgba(8,10,18,.65));border-bottom:1px solid var(--line);
+ padding:16px 26px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:18px;
+ background:linear-gradient(135deg,#0ea5b7,#34d399);box-shadow:0 0 20px rgba(52,211,153,.5)}
+.brand h1{font-size:16px;margin:0;letter-spacing:.5px;font-weight:700}
+.brand small{display:block;color:var(--dim);font-size:11px;letter-spacing:2px;text-transform:uppercase}
+
+.metrics{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.metric{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px 16px;min-width:120px}
+.metric .k{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)}
+.metric .v{font-size:22px;font-weight:800;background:linear-gradient(90deg,#67e8f9,#34d399);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bar{height:6px;border-radius:99px;background:rgba(255,255,255,.08);margin-top:7px;overflow:hidden;width:150px}
+.bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#22d3ee,#34d399);box-shadow:var(--glow-green)}
+
+.spacer{margin-left:auto}
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+select,.btn{font-family:inherit;border-radius:11px;border:1px solid var(--line);color:var(--txt);
+ background:var(--panel);padding:9px 14px;font-size:13px;cursor:pointer;transition:.18s}
+option{background:var(--bg);color:var(--txt)}
+a.btn{text-decoration:none;display:inline-block}
+select:hover,.btn:hover{border-color:rgba(255,255,255,.25);transform:translateY(-1px)}
+.btn.primary{background:linear-gradient(135deg,#0ea5b7,#34d399);border:0;color:#03120c;font-weight:700;box-shadow:0 6px 20px rgba(52,211,153,.35)}
+.btn.blue{background:linear-gradient(135deg,#3b82f6,#22d3ee);border:0;color:#04121f;font-weight:700;box-shadow:0 6px 20px rgba(34,211,238,.3)}
+
+.legend{display:flex;gap:14px;align-items:center;font-size:12px;color:var(--dim);padding:12px 26px 0}
+.legend b{display:inline-flex;align-items:center;gap:6px;color:var(--txt);font-weight:500}
+.pill{width:9px;height:9px;border-radius:50%}
+.pill.g{background:var(--green);box-shadow:var(--glow-green)} .pill.a{background:var(--amber);box-shadow:var(--glow-amber)} .pill.t{background:var(--slate)}
+
+#subresult{margin:12px 26px 0;font-size:12.5px;color:var(--dim);white-space:pre-wrap;font-family:'Cascadia Code',Consolas,monospace;
+ background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0;max-height:0;overflow:hidden;transition:.3s}
+#subresult.show{padding:12px 14px;max-height:320px;overflow:auto}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:11px;padding:22px 26px 60px}
+a.tile{position:relative;display:block;text-decoration:none;color:var(--txt);border-radius:14px;padding:12px 8px 10px;
+ background:var(--panel);border:1px solid var(--line);transition:.16s;overflow:hidden}
+a.tile::after{content:"";position:absolute;inset:0;border-radius:14px;opacity:0;transition:.16s;
+ box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}
+a.tile:hover{transform:translateY(-3px);background:var(--panel2)}
+a.tile:hover::after{opacity:1}
+a.tile .t{font-size:13px;font-weight:700;letter-spacing:.3px}
+a.tile .p{font-size:10.5px;color:var(--dim);margin-top:3px;min-height:13px}
+a.tile .warn{color:#fb7185;font-size:10px}
+.dot{position:absolute;top:9px;right:9px;width:9px;height:9px;border-radius:50%}
+a.tile.ours{background:linear-gradient(160deg,rgba(52,211,153,.16),rgba(52,211,153,.03));border-color:rgba(52,211,153,.4)}
+a.tile.ours .dot{background:var(--green);box-shadow:var(--glow-green)}
+a.tile.working{background:linear-gradient(160deg,rgba(251,191,36,.15),rgba(251,191,36,.03));border-color:rgba(251,191,36,.38)}
+a.tile.working .dot{background:var(--amber);box-shadow:var(--glow-amber)}
+a.tile.todo .dot{background:var(--slate)}
+.tick{position:absolute;bottom:8px;right:9px;color:var(--green);font-size:12px}
+.notemark{position:absolute;bottom:8px;left:9px;font-size:11px;opacity:.85}
+</style></head>
+<body><div class="shell">
+<header>
+ <div class="brand"><div class="logo">⛳</div><div><h1>NEUROGOLF</h1><small>mission control</small></div></div>
+ <div class="metrics">
+   <div class="metric"><div class="k">Baseline score</div><div class="v" style="background:linear-gradient(90deg,#94a3b8,#cbd5e1);-webkit-background-clip:text;background-clip:text">{{ '%.2f'|format(base) }}</div></div>
+   <div class="metric"><div class="k">Our score {% if gain>0 %}<span style="color:var(--green)">▲ +{{ '%.2f'|format(gain) }}</span>{% endif %}</div><div class="v">{{ '%.2f'|format(total) }}</div></div>
+   <div class="metric"><div class="k">Tasks coded</div><div class="v">{{ coded }}<span style="font-size:13px;color:var(--dim)">/400</span></div>
+     <div class="bar"><i style="width:{{ (coded/400*100)|round(1) }}%"></i></div></div>
+ </div>
+ <div class="spacer"></div>
+ <div class="toolbar">
+   <select id="flt" onchange="applyFilter()">
+     <option value="all">all tasks</option><option value="ours">◉ ours</option>
+     <option value="working">◉ working</option><option value="todo">◉ todo</option></select>
+   <a class="btn" href="/quickcheck">🧪 Quick Check</a>
+   <a class="btn" href="/uploadcheck">📤 Upload &amp; Verify</a>
+   <a class="btn" href="/scoreboard">📊 Scoreboard</a>
+   <button class="btn blue" onclick="buildZip()">📦 Build .zip</button>
+   <button class="btn primary" onclick="submitKaggle()">🚀 Submit</button>
+ </div>
+</header>
+<div class="legend">
+ <b><span class="pill g"></span>ours (solved)</b>
+ <b><span class="pill a"></span>working</b>
+ <b><span class="pill t"></span>todo</b>
+</div>
+<div id="subresult"></div>
+<div class="grid" id="grid">
+ {% for x in tasks %}
+  <a class="tile {{x.state}}" data-state="{{x.state}}" href="/task/{{x.t}}">
+    <span class="dot"></span>
+    <div class="t">#{{ '%03d'|format(x.t) }}</div>
+    <div class="p">
+      {% if x.our_points %}{{ '%.1f'|format(x.our_points) }} pts{% elif x.base_points %}base {{ '%.1f'|format(x.base_points) }}{% endif %}
+      {% if x.n_fail and x.n_fail>0 %}<span class="warn">· {{x.n_fail}}✗</span>{% endif %}
+    </div>
+    {% if x.state=='ours' %}<span class="tick">✓</span>{% endif %}
+    {% if x.has_notes %}<span class="notemark" title="has notes">📝</span>{% endif %}
+  </a>
+ {% endfor %}
+</div>
+</div>
+<script>
+function applyFilter(){const v=document.getElementById('flt').value;
+ document.querySelectorAll('#grid a.tile').forEach(a=>a.style.display=(v==='all'||a.dataset.state===v)?'block':'none');}
+function showRes(html){const r=document.getElementById('subresult');r.classList.add('show');r.innerHTML=html;}
+function buildZip(){showRes('⏳ building submission.zip…');
+ fetch('/api/build_submission',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'})
+ .then(x=>x.json()).then(j=>{ if(!j.ok){showRes('❌ '+j.error);return;}
+   showRes('✅ <b>submission.zip</b> built · '+(j.size/1024).toFixed(0)+' KB · using <b>our</b> ONNX for '+j.used_ours+
+     ' tasks ('+j.used_forced+' forced-select, unmeasurable-locally), baseline for the rest &nbsp;→&nbsp; <a href="/download_submission" style="color:var(--cyan)">download</a>');});}
+function submitKaggle(){ if(!confirm('Build submission.zip and submit to Kaggle (neurogolf-2026)?'))return;
+ showRes('🚀 submitting to Kaggle…');
+ fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'tracker submission'})})
+ .then(x=>x.json()).then(j=>showRes((j.ok?'✅ ':'❌ ')+'ours used: '+(j.used_ours||'?')+'\n'+(j.output||j.error||'')));}
+</script>
+</body></html>
