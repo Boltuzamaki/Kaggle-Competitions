@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>task{{ '%03d'|format(t) }} · NeuroGolf</title>
+<link rel="stylesheet" href="/static/react_editor/assets/index.css?v=2">
+<script type="module" src="/static/react_editor/assets/index.js?v=2"></script>
+<style>
+:root{
+ --bg:#05060c; --panel:rgba(255,255,255,.045); --panel2:rgba(255,255,255,.07);
+ --line:rgba(255,255,255,.09); --txt:#e8ecf4; --dim:#8b93a7;
+ --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --violet:#a78bfa;
+ --glow-green:0 0 14px rgba(52,211,153,.55);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',system-ui,Inter,sans-serif;background:var(--bg);color:var(--txt);
+ background-image:radial-gradient(900px 500px at 10% -10%,rgba(34,211,238,.1),transparent 60%),
+   radial-gradient(800px 500px at 100% 0,rgba(167,139,250,.12),transparent 55%);background-attachment:fixed}
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);background:linear-gradient(180deg,rgba(8,10,18,.92),rgba(8,10,18,.6));
+ border-bottom:1px solid var(--line);padding:14px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+a.back{color:var(--cyan);text-decoration:none;font-size:14px;padding:6px 12px;border:1px solid var(--line);border-radius:10px;transition:.15s}
+a.back:hover{background:var(--panel);transform:translateX(-2px)}
+h2{margin:0;font-size:18px;letter-spacing:.5px}
+.badge{padding:4px 13px;border-radius:99px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.badge.ours{background:rgba(52,211,153,.16);color:var(--green);box-shadow:var(--glow-green)}
+.badge.working{background:rgba(251,191,36,.16);color:var(--amber)}
+.badge.todo{background:rgba(255,255,255,.08);color:var(--dim)}
+.ptsinfo{font-size:13px;color:var(--dim)} .ptsinfo b{color:var(--green)}
+.spacer{margin-left:auto}
+select,.btn{font-family:inherit;background:var(--panel);color:var(--txt);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13px;cursor:pointer}
+option{background:var(--bg);color:var(--txt)}
+.wrap{display:flex;gap:20px;padding:22px 24px;flex-wrap:wrap;align-items:flex-start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;backdrop-filter:blur(10px)}
+.col{flex:1;min-width:380px}
+h3{margin:0 0 14px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);font-weight:600}
+.pair{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.gwrap{text-align:center} .glabel{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-bottom:5px}
+.gwrap.pred .glabel{color:var(--green)}
+canvas{background:#02040a;border:1px solid var(--line);border-radius:6px;image-rendering:pixelated;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.gwrap.pred canvas{border-color:rgba(52,211,153,.5);box-shadow:0 0 18px rgba(52,211,153,.25)}
+textarea{width:100%;height:360px;background:#02040a;color:#c9f2e6;border:1px solid var(--line);border-radius:12px;
+ font-family:'Cascadia Code',Consolas,monospace;font-size:12.5px;line-height:1.5;padding:14px;resize:vertical;
+ box-shadow:inset 0 0 40px rgba(34,211,238,.04)}
+textarea:focus{outline:none;border-color:rgba(34,211,238,.4);box-shadow:inset 0 0 40px rgba(34,211,238,.06),0 0 0 1px rgba(34,211,238,.25)}
+.btn{font-weight:700;transition:.16s}
+.btn.run{background:linear-gradient(135deg,#0ea5b7,#34d399);color:#03120c;box-shadow:0 6px 22px rgba(52,211,153,.4);border:0}
+.btn.run:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(52,211,153,.5)}
+.btn.ghost{background:var(--panel);color:var(--dim);border:1px solid var(--line);font-weight:600}
+.btn.ghost:hover{color:var(--txt);border-color:rgba(255,255,255,.25)}
+#result{white-space:pre-wrap;font-family:'Cascadia Code',Consolas,monospace;font-size:12.5px;margin-top:14px;padding:14px;
+ border-radius:12px;background:#02040a;border:1px solid var(--line);min-height:22px;line-height:1.5}
+.ok{color:var(--green)} .bad{color:#fb7185}
+.ops{font-size:11px;color:var(--dim);margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-family:Consolas,monospace}
+code{color:var(--cyan)}
+
+/* ---- tabs ---- */
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tabbtn{padding:8px 16px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--dim);
+ font-size:12.5px;font-weight:700;letter-spacing:.4px;cursor:pointer;transition:.15s}
+.tabbtn.active{color:#03120c;background:linear-gradient(135deg,#0ea5b7,#34d399);border-color:transparent}
+.tabpane{display:none} .tabpane.active{display:block}
+
+/* ---- node graph editor ---- */
+.gtoolbar{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.gtoolbar select{font-size:12px;padding:7px 10px}
+.canvaswrap{position:relative;background:#02040a;border:1px solid var(--line);border-radius:12px;
+ height:380px;overflow:auto;box-shadow:inset 0 0 40px rgba(34,211,238,.04)}
+.canvasinner{position:relative;width:1400px;height:900px;
+ background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+ background-size:24px 24px}
+svg.edgesvg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+svg.edgesvg path{pointer-events:stroke;cursor:pointer}
+svg.edgesvg path.wire{stroke:#3fb6c9;stroke-width:2}
+svg.edgesvg path.wire.sel{stroke:#fb7185;stroke-width:3}
+svg.edgesvg path.pending{stroke:#fbbf24;stroke-width:2;stroke-dasharray:4 3}
+.gnode{position:absolute;min-width:118px;background:rgba(20,26,38,.92);border:1px solid var(--line);border-radius:10px;
+ box-shadow:0 6px 18px rgba(0,0,0,.4);cursor:grab;user-select:none}
+.gnode.sel{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan),0 6px 18px rgba(0,0,0,.4)}
+.gnode.io{border-color:rgba(52,211,153,.5)}
+.gnode-hdr{font-size:11px;font-weight:700;letter-spacing:.3px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--txt)}
+.gnode-body{display:flex;justify-content:space-between;padding:8px 0;gap:6px}
+.ports-in,.ports-out{display:flex;flex-direction:column;gap:8px}
+.ports-out{align-items:flex-end}
+.port{width:11px;height:11px;border-radius:50%;background:#4b5468;border:2px solid #0b0f18;margin:0 -6px;cursor:crosshair}
+.port:hover{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.port.wired{background:var(--green)}
+.port.pendingsrc{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.attrspanel textarea{height:150px;font-size:11.5px}
+.smallnote{font-size:11px;color:var(--dim);margin-top:8px;line-height:1.5}
+.verhist{max-height:190px;overflow:auto;font-size:12px;margin-top:10px;display:none}
+.verhist.show{display:block}
+.verrow{display:flex;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);
+ margin-bottom:6px;cursor:pointer;background:var(--panel)}
+.verrow:hover{background:var(--panel2)}
+.verrow .k{color:var(--dim);font-size:11px}
+</style></head>
+<body>
+<header>
+ <a class="back" href="/">← grid</a>
+ <h2>task{{ '%03d'|format(t) }}</h2>
+ <span id="badge" class="badge {{e.state}}">{{e.state}}</span>
+ <span class="ptsinfo">baseline {{ '%.2f'|format(e.base_points) }}{% if e.our_points %} · ours <b>{{ '%.2f'|format(e.our_points) }}</b> (cost {{e.our_cost}}){% endif %}</span>
+ <div class="spacer"></div>
+ <button class="btn ghost" id="historyBtn" onclick="toggleHistory()">🕘 history (<span id="verCount">{{n_versions}}</span>)</button>
+ <button class="btn ghost" onclick="doReset()">↺ reset to last passing</button>
+ <select id="statusSel" onchange="setStatus()">
+   <option value="todo" {% if e.state=='todo' %}selected{% endif %}>mark: todo</option>
+   <option value="working" {% if e.state=='working' %}selected{% endif %}>mark: working</option>
+   <option value="ours" {% if e.state=='ours' %}selected{% endif %}>mark: solved</option>
+ </select>
+</header>
+<div style="padding:22px 24px 0">
+ <div class="card">
+  <h3>◈ Notes &nbsp;·&nbsp; findings, ideas, prompts for future attempts &nbsp;·&nbsp; <span id="notesSaved" style="color:var(--dim);text-transform:none;letter-spacing:0;font-weight:400">saved</span></h3>
+  <textarea id="notes" spellcheck="false" style="height:130px;font-family:'Segoe UI',system-ui,Inter,sans-serif;font-size:13px;color:var(--txt)"
+    placeholder="e.g. cost dominated by 2 Conv ops needing float32 output; rest already uint8/bool. Real gain needs replacing the Conv-based neighbor check with a native shift+compare — not attempted yet.">{{ e.notes or '' }}</textarea>
+ </div>
+</div>
+<div class="wrap">
+ <div class="col card">
+  <h3>◈ Examples &nbsp;·&nbsp; input → target &nbsp;·&nbsp; green = your live output</h3>
+  <div id="examples"></div>
+  <div class="ops">baseline graph ops &nbsp;›&nbsp; {{ bops }}</div>
+ </div>
+ <div class="col card">
+  <div class="tabs">
+   <button class="tabbtn active" id="tabbtn-code" onclick="switchTab('code')">◈ Python / ONNX code</button>
+   <button class="tabbtn" id="tabbtn-graph" onclick="switchTab('graph')">◈ Visual graph</button>
+  </div>
+
+  <div class="verhist card" id="verhist" style="padding:12px">
+   <h3 style="margin-bottom:8px">◈ Passing version history — click to load into the editor</h3>
+   <div id="verlist"><span class="smallnote">no passing versions yet</span></div>
+  </div>
+
+  <div class="tabpane active" id="tabpane-code">
+   <textarea id="code" spellcheck="false">{{ code }}</textarea>
+   <div style="margin-top:14px;display:flex;gap:10px">
+     <button class="btn run" onclick="run()">▶ Run &amp; Verify</button>
+   </div>
+  </div>
+
+  <div class="tabpane" id="tabpane-graph">
+   <div id="react-editor-root" style="height: 520px; width: 100%;"></div>
+  </div>
+
+  <div id="result">Run to verify against every train + test + arc-gen example.</div>
+ </div>
+</div>
+<div style="padding:0 24px 30px">
+ <div class="card">
+  <h3>◈ ONNX graph &nbsp;·&nbsp; <span id="graphlabel">{% if e.our_points %}your saved model{% else %}baseline model{% endif %}</span> &nbsp;·&nbsp; updates live after Run</h3>
+  <div style="overflow:auto;text-align:center;background:#0b0f18;border-radius:12px;padding:10px">
+    <img id="graphimg" src="/graph_img/{{t}}?ts=0" style="max-width:100%;border-radius:8px" alt="onnx graph">
+  </div>
+ </div>
+</div>
+<script>
+const T={{t}};
+const GRIDS={{ grids|safe }};
+const PAL=["#000000","#1e93ff","#fa3d31","#4ecc30","#ffdd00","#999999","#e53ba3","#ff851c","#88d8f1","#931131","#0b0f18"];
+function drawGrid(cv,g){const H=g.length,W=H?g[0].length:0,cell=Math.max(7,Math.floor(150/Math.max(H,W,1)));
+ cv.width=W*cell;cv.height=H*cell;const x=cv.getContext('2d');
+ for(let r=0;r<H;r++)for(let c=0;c<W;c++){let v=g[r][c];x.fillStyle=(v>=0&&v<=10)?PAL[v]:'#556';x.fillRect(c*cell,r*cell,cell-1,cell-1);}}
+function renderExamples(prev){const box=document.getElementById('examples');box.innerHTML='';
+ GRIDS.forEach((ex,i)=>{const row=document.createElement('div');row.className='pair';
+  function blk(label,g,pred){const d=document.createElement('div');d.className='gwrap'+(pred?' pred':'');
+   const l=document.createElement('div');l.className='glabel';l.textContent=label;const cv=document.createElement('canvas');
+   d.appendChild(l);d.appendChild(cv);drawGrid(cv,g);return d;}
+  row.appendChild(blk('input '+i,ex.input,false));row.appendChild(blk('target',ex.output,false));
+  if(prev&&prev[i])row.appendChild(blk('your output',prev[i],true));box.appendChild(row);});}
+renderExamples(null);
+
+function switchTab(which){
+ document.getElementById('tabbtn-code').classList.toggle('active',which==='code');
+ document.getElementById('tabbtn-graph').classList.toggle('active',which==='graph');
+ document.getElementById('tabpane-code').classList.toggle('active',which==='code');
+ document.getElementById('tabpane-graph').classList.toggle('active',which==='graph');
+ if(which==='graph')setTimeout(renderGraph,0);
+}
+function setStatus(){const s=document.getElementById('statusSel').value;
+ fetch('/api/status/'+T,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({state:s})})
+ .then(r=>r.json()).then(j=>{const b=document.getElementById('badge');b.textContent=j.state;b.className='badge '+j.state;});}
+
+/* ---------------------------------------------------------------- notes (autosave) */
+let notesTimer=null;
+function saveNotes(){
+ const el=document.getElementById('notesSaved'); el.textContent='saving…'; el.style.color='var(--amber)';
+ fetch('/api/notes/'+T,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({notes:document.getElementById('notes').value})})
+ .then(r=>r.json()).then(()=>{el.textContent='saved'; el.style.color='var(--dim)';})
+ .catch(()=>{el.textContent='save failed'; el.style.color='#fb7185';});}
+document.getElementById('notes').addEventListener('input',()=>{
+ document.getElementById('notesSaved').textContent='editing…'; document.getElementById('notesSaved').style.color='var(--dim)';
+ clearTimeout(notesTimer); notesTimer=setTimeout(saveNotes,900);});
+document.getElementById('notes').addEventListener('blur',()=>{clearTimeout(notesTimer); saveNotes();});
+
+function showResult(j, savedAsGraph){
+ if(!j.ok){document.getElementById('result').innerHTML='<span class="bad">❌ '+j.error+'</span>';return;}
+ const res=document.getElementById('result');
+ if(j.algo){const good=j.n_fail===0;
+   res.innerHTML='<span class="'+(good?'ok':'bad')+'">🧪 Python algorithm — '+(j.n_total-j.n_fail)+'/'+j.n_total+' examples correct'+
+     (good?' ✓  (this is a reference algorithm, not an ONNX model — baseline stays for scoring)':' — some wrong')+'</span>';
+   if(j.preview)renderExamples(j.preview);
+   const b=document.getElementById('badge');b.textContent=j.state;b.className='badge '+j.state;return;}
+ if(j.graph){document.getElementById('graphimg').src=j.graph;
+   document.getElementById('graphlabel').textContent=(savedAsGraph?'your visual graph':'your model')+' ('+j.n_nodes+' nodes)';}
+ const b=document.getElementById('badge');
+ if(j.solved){res.innerHTML='<span class="ok">✅ SOLVED — 0 errors · cost '+j.cost+' · '+j.points+' pts (baseline '+j.base_points+') → total '+j.total+' · coded '+j.coded+'/400</span>';
+   b.textContent='ours';b.className='badge ours';document.getElementById('statusSel').value='ours';renderExamples(j.preview);}
+ else{let note=(j.state==='ours')?' (a saved solved model for this task is still intact)':' — marked working';
+   res.innerHTML='<span class="bad">⚠ this code got '+j.n_fail+' wrong'+(j.cost?(' · cost '+j.cost):'')+' — not a solve'+note+'</span>';
+   b.textContent=j.state;b.className='badge '+j.state;}
+ if(typeof j.n_versions==='number'){document.getElementById('verCount').textContent=j.n_versions;}
+}
+function run(){document.getElementById('result').innerHTML='⏳ running…';
+ fetch('/api/run/'+T,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:document.getElementById('code').value})})
+ .then(r=>r.json()).then(j=>showResult(j,false))
+ .catch(e=>{document.getElementById('result').innerHTML='<span class="bad">request failed: '+e+'</span>';});}
+
+/* ---------------------------------------------------------------- reset + history */
+function applyRestoredState(j){
+ document.getElementById('code').value=j.code;
+ GRAPH=j.graph; renderGraph();
+}
+function doReset(){
+ fetch('/api/reset/'+T).then(r=>r.json()).then(j=>{
+   if(!j.ok){document.getElementById('result').innerHTML='<span class="bad">❌ reset failed</span>';return;}
+   applyRestoredState(j);
+   document.getElementById('result').innerHTML='<span class="ok">↺ restored last passing '+
+     (j.had_code?'code':'(starter code)')+' / '+(j.had_graph?'graph':'(default graph)')+' into the editors.</span>';
+ });
+}
+function toggleHistory(){
+ const box=document.getElementById('verhist');
+ if(box.classList.contains('show')){box.classList.remove('show');return;}
+ fetch('/api/versions/'+T).then(r=>r.json()).then(j=>{
+   const list=document.getElementById('verlist'); list.innerHTML='';
+   if(!j.versions || !j.versions.length){list.innerHTML='<span class="smallnote">no passing versions yet — versions are saved automatically every time Run/Compile passes</span>';}
+   else j.versions.forEach(v=>{
+     const row=document.createElement('div'); row.className='verrow';
+     row.innerHTML='<span>#'+v.id+' · '+v.kind+(v.points?(' · '+v.points+' pts (cost '+v.cost+')'):'')+'</span><span class="k">'+v.ts+'</span>';
+     row.onclick=()=>loadVersion(v.id,v.kind);
+     list.appendChild(row);
+   });
+   box.classList.add('show');
+ });
+}
+function loadVersion(id,kind){
+ fetch('/api/version/'+id).then(r=>r.json()).then(j=>{
+   if(!j.ok)return;
+   if(kind==='code'){document.getElementById('code').value=j.version.content; switchTab('code');}
+   else{GRAPH=JSON.parse(j.version.content); renderGraph(); switchTab('graph');}
+   document.getElementById('verhist').classList.remove('show');
+   document.getElementById('result').innerHTML='<span class="ok">loaded version #'+id+' ('+kind+') — click Run/Compile to reactivate it.</span>';
+ });
+}
+
+/* ---------------------------------------------------------------- visual graph editor setup */
+window.INITIAL_GRAPH = {{ graph_json|safe }};
+window.showResult = showResult;
+window.T = T;
+
+let GRAPH = window.INITIAL_GRAPH;
+
+function renderGraph() {
+  if (window.INITIAL_GRAPH !== GRAPH) {
+    window.INITIAL_GRAPH = GRAPH;
+    alert("Graph updated from history! Please refresh the page to see changes in the React editor.");
+  }
+}
+</script>
+</body></html>

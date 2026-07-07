@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Upload &amp; Verify · NeuroGolf</title>
+<style>
+:root{
+ --bg:#05060c; --panel:rgba(255,255,255,.045); --panel2:rgba(255,255,255,.07);
+ --line:rgba(255,255,255,.09); --txt:#e8ecf4; --dim:#8b93a7;
+ --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --violet:#a78bfa; --red:#fb7185;
+ --glow-green:0 0 14px rgba(52,211,153,.55);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',system-ui,Inter,sans-serif;background:var(--bg);color:var(--txt);
+ background-image:radial-gradient(900px 500px at 10% -10%,rgba(34,211,238,.1),transparent 60%),
+   radial-gradient(800px 500px at 100% 0,rgba(167,139,250,.12),transparent 55%);background-attachment:fixed}
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);background:linear-gradient(180deg,rgba(8,10,18,.92),rgba(8,10,18,.6));
+ border-bottom:1px solid var(--line);padding:14px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+a.back{color:var(--cyan);text-decoration:none;font-size:14px;padding:6px 12px;border:1px solid var(--line);border-radius:10px;transition:.15s}
+a.back:hover{background:var(--panel);transform:translateX(-2px)}
+h2{margin:0;font-size:18px;letter-spacing:.5px}
+.note{font-size:12.5px;color:var(--dim)}
+.spacer{margin-left:auto}
+input,.btn{font-family:inherit;background:var(--panel);color:var(--txt);border:1px solid var(--line);
+ border-radius:10px;padding:9px 12px;font-size:13px}
+input#taskNum{width:110px;font-weight:700;letter-spacing:.5px}
+.btn{cursor:pointer;font-weight:700;transition:.16s}
+.btn.run{background:linear-gradient(135deg,#0ea5b7,#34d399);color:#03120c;border:0;box-shadow:0 6px 22px rgba(52,211,153,.4)}
+.btn.run:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(52,211,153,.5)}
+.btn.save{background:linear-gradient(135deg,#a78bfa,#22d3ee);color:#0a0620;border:0;box-shadow:0 6px 22px rgba(167,139,250,.4)}
+.btn.save:hover{transform:translateY(-2px)}
+.btn.save:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.ghost{color:var(--dim)}
+.btn.ghost:hover{color:var(--txt);border-color:rgba(255,255,255,.25)}
+.wrap{padding:22px 24px;display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;backdrop-filter:blur(10px)}
+.col{flex:1;min-width:420px}
+h3{margin:0 0 12px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);font-weight:600}
+.drop{border:2px dashed var(--line);border-radius:14px;padding:36px 16px;text-align:center;cursor:pointer;transition:.15s}
+.drop:hover,.drop.drag{border-color:var(--cyan);background:rgba(34,211,238,.05)}
+.drop .fname{color:var(--green);font-weight:700;margin-top:8px;word-break:break-all}
+.summary{padding:12px 14px;border-radius:12px;background:#02040a;border:1px solid var(--line);font-size:13px;margin-top:14px}
+.ok{color:var(--green)} .bad{color:var(--red)} .warn{color:var(--amber)}
+.badge{padding:3px 11px;border-radius:99px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.badge.ours{background:rgba(52,211,153,.16);color:var(--green)}
+.badge.working{background:rgba(251,191,36,.16);color:var(--amber)}
+.badge.todo{background:rgba(255,255,255,.08);color:var(--dim)}
+table.cmp{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}
+table.cmp th,table.cmp td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+table.cmp th:first-child,table.cmp td:first-child{text-align:left;color:var(--dim)}
+table.cmp td.hi{color:var(--green);font-weight:700}
+.caution{margin-top:12px;padding:10px 12px;border-radius:10px;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);font-size:12.5px;color:var(--amber)}
+</style></head>
+<body>
+<header>
+ <a class="back" href="/">← mission control</a>
+ <h2>📤 Upload &amp; Verify</h2>
+ <span class="note">upload an ONNX file for a task and check its real score (nfail/cost/pts) against the current best — nothing is saved unless you click Save.</span>
+ <div class="spacer"></div>
+</header>
+<div class="wrap">
+ <div class="col card">
+  <h3>◈ upload candidate</h3>
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px">
+   <label class="note" for="taskNum">task #</label>
+   <input id="taskNum" type="number" min="1" max="400" placeholder="e.g. 233">
+   <span id="badge" class="badge todo" style="display:none"></span>
+  </div>
+  <div class="drop" id="drop" onclick="document.getElementById('fileInput').click()">
+   <div>drop a <b>.onnx</b> file here, or click to choose</div>
+   <div class="fname" id="fname"></div>
+   <input type="file" id="fileInput" accept=".onnx" style="display:none">
+  </div>
+  <div style="margin-top:14px;display:flex;gap:10px">
+    <button class="btn run" onclick="runVerify()">▶ Verify</button>
+    <button class="btn save" id="saveBtn" onclick="saveIt()" disabled>💾 Save as new best</button>
+    <button class="btn ghost" onclick="clearAll()">clear</button>
+  </div>
+ </div>
+ <div class="col card">
+  <h3>◈ result</h3>
+  <div id="summary" class="summary">Enter a task number, choose a file, click Verify.</div>
+  <table class="cmp" id="cmpTable" style="display:none">
+   <tr><th></th><th>current best</th><th>uploaded</th></tr>
+   <tr><td>n_fail</td><td id="c_nfail_old">–</td><td id="c_nfail_new">–</td></tr>
+   <tr><td>cost</td><td id="c_cost_old">–</td><td id="c_cost_new">–</td></tr>
+   <tr><td>points</td><td id="c_pts_old">–</td><td id="c_pts_new">–</td></tr>
+  </table>
+  <div id="caution" class="caution" style="display:none"></div>
+ </div>
+</div>
+<script>
+let chosenFile=null, lastUploadOk=false;
+const drop=document.getElementById('drop'), fileInput=document.getElementById('fileInput'), fname=document.getElementById('fname');
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('drag');});
+drop.addEventListener('dragleave',()=>drop.classList.remove('drag'));
+drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('drag');
+  if(e.dataTransfer.files.length){chosenFile=e.dataTransfer.files[0];fname.textContent=chosenFile.name;}});
+fileInput.addEventListener('change',()=>{if(fileInput.files.length){chosenFile=fileInput.files[0];fname.textContent=chosenFile.name;}});
+
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function clearAll(){
+ chosenFile=null; fname.textContent=''; fileInput.value='';
+ document.getElementById('summary').innerHTML='Enter a task number, choose a file, click Verify.';
+ document.getElementById('cmpTable').style.display='none';
+ document.getElementById('caution').style.display='none';
+ document.getElementById('badge').style.display='none';
+ document.getElementById('saveBtn').disabled=true;
+ lastUploadOk=false;
+}
+function fmt(x){return (x==null)?'–':(typeof x==='number'?x:x);}
+function runVerify(){
+ const t=document.getElementById('taskNum').value;
+ const sum=document.getElementById('summary');
+ if(!t){sum.innerHTML='<span class="bad">enter a task number first</span>';return;}
+ if(!chosenFile){sum.innerHTML='<span class="bad">choose a .onnx file first</span>';return;}
+ sum.innerHTML='⏳ running full train+test+arc-gen audit…';
+ document.getElementById('saveBtn').disabled=true;
+ const fd=new FormData(); fd.append('task',t); fd.append('file',chosenFile);
+ fetch('/api/upload_verify',{method:'POST',body:fd})
+ .then(r=>r.json()).then(j=>{
+   if(!j.ok){sum.innerHTML='<span class="bad">❌ '+esc(j.error)+'</span>';return;}
+   const badge=document.getElementById('badge');
+   if(j.state){badge.style.display='inline-block';badge.textContent=j.state;badge.className='badge '+j.state;}
+   const caution=document.getElementById('caution');
+   caution.style.display='none';
+   if(j.unmeasurable){
+     caution.style.display='block';
+     caution.textContent='⚠ this task is flagged unmeasurable-locally (negative-pads/checker-only failure) — our local scorer can\'t score its current best, so this comparison is not reliable. Only an isolated Kaggle submission can really compare these.';
+   }
+   if(!j.valid){sum.innerHTML='<span class="bad">❌ invalid model: '+esc(j.message)+'</span>';document.getElementById('cmpTable').style.display='none';return;}
+
+   document.getElementById('cmpTable').style.display='table';
+   document.getElementById('c_nfail_old').textContent = j.unmeasurable ? '(unmeasurable)' : '0 (assumed)';
+   document.getElementById('c_nfail_new').textContent = j.n_fail;
+   document.getElementById('c_cost_old').textContent = j.old_cost==-1 ? '(unmeasurable)' : fmt(j.old_cost);
+   document.getElementById('c_cost_new').textContent = j.is_correct ? fmt(j.cost) : '–';
+   document.getElementById('c_pts_old').textContent = fmt(j.old_best);
+   const ptsNewCell = document.getElementById('c_pts_new');
+   ptsNewCell.textContent = j.is_correct ? fmt(j.points) : '(incorrect)';
+   ptsNewCell.className = j.is_better ? 'hi' : '';
+
+   lastUploadOk = j.is_better;
+   document.getElementById('saveBtn').disabled = !j.is_better;
+
+   if(!j.is_correct){
+     sum.innerHTML='<span class="bad">❌ '+j.n_fail+' example(s) failed on train+test+arc-gen — not a valid solve</span>';
+   } else if(j.unmeasurable){
+     sum.innerHTML='<span class="warn">✅ correct (0 fails), cost '+j.cost+', '+j.points+' pts — but current best is unmeasurable-locally, so no reliable comparison is possible here</span>';
+   } else if(j.is_better){
+     sum.innerHTML='<span class="ok">✅ BEATS current best: '+j.old_best+' → '+j.points+' pts (cost '+j.cost+')</span>';
+   } else {
+     sum.innerHTML='<span class="bad">correct, but does not beat current best ('+j.old_best+' pts vs '+j.points+' pts)</span>';
+   }
+ })
+ .catch(e=>{sum.innerHTML='<span class="bad">request failed: '+esc(String(e))+'</span>';});
+}
+function saveIt(){
+ const t=document.getElementById('taskNum').value;
+ const sum=document.getElementById('summary');
+ if(!chosenFile||!lastUploadOk)return;
+ const fd=new FormData(); fd.append('task',t); fd.append('file',chosenFile); fd.append('save','1');
+ fetch('/api/upload_verify',{method:'POST',body:fd})
+ .then(r=>r.json()).then(j=>{
+   if(j.ok && j.saved){sum.innerHTML+='<br><span class="ok">💾 saved as the new \'ours\' for task '+t+'</span>';document.getElementById('saveBtn').disabled=true;}
+   else if(j.ok){sum.innerHTML+='<br><span class="bad">not saved (no longer a win?)</span>';}
+   else {sum.innerHTML+='<br><span class="bad">save failed: '+esc(j.error)+'</span>';}
+ })
+ .catch(e=>{sum.innerHTML+='<br><span class="bad">save request failed: '+esc(String(e))+'</span>';});
+}
+</script>
+</body></html>

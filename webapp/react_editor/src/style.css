@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #e5e7eb; background: #090b10; overflow-y: auto; }
+button, input, select, textarea { font: inherit; border-radius: 6px; }
+.appShell { min-height: 100vh; display: grid; grid-template-columns: 280px minmax(640px, 1fr) 340px; background: #090b10; }
+.leftPanel, .rightPanel { border-right: 1px solid #253044; padding: 16px; background: #10151f; min-width: 0; overflow: visible; }
+.leftPanel { overflow-x: hidden; }
+.rightPanel { border-right: 0; border-left: 1px solid #253044; overflow-y: auto; }
+.brand h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0; }
+.brand p, .muted, .status { color: #94a3b8; font-size: 12px; }
+section { margin-top: 22px; }
+h2 { margin: 0 0 10px; color: #cbd5e1; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+input, select, textarea { width: 100%; border: 1px solid #334155; background: #0b1120; padding: 8px; color: #e5e7eb; }
+textarea { min-height: 72px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+.btn, .opGrid button, .taskGrid button { border: 1px solid #334155; background: #151c2b; min-height: 34px; padding: 7px 10px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; color: #dbeafe; cursor: pointer; }
+.btn:hover, .opGrid button:hover, .taskGrid button:hover { border-color: #14b8a6; color: #99f6e4; }
+.btn:disabled { cursor: not-allowed; opacity: .62; }
+.btn.primary { background: #0f766e; border-color: #14b8a6; color: #ecfeff; }
+.btn.activeMode { background: #1e293b; border-color: #38bdf8; color: #e0f2fe; }
+.btn.full { width: 100%; margin-top: 8px; }
+.btn.compact { min-width: 34px; padding: 6px; }
+.btnLink { text-decoration: none; }
+.bestTemplate { display: grid; gap: 6px; }
+.taskPicker { display: grid; grid-template-columns: 34px 1fr 34px; gap: 6px; }
+.taskPage { margin-top: 10px; font-size: 10px; color: #94a3b8; font-weight: 700; letter-spacing: .08em; }
+.taskGrid { margin-top: 10px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
+.taskGrid button { min-height: 28px; padding: 4px; font-size: 11px; }
+.taskGrid button.active { background: #0f766e; color: #ecfeff; border-color: #14b8a6; }
+.twoCol, .opGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
+.opGrid button { font-size: 12px; justify-content: flex-start; }
+.quickAdd { display: grid; grid-template-columns: minmax(0, 1fr) 82px; gap: 8px; margin: 8px 0 10px; }
+.quickAdd .btn { width: 100%; }
+.workspace { display: grid; grid-template-rows: auto var(--example-height, 330px) 8px minmax(420px, 1fr); min-width: 0; min-height: 0; height: 100vh; }
+.topbar { min-height: 58px; border-bottom: 1px solid #253044; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 8px 16px; background: #0d1320; min-width: 0; }
+.topbar span { color: #94a3b8; margin-left: 12px; font-size: 13px; }
+.actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; min-width: 0; }
+.examples { border-bottom: 1px solid #253044; display: grid; grid-template-columns: repeat(2, minmax(160px, 234px)); grid-template-rows: auto 1fr; align-items: start; justify-content: center; justify-items: center; gap: 12px 36px; background: #0b101a; padding: 14px 20px 20px; margin-top: 0; overflow: hidden; }
+.splitter { background: #162033; border-top: 1px solid #253044; border-bottom: 1px solid #253044; cursor: row-resize; position: relative; }
+.splitter::after { content: ""; position: absolute; left: 50%; top: 50%; width: 72px; height: 2px; border-radius: 999px; background: #475569; transform: translate(-50%, -50%); }
+.splitter:hover::after, .splitter.active::after { background: #14b8a6; }
+.gridBlock { align-self: start; }
+.examples .gridBlock:first-of-type { grid-row: 2; grid-column: 1; }
+.examples .gridBlock:last-of-type { grid-row: 2; grid-column: 2; }
+.palette { grid-row: 1; grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; font-size: 11px; color: #cbd5e1; max-width: 100%; }
+.palette span { display: inline-flex; align-items: center; gap: 3px; }
+.palette i { width: 11px; height: 11px; border: 1px solid #475569; display: inline-block; }
+.gridTitle { font-size: 12px; font-weight: 700; color: #cbd5e1; margin-bottom: 8px; }
+.arcGrid { width: min(234px, 28vw); height: min(234px, 28vw); min-width: 160px; min-height: 160px; display: grid; grid-template-columns: repeat(9, 1fr); border: 1px solid #475569; background: #1e293b; gap: 1px; }
+.arcCell { min-width: 0; min-height: 0; }
+.graphPanel { min-height: 0; height: 100%; overflow: hidden; background: #090b10; margin-top: 0; }
+.node { width: 132px; border: 1px solid #334155; background: #111827; border-radius: 6px; padding: 9px 10px; box-shadow: 0 1px 2px rgba(0, 0, 0, .32); color: #e5e7eb; }
+.nodeSelected { border-color: #14b8a6; box-shadow: 0 0 0 2px rgba(20, 184, 166, .18); }
+.nodeType { font-size: 12px; font-weight: 700; color: #f8fafc; }
+.nodeId { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.nodeSlots { margin: -2px 0 5px; padding-left: 2px; font-size: 9px; line-height: 1.2; color: #64748b; }
+.inspector { display: grid; gap: 12px; }
+.inspector label { display: grid; gap: 5px; font-size: 12px; color: #cbd5e1; font-weight: 600; }
+.payloadInspector { display: grid; gap: 10px; }
+.payloadGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.payloadGrid div, .payloadEvents div { border: 1px solid #253044; background: #0b1120; border-radius: 6px; padding: 7px; min-width: 0; }
+.payloadGrid span, .payloadEvents span { display: block; color: #94a3b8; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+.payloadGrid strong, .payloadEvents strong { display: block; margin-top: 2px; color: #e5e7eb; font-size: 12px; font-weight: 700; overflow-wrap: anywhere; }
+.payloadChecks { display: grid; gap: 5px; }
+.payloadCheck { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 6px; align-items: center; border: 1px solid #253044; border-radius: 6px; background: #0b1120; padding: 5px 6px; font-size: 11px; }
+.payloadCheck span { font-size: 10px; font-weight: 800; color: #bbf7d0; }
+.payloadCheck.bad span { color: #fecaca; }
+.payloadCheck strong { color: #dbeafe; min-width: 0; }
+.payloadCheck em { color: #94a3b8; font-style: normal; overflow-wrap: anywhere; }
+.payloadEvents { display: grid; gap: 6px; }
+.payloadJson { border: 1px solid #253044; background: #0b1120; border-radius: 6px; padding: 8px; }
+.payloadJson summary { cursor: pointer; color: #dbeafe; font-size: 12px; font-weight: 700; }
+.payloadJson pre { max-height: 240px; overflow: auto; margin: 8px 0 0; font-size: 10px; color: #cbd5e1; white-space: pre-wrap; overflow-wrap: anywhere; }
+.danger { margin-top: auto; border: 1px solid #ef4444; color: #fecaca; background: #2a1115; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; }
+.status { margin-top: 18px; padding-top: 12px; border-top: 1px solid #253044; word-break: break-word; }
+.validationBlock { border: 1px solid #334155; background: #0b1120; border-radius: 6px; padding: 10px; margin-bottom: 22px; display: grid; gap: 5px; font-size: 12px; line-height: 1.35; color: #dbeafe; overflow-wrap: anywhere; }
+.validationBlock.loading { border-color: #64748b; background: #111827; }
+.validationBlock.passed { border-color: #22c55e; background: #052e1a; color: #bbf7d0; }
+.validationBlock.failed { border-color: #ef4444; background: #2a1115; color: #fecaca; }
+.validationBlock.idle { color: #cbd5e1; }
+.validationTask { font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: #f8fafc; }
+.validationReason { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-word; color: inherit; }
+@media (max-width: 1050px) {
+  .appShell { grid-template-columns: 240px minmax(520px, 1fr) 300px; }
+  .actions { gap: 4px; }
+  .btn { padding: 6px 7px; }
+  .arcGrid { width: min(210px, 25vw); height: min(210px, 25vw); }
+}
