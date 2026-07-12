@@ -58,3 +58,11 @@ neurogolf_solver.ipynb
 # --- OS / editor cruft ---
 .DS_Store
 Thumbs.db
+
+# --- Personal working notes / redundant local archives (not part of the deliverable) ---
+prompt.txt
+data.zip
+exps/
+leaderboard_dl.zip/
+leaderboard_dl_csv/
+repairs/manual_backup_before_task148_4887/

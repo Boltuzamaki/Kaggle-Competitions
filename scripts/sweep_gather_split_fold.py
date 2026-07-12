@@ -64,6 +64,18 @@ def try_fold(model):
         axis = get_axis(n)
         groups[(n.input[0], axis)].append((idx, n))
 
+    # BUG FIX (2026-07-08): the original version rebuilt model.graph.node inside this loop after
+    # EVERY group, which invalidated the positional `idx` values stored for subsequent groups (once
+    # nodes are removed/inserted, everyone after that point shifts). That caused later groups to
+    # remove the WRONG nodes while still inserting a Split with the same output names -> a spurious
+    # SSA "duplicate output" checker failure that looked like a genuine data conflict but wasn't
+    # (this is exactly what caused task132/243/366 to be defensively skipped before). Fix: collect
+    # every valid group's (node-object-set-to-remove, split-node-to-insert) FIRST, across the whole
+    # model, without touching model.graph.node at all -- then do exactly ONE rebuild pass at the end
+    # keyed by node OBJECT IDENTITY (id()), which is stable regardless of list position.
+    all_seen_outputs = set()
+    to_remove_objs = set()
+    insertions = {}  # id(first_removed_node) -> split_node, so we know where to splice it in
     total_folds = 0
     for (src, axis), members in groups.items():
         if len(members) < 3:
@@ -86,27 +98,31 @@ def try_fold(model):
             continue
 
         outputs = [idx_to_output[i] for i in range(dim_size)]
-        if len(set(outputs)) != len(outputs):
-            continue  # would violate SSA (duplicate output name across groups) - skip defensively
+        if len(set(outputs)) != len(outputs) or any(o in all_seen_outputs for o in outputs):
+            continue  # genuine cross-group name clash - skip defensively for real this time
         if opset >= 18:
             split_node = helper.make_node("Split", [src], outputs,
                                            name=f"split_fold_{src}_{axis}", axis=axis, num_outputs=dim_size)
         else:
             split_node = helper.make_node("Split", [src], outputs,
                                            name=f"split_fold_{src}_{axis}", axis=axis)
-        remove_idx = {idx for idx, n in members}
+        all_seen_outputs.update(outputs)
+        first_node = members[0][1]
+        insertions[id(first_node)] = split_node
+        for _, n in members:
+            to_remove_objs.add(id(n))
+        total_folds += 1
+
+    if total_folds:
         new_nodes = []
-        inserted = False
-        for idx, n in enumerate(model.graph.node):
-            if idx in remove_idx:
-                if not inserted:
-                    new_nodes.append(split_node)
-                    inserted = True
+        for n in model.graph.node:
+            if id(n) in insertions:
+                new_nodes.append(insertions[id(n)])
+            if id(n) in to_remove_objs:
                 continue
             new_nodes.append(n)
         del model.graph.node[:]
         model.graph.node.extend(new_nodes)
-        total_folds += 1
     return total_folds
 
 def dce(model):
