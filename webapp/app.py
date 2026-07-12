@@ -387,14 +387,44 @@ def latest_version(t, kind):
     c.close(); return dict(r) if r else None
 
 # ---------------------------------------------------------------- routes
+LEADERBOARD_FILE = os.path.join(REP, "leaderboard_score.json")
+
+def load_leaderboard_score():
+    if not os.path.exists(LEADERBOARD_FILE):
+        return None
+    try:
+        return json.load(open(LEADERBOARD_FILE))
+    except Exception:
+        return None
+
+@app.route("/api/sync_leaderboard", methods=["POST"])
+def api_sync_leaderboard():
+    try:
+        r = subprocess.run([sys.executable, "-m", "kaggle", "competitions", "submissions",
+                            "neurogolf-2026", "--csv"], capture_output=True, text=True, timeout=60)
+        if r.returncode != 0:
+            return jsonify(ok=False, error=r.stderr[-500:])
+        rows = list(csv.DictReader(io.StringIO(r.stdout)))
+        latest = next((row for row in rows if row["status"] == "SubmissionStatus.COMPLETE"), None)
+        if latest is None:
+            return jsonify(ok=False, error="No COMPLETE submission found yet.")
+        data = {"public_score": float(latest["publicScore"]),
+                "private_score": (float(latest["privateScore"]) if latest["privateScore"] else None),
+                "ref": latest["ref"], "date": latest["date"], "description": latest["description"]}
+        json.dump(data, open(LEADERBOARD_FILE, "w"), indent=1)
+        return jsonify(ok=True, **data)
+    except Exception:
+        return jsonify(ok=False, error=traceback.format_exc()[-800:])
+
 @app.route("/")
 def index():
     total, coded = totals(); base = baseline_total()
     tasks = [{"t": e["task"], "state": e["state"], "our_points": e["our_points"],
               "base_points": e["base_points"], "n_fail": e["n_fail"],
               "has_notes": bool((e.get("notes") or "").strip())} for e in all_tasks()]
+    lb = load_leaderboard_score()
     return render_template("index.html", tasks=tasks, total=total, coded=coded,
-                           base=base, gain=round(total-base, 2))
+                           base=base, gain=round(total-base, 2), lb=lb)
 
 @app.route("/task/<int:t>")
 def task_page(t):
@@ -612,16 +642,33 @@ def scoreboard_page():
             elif ours == base: verdict = "tie"
             else: verdict = "below"
         data.append({"t": e["task"], "state": e["state"], "base": base, "ours": ours,
-                      "cost": e["our_cost"], "n_fail": e["n_fail"], "delta": delta, "verdict": verdict})
+                      "cost": e["our_cost"], "n_fail": e["n_fail"], "delta": delta, "verdict": verdict,
+                      "source": e["source"] or "unknown", "method": e["method"] or "untagged"})
     total, coded = totals()
     base_total = baseline_total()
     surpass_count = sum(1 for d in data if d["verdict"] == "surpass")
     tie_count = sum(1 for d in data if d["verdict"] == "tie")
     below_count = sum(1 for d in data if d["verdict"] == "below")
+    sources = sorted({d["source"] for d in data})
+    source_counts = {s: sum(1 for d in data if d["source"] == s) for s in sources}
     return render_template("scoreboard.html", data=json.dumps(data), total=total, coded=coded,
                            base_total=base_total, gain=round(total - base_total, 2),
                            surpass_count=surpass_count, tie_count=tie_count, below_count=below_count,
-                           n_tasks=len(data))
+                           n_tasks=len(data), sources=sources, source_counts=source_counts,
+                           lb=load_leaderboard_score())
+
+@app.route("/buckets")
+def buckets_page():
+    rows = all_tasks()
+    pts = {e["task"]: (e["our_points"] if e["our_points"] is not None else (e["base_points"] or 1.0)) for e in rows}
+    buckets = []
+    for i in range(0, 400, 5):
+        lo, hi = i + 1, i + 5
+        s = sum(pts.get(t, 1.0) for t in range(lo, hi + 1))
+        buckets.append({"label": f"{lo:03d}-{hi:03d}", "lo": lo, "hi": hi, "sum": round(s, 2)})
+    total, coded = totals()
+    return render_template("buckets.html", buckets=json.dumps(buckets), total=total,
+                           lb=load_leaderboard_score())
 
 # ---------------------------------------------------------------- quick check (standalone page)
 @app.route("/quickcheck")

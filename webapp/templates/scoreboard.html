@@ -56,14 +56,24 @@ a.tasklink:hover{color:var(--cyan)}
 .verdict.none{background:rgba(255,255,255,.06);color:var(--dim)}
 .delta.pos{color:var(--green)} .delta.neg{color:var(--red)} .delta.zero{color:var(--dim)}
 .num{font-variant-numeric:tabular-nums}
+.srcbadge{padding:3px 10px;border-radius:99px;font-size:10.5px;font-weight:700;letter-spacing:.3px;
+ background:rgba(167,139,250,.16);color:var(--violet)}
+.srcbadge.ours{background:rgba(52,211,153,.16);color:var(--green)}
+.srcbadge.unknown{background:rgba(255,255,255,.06);color:var(--dim)}
+.srctabs{display:flex;gap:6px;flex-wrap:wrap;padding:0 24px;margin-top:10px}
+.srctab{padding:5px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);
+ color:var(--dim);font-size:11.5px;font-weight:700;cursor:pointer;transition:.15s}
+.srctab.active{color:#0a0620;background:linear-gradient(135deg,#a78bfa,#22d3ee);border-color:transparent}
+.srctab.ours.active{color:#03120c;background:linear-gradient(135deg,#0ea5b7,#34d399)}
 </style></head>
 <body>
 <header>
  <a class="back" href="/">← mission control</a>
  <h2>📊 Scoreboard</h2>
  <div class="metrics">
+  <div class="metric surpass" title="Actual public leaderboard score from the latest completed Kaggle submission">Confirmed leaderboard<b>{% if lb %}{{ '%.2f'|format(lb.public_score) }}{% else %}—{% endif %}</b></div>
   <div class="metric">Baseline total<b>{{ '%.2f'|format(base_total) }}</b></div>
-  <div class="metric surpass">Our total<b>{{ '%.2f'|format(total) }}{% if gain>0 %} <span style="font-size:12px">▲+{{ '%.2f'|format(gain) }}</span>{% endif %}</b></div>
+  <div class="metric" title="Fair-share estimate only: uses a 25.0 placeholder for tasks unmeasurable locally (negative-pads pattern). NOT the real score - see Confirmed leaderboard.">Local estimate (unverified)<b>{{ '%.2f'|format(total) }}{% if gain>0 %} <span style="font-size:12px">▲+{{ '%.2f'|format(gain) }}</span>{% endif %}</b></div>
   <div class="metric">Tasks<b>{{ n_tasks }}</b></div>
   <div class="metric">Coded<b>{{ coded }}</b></div>
   <div class="metric surpass">Surpassing baseline<b id="mSurpass">{{ surpass_count }}</b></div>
@@ -79,8 +89,14 @@ a.tasklink:hover{color:var(--cyan)}
  <button class="tabbtn" data-f="below" onclick="setFilter('below')">⚠ Ours below baseline</button>
  <button class="tabbtn" data-f="none" onclick="setFilter('none')">◯ Not attempted (todo/working)</button>
 </div>
+<div class="srctabs">
+ <button class="srctab active" data-src="all" onclick="setSourceFilter('all')">All sources</button>
+ {% for s in sources %}
+ <button class="srctab {{ 'ours' if s=='ours' else '' }}" data-src="{{ s }}" onclick="setSourceFilter('{{ s }}')">{{ s }} ({{ source_counts[s] }})</button>
+ {% endfor %}
+</div>
 <div class="searchbar">
- <input id="search" type="number" placeholder="jump to task #" oninput="renderTable()">
+ <input id="search" type="text" placeholder="task # or method text (e.g. 'bit-packed')" oninput="renderTable()">
  <span class="note" id="countNote"></span>
 </div>
 <div class="tablewrap">
@@ -94,17 +110,24 @@ a.tasklink:hover{color:var(--cyan)}
    <th data-k="cost">Our cost<span class="arrow"></span></th>
    <th data-k="n_fail">n_fail<span class="arrow"></span></th>
    <th data-k="verdict">Verdict<span class="arrow"></span></th>
+   <th data-k="source">Source<span class="arrow"></span></th>
+   <th data-k="method">Method in use<span class="arrow"></span></th>
   </tr></thead>
   <tbody id="rows"></tbody>
  </table>
 </div>
 <script>
 const DATA={{ data|safe }};
-let FILTER='all', SORTKEY='t', SORTDIR=1;
+let FILTER='all', SRCFILTER='all', SORTKEY='t', SORTDIR=1;
 
 function setFilter(f){
  FILTER=f;
  document.querySelectorAll('.tabbtn').forEach(b=>b.classList.toggle('active', b.dataset.f===f));
+ renderTable();
+}
+function setSourceFilter(s){
+ SRCFILTER=s;
+ document.querySelectorAll('.srctab').forEach(b=>b.classList.toggle('active', b.dataset.src===s));
  renderTable();
 }
 document.querySelectorAll('thead th').forEach(th=>{
@@ -128,7 +151,12 @@ function renderTable(){
    if(FILTER==='tie'&&d.verdict!=='tie')return false;
    if(FILTER==='below'&&d.verdict!=='below')return false;
    if(FILTER==='none'&&d.verdict!=='none')return false;
-   if(q && String(d.t).indexOf(q)!==0)return false;
+   if(q){
+     const matchesTask = String(d.t).indexOf(q)===0;
+     const matchesMethod = d.method.toLowerCase().indexOf(q.toLowerCase())!==-1;
+     if(!matchesTask && !matchesMethod) return false;
+   }
+   if(SRCFILTER!=='all' && d.source!==SRCFILTER)return false;
    return true;
  });
  rows=rows.slice().sort((a,b)=>{
@@ -151,7 +179,9 @@ function renderTable(){
      '<td class="num delta '+deltaCls+'">'+(d.delta==null?'—':(d.delta>0?'+':'')+fmt(d.delta))+'</td>'+
      '<td class="num">'+(d.cost==null?'—':d.cost)+'</td>'+
      '<td class="num">'+(d.n_fail==null?'—':d.n_fail)+'</td>'+
-     '<td><span class="verdict '+d.verdict+'">'+vlabel[d.verdict]+'</span></td>';
+     '<td><span class="verdict '+d.verdict+'">'+vlabel[d.verdict]+'</span></td>'+
+     '<td><span class="srcbadge '+(d.source==='ours'?'ours':(d.source==='unknown'?'unknown':''))+'">'+d.source+'</span></td>'+
+     '<td class="note" style="max-width:260px;white-space:normal">'+d.method+'</td>';
    tb.appendChild(tr);
  });
 }

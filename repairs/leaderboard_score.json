@@ -1,0 +1,7 @@
+{
+ "public_score": 7268,
+ "private_score": null,
+ "ref": "MANUAL_BASELINE_FREEZE",
+ "date": "2026-07-12 00:00:00.000000",
+ "description": "MANUALLY PINNED at 7268 as a fixed comparison baseline while investigating task233 etc. -- NOT the live synced score (real confirmed best is still 7269.40, ref 54587239). Re-run scripts/sync_leaderboard_score.py to restore the real live value when done comparing."
+}

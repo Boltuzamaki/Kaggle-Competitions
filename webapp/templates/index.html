@@ -79,9 +79,18 @@ a.tile.todo .dot{background:var(--slate)}
 <header>
  <div class="brand"><div class="logo">⛳</div><div><h1>NEUROGOLF</h1><small>mission control</small></div></div>
  <div class="metrics">
+   <div class="metric" style="border-color:rgba(52,211,153,.4)">
+     <div class="k">Confirmed leaderboard score</div>
+     <div class="v">{% if lb %}{{ '%.2f'|format(lb.public_score) }}{% else %}—{% endif %}</div>
+     {% if lb %}<div style="font-size:10.5px;color:var(--dim);margin-top:3px">ref {{ lb.ref }} · {{ lb.date.split(' ')[0] }}</div>{% endif %}
+   </div>
    <div class="metric"><div class="k">Baseline score</div><div class="v" style="background:linear-gradient(90deg,#94a3b8,#cbd5e1);-webkit-background-clip:text;background-clip:text">{{ '%.2f'|format(base) }}</div></div>
-   <div class="metric"><div class="k">Our score {% if gain>0 %}<span style="color:var(--green)">▲ +{{ '%.2f'|format(gain) }}</span>{% endif %}</div><div class="v">{{ '%.2f'|format(total) }}</div></div>
+   <div class="metric" title="Fair-share estimate: sums max(base,our) per task, using a 25.0 placeholder for tasks we can't measure locally (negative-pads pattern) - NOT the same as the real leaderboard score above.">
+     <div class="k">Local estimate (unverified) {% if gain>0 %}<span style="color:var(--green)">▲ +{{ '%.2f'|format(gain) }}</span>{% endif %}</div>
+     <div class="v">{{ '%.2f'|format(total) }}</div>
+   </div>
    <div class="metric"><div class="k">Tasks coded</div><div class="v">{{ coded }}<span style="font-size:13px;color:var(--dim)">/400</span></div>
+   <button class="btn" style="margin-top:6px;font-size:10px;padding:3px 8px" onclick="syncLB()">🔄 sync</button>
      <div class="bar"><i style="width:{{ (coded/400*100)|round(1) }}%"></i></div></div>
  </div>
  <div class="spacer"></div>
@@ -92,6 +101,7 @@ a.tile.todo .dot{background:var(--slate)}
    <a class="btn" href="/quickcheck">🧪 Quick Check</a>
    <a class="btn" href="/uploadcheck">📤 Upload &amp; Verify</a>
    <a class="btn" href="/scoreboard">📊 Scoreboard</a>
+   <a class="btn" href="/buckets">🪣 Buckets</a>
    <button class="btn blue" onclick="buildZip()">📦 Build .zip</button>
    <button class="btn primary" onclick="submitKaggle()">🚀 Submit</button>
  </div>
@@ -130,5 +140,10 @@ function submitKaggle(){ if(!confirm('Build submission.zip and submit to Kaggle 
  showRes('🚀 submitting to Kaggle…');
  fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'tracker submission'})})
  .then(x=>x.json()).then(j=>showRes((j.ok?'✅ ':'❌ ')+'ours used: '+(j.used_ours||'?')+'\n'+(j.output||j.error||'')));}
+function syncLB(){showRes('🔄 syncing latest confirmed Kaggle score…');
+ fetch('/api/sync_leaderboard',{method:'POST'}).then(x=>x.json()).then(j=>{
+   if(!j.ok){showRes('❌ '+j.error);return;}
+   showRes('✅ confirmed leaderboard score: <b>'+j.public_score+'</b> (ref '+j.ref+'). Reload the page to see it in the header.');
+ });}
 </script>
 </body></html>
