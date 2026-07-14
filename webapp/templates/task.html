@@ -7,8 +7,8 @@
 :root{
  --bg:#05060c; --panel:rgba(255,255,255,.045); --panel2:rgba(255,255,255,.07);
  --line:rgba(255,255,255,.09); --txt:#e8ecf4; --dim:#8b93a7;
- --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --violet:#a78bfa;
- --glow-green:0 0 14px rgba(52,211,153,.55);
+ --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --violet:#a78bfa; --red:#fb7185;
+ --glow-green:0 0 14px rgba(52,211,153,.55); --glow-red:0 0 14px rgba(251,113,133,.5); --glow-violet:0 0 14px rgba(167,139,250,.5);
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:'Segoe UI',system-ui,Inter,sans-serif;background:var(--bg);color:var(--txt);
@@ -22,6 +22,8 @@ h2{margin:0;font-size:18px;letter-spacing:.5px}
 .badge{padding:4px 13px;border-radius:99px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
 .badge.ours{background:rgba(52,211,153,.16);color:var(--green);box-shadow:var(--glow-green)}
 .badge.working{background:rgba(251,191,36,.16);color:var(--amber)}
+.badge.experimenting{background:rgba(251,113,133,.16);color:var(--red);box-shadow:var(--glow-red)}
+.badge.maxed{background:rgba(167,139,250,.16);color:var(--violet);box-shadow:var(--glow-violet)}
 .badge.todo{background:rgba(255,255,255,.08);color:var(--dim)}
 .ptsinfo{font-size:13px;color:var(--dim)} .ptsinfo b{color:var(--green)}
 .spacer{margin-left:auto}
@@ -104,6 +106,8 @@ svg.edgesvg path.pending{stroke:#fbbf24;stroke-width:2;stroke-dasharray:4 3}
  <select id="statusSel" onchange="setStatus()">
    <option value="todo" {% if e.state=='todo' %}selected{% endif %}>mark: todo</option>
    <option value="working" {% if e.state=='working' %}selected{% endif %}>mark: working</option>
+   <option value="experimenting" {% if e.state=='experimenting' %}selected{% endif %}>mark: experimenting</option>
+   <option value="maxed" {% if e.state=='maxed' %}selected{% endif %}>mark: can't optimize further</option>
    <option value="ours" {% if e.state=='ours' %}selected{% endif %}>mark: solved</option>
  </select>
 </header>

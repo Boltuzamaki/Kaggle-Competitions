@@ -1,7 +1,46 @@
 {
- "public_score": 7268,
- "private_score": null,
- "ref": "MANUAL_BASELINE_FREEZE",
- "date": "2026-07-12 00:00:00.000000",
- "description": "MANUALLY PINNED at 7268 as a fixed comparison baseline while investigating task233 etc. -- NOT the live synced score (real confirmed best is still 7269.40, ref 54587239). Re-run scripts/sync_leaderboard_score.py to restore the real live value when done comparing."
+  "public_score": 7389.69,
+  "private_score": null,
+  "ref": "54639319",
+  "date": "2026-07-13 08:25:51.990000",
+  "description": "Best (7389.00) + 33 clean-comparison wins from submissions/7269.48 folder (full 400-task per-task audit, never trusted the folder's own aggregate score). Top gains: task338 +0.20, task363 +0.10, task366 +0.08, task055 +0.05, task025 +0.04. Predicted new total ~7389.68.",
+  "latest_confirmed_score": 7423.77,
+  "latest_confirmed_date": "2026-07-15",
+  "history": [
+    {
+      "date": "2026-07-14",
+      "score": 7416.35,
+      "note": "held batch: task285/397/001/177"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7417.15,
+      "note": "after task017 revert; keeps 380/387/187/108/175/074"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7400.92,
+      "note": "REGRESSION - task017 hash-memorizer scored 0 on real grader; reverted"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7418.79,
+      "note": "task341+277+340+018 batch; task341 confirmed genuine"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7420.74,
+      "note": "task327/066/064/013/011/054/331/120 batch"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7421.69,
+      "note": "task064+task327 further refinements"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7423.77,
+      "note": "recovered from task002/281 regression + task084/085 merged; bisection confirmed 212/236/355/096/209 all fine as-is"
+    }
+  ]
 }

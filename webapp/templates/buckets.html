@@ -50,7 +50,7 @@ tbody tr td:first-child{font-weight:700}
 .bar>i{display:block;height:100%;border-radius:99px}
 .bar>i.pos{background:linear-gradient(90deg,#22d3ee,#34d399)}
 .bar>i.neg{background:linear-gradient(90deg,#fb7185,#f43f5e)}
-.worstflag{font-size:10.5px;padding:2px 8px;border-radius:99px;background:rgba(251,113,133,.14);color:var(--red);font-weight:700;margin-left:8px}
+.worstflag{font-size:10.5px;padding:2px 8px;border-radius:99px;background:rgba(251,191,36,.16);color:var(--amber);font-weight:700;margin-left:8px}
 </style></head>
 <body>
 <header>
@@ -65,12 +65,15 @@ tbody tr td:first-child{font-weight:700}
 </header>
 
 <div class="panelbox">
- <h3>Paste another team's bucket table to compare</h3>
+ <h3>Comparing against: <span id="compareLabel">neurogolf7300 (auto)</span></h3>
+ <div class="hint">Default comparison is <b>neurogolf7300</b>'s per-task points, summed the same way as ours (5-task buckets).
+  Sort by Δ to find the buckets where that dataset beats us the most — those are the best places to focus optimization effort.
+  Paste a different team's table below to compare against that instead.</div>
  <textarea id="pasteArea" placeholder="Bucket	Sum&#10;001-005	91.07&#10;006-010	97.63&#10;..."></textarea>
  <div class="hint">Paste lines like <code>001-005    91.07</code> (whitespace or tab separated, header row optional/ignored). Parsing is tolerant of extra columns/text.</div>
  <div class="btnrow">
-  <button class="btn primary" onclick="applyPaste()">📊 Compare</button>
-  <button class="btn" onclick="clearPaste()">✕ Clear comparison</button>
+  <button class="btn primary" onclick="applyPaste()">📊 Compare pasted table</button>
+  <button class="btn" onclick="clearPaste()">↩ Reset to neurogolf7300</button>
   <span class="label" id="parseNote"></span>
  </div>
 </div>
@@ -80,8 +83,8 @@ tbody tr td:first-child{font-weight:700}
  <thead><tr>
   <th data-k="label">Bucket<span class="arrow"></span></th>
   <th data-k="sum">Ours<span class="arrow"></span></th>
-  <th data-k="theirs">Compare<span class="arrow"></span></th>
-  <th data-k="delta">Δ (ours−compare)<span class="arrow"></span></th>
+  <th data-k="theirs" id="theirsHeader">neurogolf7300<span class="arrow"></span></th>
+  <th data-k="delta">Δ (compare−ours)<span class="arrow"></span></th>
  </tr></thead>
  <tbody id="tbody"></tbody>
 </table>
@@ -89,8 +92,9 @@ tbody tr td:first-child{font-weight:700}
 
 <script>
 const BUCKETS = {{ buckets|safe }};
-let COMPARE = {};   // label -> value
-let SORTKEY = 'label', SORTDIR = 1;
+const NEUROGOLF7300 = Object.fromEntries(BUCKETS.filter(b=>b.neurogolf7300!=null).map(b=>[b.label, b.neurogolf7300]));
+let COMPARE = {...NEUROGOLF7300};   // label -> value; defaults to neurogolf7300, paste overrides
+let SORTKEY = 'delta', SORTDIR = -1;
 
 function parsePaste(text){
   const out = {};
@@ -111,12 +115,17 @@ function applyPaste(){
   COMPARE = parsePaste(text);
   const n = Object.keys(COMPARE).length;
   document.getElementById('parseNote').textContent = n ? `parsed ${n} buckets` : 'no buckets recognized, check the format';
+  document.getElementById('compareLabel').textContent = n ? 'pasted table' : 'neurogolf7300 (auto)';
+  document.getElementById('theirsHeader').firstChild.textContent = n ? 'pasted' : 'neurogolf7300';
+  if(!n) COMPARE = {...NEUROGOLF7300};
   render();
 }
 function clearPaste(){
   document.getElementById('pasteArea').value = '';
-  COMPARE = {};
+  COMPARE = {...NEUROGOLF7300};
   document.getElementById('parseNote').textContent = '';
+  document.getElementById('compareLabel').textContent = 'neurogolf7300 (auto)';
+  document.getElementById('theirsHeader').firstChild.textContent = 'neurogolf7300';
   render();
 }
 
@@ -130,7 +139,8 @@ function render(){
   });
   let rows = BUCKETS.map(b=>{
     const theirs = COMPARE[b.label];
-    const delta = (theirs!=null) ? Math.round((b.sum - theirs)*100)/100 : null;
+    // delta = compare - ours: POSITIVE means the comparison beats us here (an opportunity to close)
+    const delta = (theirs!=null) ? Math.round((theirs - b.sum)*100)/100 : null;
     return {label:b.label, sum:b.sum, theirs:theirs, delta:delta};
   });
   rows.sort((a,b)=>{
@@ -140,19 +150,19 @@ function render(){
     return SORTDIR*(av-bv);
   });
   const maxAbsDelta = Math.max(1, ...rows.map(r=>Math.abs(r.delta||0)));
-  const worstDelta = Math.min(...rows.filter(r=>r.delta!=null).map(r=>r.delta), Infinity);
   document.getElementById('tbody').innerHTML = rows.map(r=>{
+    // pos (green) = compare beats us (opportunity); neg (red) = we're already ahead here
     const dCls = r.delta==null ? 'zero' : (r.delta>0?'pos':(r.delta<0?'neg':'zero'));
     const barPct = Math.min(100, Math.abs(r.delta||0)/maxAbsDelta*100);
-    const barCls = (r.delta||0) < 0 ? 'neg' : 'pos';
-    const isWorst = r.delta!=null && rows.filter(x=>x.delta!=null).sort((a,b)=>a.delta-b.delta).slice(0,5).includes(r);
+    const barCls = (r.delta||0) > 0 ? 'pos' : 'neg';
+    const isOpportunity = r.delta!=null && rows.filter(x=>x.delta!=null).sort((a,b)=>b.delta-a.delta).slice(0,5).includes(r) && r.delta > 0;
     return `<tr>
       <td>${r.label}</td>
       <td class="num">${fmt(r.sum)}</td>
       <td class="num">${r.theirs!=null ? fmt(r.theirs) : '—'}</td>
       <td class="num delta ${dCls}">${r.delta==null?'—':(r.delta>0?'+':'')+fmt(r.delta)}
         ${r.delta!=null ? `<span class="bar"><i class="${barCls}" style="width:${barPct}%"></i></span>` : ''}
-        ${isWorst ? '<span class="worstflag">worst gap</span>' : ''}
+        ${isOpportunity ? '<span class="worstflag">check this</span>' : ''}
       </td>
     </tr>`;
   }).join('');
