@@ -5,8 +5,9 @@
 :root{
  --bg:#05060c; --panel:rgba(255,255,255,.045); --panel2:rgba(255,255,255,.06);
  --line:rgba(255,255,255,.09); --txt:#e8ecf4; --dim:#8b93a7;
- --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --violet:#a78bfa; --slate:#4b5468;
- --glow-green:0 0 14px rgba(52,211,153,.55); --glow-amber:0 0 14px rgba(251,191,36,.5);
+ --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --violet:#a78bfa; --slate:#4b5468; --red:#fb7185;
+ --glow-green:0 0 14px rgba(52,211,153,.55); --glow-amber:0 0 14px rgba(251,191,36,.5); --glow-red:0 0 14px rgba(251,113,133,.5);
+ --glow-violet:0 0 14px rgba(167,139,250,.5);
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%}
@@ -51,6 +52,8 @@ select:hover,.btn:hover{border-color:rgba(255,255,255,.25);transform:translateY(
 .legend b{display:inline-flex;align-items:center;gap:6px;color:var(--txt);font-weight:500}
 .pill{width:9px;height:9px;border-radius:50%}
 .pill.g{background:var(--green);box-shadow:var(--glow-green)} .pill.a{background:var(--amber);box-shadow:var(--glow-amber)} .pill.t{background:var(--slate)}
+.pill.r{background:var(--red);box-shadow:var(--glow-red)}
+.pill.v{background:var(--violet);box-shadow:var(--glow-violet)}
 
 #subresult{margin:12px 26px 0;font-size:12.5px;color:var(--dim);white-space:pre-wrap;font-family:'Cascadia Code',Consolas,monospace;
  background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0;max-height:0;overflow:hidden;transition:.3s}
@@ -71,6 +74,10 @@ a.tile.ours{background:linear-gradient(160deg,rgba(52,211,153,.16),rgba(52,211,1
 a.tile.ours .dot{background:var(--green);box-shadow:var(--glow-green)}
 a.tile.working{background:linear-gradient(160deg,rgba(251,191,36,.15),rgba(251,191,36,.03));border-color:rgba(251,191,36,.38)}
 a.tile.working .dot{background:var(--amber);box-shadow:var(--glow-amber)}
+a.tile.experimenting{background:linear-gradient(160deg,rgba(251,113,133,.15),rgba(251,113,133,.03));border-color:rgba(251,113,133,.4)}
+a.tile.experimenting .dot{background:var(--red);box-shadow:var(--glow-red)}
+a.tile.maxed{background:linear-gradient(160deg,rgba(167,139,250,.15),rgba(167,139,250,.03));border-color:rgba(167,139,250,.4)}
+a.tile.maxed .dot{background:var(--violet);box-shadow:var(--glow-violet)}
 a.tile.todo .dot{background:var(--slate)}
 .tick{position:absolute;bottom:8px;right:9px;color:var(--green);font-size:12px}
 .notemark{position:absolute;bottom:8px;left:9px;font-size:11px;opacity:.85}
@@ -97,11 +104,14 @@ a.tile.todo .dot{background:var(--slate)}
  <div class="toolbar">
    <select id="flt" onchange="applyFilter()">
      <option value="all">all tasks</option><option value="ours">◉ ours</option>
-     <option value="working">◉ working</option><option value="todo">◉ todo</option></select>
+     <option value="working">◉ working</option><option value="experimenting">◉ experimenting</option>
+     <option value="maxed">◉ can't optimize further</option>
+     <option value="todo">◉ todo</option></select>
    <a class="btn" href="/quickcheck">🧪 Quick Check</a>
    <a class="btn" href="/uploadcheck">📤 Upload &amp; Verify</a>
    <a class="btn" href="/scoreboard">📊 Scoreboard</a>
    <a class="btn" href="/buckets">🪣 Buckets</a>
+   <a class="btn" href="/watchlist">👁 Watchlist</a>
    <button class="btn blue" onclick="buildZip()">📦 Build .zip</button>
    <button class="btn primary" onclick="submitKaggle()">🚀 Submit</button>
  </div>
@@ -109,6 +119,8 @@ a.tile.todo .dot{background:var(--slate)}
 <div class="legend">
  <b><span class="pill g"></span>ours (solved)</b>
  <b><span class="pill a"></span>working</b>
+ <b><span class="pill r"></span>experimenting</b>
+ <b><span class="pill v"></span>can't optimize further</b>
  <b><span class="pill t"></span>todo</b>
 </div>
 <div id="subresult"></div>

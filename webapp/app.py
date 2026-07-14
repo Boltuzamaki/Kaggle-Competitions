@@ -657,15 +657,72 @@ def scoreboard_page():
                            n_tasks=len(data), sources=sources, source_counts=source_counts,
                            lb=load_leaderboard_score())
 
+@app.route("/watchlist")
+def watchlist_page():
+    compare_file = os.path.join(REP, "neurogolf7300_compare.json")
+    rows = []
+    higher_count = 0
+    tied_count = 0
+    ahead_count = 0
+    our_total = 0.0
+    their_total = 0.0
+    our_negpad_tasks = []
+    if os.path.exists(compare_file):
+        data = json.load(open(compare_file))
+        live = {e["task"]: e for e in all_tasks()}
+        live_pts = {t: (e["our_points"] if e["our_points"] is not None else (e["base_points"] or 1.0))
+                    for t, e in live.items()}
+        for t_str, v in data.items():
+            t = int(t_str)
+            our_pts = live_pts.get(t, v.get("our_pts"))
+            our_negpad = bool(live.get(t) and live[t]["our_cost"] == -1)
+            if our_negpad:
+                our_negpad_tasks.append(t)
+            their_pts = v.get("their_pts")
+            delta = round(their_pts - our_pts, 4) if their_pts is not None else None
+            our_total += our_pts or 0.0
+            their_total += their_pts if their_pts is not None else (our_pts or 0.0)
+            if delta is not None:
+                if delta > 0.0005:
+                    higher_count += 1
+                elif delta < -0.0005:
+                    ahead_count += 1
+                else:
+                    tied_count += 1
+            rows.append({"t": t, "our_pts": our_pts, "their_pts": their_pts,
+                         "their_status": v.get("their_status"), "delta": delta,
+                         "our_negpad": our_negpad})
+        rows.sort(key=lambda r: (r["delta"] if r["delta"] is not None else -999), reverse=True)
+    return render_template("watchlist.html", rows=json.dumps(rows), higher_count=higher_count,
+                           tied_count=tied_count, ahead_count=ahead_count,
+                           our_total=round(our_total, 2), their_total=round(their_total, 2),
+                           net_advantage=round(our_total - their_total, 2),
+                           our_negpad_tasks=sorted(our_negpad_tasks),
+                           has_data=os.path.exists(compare_file))
+
 @app.route("/buckets")
 def buckets_page():
     rows = all_tasks()
     pts = {e["task"]: (e["our_points"] if e["our_points"] is not None else (e["base_points"] or 1.0)) for e in rows}
+
+    # neurogolf7300 per-task points, falling back to our own points for any task where that
+    # dataset's file wasn't cleanly comparable (missing/negative-pads/wrong-output) -- so a bucket's
+    # 7300 sum is never artificially deflated by an incomparable task.
+    compare_file = os.path.join(REP, "neurogolf7300_compare.json")
+    their_pts = {}
+    if os.path.exists(compare_file):
+        cdata = json.load(open(compare_file))
+        for t_str, v in cdata.items():
+            t = int(t_str)
+            their_pts[t] = v.get("their_pts") if v.get("their_pts") is not None else pts.get(t, 1.0)
+
     buckets = []
     for i in range(0, 400, 5):
         lo, hi = i + 1, i + 5
         s = sum(pts.get(t, 1.0) for t in range(lo, hi + 1))
-        buckets.append({"label": f"{lo:03d}-{hi:03d}", "lo": lo, "hi": hi, "sum": round(s, 2)})
+        s_theirs = sum(their_pts.get(t, pts.get(t, 1.0)) for t in range(lo, hi + 1))
+        buckets.append({"label": f"{lo:03d}-{hi:03d}", "lo": lo, "hi": hi, "sum": round(s, 2),
+                         "neurogolf7300": round(s_theirs, 2) if their_pts else None})
     total, coded = totals()
     return render_template("buckets.html", buckets=json.dumps(buckets), total=total,
                            lb=load_leaderboard_score())

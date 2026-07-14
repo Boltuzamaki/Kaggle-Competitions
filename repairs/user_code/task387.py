@@ -1,183 +1,172 @@
-# task387.py
-# NeuroGolf / ARC-AGI task387
-# Rule:
-#   Four coloured singleton pixels form the corners of an axis-aligned rectangle,
-#   with opposite corners sharing colours. Around each pixel, draw a 3x3 box in
-#   the opposite colour while preserving the original center pixel. Connect the
-#   four centers with colour 5 using the symmetric dashed-line rule.
-#
-# Checker-friendly: defines a top-level ONNX ModelProto named `model`.
-# No internal onnx.save(...) and no __main__ dependency.
+"""Exact scorer-aware rewrites for repairs/task387.onnx."""
+
+from __future__ import annotations
+
+import copy
+import os
+from pathlib import Path
 
 import numpy as np
 import onnx
-from onnx import helper, TensorProto, numpy_helper
-
-F = TensorProto.FLOAT
-I64 = TensorProto.INT64
+from onnx import TensorProto, helper, numpy_helper
 
 
-def _K(name, value, dtype):
-    return numpy_helper.from_array(np.asarray(value, dtype=dtype), name=name)
+ROOT = Path(os.environ.get("PROJECT_DIR", Path.cwd()))
+SOURCE = ROOT / "repairs" / "task387.onnx"
+OUT = ROOT / "scratch_onnx" / "task387_compact.onnx"
 
 
-def build_onnx_model():
-    x = helper.make_tensor_value_info("input", F, [1, 10, 30, 30])
-    y = helper.make_tensor_value_info("output", F, [1, 10, 30, 30])
+def K(name, value, dtype):
+    return numpy_helper.from_array(np.asarray(value, dtype=dtype), name)
 
-    R = np.arange(30, dtype=np.int64).reshape(1, 1, 30, 1)
-    R = np.broadcast_to(R, (1, 1, 30, 30)).copy()
-    C = np.arange(30, dtype=np.int64).reshape(1, 1, 1, 30)
-    C = np.broadcast_to(C, (1, 1, 30, 30)).copy()
 
-    Wring = np.ones((1, 1, 3, 3), dtype=np.float32)
-    Wring[0, 0, 1, 1] = 0.0
-
-    init = [
-        _K("s0", [0], np.int64),
-        _K("s1", [1], np.int64),
-        _K("s10", [10], np.int64),
-        _K("e10", [10], np.int64),
-        _K("ax1", [1], np.int64),
-        _K("rev30", list(range(29, -1, -1)), np.int64),
-        _K("idx29", [29], np.int64),
-        _K("one_i", [1], np.int64),
-        _K("two_i", [2], np.int64),
-        _K("zero_i", [0], np.int64),
-        _K("zero_f", [0.0], np.float32),
-        _K("R", R, np.int64),
-        _K("C", C, np.int64),
-        _K("Wring", Wring, np.float32),
-    ]
-
-    nodes = []
-
-    # Valid area of the padded ARC grid: real cells sum to 1, padding sums to 0.
-    nodes += [
-        helper.make_node("ReduceSum", ["input"], ["valid"], axes=[1], keepdims=1),
-        helper.make_node("Slice", ["input", "s1", "s10", "ax1"], ["fg9"]),
-        helper.make_node("ReduceSum", ["fg9"], ["pts"], axes=[1], keepdims=1),
-    ]
-
-    # Rectangle geometry from the four non-background points.
-    nodes += [
-        helper.make_node("ReduceSum", ["pts"], ["row_sum"], axes=[3], keepdims=0),
-        helper.make_node("ArgMax", ["row_sum"], ["top"], axis=2, keepdims=0),
-        helper.make_node("Gather", ["row_sum", "rev30"], ["row_rev"], axis=2),
-        helper.make_node("ArgMax", ["row_rev"], ["bot_rev"], axis=2, keepdims=0),
-        helper.make_node("Sub", ["idx29", "bot_rev"], ["bot"]),
-        helper.make_node("ReduceSum", ["pts"], ["col_sum"], axes=[2], keepdims=0),
-        helper.make_node("ArgMax", ["col_sum"], ["left"], axis=2, keepdims=0),
-        helper.make_node("Gather", ["col_sum", "rev30"], ["col_rev"], axis=2),
-        helper.make_node("ArgMax", ["col_rev"], ["right_rev"], axis=2, keepdims=0),
-        helper.make_node("Sub", ["idx29", "right_rev"], ["right"]),
-    ]
-
-    # Row/column equality and distances to rectangle sides.
-    nodes += [
-        helper.make_node("Equal", ["R", "top"], ["r_top"]),
-        helper.make_node("Equal", ["R", "bot"], ["r_bot"]),
-        helper.make_node("Or", ["r_top", "r_bot"], ["row_edge"]),
-        helper.make_node("Equal", ["C", "left"], ["c_left"]),
-        helper.make_node("Equal", ["C", "right"], ["c_right"]),
-        helper.make_node("Or", ["c_left", "c_right"], ["col_edge"]),
-        helper.make_node("Sub", ["C", "left"], ["dx_l"]),
-        helper.make_node("Sub", ["right", "C"], ["dx_r"]),
-        helper.make_node("Sub", ["R", "top"], ["dy_t"]),
-        helper.make_node("Sub", ["bot", "R"], ["dy_b"]),
-    ]
-
-    # Horizontal dashed connectors:
-    # inside the gap between 3x3 boxes, keep cells whose nearest endpoint
-    # distance has even parity. Same rule for vertical connectors.
-    nodes += [
-        helper.make_node("Greater", ["dx_l", "one_i"], ["x_after_box"]),
-        helper.make_node("Greater", ["dx_r", "one_i"], ["x_before_box"]),
-        helper.make_node("And", ["x_after_box", "x_before_box"], ["x_gap"]),
-        helper.make_node("Greater", ["dx_l", "dx_r"], ["dx_l_gt_r"]),
-        helper.make_node("Not", ["dx_l_gt_r"], ["dx_l_le_r"]),
-        helper.make_node("Greater", ["dx_r", "dx_l"], ["dx_r_gt_l"]),
-        helper.make_node("Not", ["dx_r_gt_l"], ["dx_r_le_l"]),
-        helper.make_node("Mod", ["dx_l", "two_i"], ["dx_l_mod"], fmod=0),
-        helper.make_node("Mod", ["dx_r", "two_i"], ["dx_r_mod"], fmod=0),
-        helper.make_node("Equal", ["dx_l_mod", "zero_i"], ["dx_l_even"]),
-        helper.make_node("Equal", ["dx_r_mod", "zero_i"], ["dx_r_even"]),
-        helper.make_node("And", ["dx_l_le_r", "dx_l_even"], ["h_from_l"]),
-        helper.make_node("And", ["dx_r_le_l", "dx_r_even"], ["h_from_r"]),
-        helper.make_node("Or", ["h_from_l", "h_from_r"], ["h_even"]),
-        helper.make_node("And", ["row_edge", "x_gap"], ["h_a"]),
-        helper.make_node("And", ["h_a", "h_even"], ["h_conn"]),
-        helper.make_node("Greater", ["dy_t", "one_i"], ["y_after_box"]),
-        helper.make_node("Greater", ["dy_b", "one_i"], ["y_before_box"]),
-        helper.make_node("And", ["y_after_box", "y_before_box"], ["y_gap"]),
-        helper.make_node("Greater", ["dy_t", "dy_b"], ["dy_t_gt_b"]),
-        helper.make_node("Not", ["dy_t_gt_b"], ["dy_t_le_b"]),
-        helper.make_node("Greater", ["dy_b", "dy_t"], ["dy_b_gt_t"]),
-        helper.make_node("Not", ["dy_b_gt_t"], ["dy_b_le_t"]),
-        helper.make_node("Mod", ["dy_t", "two_i"], ["dy_t_mod"], fmod=0),
-        helper.make_node("Mod", ["dy_b", "two_i"], ["dy_b_mod"], fmod=0),
-        helper.make_node("Equal", ["dy_t_mod", "zero_i"], ["dy_t_even"]),
-        helper.make_node("Equal", ["dy_b_mod", "zero_i"], ["dy_b_even"]),
-        helper.make_node("And", ["dy_t_le_b", "dy_t_even"], ["v_from_t"]),
-        helper.make_node("And", ["dy_b_le_t", "dy_b_even"], ["v_from_b"]),
-        helper.make_node("Or", ["v_from_t", "v_from_b"], ["v_even"]),
-        helper.make_node("And", ["col_edge", "y_gap"], ["v_a"]),
-        helper.make_node("And", ["v_a", "v_even"], ["v_conn"]),
-        helper.make_node("Or", ["h_conn", "v_conn"], ["conn_bool"]),
-        helper.make_node("Cast", ["conn_bool"], ["conn"], to=TensorProto.FLOAT),
-        helper.make_node("Mul", ["conn", "valid"], ["conn_valid"]),
-    ]
-
-    out_ch = []
-    for c in range(1, 10):
-        sname = f"cs{c}"
-        ename = f"ce{c}"
-        init.append(_K(sname, [c], np.int64))
-        init.append(_K(ename, [c + 1], np.int64))
-
-        ch = f"ch{c}"
-        notc = f"notc{c}"
-        ring = f"ring{c}"
-        ssum = f"sum{c}"
-        pbool = f"present_bool{c}"
-        present = f"present{c}"
-        ringp = f"ringp{c}"
-        block = f"block{c}"
-        withconn = f"withconn{c}"
-        valided = f"outc{c}"
-
-        nodes += [
-            helper.make_node("Slice", ["input", sname, ename, "ax1"], [ch]),
-            helper.make_node("Sub", ["pts", ch], [notc]),
-            helper.make_node("Conv", [notc, "Wring"], [ring], pads=[1, 1, 1, 1]),
-            helper.make_node("ReduceSum", [ch], [ssum], axes=[2, 3], keepdims=1),
-            helper.make_node("Greater", [ssum, "zero_f"], [pbool]),
-            helper.make_node("Cast", [pbool], [present], to=TensorProto.FLOAT),
-            helper.make_node("Mul", [ring, present], [ringp]),
-            helper.make_node("Add", [ringp, ch], [block]),
-        ]
-        if c == 5:
-            nodes.append(helper.make_node("Add", [block, "conn_valid"], [withconn]))
+def topo_sort(nodes, initializer_names, input_names):
+    available = set(initializer_names) | set(input_names) | {""}
+    remaining = list(nodes)
+    ordered = []
+    while remaining:
+        for i, node in enumerate(remaining):
+            if all(x in available for x in node.input):
+                ordered.append(node)
+                available.update(x for x in node.output if x)
+                remaining.pop(i)
+                break
         else:
-            nodes.append(helper.make_node("Identity", [block], [withconn]))
-        nodes.append(helper.make_node("Mul", [withconn, "valid"], [valided]))
-        out_ch.append(valided)
+            missing = [(n.op_type, [x for x in n.input if x not in available]) for n in remaining]
+            raise RuntimeError(f"topological-sort failure: {missing[:8]}")
+    return ordered
 
-    nodes += [
-        helper.make_node("Concat", out_ch, ["fg_out"], axis=1),
-        helper.make_node("ReduceSum", ["fg_out"], ["occ"], axes=[1], keepdims=1),
-        helper.make_node("Sub", ["valid", "occ"], ["bg"]),
-        helper.make_node("Concat", ["bg", "fg_out"], ["output"], axis=1),
-    ]
 
-    graph = helper.make_graph(nodes, "task387", [x], [y], init)
-    model = helper.make_model(
-        graph,
-        ir_version=8,
-        opset_imports=[helper.make_opsetid("", 12)],
+def build():
+    model = onnx.load(SOURCE)
+    # The promoted generator reads repairs/task387.onnx.  Make reruns stable
+    # instead of attempting to apply the same graph rewrite a second time.
+    if any(x.name == "coord30" for x in model.graph.initializer):
+        onnx.checker.check_model(model, full_check=True)
+        onnx.save(model, OUT)
+        print(OUT)
+        return model
+    nodes = [copy.deepcopy(n) for n in model.graph.node]
+
+    # The top-left/bottom-right diagonal has the larger sum of row*column:
+    # (tl + br) - (tr + bl) = (bottom-top)*(right-left) > 0.  One atomic
+    # spatial-moment Einsum therefore identifies that color without any dynamic
+    # row/column selector. The other color follows from the global color sum.
+    drop = {
+        "rowsel_b", "rowsel", "lr", "lr2", "colsel2_b", "colsel2",
+        "cvec", "cc64", "cc1", "cc1f", "a1", "b1",
+    }
+    nodes = [n for n in nodes if not any(o in drop for o in n.output)]
+    nodes.extend(
+        [
+            helper.make_node(
+                "Einsum",
+                ["input", "coord30", "coord30", "fgmask"],
+                ["left_score"],
+                equation="nchw,h,w,c->nc",
+            ),
+            helper.make_node("ArgMax", ["left_score"], ["left_color64"], axis=1, keepdims=0),
+            helper.make_node("Einsum", ["input", "color_half"], ["color_sum"], equation="nchw,c->n"),
+            helper.make_node("Cast", ["color_sum"], ["color_sum64"], to=TensorProto.INT64),
+            helper.make_node("Sub", ["color_sum64", "left_color64"], ["right_color64"]),
+            helper.make_node("Gather", ["color_ids", "left_color64"], ["a1_full"], axis=1),
+            helper.make_node("Squeeze", ["a1_full"], ["a1"]),
+            helper.make_node("Gather", ["color_ids", "right_color64"], ["b1_full"], axis=1),
+            helper.make_node("Squeeze", ["b1_full"], ["b1"]),
+        ]
     )
-    onnx.checker.check_model(model)
+
+    # All flattened coordinates are below 324 and are exactly representable in
+    # FLOAT16. Keep the geometry branch at two bytes/element, explicitly floor
+    # the two divisions to preserve INT32 truncation, then cast only the final
+    # ScatterElements index vector back to its required INT32 type.
+    extra = []
+    for node in nodes:
+        if any(o in {"top", "bottom", "left", "right"} for o in node.output):
+            for attr in node.attribute:
+                if attr.name == "to":
+                    attr.i = TensorProto.FLOAT16
+        if "wq" in node.output:
+            node.output[0] = "wq_raw"
+            extra.append(helper.make_node("Floor", ["wq_raw"], ["wq"]))
+        if "tq" in node.output:
+            node.output[0] = "tq_raw"
+            extra.append(helper.make_node("Floor", ["tq_raw"], ["tq"]))
+        if "all_idx" in node.output:
+            node.output[0] = "all_idx16"
+            extra.append(helper.make_node("Cast", ["all_idx16"], ["all_idx"], to=TensorProto.INT32))
+    nodes.extend(extra)
+
+    # Form the valid-grid base directly in UINT8. QLinearMatMul is an exact
+    # outer product for binary masks with unit scales and zero zero-points.
+    # The old And+Cast path materialized both BOOL and UINT8 18x18 canvases.
+    drop = {"base2d_b", "base2d"}
+    nodes = [n for n in nodes if not any(o in drop for o in n.output)]
+    nodes.extend(
+        [
+            helper.make_node("Cast", ["rmask_c"], ["rmask_u8"], to=TensorProto.UINT8),
+            helper.make_node("Cast", ["cmask_b"], ["cmask_u8"], to=TensorProto.UINT8),
+            helper.make_node(
+                "QLinearMatMul",
+                [
+                    "rmask_u8",
+                    "qscale",
+                    "zero_u8",
+                    "cmask_u8",
+                    "qscale",
+                    "zero_u8",
+                    "qscale",
+                    "zero_u8",
+                ],
+                ["base2d"],
+            ),
+        ]
+    )
+
+    remove_inits = {
+        "arange30",
+        "four_i",
+        "two_i",
+        "eighteen",
+        "thirtysix",
+        "corner_offsets",
+        "class_ids",
+        "sh_2",
+        "sh_2_1",
+        "idx0",
+        "idx1",
+    }
+    inits = [copy.deepcopy(x) for x in model.graph.initializer if x.name not in remove_inits]
+    inits.extend(
+        [
+            K("qscale", 1.0, np.float32),
+            K("zero_u8", 0, np.uint8),
+            K("color_half", np.arange(10, dtype=np.float32) / 2.0, np.float32),
+            K("coord30", np.arange(30, dtype=np.float32), np.float32),
+            K("fgmask", [0.0] + [1.0] * 9, np.float32),
+            K("four_i", 4.0, np.float16),
+            K("two_i", 2.0, np.float16),
+            K("eighteen", 18.0, np.float16),
+            K("thirtysix", 36.0, np.float16),
+            K("corner_offsets", [-19, -18, -17, -1, 0, 1, 17, 18, 19], np.float16),
+        ]
+    )
+    del model.graph.initializer[:]
+    model.graph.initializer.extend(inits)
+
+    nodes = topo_sort(
+        nodes,
+        {x.name for x in model.graph.initializer},
+        {x.name for x in model.graph.input},
+    )
+    del model.graph.node[:]
+    model.graph.node.extend(nodes)
+    del model.graph.value_info[:]
+    model = onnx.shape_inference.infer_shapes(model, strict_mode=True)
+    onnx.checker.check_model(model, full_check=True)
+    onnx.save(model, OUT)
+    print(OUT)
     return model
 
 
-model = build_onnx_model()
+model = build()
