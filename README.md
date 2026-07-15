@@ -2,7 +2,32 @@
 
 Solutions and tooling for [NeuroGolf 2026](https://www.kaggle.com/competitions/neurogolf-2026), a Kaggle competition where you build the **smallest possible ONNX network** that solves each of 400 ARC-AGI visual reasoning tasks. Score per task is `max(1, 25 - ln(memory + params))`, and a task only counts if the network is **100% correct** on every train, test, and arc-gen example. Any mistake zeroes that task.
 
-**Current best: 7272.64** (public leaderboard, 2026-07-12).
+**Current best: 7440.82** (public leaderboard, 2026-07-16) — rank ~188/3057, bronze secured with a ~47pt margin.
+
+New here and want to actually learn ONNX from this project rather than just read the results? Start with the interactive guide — **[live page](https://claude.ai/code/artifact/7129ab88-7cbe-435b-a181-9e9f9a4de63f)** or the same file checked into this repo at **[docs/onnx-learning-guide.html](docs/onnx-learning-guide.html)** — covering what ONNX is, how NumPy/math map onto its ops, every op family used across these 400 tasks, and the real bugs/war-stories (the Conv bias out-of-bounds UB, opset archaeology, hash-memorization screening) found along the way.
+
+### How this project works, end to end
+
+```mermaid
+flowchart TD
+    A["Candidate ONNX file\n(hand-built, or found in a public notebook)"] --> B{"Local audit\nchecker + both onnxruntime envs\n(1.27.0 dev, 1.24.4 real-grader pin)"}
+    B -- fails --> Z["Rejected, logged in tracker.db"]
+    B -- passes --> C{"Red-flag screen\nBitShift+Gather / TopK dtype /\nsparse_initializer / Conv bias length"}
+    C -- suspicious --> D["Deep-dive: inspect init sizes,\ncompare vs local example count"]
+    C -- clean --> E{"Fresh ARC-GEN test\n(official generator, unseen examples)"}
+    D --> E
+    E -- fails on unseen data --> Z
+    E -- passes --> F{"Gain > ~0.5pts\nor risky construction?"}
+    F -- yes --> G["Isolated single-task\nKaggle submission"]
+    F -- no --> H["Merge into repairs/\n+ tracker.db note"]
+    G -- real gain confirmed --> H
+    G -- scores worse than expected --> Z
+    H --> I["Batch into submission.zip,\nbyte-verified against repairs/"]
+    I --> J["Submit, compare actual vs predicted score"]
+    J -- matches --> K["Locked in as new best"]
+    J -- doesn't match --> L["Bisect: isolate the exact\nfile(s) causing the gap"]
+    L --> H
+```
 
 ---
 
@@ -104,6 +129,29 @@ started at 60 or 60000. Small, cheap-looking tasks are not automatically low pri
   handful of big ones. A full rewrite of that kind of graph tends to reproduce the same fragmentation
   rather than deliver the order-of-magnitude cut a quick glance at the total cost suggests; profile
   the per-tensor breakdown before investing serious time.
+- **Collapse the whole graph into one Einsum whenever the transformation is bilinear/multilinear in
+  its operands.** This was the single highest-value pattern found across the whole competition —
+  worth +0.5 to +3 points per task, repeatedly, because it eliminates every charged intermediate
+  tensor between input and output in one shot.
+- **Older opsets sometimes hide an attribute-only version of an op that's now tensor-input-only.**
+  `Upsample` (deprecated at opset 10) takes `scales` as a plain float-list *attribute* at opset 7-9,
+  while `Resize` (its replacement) always needs it as a tensor input, which gets charged as params.
+  Same idea for `Slice`: opset 1-9 takes `starts`/`ends`/`axes` as attributes; opset 10+ requires
+  tensor inputs. Check `onnx.defs.get_schema(op, version)` before assuming a tensor input is
+  unavoidable — but also verify the *decomposition* doesn't cost more than it saves (see below).
+- **A cheaper op is not a cheaper graph if it needs a second op to feed it.** Tried replacing a
+  5-param `MaxRoiPool` (crop+upscale in one op) with a zero-param `Slice`+`Upsample` pair (both
+  attribute-only). The pair "won" on params (0 vs 5) but *lost* badly overall (36,000 vs 5) because
+  the intermediate tensor between the two ops gets charged in raw bytes, not element count. Always
+  measure the real end-to-end cost through the actual scorer, never reason about params/ops in
+  isolation.
+- **`params` is counted by element count, not bytes — dtype is free real estate for parameter
+  tensors, but not for intermediate/memory tensors.** A `Gather` index array of 10 `int64` values
+  costs exactly 10, same as if it were 10 `int8` values. This makes small lookup/permutation tables
+  (channel remaps, index arrays) cheap regardless of dtype — but doesn't help materialized
+  intermediates, which are charged by `dtype_size * element_count`. Use the cheapest safe dtype
+  (`uint8`/`int8` over `float32`) specifically for large *intermediate* tensors, not for small
+  constant tables where it doesn't matter anyway.
 
 None of the above should be confused with fitting a threshold or weight to match the locally visible
 examples. See the next section for why that distinction matters.
@@ -136,7 +184,59 @@ These cost real leaderboard points to learn, so they're written down instead of 
   negative `pads` (Conv/ConvTranspose/MaxPool) get rejected by
   `onnx.checker.check_model(full_check=True)` locally, but the real Kaggle grader scores them
   anyway. Don't assume these are zero from a local audit alone; the only way to compare two
-  candidates for these specific tasks is an isolated submission.
+  candidates for these specific tasks is an isolated submission. In practice these were often
+  genuine wins, sometimes beating the clean alternative by 1-2 points per task once isolation-tested.
+- **A real ONNX Runtime memory-safety bug can silently corrupt otherwise-correct submissions.** If a
+  `Conv`/`ConvTranspose` node's bias initializer has fewer elements than `out_channels`, ONNX Runtime
+  reads past the end of the buffer — undefined behavior, not a bounds-checked error. Locally this is
+  invisible (a freshly-started process reads zeroed heap, so the model looks correct), but on a
+  grader that reuses the same process across submissions, the same bytes read whatever a *previous*
+  execution left in memory — producing wrong, non-deterministic, order-dependent results. This
+  explained every "identical resubmission scores differently" mystery this project hit. Detection
+  requires inspecting the graph directly (`bias_len != out_channels`), since running the file proves
+  nothing; see `scratch_onnx/check_conv_bias.py`. Fix is to zero-extend the bias to `out_channels`.
+  Confirmed independently via the competition forum — several other top competitors hit the exact
+  same bug. **Run this check on every file before every submission.**
+- **The official generator IS the ground truth for "does this actually generalize," not the local
+  cached example set.** Our own ~265 cached examples per task are a fixed historical sample; several
+  tasks passed that sample at 100% while failing 5-45% of fresh examples from the real generator
+  (`arc_gen.py`, cloned from `google/ARC-GEN`). Any candidate with a >0 fail rate against fresh
+  generator output is a real, quantifiable risk — not a false alarm — *provided* the comparison
+  script itself correctly replicates the official scorer's own quirks (see next point).
+- **A test script that's stricter than the real scorer produces false positives just as damaging as
+  a script that's too lenient.** The official `convert_to_numpy` silently skips any example larger
+  than 30×30 (`if max(len(grid), len(grid[0])) > 30: return None`) — it's never scored at all. An
+  ad-hoc comparison script that doesn't replicate this exact skip logic will report huge fake fail
+  rates (one task showed 296/400 "failures" that were actually all oversized grids the real grader
+  never even sees). Always route correctness checks through the *exact* official conversion function,
+  not a hand-rolled equivalent.
+- **When a batch of individually-verified-correct changes produces a submission score that doesn't
+  match the sum of their individual predicted gains, the bug is almost always in your own bisection
+  methodology, not in the files.** Isolated single-task tests (one change on top of a known-good,
+  byte-verified base) were reliable to within 0.01-0.02 points every single time this project tried
+  them. Multi-file "combined" tests that didn't match predictions always traced back to a
+  contaminated base folder (accidentally built from a state that already included some of the
+  "changes" being tested) — never to real interaction effects between unrelated per-task models,
+  which don't exist in this competition's per-task-independent scoring.
+- **Keep two live submission lines when the deadline is close: one aggressive, one fully de-risked.**
+  Track exactly which known-buggy tasks are protected in each line — it's easy to assume a "safe"
+  fallback is actually safe when it was cloned from a state that still had the two highest-risk tasks
+  live. Verify explicitly, don't assume from the label.
+
+---
+
+## The theoretical floor: cost-0 tasks
+
+`points = max(1, 25 - ln(cost))`, so `cost = 1` (or `0`, floored to 1 before the log) gives exactly
+**25.0** — the maximum for any task. As of this project's current state, 3 tasks hit that floor
+(each solved by a single parameter-free op — e.g. a raw `Transpose` for a rotate/transpose task, no
+initializers, no intermediates at all), and 6 more sit at cost 5-10, matching or beating every public
+notebook this project could find for those same tasks. Pushing those last few points required real
+investigation, not just copying: testing whether `MaxRoiPool`'s crop+scale (5 params, one op) could
+be replaced by an attribute-only `Slice`+`Upsample` pair (it can't — the intermediate tensor between
+the two ops costs 36,000, not 0), and confirming that channel-permutation `Gather` calls already use
+the minimum possible index count. Both dead ends are recorded above rather than silently discarded,
+since re-deriving "why not" costs real time the second time around.
 
 ---
 
