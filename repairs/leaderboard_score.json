@@ -4,7 +4,7 @@
   "ref": "54639319",
   "date": "2026-07-13 08:25:51.990000",
   "description": "Best (7389.00) + 33 clean-comparison wins from submissions/7269.48 folder (full 400-task per-task audit, never trusted the folder's own aggregate score). Top gains: task338 +0.20, task363 +0.10, task366 +0.08, task055 +0.05, task025 +0.04. Predicted new total ~7389.68.",
-  "latest_confirmed_score": 7424.79,
+  "latest_confirmed_score": 7426.99,
   "latest_confirmed_date": "2026-07-15",
   "history": [
     {
@@ -46,6 +46,16 @@
       "date": "2026-07-15",
       "score": 7424.79,
       "note": "task124+task099 merged, both generalization-tested"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7425.66,
+      "note": "task033+task081+task125(corrected) merged; task037 correctly rejected via DSL-exhaustive test"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7426.99,
+      "note": "task134+task079 merged; confirms the 7407.75 dip was a transient Kaggle-side glitch, not real file corruption"
     }
   ]
 }
