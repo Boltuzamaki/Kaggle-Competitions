@@ -4,7 +4,7 @@
   "ref": "54639319",
   "date": "2026-07-13 08:25:51.990000",
   "description": "Best (7389.00) + 33 clean-comparison wins from submissions/7269.48 folder (full 400-task per-task audit, never trusted the folder's own aggregate score). Top gains: task338 +0.20, task363 +0.10, task366 +0.08, task055 +0.05, task025 +0.04. Predicted new total ~7389.68.",
-  "latest_confirmed_score": 7426.99,
+  "latest_confirmed_score": 7437.52,
   "latest_confirmed_date": "2026-07-15",
   "history": [
     {
@@ -55,7 +55,57 @@
     {
       "date": "2026-07-15",
       "score": 7426.99,
-      "note": "task134+task079 merged; confirms the 7407.75 dip was a transient Kaggle-side glitch, not real file corruption"
+      "note": "task134+task079 merged; CORRECTION (see below): the 7407.75 dip was NOT a transient glitch as originally concluded -- it was the Conv bias out-of-bounds bug (task120/122/331), confirmed later the same day"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7409.66,
+      "note": "task136+119+190 added -- same Conv-bias bug caused another ~18pt unexplained dip; resubmitting the identical zip also scored 7409.66 (deterministic that run)"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7418.84,
+      "note": "CRITICAL FIX: found and fixed the real root cause -- Conv/ConvTranspose bias shorter than out_channels (task120/122/331), a real ONNX Runtime out-of-bounds heap read confirmed via the competition forum (github.com/microsoft/onnxruntime/issues/28654). Invisible locally (fresh process reads zeroed memory) but corrupts results on Kaggle's grader, which reuses the same process across the submission. Also included 8 ARC-GEN safety reverts."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7408.46,
+      "note": "full ARC-GEN sweep complete (400/400 tasks); final batch of 10 more safety reverts (task188/205/244/251/277/302/305/319/367/370) + 6 new clean merges (369/382/092/176/051/392)"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7408.81,
+      "note": "BISECTION TEST: resubmitted the exact byte-identical 7426.99 zip (unfixed, still has the Conv-bias bug) to isolate the cause -- scored differently (7408.81) purely from grader-side memory-state randomness on an unchanged file. Definitive proof of the bug's real-world impact."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7426.99,
+      "note": "same exact 7426.99 zip resubmitted again (by user, no description) minutes later -- scored 7426.99 this time. Same bytes, two different scores back-to-back: conclusive demonstration of the Conv-bias UB bug's non-determinism."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7426.98,
+      "note": "MINIMAL FIX confirmed: took the exact proven 7426.99 zip and patched ONLY task120/122/331 (Conv-bias zero-extend, cost delta +0.0117pts total), nothing else changed. Scored 7426.98 -- stable, matches prediction almost exactly. Confirms the fix works with near-zero cost and the bug is now resolved for this file. NOTE: this state still contains all 18 pre-existing ARC-GEN correctness bugs found by the sweep (task002/017/018/023/044/048/055/076/079/095/101/105/118/158/173/187/188/191/205/209/219/244/251/255/277/286/302/305/319/367/370/382), unpatched, since the fix was deliberately minimal."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7408.97,
+      "note": "Full current best state (all 19 ARC-GEN safety reverts + Conv-bias fix + 7 new clean merges: 369/382/092/176/051/392/062). Tracker predicted 7409.17, actual 7408.97 -- gap only -0.19, essentially noise, confirming the submission is now genuinely stable (the ~18pt swings are gone). DECISION POINT: this trades -18pts guaranteed vs the minimal-fix 7426.98 state, in exchange for removing real (if usually low-probability) failure risk on 18 pre-existing tasks, several of which have failure rates of 8-45% against fresh official examples and could score much lower on the actual private/final grading run."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7433.03,
+      "note": "User saved the exact ONNX files scoring 7433.03 in submissions/7433.03 -- this is now the trusted ground-truth base for all further bisection (built from the higher_risk line at the point task039/238/256 were added). All bisection this session works relative to this exact folder."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7436.41,
+      "note": "BEST CONFIRMED CLEAN SCORE: trusted 7433.03 base + 10 individually isolation-tested negative-pad tasks from the romantamrazov/neurogolf-submission-7296-01-onnx dataset (368 +0.79, 089 +0.65, 006 +0.48, 365 +0.40, 130 +0.40, 263-negpad +0.22, 091 +0.17, 066 +0.14, 249 +0.12, 072 +0.00; excluded losers 005 -0.31 and 064 -0.16). Predicted 7436.40, actual 7436.41 -- near-perfect match. Saved at submissions/negpad10_clean. NOTE: a larger 21-task 'best combination' attempt (adding task076/265/044/048/244/277/370/313/205/206/207/208 on top) unexpectedly underperformed at 7432.23 vs predicted 7440.71 -- root cause not yet found; those 12 tasks are individually verified correct (ARC-GEN clean) but something about combining them together loses ~8pts. Do not re-combine them into one submission until this is understood -- add them back one at a time or in small tested groups instead."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7437.52,
+      "note": "NEW BEST CONFIRMED: 7436.41 base (negpad10_clean) + task198 (+0.6864), task199 (+0.0325), task281 (+0.0856), task275 (+0.3112) -- all individually ARC-GEN verified, small clean addition only, avoiding the mystery combination group. Predicted 7437.53, actual 7437.52 -- near-perfect match. Saved at submissions/best_confirmed_7437_52. Still-unmerged into any live submission: the 12-task mystery group (076/265/044/048/244/277/370/313/205/206/207/208, worth ~7pts combined if the combination issue can be root-caused) and the 13 higher-risk-vs-safe tasks (055/079/095/101/105/118/158/188/251/302/305/319/367, worth +11.96pts combined if risk is accepted, but 118 and 158 carry real 13.75%/24% failure risk)."
     }
   ]
 }
