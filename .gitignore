@@ -1,0 +1,6 @@
+_edge_profile/
+push.log
+build*.log
+__pycache__/
+*.pyc
+technical_report.html

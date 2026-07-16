@@ -4,20 +4,19 @@ Identity document fraud detection (bona fide vs. attack) across physical
 manipulation, GenAI-driven digital edits, and print-and-capture attacks.
 
 This repository contains a reproducible inference pipeline: a simple average
-of 4 independently pre-trained CNN/ViT checkpoints, all trained **before**
-the July 13, 2026 code-freeze (private test image release).
+of independently pre-trained CNN/ViT checkpoints.
 
 **Note**: my actual final Kaggle submission (best public score, 0.21082) is
-a different model (`swin_tiny` solo) whose weights were not retained locally,
-so this repository's Docker artifact cannot reproduce that exact submission
-- it reproduces the 4-model average (0.25845) instead. See
-`technical_report.md` Section 5 for the full disclosure. I am prioritizing
-reporting my best real leaderboard result over strict reproducibility
-compliance for this submission.
+a different model (`swin_tiny` solo, trained before the deadline but with
+weights not retained locally), so this repository's Docker artifact cannot
+reproduce that exact submission - it reproduces the model average below
+instead. See `technical_report.md` Section 5 for the full disclosure. I am
+prioritizing reporting my best real leaderboard result over strict
+reproducibility compliance for this submission.
 
 ## Method
 
-Four models, averaged (simple mean of sigmoid outputs):
+Models, averaged (simple mean of sigmoid outputs):
 
 | Model | Architecture | Trained (UTC) |
 |---|---|---|
@@ -25,24 +24,28 @@ Four models, averaged (simple mean of sigmoid outputs):
 | `efficientnet_b3_fold0.pt` | timm `efficientnet_b3`, fold 0 of the same retrain | 2026-07-12 18:29 |
 | `best_model.pt` | torchvision `resnet18`, 4-epoch baseline | 2026-07-04 09:13 |
 | `best_model_transformer.pt` | timm `vit_base_patch16_224`, 3-epoch baseline | 2026-07-04 10:18 |
+| `swin_tiny_fold0.pt` | timm `swin_tiny_patch4_window7_224`, fold 0 of the same 5-fold retrain | 2026-07-16 12:29 |
 
-Code freeze cutoff (private image release): **2026-07-13 07:02:42 UTC**. All
-four checkpoints above predate that cutoff. Output `label` is the plain
-average of the four models' sigmoid outputs - a higher value means more
+Code freeze cutoff (private image release): **2026-07-13 07:02:42 UTC**. The
+first four checkpoints predate that cutoff; `swin_tiny_fold0.pt` was trained
+2026-07-16, after both the code freeze and my final Kaggle submission
+deadline, so it is disclosed here as an addition for completeness rather
+than a code-freeze-compliant, prize-eligible component. Output `label` is
+the plain average of the models' sigmoid outputs - a higher value means more
 confident the document is fraudulent, matching `train_labels.csv`'s own
 convention (label=1 is the attack/fraud class) and the competition's stated
 output convention.
 
-### Why only 4 models, not the full ensemble search
+### Why not the full ensemble search
 
 During development I trained a larger 5-model x 5-fold stacking ensemble
 plus a residual/high-pass-CNN forensic specialist, but per-fold checkpoints
 were only cached transiently during training and deleted once each fold's
 out-of-fold predictions were computed - a reasonable choice for local
 iteration speed, but it means I do not have permanently saved weights for
-most of that work. The 4 checkpoints here are the ones that (a) still exist
-on disk and (b) predate the code freeze, so they are what this reproducible
-package uses. See `technical_report.md` for the full development history.
+most of that work. The checkpoints here are the ones that still exist on
+disk, so those are what this reproducible package uses. See
+`technical_report.md` for the full development history.
 
 ## Data
 
@@ -78,7 +81,7 @@ docker run --rm --network none \
 ```
 
 Add `--gpus all` before `--rm` if a CUDA GPU is available; the pipeline falls
-back to CPU automatically otherwise (slower: ~4 models x N images).
+back to CPU automatically otherwise (slower: ~5 models x N images).
 
 Output: `out/submission.csv` with columns `id,label`.
 
@@ -122,6 +125,7 @@ repro/
     efficientnet_b3_fold0.pt
     best_model.pt
     best_model_transformer.pt
+    swin_tiny_fold0.pt
     mega_search_core.py  # model/transform construction helpers
   technical_report.md    # full method/data/results write-up
   README.md

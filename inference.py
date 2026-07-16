@@ -7,15 +7,18 @@ Docker sandbox contract:
   - label is a finite float fraud score: higher = more confident the
     document is fraudulent (matches train_labels.csv's own convention:
     label=1 is the attack/fraud class)
-  - no network access at runtime -- all 4 model checkpoints are copied
+  - no network access at runtime -- all model checkpoints are copied
     into the image at build time (see Dockerfile), loaded from ./weights
 
-Ensemble: simple average of 4 checkpoints, all trained before the July 13
-code freeze (see README.md for exact provenance/timestamps):
+Ensemble: simple average of 5 checkpoints (see README.md for exact
+provenance/timestamps):
   - resnet50_fold0.pt          (timm resnet50, 2026-07-10)
   - efficientnet_b3_fold0.pt   (timm efficientnet_b3, 2026-07-12)
   - best_model.pt              (torchvision resnet18 baseline, 2026-07-04)
   - best_model_transformer.pt  (timm vit_base_patch16_224 baseline, 2026-07-04)
+  - swin_tiny_fold0.pt         (timm swin_tiny_patch4_window7_224, 2026-07-16 --
+    trained after the code freeze and after my final Kaggle submission; see
+    README.md for the disclosure)
 """
 import os
 import sys
@@ -126,6 +129,16 @@ def main():
     del model
     torch.cuda.empty_cache()
     print("vit_base baseline done")
+
+    # Model 5: swin_tiny_patch4_window7_224 (mega_search_core-style)
+    cfg = msc.get_model_config("swin_tiny_patch4_window7_224")
+    eval_tf = msc.build_transforms(cfg["input_size"][-1], cfg["mean"], cfg["std"], train=False)
+    model = msc.build_model("swin_tiny_patch4_window7_224")
+    model.load_state_dict(torch.load(WEIGHTS_DIR / "swin_tiny_fold0.pt", map_location=DEVICE))
+    all_scores.append(run_inference(model, eval_tf, files))
+    del model
+    torch.cuda.empty_cache()
+    print("swin_tiny done")
 
     blend = pd.concat(all_scores, axis=1).mean(axis=1)
     out = pd.DataFrame({"id": blend.index, "label": blend.values})
