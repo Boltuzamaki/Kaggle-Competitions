@@ -1,6 +1,9 @@
 # NeuroGolf 2026: Solution Writeup
 
-Final score **7440.82**, rank 196/3059, bronze. Solo entry, built with two AI collaborators doing
+Final score **7440.82** <br>
+Rank 196/3059, bronze. <br>
+
+Solo entry, built with two AI collaborators doing
 different jobs: ChatGPT generated the actual ONNX candidates and optimization code per task, and
 Claude Code was the pair-programmer for everything else, most of the audit tooling, candidate
 screening, and merge discipline below was built and run with it rather than by hand.
@@ -14,21 +17,13 @@ handful of structural tricks that kept paying off across many tasks at once.
 
 ## Workflow
 
-- One canonical state (`repairs/` + `tracker.db`), never edited by hand. Every change went
-  through the same audit pipeline before it was allowed in.
-- Candidates came from three sources: hand-built graphs, our own earlier attempts, and public
-  notebooks/datasets shared on the forum. All three were held to the identical bar; "found
-  elsewhere" was not a reason to skip verification, if anything it got more scrutiny.
-- Kept two live submission lines near the deadline: one aggressive (best measured score, some
-  unresolved risk), one fully de-risked (every known-fragile task swapped for a slower-but-proven
-  version). Turned out to matter, see below.
-- Batches were built by diffing against a byte-verified trusted base, submitting, and comparing
-  actual vs. predicted score before trusting the result as real.
+**ChatGPT Plus (WebUI)**: generated the ONNX candidates and optimization code per task. <br>
 
-Budget was $20 ChatGPT + $20 Claude Code. Claude Code's job was narrow but essential: build a
-local webapp whose only purpose was to make testing whatever ChatGPT produced fast. Drop a
-candidate in, get pass/fail plus real cost back in seconds, instead of round-tripping through a
-notebook every time.
+**Claude Code**: job was narrow but essential: build a local webapp whose only purpose was to
+make testing whatever ChatGPT produced fast, drop a candidate in, get pass/fail plus real cost
+back in seconds instead of round-tripping through a notebook every time. <br>
+
+Budget was $20 ChatGPT + $20 Claude Code.
 
 The per-task loop, repeated for each task worked on:
 
@@ -47,6 +42,11 @@ The per-task loop, repeated for each task worked on:
    polishing the same graph stops being worth the time. A different representation usually does
    better than a smaller version of the same one.
 
+The notes saved in the UI also fed a second-order pass: once one task in a family was actually
+optimized, I'd go back through the saved notes to spot other tasks that looked structurally
+similar (same transformation shape, same op pattern) and work through that whole group together,
+instead of treating every task as an isolated problem.
+
 ![Mission control](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/homepage.png)
 ![Upload and Verify: score a candidate before deciding whether to keep it](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/upload_onnx_and_test.png)
 ![Quick Check: standalone scratch runner for fast iteration](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/code_runner_and_tester.png)
@@ -58,14 +58,13 @@ attention) came from the
 [community discussion thread](https://www.kaggle.com/competitions/neurogolf-2026/discussion/708377).
 Thanks to **Fritz Cremer** for posting the realistic testing window there: within a given ~5 hour
 window, only about 3-5 tasks could actually be taken to a fully optimized, verified state. That
-number reframed the whole approach. It's not enough time to touch all 400 seriously, so the
-discussion thread's signal was used to prioritize before spending that time.
+number reframed the whole approach. It's not enough time to touch all 400 seriously (started
+late), so the discussion thread's signal was used to prioritize before spending that time.
 
-In practice, that window was the real bottleneck, not the process itself. I only became active in
-this competition once **ChatGPT 5.6** came out, so the whole effort ran inside whatever time was
-left after that, and I got around **150 tasks** through the full loop above in that window. The
-other ~250 were never a different kind of problem, just untouched by this loop for lack of time.
-It's a throughput limit, not a coverage limit.
+I only became active in this competition once **ChatGPT 5.6** came out, so the whole effort ran
+inside whatever time was left after that, and I got around **150 tasks** through the full loop
+above in that window. The other ~250 were never a different kind of problem, just untouched by
+this loop for lack of time.
 
 ## Validation gate (every candidate, no exceptions)
 
@@ -82,7 +81,9 @@ It's a throughput limit, not a coverage limit.
 8. Cross-check on the pinned `onnxruntime==1.24.4` (not just whatever's newest locally). Catches
    missing kernels for certain dtypes that only show up on the real grader's version.
 
-![Validation flowchart](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/flow_chart_of_validation.png)
+<img src="https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/flow_chart_of_validation.png" alt="Validation flowchart" width="500">
+
+[Full size](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/flow_chart_of_validation.png)
 
 ## Techniques that actually moved the score
 
@@ -157,14 +158,14 @@ Blockers (looked like wins, didn't count):
   wrong, non-deterministic, order-dependent scores. Explained every "identical resubmission scores
   differently" mystery we hit. Only catchable by static inspection, not by running the file.
   Confirmed by several other top teams too, not unique to us.
-- **A clean local pass isn't proof.** Candidates that passed 100% of the cached train/test/arc-gen
-  set still scored wrong on the real grader; the cached sample doesn't cover everything the
-  production grader checks. Anything resting on an empirical claim about the data, not a provable
-  structural rewrite, needed an isolated submission before we trusted it.
-- **Batch scores not matching predicted sums were almost always our own bug.** Every mismatch
-  traced back to a contaminated base folder, never a real interaction between per-task models
-  (there isn't one, scoring is per-task). Isolated single-task tests were accurate to within
-  0.01 to 0.02 points every time; combined tests were only as trustworthy as their base folder.
+- **`TopK` silently has no INT8/UINT8 kernel on the real grader's pinned `onnxruntime`.** Passes
+  locally without any error on a newer runtime version, so it's completely invisible unless you
+  actually run the candidate against the exact pinned version Kaggle uses, not just whatever's
+  newest on your own machine.
+- **A single large `Einsum` can look cheap on paper and still hang.** A 50-operand contraction
+  with a long equation string took 15+ minutes for one inference, purely from contraction-order
+  blowup, despite a tiny params/cost footprint. Cost and param count say nothing about actual
+  runtime; that only shows up by timing a real inference directly.
 - **An over-strict test script is as damaging as a too-lenient one.** The official conversion
   function silently skips grids bigger than 30×30; a hand-rolled check that misses this produces
   huge fake failure rates (one task showed 296/400 "failures" that were just oversized grids the
