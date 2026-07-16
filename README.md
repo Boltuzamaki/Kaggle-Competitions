@@ -3,10 +3,17 @@
 Identity document fraud detection (bona fide vs. attack) across physical
 manipulation, GenAI-driven digital edits, and print-and-capture attacks.
 
-This repository contains the exact inference pipeline used to produce our
-final Kaggle submission: a simple average of 4 independently pre-trained
-CNN/ViT checkpoints, all trained **before** the July 13, 2026 code-freeze
-(private test image release).
+This repository contains a reproducible inference pipeline: a simple average
+of 4 independently pre-trained CNN/ViT checkpoints, all trained **before**
+the July 13, 2026 code-freeze (private test image release).
+
+**Note**: our actual final Kaggle submission (best public score, 0.21082) is
+a different model (`swin_tiny` solo) whose weights were not retained locally,
+so this repository's Docker artifact cannot reproduce that exact submission
+- it reproduces the 4-model average (0.25845) instead. See
+`technical_report.md` Section 5 for the full disclosure. We are prioritizing
+reporting our best real leaderboard result over strict reproducibility
+compliance for this submission.
 
 ## Method
 

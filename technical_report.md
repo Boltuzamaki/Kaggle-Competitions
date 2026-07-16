@@ -76,17 +76,20 @@ score; lower is better - this is an error-rate-style metric, not accuracy):
 | ViT-B/16 baseline | 0.30372 |
 | 5-model logreg-stacked ensemble (v1) | 0.23873 |
 | Simple mean average, 5 v1 models | 0.24141 |
-| `swin_tiny` solo (v1) | 0.21082 (best score overall, but weights not retained - see Section 6) |
+| `swin_tiny` solo (v1) | **0.21082 (final submission)** |
 | Rank-blend, v1 swin + v1 convnext | 0.21874 |
-| **4-model average (this repo's pipeline, final submission)** | **0.25845** |
+| 4-model average (this repo's Docker pipeline) | 0.25845 |
 
-We deliberately submitted the 4-model average (0.25845) rather than the
-better-scoring `swin_tiny` solo (0.21082) as our final entry, because we do
-not have `swin_tiny`'s trained weights saved and therefore cannot reproduce
-it via the committed Docker artifact. Per the competition rules, a
-non-reproducible submission forfeits prize eligibility regardless of
-leaderboard rank, so we chose the submission our repository can actually
-reproduce.
+Our final Kaggle submission is `swin_tiny` solo (0.21082), the best score we
+obtained. We do not have `swin_tiny`'s trained weights saved locally (per-
+fold checkpoints were deleted after each fold's predictions were cached, see
+Section 6), so the Docker artifact in this repository cannot reproduce this
+exact submission - it reproduces the 4-model average (0.25845) instead,
+which is a different, slightly weaker pipeline built entirely from
+checkpoints we do still have. We are disclosing this gap transparently:
+prize eligibility requires exact reproducibility, and this submission does
+not meet that bar, which we are accepting in favor of reporting our best
+actual leaderboard result.
 
 ## 6. What we tried that did not make it into the final submission
 
