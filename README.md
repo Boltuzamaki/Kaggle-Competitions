@@ -2,7 +2,7 @@
 
 Solutions and tooling for [NeuroGolf 2026](https://www.kaggle.com/competitions/neurogolf-2026), a Kaggle competition where you build the smallest possible ONNX network that solves each of 400 ARC-AGI visual reasoning tasks. Score per task is `max(1, 25 - ln(memory + params))`, and a task only counts if the network is 100% correct on every train/test/arc-gen example: one wrong output zeroes the whole task.
 
-**Final score: 7440.82** (rank ~193/3059, bronze medal).
+**Final score: 7440.82** (rank 196/3059, bronze medal).
 
 Want to learn ONNX from this project instead of just the results? `docs/onnx-learning-guide.html` is a from-scratch tutorial covering the basics, how NumPy/math map to ONNX ops, every op family used here, and the real bugs we hit along the way. For the short version (workflow, what worked, what went wrong) see `docs/SOLUTION_WRITEUP.md`.
 
