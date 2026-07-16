@@ -31,7 +31,7 @@ arc_dsl_ref/       Reference ARC-DSL solvers used to cross-check task rules
 
 The full gate sequence a candidate has to clear before step 4, in order:
 
-![Validation flowchart](images/flow_chart_of_validation.png)
+<img src="images/flow_chart_of_validation.png" alt="Validation flowchart" width="500">
 
 ### Webapp
 
