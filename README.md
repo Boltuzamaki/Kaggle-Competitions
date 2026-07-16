@@ -7,12 +7,12 @@ This repository contains a reproducible inference pipeline: a simple average
 of 4 independently pre-trained CNN/ViT checkpoints, all trained **before**
 the July 13, 2026 code-freeze (private test image release).
 
-**Note**: our actual final Kaggle submission (best public score, 0.21082) is
+**Note**: my actual final Kaggle submission (best public score, 0.21082) is
 a different model (`swin_tiny` solo) whose weights were not retained locally,
 so this repository's Docker artifact cannot reproduce that exact submission
 - it reproduces the 4-model average (0.25845) instead. See
-`technical_report.md` Section 5 for the full disclosure. We are prioritizing
-reporting our best real leaderboard result over strict reproducibility
+`technical_report.md` Section 5 for the full disclosure. I am prioritizing
+reporting my best real leaderboard result over strict reproducibility
 compliance for this submission.
 
 ## Method
@@ -35,11 +35,11 @@ output convention.
 
 ### Why only 4 models, not the full ensemble search
 
-During development we trained a larger 5-model x 5-fold stacking ensemble
+During development I trained a larger 5-model x 5-fold stacking ensemble
 plus a residual/high-pass-CNN forensic specialist, but per-fold checkpoints
 were only cached transiently during training and deleted once each fold's
 out-of-fold predictions were computed - a reasonable choice for local
-iteration speed, but it means we do not have permanently saved weights for
+iteration speed, but it means I do not have permanently saved weights for
 most of that work. The 4 checkpoints here are the ones that (a) still exist
 on disk and (b) predate the code freeze, so they are what this reproducible
 package uses. See `technical_report.md` for the full development history.
@@ -101,12 +101,12 @@ What *does* support the pre-freeze timeline:
 - Filesystem modification timestamps on the 4 checkpoint files above (visible
   via any file-copy tooling, e.g. `Get-Item -Path *.pt | Select LastWriteTimeUtc`
   on the originals), all predating 2026-07-13 07:02:42 UTC.
-- Our public Kaggle submission history (`kaggle competitions submissions -c
+- My public Kaggle submission history (`kaggle competitions submissions -c
   the-freuid-challenge-2026-ijcai-ecai`), which independently timestamps when
   each model's predictions were first scored on the leaderboard - corroborating
-  the same timeline from a source we don't control.
+  the same timeline from a source I don't control.
 
-We are disclosing this gap transparently rather than fabricating a backdated
+I am disclosing this gap transparently rather than fabricating a backdated
 history. Happy to provide any additional evidence organizers need to verify
 compliance.
 

@@ -7,7 +7,7 @@ Team: boltuzamaki (solo)
 The FREUID Challenge 2026 (IJCAI-ECAI) asks participants to classify identity
 document images as bona fide or an attack (fraud), spanning physical
 manipulation, GenAI-driven digital edits, and print-and-capture attacks. This
-report describes our method, the data, the inference pipeline used for our
+report describes my method, the data, the inference pipeline used for my
 final submission, results, and exact reproduction steps.
 
 ## 2. Data
@@ -21,14 +21,14 @@ final submission, results, and exact reproduction steps.
   available for local exploration during the competition) and a private
   subset (~135k images, released July 13 per the code-freeze rule and only
   reachable from within a Kaggle Notebook kernel, not via direct bulk
-  download at our available disk budget).
+  download at my available disk budget).
 - No external data sources were used.
 
 ## 3. Method
 
-We explored a wide range of approaches over the course of the competition
+I explored a wide range of approaches over the course of the competition
 (see Section 6 for the full experiment history); the model actually used for
-our final, code-freeze-compliant submission is a **simple average of 4
+my final, code-freeze-compliant submission is a **simple average of 4
 independently trained checkpoints**:
 
 | Model | Architecture | Input | Trained (UTC) |
@@ -45,11 +45,11 @@ weights, BCE loss on `label`, mixup/cutmix/label smoothing/EMA/AMP for the
 fold 0 only used here since other folds' checkpoints were not retained - see
 Section 6), and plain fine-tuning for the two baselines.
 
-Ensembling: plain arithmetic mean of the 4 models' sigmoid outputs. We chose
+Ensembling: plain arithmetic mean of the 4 models' sigmoid outputs. I chose
 a simple average over a learned meta-learner here because a logistic-
-regression stacker trained on a subset of our other models had previously
+regression stacker trained on a subset of my other models had previously
 been found to generalize worse than expected on the leaderboard-adjacent
-splits we could observe (see Section 6) - with only 4 heterogeneous
+splits I could observe (see Section 6) - with only 4 heterogeneous
 checkpoints and no additional held-out stacking data, a plain average is the
 more defensible, lower-variance choice.
 
@@ -80,18 +80,18 @@ score; lower is better - this is an error-rate-style metric, not accuracy):
 | Rank-blend, v1 swin + v1 convnext | 0.21874 |
 | 4-model average | 0.25845 |
 
-Our final Kaggle submission is `swin_tiny` solo (0.21082), the best score we
-obtained. We do not have `swin_tiny`'s trained weights saved locally (per-
+My final Kaggle submission is `swin_tiny` solo (0.21082), the best score I
+obtained. I do not have `swin_tiny`'s trained weights saved locally (per-
 fold checkpoints were deleted after each fold's predictions were cached, see
 Section 6), so the Docker artifact in this repository cannot reproduce this
 exact submission - it reproduces the 4-model average (0.25845) instead,
 which is a different, slightly weaker pipeline built entirely from
-checkpoints we do still have. We are disclosing this gap transparently:
+checkpoints I do still have. I am disclosing this gap transparently:
 prize eligibility requires exact reproducibility, and this submission does
-not meet that bar, which we are accepting in favor of reporting our best
+not meet that bar, which I am accepting in favor of reporting my best
 actual leaderboard result.
 
-## 6. What we tried that did not make it into the final submission
+## 6. What I tried that did not make it into the final submission
 
 Additional approaches explored during the competition, not part of the final
 pipeline:
@@ -116,16 +116,16 @@ out-of-fold predictions were cached; only the 4 checkpoints in Section 3
 both still exist on disk and predate the freeze, so those are what this
 reproducible package uses.
 
-We also note that ~94.5% of the test set (the private-test rows) is only
+I also note that ~94.5% of the test set (the private-test rows) is only
 reachable via a Kaggle Notebook kernel, not local browsing, which shaped how
-we validated the approaches above.
+I validated the approaches above.
 
 ## 7. Reproducibility
 
 See `README.md` for exact `docker build` / `docker run` commands, weight
 provenance and timestamps, and a disclosure regarding this repository's git
 history (published at the deadline, not maintained incrementally through
-development - see README for what independent evidence supports our
+development - see README for what independent evidence supports my
 code-freeze compliance timeline).
 
 Hardware: local NVIDIA GPU (8GB VRAM) for training; Kaggle Notebook (T4 GPU)
