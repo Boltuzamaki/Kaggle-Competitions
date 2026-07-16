@@ -67,9 +67,6 @@ by Kaggle, avoiding a multi-hour/40+GB local download.
 
 ## 5. Results
 
-*(fill in final public/private leaderboard scores once available - see
-`submissions_history.csv` / the live Kaggle leaderboard for current numbers)*
-
 Selected Kaggle leaderboard submissions across the competition (public
 score; lower is better - this is an error-rate-style metric, not accuracy):
 
@@ -79,31 +76,67 @@ score; lower is better - this is an error-rate-style metric, not accuracy):
 | ViT-B/16 baseline | 0.30372 |
 | 5-model logreg-stacked ensemble (v1) | 0.23873 |
 | Simple mean average, 5 v1 models | 0.24141 |
-| `swin_tiny` solo (v1) | 0.21082 |
+| `swin_tiny` solo (v1) | 0.21082 (best score overall, but weights not retained - see Section 6) |
 | Rank-blend, v1 swin + v1 convnext | 0.21874 |
-| **4-model average incl. private test (this repo's pipeline)** | **see live leaderboard** |
+| **4-model average (this repo's pipeline, final submission)** | **0.25845** |
 
-## 6. Development history / lessons learned
+We deliberately submitted the 4-model average (0.25845) rather than the
+better-scoring `swin_tiny` solo (0.21082) as our final entry, because we do
+not have `swin_tiny`'s trained weights saved and therefore cannot reproduce
+it via the committed Docker artifact. Per the competition rules, a
+non-reproducible submission forfeits prize eligibility regardless of
+leaderboard rank, so we chose the submission our repository can actually
+reproduce.
 
-We initially built a larger 5-architecture x 5-fold K-fold stacking ensemble
-plus a forensic/residual-CNN specialist (high-pass filtered input) and a
-hand-crafted-feature LightGBM, motivated by treating the problem as image
-forensics rather than pure semantic classification. In isolation testing we
-found:
+## 6. What we tried that did not make it into the final submission
 
-- The residual/high-pass CNN and forensic LightGBM substantially
-  outperformed raw-RGB semantic CNNs on the public leaderboard in early
-  testing, suggesting forensic/artifact signal transfers across the
-  train/test domain gap better than semantic content alone.
-- A pseudo-label + test-time-augmentation retrain of the 5-model ensemble
-  consistently scored worse than the original ensemble in every controlled
-  comparison we ran.
-- We do not have permanently saved weights for most of that work (per-fold
-  checkpoints were deleted once each fold's predictions were cached, a
-  reasonable choice for local iteration speed but one that limits what we
-  can reproduce post-freeze). Only the 4 checkpoints in Section 3 both still
-  exist on disk and predate the freeze, so those are what this reproducible
-  package uses - not our full internal ensemble.
+Over the course of the competition we explored considerably more than the
+4-model average above. Documenting it here for completeness, even though
+none of it is part of the final reproducible pipeline:
+
+- **5-architecture x 5-fold K-fold RGB stacking ensemble** (resnet50,
+  efficientnet_b3, convnext_tiny, swin_tiny, vit_base_patch16_224) with a
+  logistic-regression meta-learner on out-of-fold predictions. Per-model OOF
+  AUC was 0.998-1.000, but the stacked ensemble scored 0.23873 on the public
+  leaderboard - worse than several individual solo models (best: `swin_tiny`
+  at 0.21082). A plain mean-average ensemble (0.24141) also underperformed
+  the best solo model. Ensembling/stacking did not help on this leaderboard.
+- **Forensic hand-crafted-feature LightGBM**: trained on extracted forensic
+  features rather than raw pixels. Scored 0.36557 solo - substantially worse
+  than the RGB models once we understood the leaderboard's scoring direction
+  correctly (lower is better); did not carry over to the final pipeline.
+- **Residual/high-pass-filtered CNN** (image minus Gaussian-blurred version,
+  resnet50 backbone), motivated by treating the problem as image forensics
+  rather than semantic classification. Scored 0.95159 solo - again worse
+  once correctly understood, despite strong local out-of-fold metrics
+  (OOF AUC 0.9939). A second backbone (efficientnet_b3) on the same
+  representation reached OOF AUC 0.9998 but was never submitted standalone
+  post-freeze in a compliant way.
+- **Pseudo-labeling + test-time augmentation retrain** of the 5-model
+  ensemble (v2). Consistently scored worse than the original (non-pseudo-
+  labeled) ensemble in every controlled, isolated comparison we ran (e.g.
+  resnet50 v2 solo 0.25560 vs. v1 solo 0.27816). This regression held up
+  even after later fixing an unrelated scoring-direction misunderstanding,
+  so we consider it a genuine negative result, not an artifact.
+- **Rank-averaging and logistic-regression blends** of various subsets of
+  the v1/v2 models (e.g. swin+convnext, swin+effnet, public-best-plus-v2
+  combinations). None beat the best individual solo model.
+- **Document-type classifier** (predicting country/document type as an
+  auxiliary signal) - built but not incorporated into the final scoring
+  pipeline.
+- **A same-day scoring-direction misunderstanding**: partway through we
+  mistakenly inverted (`1-p`) several submissions' predictions, believing we
+  had found a label-polarity bug, based on a wrong assumption about which
+  direction the public leaderboard favored. This was actually backwards -
+  every inverted submission scored dramatically worse (up to 1.00000, the
+  worst possible value, tied for last place on the public leaderboard) - and
+  was caught and reverted before being used as a final submission.
+- We do not have permanently saved weights for most of the above (per-fold
+  checkpoints were deleted once each fold's out-of-fold predictions were
+  cached, a reasonable choice for local iteration speed but one that limits
+  what we can reproduce post-freeze). Only the 4 checkpoints in Section 3
+  both still exist on disk and predate the freeze, so those are what this
+  reproducible package uses.
 - We also discovered late in the competition that ~94.5% of the test set
   (the private-test rows) is not locally browsable outside a Kaggle kernel,
   and had spent significant time on ensembling/pseudo-labeling experiments
