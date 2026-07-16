@@ -27,9 +27,9 @@ final submission, results, and exact reproduction steps.
 ## 3. Method
 
 I explored a wide range of approaches over the course of the competition
-(see Section 6 for the full experiment history); the model actually used for
-my final, code-freeze-compliant submission is a **simple average of 4
-independently trained checkpoints**:
+(see Section 6 for the full experiment history); the model implemented in
+this repository's Docker artifact is a **simple average of independently
+trained checkpoints**:
 
 | Model | Architecture | Input | Trained (UTC) |
 |---|---|---|---|
@@ -37,20 +37,26 @@ independently trained checkpoints**:
 | `efficientnet_b3_fold0` | timm `efficientnet_b3` | timm default config | 2026-07-12 18:29 |
 | `best_model` | torchvision `resnet18` | 320px | 2026-07-04 09:13 |
 | `best_model_transformer` | timm `vit_base_patch16_224` | 224px, bicubic resize | 2026-07-04 10:18 |
+| `swin_tiny_fold0` | timm `swin_tiny_patch4_window7_224` | 224px (timm default config) | 2026-07-16 12:29 |
 
-All four predate the July 13, 2026 07:02:42 UTC code freeze (private image
-release). Training used standard fine-tuning from ImageNet-pretrained
-weights, BCE loss on `label`, mixup/cutmix/label smoothing/EMA/AMP for the
-`resnet50`/`efficientnet_b3` fold-0 models (5-fold `StratifiedKFold` split,
-fold 0 only used here since other folds' checkpoints were not retained - see
-Section 6), and plain fine-tuning for the two baselines.
+The first four predate the July 13, 2026 07:02:42 UTC code freeze (private
+image release). `swin_tiny_fold0` was trained 2026-07-16, after both the
+freeze and my final Kaggle submission deadline, and is included here for
+completeness rather than as a code-freeze-compliant, prize-eligible
+component (see README.md for the full disclosure). Training used standard
+fine-tuning from ImageNet-pretrained weights, BCE loss on `label`,
+mixup/cutmix/label smoothing/EMA/AMP for the `resnet50`/`efficientnet_b3`/
+`swin_tiny` fold-0 models (5-fold `StratifiedKFold` split, fold 0 only used
+here since other folds' checkpoints were not retained - see Section 6), and
+plain fine-tuning for the two baselines.
 
-Ensembling: plain arithmetic mean of the 4 models' sigmoid outputs. I chose
-a simple average over a learned meta-learner here because a logistic-
+Ensembling: plain arithmetic mean of the models' sigmoid outputs. I chose a
+simple average over a learned meta-learner here because a logistic-
 regression stacker trained on a subset of my other models had previously
 been found to generalize worse than expected on the leaderboard-adjacent
-splits I could observe (see Section 6) - with only 4 heterogeneous
-checkpoints and no additional held-out stacking data, a plain average is the
+splits I could observe (see Section 6) - with only a handful of
+heterogeneous checkpoints and no additional held-out stacking data, a plain
+average is the
 more defensible, lower-variance choice.
 
 ## 4. Inference
@@ -78,18 +84,21 @@ score; lower is better - this is an error-rate-style metric, not accuracy):
 | Simple mean average, 5 v1 models | 0.24141 |
 | `swin_tiny` solo (v1) | **0.21082 (final submission)** |
 | Rank-blend, v1 swin + v1 convnext | 0.21874 |
-| 4-model average | 0.25845 |
+| 4-model average (submitted) | 0.25845 |
+| 5-model average incl. `swin_tiny_fold0` (repo only, not submitted) | not scored post-deadline |
 
 My final Kaggle submission is `swin_tiny` solo (0.21082), the best score I
-obtained. I do not have `swin_tiny`'s trained weights saved locally (per-
-fold checkpoints were deleted after each fold's predictions were cached, see
-Section 6), so the Docker artifact in this repository cannot reproduce this
-exact submission - it reproduces the 4-model average (0.25845) instead,
-which is a different, slightly weaker pipeline built entirely from
-checkpoints I do still have. I am disclosing this gap transparently:
-prize eligibility requires exact reproducibility, and this submission does
-not meet that bar, which I am accepting in favor of reporting my best
-actual leaderboard result.
+obtained. I do not have that exact model's trained weights saved locally
+(per-fold checkpoints were deleted after each fold's predictions were
+cached, see Section 6), so the Docker artifact in this repository cannot
+reproduce this exact submission - it reproduces a model average built
+entirely from checkpoints I do still have. I am disclosing this gap
+transparently: prize eligibility requires exact reproducibility, and this
+submission does not meet that bar, which I am accepting in favor of
+reporting my best actual leaderboard result. A `swin_tiny` checkpoint was
+subsequently retrained and added to the repo (Section 3) after the
+submission deadline, purely to strengthen this reproducible package; it was
+never submitted to the leaderboard.
 
 ## 6. What I tried that did not make it into the final submission
 
@@ -112,9 +121,8 @@ pipeline:
   signal): built but not incorporated into the final pipeline.
 
 Per-fold checkpoints from the above were not retained after each fold's
-out-of-fold predictions were cached; only the 4 checkpoints in Section 3
-both still exist on disk and predate the freeze, so those are what this
-reproducible package uses.
+out-of-fold predictions were cached; only the checkpoints in Section 3
+still exist on disk, so those are what this reproducible package uses.
 
 I also note that ~94.5% of the test set (the private-test rows) is only
 reachable via a Kaggle Notebook kernel, not local browsing, which shaped how
