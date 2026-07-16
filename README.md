@@ -97,37 +97,22 @@ A few of the largest task-level wins, out of ~+17.9 points total across everythi
 Cost is `memory + params`, then `25 - ln(cost)`. It's log-scaled, so halving a cost is worth the
 same points whether it started at 60 or 60,000: cheap-looking tasks aren't low priority.
 
-- Quantize counting/matching ops: `QLinearConv` emits `uint8` instead of float32 when the values
-  allow it, a free 4x cut.
-- Cut initializer data that's provably dead: zero-value Conv channels, duplicate constants.
-- Collapse a graph into one `Einsum` when the transformation is bi/multilinear. Best single pattern
-  in the competition; removes every intermediate tensor between input and output.
-- Older opsets sometimes hide an attribute-only version of an op. `Upsample` takes `scales` as an
-  attribute pre-opset-10; `Resize` charges it as a tensor input instead.
-- A cheaper op isn't a cheaper graph if it needs a second op to feed it: a 5-param `MaxRoiPool`
-  beats a 0-param `Slice`+`Upsample` pair, because the intermediate between them costs 36,000 bytes.
-  Always measure end-to-end through the real scorer.
-- `params` is element count, not bytes. dtype is free for small lookup tables, but intermediate
-  tensors are charged `dtype_size × elements`, so use `uint8`/`int8` there.
+- **Quantize counting/matching ops.** `QLinearConv` emits `uint8` instead of float32, a free 4x cut.
+- **Cut dead initializer data.** Zero-value Conv channels, duplicate constants, both roughly halve cost.
+- **Collapse into one `Einsum`.** Removes every charged intermediate tensor between input and output.
+- **Check attribute-only opset variants.** `Upsample` avoids the tensor-input cost `Resize` charges.
+- **Cheaper op isn't a cheaper graph.** The intermediate tensor between two ops can dominate cost.
+- **`params` counts elements, not bytes.** Use `uint8`/`int8` for large intermediate tensors specifically.
 
 ## Lessons that cost real points to learn
 
-- A clean local pass isn't proof. Candidates that passed every cached example still scored wrong on
-  the real grader. Anything resting on an empirical claim about the data needs an isolated
-  submission before you trust it.
-- Node count isn't cost. Several "optimizations" shrank node count but grew byte cost.
-- Always re-audit fresh: every regression traced back to comparing against a stale `tracker.db`
-  value instead of re-checking both candidates right before deciding.
-- Negative-pad models are a special case: some fail the local checker but score fine on the real
-  grader. Several turned out to be genuine wins.
-- Watch Conv/ConvTranspose bias length. A bias shorter than `out_channels` is an out-of-bounds read,
-  invisible locally, but it produces wrong, non-deterministic results on a grader that reuses process
-  memory across submissions. See `scratch_onnx/check_conv_bias.py`, run it before every submission.
-- Route correctness checks through the official conversion function, not a hand-rolled one. It
-  silently skips grids bigger than 30×30, and a stricter test script produces false failures too.
-- When a batch's score doesn't match the sum of its predicted gains, suspect your own test setup
-  first. Every mismatch traced back to a contaminated base folder, not a real interaction between
-  unrelated per-task models.
+- **A clean local pass isn't proof.** Cached examples don't cover what the real grader checks.
+- **Node count isn't cost.** Byte size is what's actually charged, not op count.
+- **Re-audit fresh, never trust a cache.** Stale `tracker.db` values caused every regression we hit.
+- **Negative-pad models are a special case.** Local checker fails, real grader often scores fine.
+- **Watch Conv/ConvTranspose bias length.** Out-of-bounds read corrupts results silently on Kaggle's grader.
+- **Use the official conversion function.** A hand-rolled check produces false failures on oversized grids.
+- **Batch score mismatch? Suspect your setup.** Contaminated base folders, not real per-task interactions.
 
 ## Setup
 
