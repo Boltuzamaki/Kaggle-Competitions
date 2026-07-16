@@ -35,6 +35,7 @@ output_onnx/
 kaggle_push/
 viz_push/
 _disposable_logs_and_traces/
+_disposable_logs_and_trials/
 
 # --- Stray onnxruntime profiler traces that sometimes leak into the repo root ---
 /*.json
@@ -62,6 +63,8 @@ Thumbs.db
 # --- Personal working notes / redundant local archives (not part of the deliverable) ---
 prompt.txt
 data.zip
+data (2).zip
+repairs.zip
 exps/
 leaderboard_dl.zip/
 leaderboard_dl_csv/
