@@ -19,9 +19,6 @@ arc_dsl_ref/       Reference ARC-DSL solvers used to cross-check task rules
 *.ipynb            Working notebooks
 ```
 
-Not tracked in git: `baseline_v22/` (the public baseline this builds on top of), `submissions/`
-(downloaded candidate folders used for comparison), and scratch/log directories.
-
 ## How a task gets solved
 
 1. Work out the transformation rule from the train/test examples.
@@ -65,6 +62,36 @@ Bucket comparison, paste another team's per-task scores to find where they're be
 
 ![Bucket comparison](images/bucket_to_select_onnx.png)
 
+## Workflow
+
+Two AI collaborators, each doing a different job: ChatGPT generated the ONNX candidates and
+optimization code per task, Claude Code built the audit tooling and ran the merge discipline.
+Budget was $20 on each. Full detail (the exact per-task loop, task selection, why only ~150 of
+the 400 got the full treatment) is in `docs/SOLUTION_WRITEUP.md`.
+
+- One canonical state (`repairs/` + `tracker.db`), never edited by hand; every change went
+  through the same audit pipeline before it was allowed in.
+- Candidates came from hand-built graphs, our own earlier attempts, and public notebooks/datasets
+  from the forum, all held to the identical verification bar.
+- Task *selection* came from the bucket comparison page (where another team's scores beat ours
+  the most) and from the
+  [community discussion thread](https://www.kaggle.com/competitions/neurogolf-2026/discussion/708377)
+  (thanks to Fritz Cremer for the realistic ~3-5-tasks-per-5-hour-window estimate that shaped
+  prioritization).
+- Kept two live submission lines near the deadline: one aggressive, one fully de-risked.
+
+## Novel ideas that moved the needle
+
+A few of the largest task-level wins, out of ~+17.9 points total across everything found this way
+(full list with every task and delta in `docs/SOLUTION_WRITEUP.md`):
+
+- Collapse the entire rule into one direct-to-output Einsum: task303 cost 1450→68 (+3.060)
+- Use the input itself as a dynamic convolution kernel: task082 cost 190→28 (+1.915)
+- Factor dense channel-routing matrices into low-rank codes: task304 cost 1320→260 (+1.625)
+- Bit-pack spatial state instead of materializing masks: task034 cost 2072→645 (+1.167)
+- Three tasks (067, 179, 241) hit the theoretical max of 25 points via a zero-param,
+  direct-output template.
+
 ## What actually moved the score
 
 Cost is `memory + params`, then `25 - ln(cost)`. It's log-scaled, so halving a cost is worth the
@@ -102,23 +129,24 @@ same points whether it started at 60 or 60,000: cheap-looking tasks aren't low p
   first. Every mismatch traced back to a contaminated base folder, not a real interaction between
   unrelated per-task models.
 
-## Cost-0 tasks
-
-`points = max(1, 25 - ln(cost))`, so a cost of 1 gives the max score, 25.0. Three tasks here hit that
-floor with a single parameter-free op (e.g. a bare `Transpose`), and six more sit at cost 5 to 10.
-Getting there took real dead-ends worth recording: replacing `MaxRoiPool` with a `Slice`+`Upsample`
-pair looked cheaper on paper (0 params vs 5) but the intermediate tensor between the two ops costs
-36,000, a 7000x regression, not a win.
-
 ## Setup
 
 ```
-python -m venv .venv && .venv/Scripts/pip install -r requirements.txt
+python -m venv .venv && .venv/Scripts/pip install -r requirements.txt   # onnxruntime==1.27.0, main dev env
 ```
 
-A second pinned environment (not committed) mirrors the production scorer's `onnxruntime` version for
-parity-checking candidates before submitting. Kaggle CLI needs `kaggle.json` configured to submit
-directly from the webapp or `scripts/`.
+Kaggle's real grader runs a different, older `onnxruntime==1.24.4`, which is missing some kernels
+the newer version has (see the `TopK` lesson above). Before trusting any candidate, it also gets
+checked in a second venv pinned to that exact version:
+
+```
+python -m venv venv_scorer && venv_scorer/Scripts/pip install onnxruntime==1.24.4 onnx numpy
+```
+
+That second venv isn't committed; recreate it locally if you need it.
+
+To submit, configure the Kaggle CLI (`kaggle.json`), then submit directly from the webapp or via
+`scripts/`.
 
 ## Citation
 
