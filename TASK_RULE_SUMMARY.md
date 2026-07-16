@@ -1,4 +1,4 @@
-# NeuroGolf 2026 — Per-task ARC rule summary (all 400)
+# NeuroGolf 2026: Per-task ARC rule summary (all 400)
 
 Generated 2026-07-14 by 8 parallel agents, each independently reading  and verifying the rule against real train examples (not trusting the stale  DSL guesses). Intended as raw material for spotting simple-transform (identity/transpose/rotate/mirror/crop) full-score candidates.
 
@@ -838,7 +838,7 @@ Generated 2026-07-14 by 8 parallel agents, each independently reading  and verif
 - Shape: constant 3x3 -> 3x3
 
 ### task168
-- Rule: For each object, shoots a ray from a point offset by the object's "hole" position, in a direction chosen by comparing color counts among neighboring cells — a multi-step neighbor/color-count based line-drawing rule.
+- Rule: For each object, shoots a ray from a point offset by the object's "hole" position, in a direction chosen by comparing color counts among neighboring cells; a multi-step neighbor/color-count based line-drawing rule.
 - Category: object-detect
 - Shape: constant 10x10 -> 10x10
 
@@ -958,7 +958,7 @@ Generated 2026-07-14 by 8 parallel agents, each independently reading  and verif
 - Shape: constant 23x23 -> 23x23
 
 ### task192
-- Rule: Removes the least-common color's cells (sets to background), then finds the new least-common remaining color and grows it into neighboring background cells that already have more than one same-colored neighbor — a flood-style thickening rule.
+- Rule: Removes the least-common color's cells (sets to background), then finds the new least-common remaining color and grows it into neighboring background cells that already have more than one same-colored neighbor; a flood-style thickening rule.
 - Category: object-detect
 - Shape: variable
 
