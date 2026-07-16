@@ -47,11 +47,11 @@ The per-task loop, repeated for each task worked on:
    polishing the same graph stops being worth the time. A different representation usually does
    better than a smaller version of the same one.
 
-![Mission control](../images/homepage.png)
-![Upload and Verify: score a candidate before deciding whether to keep it](../images/upload_onnx_and_test.png)
-![Quick Check: standalone scratch runner for fast iteration](../images/code_runner_and_tester.png)
-![Per-task editor: code, live examples, and notes together](../images/code_runner_and_taskwise_notes.png)
-![Bucket comparison: where the per-task shortlist in step 1 comes from](../images/bucket_to_select_onnx.png)
+![Mission control](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/homepage.png)
+![Upload and Verify: score a candidate before deciding whether to keep it](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/upload_onnx_and_test.png)
+![Quick Check: standalone scratch runner for fast iteration](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/code_runner_and_tester.png)
+![Per-task editor: code, live examples, and notes together](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/code_runner_and_taskwise_notes.png)
+![Bucket comparison: where the per-task shortlist in step 1 comes from](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/bucket_to_select_onnx.png)
 
 Beyond the per-task loop, overall task selection (which of the 400 were even worth this much
 attention) came from the
@@ -82,7 +82,7 @@ It's a throughput limit, not a coverage limit.
 8. Cross-check on the pinned `onnxruntime==1.24.4` (not just whatever's newest locally). Catches
    missing kernels for certain dtypes that only show up on the real grader's version.
 
-![Validation flowchart](../images/flow_chart_of_validation.png)
+![Validation flowchart](https://raw.githubusercontent.com/Boltuzamaki/The-2026-NeuroGolf-Championship/main/images/flow_chart_of_validation.png)
 
 ## Techniques that actually moved the score
 
