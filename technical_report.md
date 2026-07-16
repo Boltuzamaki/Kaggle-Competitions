@@ -78,7 +78,7 @@ score; lower is better - this is an error-rate-style metric, not accuracy):
 | Simple mean average, 5 v1 models | 0.24141 |
 | `swin_tiny` solo (v1) | **0.21082 (final submission)** |
 | Rank-blend, v1 swin + v1 convnext | 0.21874 |
-| 4-model average (this repo's Docker pipeline) | 0.25845 |
+| 4-model average | 0.25845 |
 
 Our final Kaggle submission is `swin_tiny` solo (0.21082), the best score we
 obtained. We do not have `swin_tiny`'s trained weights saved locally (per-
