@@ -1,4 +1,4 @@
-# FREUID Challenge 2026 -- Reproducible Inference
+# FREUID Challenge 2026 - Reproducible Inference
 
 Identity document fraud detection (bona fide vs. attack) across physical
 manipulation, GenAI-driven digital edits, and print-and-capture attacks.
@@ -21,7 +21,7 @@ Four models, averaged (simple mean of sigmoid outputs):
 
 Code freeze cutoff (private image release): **2026-07-13 07:02:42 UTC**. All
 four checkpoints above predate that cutoff. Output `label` is the plain
-average of the four models' sigmoid outputs -- a higher value means more
+average of the four models' sigmoid outputs - a higher value means more
 confident the document is fraudulent, matching `train_labels.csv`'s own
 convention (label=1 is the attack/fraud class) and the competition's stated
 output convention.
@@ -31,7 +31,7 @@ output convention.
 During development we trained a larger 5-model x 5-fold stacking ensemble
 plus a residual/high-pass-CNN forensic specialist, but per-fold checkpoints
 were only cached transiently during training and deleted once each fold's
-out-of-fold predictions were computed -- a reasonable choice for local
+out-of-fold predictions were computed - a reasonable choice for local
 iteration speed, but it means we do not have permanently saved weights for
 most of that work. The 4 checkpoints here are the ones that (a) still exist
 on disk and (b) predate the code freeze, so they are what this reproducible
@@ -52,10 +52,10 @@ Matches the competition's `docker run --network none` contract exactly:
 - `/data` (read-only): flat image files, id = filename without extension
   (`.jpeg`/`.jpg`/`.png`/`.webp`/`.bmp`/`.tif`/`.tiff`)
 - `/submissions` (read-write): output location
-- No network access at runtime -- all weights are baked into the image at
+- No network access at runtime - all weights are baked into the image at
   build time (`weights/`, copied via `COPY` in the `Dockerfile`)
 
-### Build (needs network -- pulls the base image and installs deps)
+### Build (needs network - pulls the base image and installs deps)
 
 ```bash
 docker build -t freuid-repro:local .
@@ -86,7 +86,7 @@ download.
 
 This project was developed locally without version control during the
 competition (a solo research workflow, not a team repo). This repository is
-being published at the submission deadline with the current, final state --
+being published at the submission deadline with the current, final state -
 it does **not** have a commit history spanning the full development period,
 so it cannot by itself prove the code-freeze timeline through `git log`.
 
@@ -96,7 +96,7 @@ What *does* support the pre-freeze timeline:
   on the originals), all predating 2026-07-13 07:02:42 UTC.
 - Our public Kaggle submission history (`kaggle competitions submissions -c
   the-freuid-challenge-2026-ijcai-ecai`), which independently timestamps when
-  each model's predictions were first scored on the leaderboard -- corroborating
+  each model's predictions were first scored on the leaderboard - corroborating
   the same timeline from a source we don't control.
 
 We are disclosing this gap transparently rather than fabricating a backdated

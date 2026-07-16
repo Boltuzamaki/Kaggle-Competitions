@@ -1,4 +1,4 @@
-# FREUID Challenge 2026 -- Technical Report
+# FREUID Challenge 2026 - Technical Report
 
 Team: boltuzamaki (solo)
 
@@ -42,14 +42,14 @@ All four predate the July 13, 2026 07:02:42 UTC code freeze (private image
 release). Training used standard fine-tuning from ImageNet-pretrained
 weights, BCE loss on `label`, mixup/cutmix/label smoothing/EMA/AMP for the
 `resnet50`/`efficientnet_b3` fold-0 models (5-fold `StratifiedKFold` split,
-fold 0 only used here since other folds' checkpoints were not retained -- see
+fold 0 only used here since other folds' checkpoints were not retained - see
 Section 6), and plain fine-tuning for the two baselines.
 
 Ensembling: plain arithmetic mean of the 4 models' sigmoid outputs. We chose
 a simple average over a learned meta-learner here because a logistic-
 regression stacker trained on a subset of our other models had previously
 been found to generalize worse than expected on the leaderboard-adjacent
-splits we could observe (see Section 6) -- with only 4 heterogeneous
+splits we could observe (see Section 6) - with only 4 heterogeneous
 checkpoints and no additional held-out stacking data, a plain average is the
 more defensible, lower-variance choice.
 
@@ -67,11 +67,11 @@ by Kaggle, avoiding a multi-hour/40+GB local download.
 
 ## 5. Results
 
-*(fill in final public/private leaderboard scores once available -- see
+*(fill in final public/private leaderboard scores once available - see
 `submissions_history.csv` / the live Kaggle leaderboard for current numbers)*
 
 Selected Kaggle leaderboard submissions across the competition (public
-score; lower is better -- this is an error-rate-style metric, not accuracy):
+score; lower is better - this is an error-rate-style metric, not accuracy):
 
 | Submission | Public score |
 |---|---|
@@ -103,7 +103,7 @@ found:
   reasonable choice for local iteration speed but one that limits what we
   can reproduce post-freeze). Only the 4 checkpoints in Section 3 both still
   exist on disk and predate the freeze, so those are what this reproducible
-  package uses -- not our full internal ensemble.
+  package uses - not our full internal ensemble.
 - We also discovered late in the competition that ~94.5% of the test set
   (the private-test rows) is not locally browsable outside a Kaggle kernel,
   and had spent significant time on ensembling/pseudo-labeling experiments
@@ -115,7 +115,7 @@ found:
 See `README.md` for exact `docker build` / `docker run` commands, weight
 provenance and timestamps, and a disclosure regarding this repository's git
 history (published at the deadline, not maintained incrementally through
-development -- see README for what independent evidence supports our
+development - see README for what independent evidence supports our
 code-freeze compliance timeline).
 
 Hardware: local NVIDIA GPU (8GB VRAM) for training; Kaggle Notebook (T4 GPU)
