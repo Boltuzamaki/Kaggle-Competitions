@@ -1,0 +1,151 @@
+{
+  "public_score": 7389.69,
+  "private_score": null,
+  "ref": "54639319",
+  "date": "2026-07-13 08:25:51.990000",
+  "description": "Best (7389.00) + 33 clean-comparison wins from submissions/7269.48 folder (full 400-task per-task audit, never trusted the folder's own aggregate score). Top gains: task338 +0.20, task363 +0.10, task366 +0.08, task055 +0.05, task025 +0.04. Predicted new total ~7389.68.",
+  "latest_confirmed_score": 7440.82,
+  "latest_confirmed_date": "2026-07-15",
+  "history": [
+    {
+      "date": "2026-07-14",
+      "score": 7416.35,
+      "note": "held batch: task285/397/001/177"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7417.15,
+      "note": "after task017 revert; keeps 380/387/187/108/175/074"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7400.92,
+      "note": "REGRESSION - task017 hash-memorizer scored 0 on real grader; reverted"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7418.79,
+      "note": "task341+277+340+018 batch; task341 confirmed genuine"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7420.74,
+      "note": "task327/066/064/013/011/054/331/120 batch"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7421.69,
+      "note": "task064+task327 further refinements"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7423.77,
+      "note": "recovered from task002/281 regression + task084/085 merged; bisection confirmed 212/236/355/096/209 all fine as-is"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7424.79,
+      "note": "task124+task099 merged, both generalization-tested"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7425.66,
+      "note": "task033+task081+task125(corrected) merged; task037 correctly rejected via DSL-exhaustive test"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7426.99,
+      "note": "task134+task079 merged; CORRECTION (see below): the 7407.75 dip was NOT a transient glitch as originally concluded -- it was the Conv bias out-of-bounds bug (task120/122/331), confirmed later the same day"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7409.66,
+      "note": "task136+119+190 added -- same Conv-bias bug caused another ~18pt unexplained dip; resubmitting the identical zip also scored 7409.66 (deterministic that run)"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7418.84,
+      "note": "CRITICAL FIX: found and fixed the real root cause -- Conv/ConvTranspose bias shorter than out_channels (task120/122/331), a real ONNX Runtime out-of-bounds heap read confirmed via the competition forum (github.com/microsoft/onnxruntime/issues/28654). Invisible locally (fresh process reads zeroed memory) but corrupts results on Kaggle's grader, which reuses the same process across the submission. Also included 8 ARC-GEN safety reverts."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7408.46,
+      "note": "full ARC-GEN sweep complete (400/400 tasks); final batch of 10 more safety reverts (task188/205/244/251/277/302/305/319/367/370) + 6 new clean merges (369/382/092/176/051/392)"
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7408.81,
+      "note": "BISECTION TEST: resubmitted the exact byte-identical 7426.99 zip (unfixed, still has the Conv-bias bug) to isolate the cause -- scored differently (7408.81) purely from grader-side memory-state randomness on an unchanged file. Definitive proof of the bug's real-world impact."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7426.99,
+      "note": "same exact 7426.99 zip resubmitted again (by user, no description) minutes later -- scored 7426.99 this time. Same bytes, two different scores back-to-back: conclusive demonstration of the Conv-bias UB bug's non-determinism."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7426.98,
+      "note": "MINIMAL FIX confirmed: took the exact proven 7426.99 zip and patched ONLY task120/122/331 (Conv-bias zero-extend, cost delta +0.0117pts total), nothing else changed. Scored 7426.98 -- stable, matches prediction almost exactly. Confirms the fix works with near-zero cost and the bug is now resolved for this file. NOTE: this state still contains all 18 pre-existing ARC-GEN correctness bugs found by the sweep (task002/017/018/023/044/048/055/076/079/095/101/105/118/158/173/187/188/191/205/209/219/244/251/255/277/286/302/305/319/367/370/382), unpatched, since the fix was deliberately minimal."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7408.97,
+      "note": "Full current best state (all 19 ARC-GEN safety reverts + Conv-bias fix + 7 new clean merges: 369/382/092/176/051/392/062). Tracker predicted 7409.17, actual 7408.97 -- gap only -0.19, essentially noise, confirming the submission is now genuinely stable (the ~18pt swings are gone). DECISION POINT: this trades -18pts guaranteed vs the minimal-fix 7426.98 state, in exchange for removing real (if usually low-probability) failure risk on 18 pre-existing tasks, several of which have failure rates of 8-45% against fresh official examples and could score much lower on the actual private/final grading run."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7433.03,
+      "note": "User saved the exact ONNX files scoring 7433.03 in submissions/7433.03 -- this is now the trusted ground-truth base for all further bisection (built from the higher_risk line at the point task039/238/256 were added). All bisection this session works relative to this exact folder."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7436.41,
+      "note": "BEST CONFIRMED CLEAN SCORE: trusted 7433.03 base + 10 individually isolation-tested negative-pad tasks from the romantamrazov/neurogolf-submission-7296-01-onnx dataset (368 +0.79, 089 +0.65, 006 +0.48, 365 +0.40, 130 +0.40, 263-negpad +0.22, 091 +0.17, 066 +0.14, 249 +0.12, 072 +0.00; excluded losers 005 -0.31 and 064 -0.16). Predicted 7436.40, actual 7436.41 -- near-perfect match. Saved at submissions/negpad10_clean. NOTE: a larger 21-task 'best combination' attempt (adding task076/265/044/048/244/277/370/313/205/206/207/208 on top) unexpectedly underperformed at 7432.23 vs predicted 7440.71 -- root cause not yet found; those 12 tasks are individually verified correct (ARC-GEN clean) but something about combining them together loses ~8pts. Do not re-combine them into one submission until this is understood -- add them back one at a time or in small tested groups instead."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7437.52,
+      "note": "NEW BEST CONFIRMED: 7436.41 base (negpad10_clean) + task198 (+0.6864), task199 (+0.0325), task281 (+0.0856), task275 (+0.3112) -- all individually ARC-GEN verified, small clean addition only, avoiding the mystery combination group. Predicted 7437.53, actual 7437.52 -- near-perfect match. Saved at submissions/best_confirmed_7437_52. CORRECTION: the 13 higher-risk-vs-safe tasks (055/079/095/101/105/118/158/188/251/302/305/319/367) were WRONGLY listed as pending in an earlier note -- they were already the risky/high-scoring versions baked into the 7433.03 lineage this whole time, confirmed via direct verification. Still genuinely pending: the 12-task group (076/265/044/048/244/277/370/313/205/206/207/208) -- ARC-GEN testing revealed 6 of these (044/048/244/277/205/370) are actually REAL BUGS currently live in the 7437.52 submission (1-4/400 fail each), not pure pending gains; the other 6 (265/313/206/207/208 clean already + 076 same unfixable bug as before) are cost-only, no risk change."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7436.6,
+      "note": "SAFER BEST: 7437.52 base with 3 negligible-cost bug fixes applied -- task044 (-0.475pts, fixes a real 4/400 ARC-GEN fail), task048 (-0.332pts, fixes 2/400), task277 (-0.121pts, fixes 3/400). Predicted 7436.59, actual 7436.60 -- near-exact match. Saved at submissions/best_confirmed_safer_7436_60. Held back (bigger point cost, user to decide): task244 fix (-1.837pts to remove 2/400 fail), task205 fix (-1.281pts to remove 1/400 fail), task370 fix (-1.030pts to remove 1/400 fail). task076 has no available fix (same bug in every known version)."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7432.45,
+      "note": "FULLY SAFE (reserve/final-submission candidate): 7436.60 base + the 3 remaining bug fixes (task244/205/370). Predicted 7432.452, actual 7432.45 -- near-exact match. Saved at submissions/best_confirmed_safer_7436_60 (updated in place). Every known ARC-GEN correctness bug removed except task076 (3/400 fail, no fix exists in baseline_v22 either -- genuine unfixed algorithm issue). Verified full 400-task local nfail sweep CLEAN (0 failures across all 400 tasks). This is the deliberate low-risk line, kept separate from the higher-scoring active line per user's explicit two-track strategy: keep pushing the active line, save the safest for the very last submission."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7438.42,
+      "note": "NEW BEST CONFIRMED (active line): 7437.52 base + 5 clean merges found via agent-assisted scan of other_model_onnx/: task096 (+0.5001), task031 (+0.2049), task192 (+0.0802), task213 (+0.0578), task355 (+0.0486). All ARC-GEN verified, both onnxruntime envs, no red flags. Predicted 7438.44, actual 7438.42 -- near-exact match. Saved at submissions/best_confirmed_7438_42. Same scan rejected: task037/017 (already known bad), task233 (unverifiable -- ARC-GEN generator too slow, risky history, skipped), task089 (crashes on real pinned onnxruntime, TopK dtype landmine), task002 (candidate slightly WORSE: 34/400 vs 32/400 fail), task209 (candidate much WORSE: 71/400 vs 38/400 fail), task196 (candidate introduces a NEW bug: 8/400 fail vs current 0/400 clean). Also rejected same session: task288 (first version, ConvTranspose bias shape crash), task193 (candidate fails 93/266, off-by-one dimension bug in specific rows)."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7438.93,
+      "note": "NEW BEST CONFIRMED (active line): 7438.42 base + task288 (+0.5066) -- user provided a fixed replacement (task288_valid.onnx) for the earlier broken task288_affine.onnx candidate. Verified clean both envs + ARC-GEN 0/400. Predicted 7438.93, actual 7438.93 -- exact match. Saved at submissions/best_confirmed_7438_93. This is the current top pick for the higher-scoring final submission slot."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7430.51,
+      "note": "TRUE-SAFE HEDGE (final-submission slot 2 candidate): built from the safer line but ALSO fixes the two biggest remaining liabilities that were still risky in ALL prior lines -- task118 -> baseline_v22 (55/400 -> 1/400 fail) and task158 -> neg-pad clean version from submissions/7243 (96/400 -> 0/400 fail; isolation-tested at ref 54736109 scoring 14.74 real pts, which BEATS baseline_v22's 14.53). Predicted ~7430.5, actual 7430.51. Saved at submissions/true_safe_7430_51. IMPORTANT DISCOVERY: task118 (13.75% fail) and task158 (24% fail) were risky in BOTH the active AND the earlier 'safer' folder -- they were never actually protected until this submission. Live LB context: rank ~182/3051, silver cutoff ~7455.58 (top 5%), gap ~16.65pts. FINAL PICKS: slot1 = best_confirmed_7438_93 (aggressive, bets grader won't hit fail cases), slot2 = true_safe_7430_51 (protected if it does)."
+    },
+    {
+      "date": "2026-07-15",
+      "score": 7439.07,
+      "note": "Aggressive line: 7438.93 + task320 (+0.0868) + task322 (+0.0556). Predicted 7439.07, exact match. Saved at submissions/best_confirmed_7439_07. Current slot-1 (aggressive) pick. Slot-2 (safe) remains true_safe_7430_51."
+    },
+    {
+      "date": "2026-07-16",
+      "score": 7440.82,
+      "note": "Aggressive line: 7439.07 + 6 clean merges (task323/131/127/132/274/301, +1.7469 combined). Predicted 7440.81, actual 7440.82 -- near-exact match. Saved at submissions/best_confirmed_7440_82. Slot-1 (aggressive) pick. Slot-2 (safe) update pending (safe_plus6, ref 54738329)."
+    },
+    {
+      "date": "2026-07-16",
+      "score": 7432.26,
+      "note": "Safe line: 7430.51 + same 6 clean merges (task323/131/127/132/274/301). Predicted 7432.26, actual 7432.26 -- exact match. Saved at submissions/true_safe_7432_26. FINAL PICKS as of this checkpoint: slot1=best_confirmed_7440_82 (aggressive), slot2=true_safe_7432_26 (safe, clean 118/158). Both pushed proactively to avoid last-minute rush."
+    }
+  ]
+}

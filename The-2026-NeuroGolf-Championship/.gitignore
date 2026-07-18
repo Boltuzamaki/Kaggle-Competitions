@@ -1,0 +1,71 @@
+# --- Python / envs ---
+__pycache__/
+*.pyc
+.venv/
+venv_scorer/
+
+# --- JS / node (webapp/react_editor) ---
+node_modules/
+dist/
+webapp/react_editor/public/tasks/
+webapp/static/react_editor/tasks/
+webapp/tasks.db
+webapp/react_editor/test-results/
+webapp/react_editor/playwright-report/
+
+# --- Other local tool state (not part of this project) ---
+.agents/
+.codex/
+.claude/
+
+# --- Build artifacts (regenerate from repairs/ + baseline_v22/ via the webapp or scripts) ---
+submission.zip
+*.onnx.bak
+
+# --- Third-party / downloaded reference material (not ours; keep locally, don't push) ---
+baseline_v22/
+submissions/
+
+# --- Work-in-progress / scratch / disposable (kept locally for reference, not pushed) ---
+scratch/
+scratch_392/
+scratch_onnx/
+predicted/
+output_onnx/
+kaggle_push/
+viz_push/
+_disposable_logs_and_traces/
+_disposable_logs_and_trials/
+
+# --- Stray onnxruntime profiler traces that sometimes leak into the repo root ---
+/*.json
+!kernel-metadata.json
+
+# --- repairs/ internal artifacts that aren't the canonical model+tracker output ---
+repairs/cost_profile.csv
+repairs/fails_data.json
+repairs/hash_weights.npy
+repairs/high_score_sub_audit.csv
+repairs/overrides.pkl
+repairs/webapp_status.json
+
+# --- Superseded exploratory notebooks (kept locally, not part of the current pipeline) ---
+mega_neurogolf_tasks.ipynb
+neurogolf_eda.ipynb
+neurogolf_final.ipynb
+neurogolf_optimal.ipynb
+neurogolf_solver.ipynb
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+
+# --- Personal working notes / redundant local archives (not part of the deliverable) ---
+prompt.txt
+data.zip
+data (2).zip
+repairs.zip
+exps/
+leaderboard_dl.zip/
+leaderboard_dl_csv/
+repairs/manual_backup_before_task148_4887/

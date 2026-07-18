@@ -1,0 +1,14 @@
+# Verified working versions for running neurogolf_best_7171.ipynb locally.
+# IMPORTANT: onnxruntime must be >= 1.27 — older versions (e.g. 1.21) lack the
+# Min(13)/Max(13) kernels several baseline task graphs use and raise
+# "Could not find an implementation for Min(13)".
+numpy
+onnx==1.22.0
+onnxruntime==1.27.0
+onnx-tool==1.0.1
+matplotlib
+ipython
+jupyter
+notebook
+nbconvert
+pandas

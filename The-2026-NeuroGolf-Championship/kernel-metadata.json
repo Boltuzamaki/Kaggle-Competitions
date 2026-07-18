@@ -1,0 +1,13 @@
+{
+  "id": "boltuzamaki/neurogolf-2026-solver",
+  "title": "NeuroGolf 2026 Solver",
+  "code_file": "neurogolf_solver.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": ["neurogolf-2026"],
+  "kernel_sources": []
+}

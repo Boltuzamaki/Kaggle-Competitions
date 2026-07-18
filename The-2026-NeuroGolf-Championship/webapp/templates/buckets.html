@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bucket Comparison · NeuroGolf</title>
+<style>
+:root{
+ --bg:#05060c; --panel:rgba(255,255,255,.045); --panel2:rgba(255,255,255,.07);
+ --line:rgba(255,255,255,.09); --txt:#e8ecf4; --dim:#8b93a7;
+ --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --violet:#a78bfa; --red:#fb7185; --slate:#4b5468;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',system-ui,Inter,sans-serif;background:var(--bg);color:var(--txt);
+ background-image:radial-gradient(900px 500px at 10% -10%,rgba(34,211,238,.1),transparent 60%),
+   radial-gradient(800px 500px at 100% 0,rgba(167,139,250,.12),transparent 55%);background-attachment:fixed}
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);background:linear-gradient(180deg,rgba(8,10,18,.92),rgba(8,10,18,.6));
+ border-bottom:1px solid var(--line);padding:14px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+a.back{color:var(--cyan);text-decoration:none;font-size:14px;padding:6px 12px;border:1px solid var(--line);border-radius:10px;transition:.15s}
+a.back:hover{background:var(--panel);transform:translateX(-2px)}
+h2{margin:0;font-size:18px;letter-spacing:.5px}
+.spacer{margin-left:auto}
+.metrics{display:flex;gap:10px;flex-wrap:wrap}
+.metric{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 14px;font-size:12px;color:var(--dim)}
+.metric b{display:block;font-size:17px;color:var(--txt)}
+
+.panelbox{margin:16px 24px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 20px}
+.panelbox h3{margin:0 0 8px;font-size:13px;letter-spacing:.5px;color:var(--dim);text-transform:uppercase}
+textarea#pasteArea{width:100%;min-height:110px;font-family:'Cascadia Code',Consolas,monospace;font-size:12.5px;
+ background:#03040a;color:var(--txt);border:1px solid var(--line);border-radius:10px;padding:10px;resize:vertical}
+.hint{font-size:11.5px;color:var(--dim);margin-top:6px}
+.btnrow{display:flex;gap:10px;margin-top:10px;align-items:center}
+.btn{padding:8px 16px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--txt);
+ font-size:12.5px;font-weight:700;cursor:pointer;transition:.15s}
+.btn:hover{background:rgba(255,255,255,.12)}
+.btn.primary{background:linear-gradient(135deg,#0ea5b7,#34d399);color:#03120c;border-color:transparent}
+.label{font-size:12px;color:var(--dim)}
+
+.tablewrap{margin:16px 24px 40px;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{position:sticky;top:0;background:rgba(10,13,22,.95);backdrop-filter:blur(10px);text-align:left;
+ padding:12px 14px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);cursor:pointer;
+ border-bottom:1px solid var(--line);user-select:none;white-space:nowrap}
+thead th:hover{color:var(--txt)}
+thead th.sorted{color:var(--cyan)}
+thead th .arrow{font-size:10px;margin-left:3px;opacity:.7}
+tbody td{padding:9px 14px;border-bottom:1px solid rgba(255,255,255,.04)}
+tbody tr:hover{background:var(--panel2)}
+tbody tr td:first-child{font-weight:700}
+.num{font-variant-numeric:tabular-nums}
+.delta.pos{color:var(--green)} .delta.neg{color:var(--red)} .delta.zero{color:var(--dim)}
+.bar{height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;width:110px;display:inline-block;vertical-align:middle;margin-left:8px}
+.bar>i{display:block;height:100%;border-radius:99px}
+.bar>i.pos{background:linear-gradient(90deg,#22d3ee,#34d399)}
+.bar>i.neg{background:linear-gradient(90deg,#fb7185,#f43f5e)}
+.worstflag{font-size:10.5px;padding:2px 8px;border-radius:99px;background:rgba(251,191,36,.16);color:var(--amber);font-weight:700;margin-left:8px}
+</style></head>
+<body>
+<header>
+ <a class="back" href="/">← mission control</a>
+ <h2>🪣 Bucket Comparison</h2>
+ <div class="metrics">
+  <div class="metric">Our total<b>{{ '%.2f'|format(total) }}</b></div>
+  <div class="metric" title="Actual public leaderboard score from the latest completed Kaggle submission">Confirmed leaderboard<b>{% if lb %}{{ '%.2f'|format(lb.public_score) }}{% else %}—{% endif %}</b></div>
+  <div class="metric">Buckets<b>80</b></div>
+ </div>
+ <div class="spacer"></div>
+</header>
+
+<div class="panelbox">
+ <h3>Comparing against: <span id="compareLabel">neurogolf7300 (auto)</span></h3>
+ <div class="hint">Default comparison is <b>neurogolf7300</b>'s per-task points, summed the same way as ours (5-task buckets).
+  Sort by Δ to find the buckets where that dataset beats us the most — those are the best places to focus optimization effort.
+  Paste a different team's table below to compare against that instead.</div>
+ <textarea id="pasteArea" placeholder="Bucket	Sum&#10;001-005	91.07&#10;006-010	97.63&#10;..."></textarea>
+ <div class="hint">Paste lines like <code>001-005    91.07</code> (whitespace or tab separated, header row optional/ignored). Parsing is tolerant of extra columns/text.</div>
+ <div class="btnrow">
+  <button class="btn primary" onclick="applyPaste()">📊 Compare pasted table</button>
+  <button class="btn" onclick="clearPaste()">↩ Reset to neurogolf7300</button>
+  <span class="label" id="parseNote"></span>
+ </div>
+</div>
+
+<div class="tablewrap">
+<table id="tbl">
+ <thead><tr>
+  <th data-k="label">Bucket<span class="arrow"></span></th>
+  <th data-k="sum">Ours<span class="arrow"></span></th>
+  <th data-k="theirs" id="theirsHeader">neurogolf7300<span class="arrow"></span></th>
+  <th data-k="delta">Δ (compare−ours)<span class="arrow"></span></th>
+ </tr></thead>
+ <tbody id="tbody"></tbody>
+</table>
+</div>
+
+<script>
+const BUCKETS = {{ buckets|safe }};
+const NEUROGOLF7300 = Object.fromEntries(BUCKETS.filter(b=>b.neurogolf7300!=null).map(b=>[b.label, b.neurogolf7300]));
+let COMPARE = {...NEUROGOLF7300};   // label -> value; defaults to neurogolf7300, paste overrides
+let SORTKEY = 'delta', SORTDIR = -1;
+
+function parsePaste(text){
+  const out = {};
+  const lines = text.split(/\r?\n/);
+  const re = /(\d{3}\s*-\s*\d{3})\D+([\d.]+)/;
+  for(const line of lines){
+    const m = line.match(re);
+    if(!m) continue;
+    const label = m[1].replace(/\s+/g,'');
+    const val = parseFloat(m[2]);
+    if(!isNaN(val)) out[label] = val;
+  }
+  return out;
+}
+
+function applyPaste(){
+  const text = document.getElementById('pasteArea').value;
+  COMPARE = parsePaste(text);
+  const n = Object.keys(COMPARE).length;
+  document.getElementById('parseNote').textContent = n ? `parsed ${n} buckets` : 'no buckets recognized, check the format';
+  document.getElementById('compareLabel').textContent = n ? 'pasted table' : 'neurogolf7300 (auto)';
+  document.getElementById('theirsHeader').firstChild.textContent = n ? 'pasted' : 'neurogolf7300';
+  if(!n) COMPARE = {...NEUROGOLF7300};
+  render();
+}
+function clearPaste(){
+  document.getElementById('pasteArea').value = '';
+  COMPARE = {...NEUROGOLF7300};
+  document.getElementById('parseNote').textContent = '';
+  document.getElementById('compareLabel').textContent = 'neurogolf7300 (auto)';
+  document.getElementById('theirsHeader').firstChild.textContent = 'neurogolf7300';
+  render();
+}
+
+function fmt(v){ return v==null ? '—' : v.toFixed(2); }
+
+function render(){
+  document.querySelectorAll('thead th').forEach(th=>{
+    th.classList.toggle('sorted', th.dataset.k===SORTKEY);
+    const ar = th.querySelector('.arrow');
+    ar.textContent = th.dataset.k===SORTKEY ? (SORTDIR>0?'▲':'▼') : '';
+  });
+  let rows = BUCKETS.map(b=>{
+    const theirs = COMPARE[b.label];
+    // delta = compare - ours: POSITIVE means the comparison beats us here (an opportunity to close)
+    const delta = (theirs!=null) ? Math.round((theirs - b.sum)*100)/100 : null;
+    return {label:b.label, sum:b.sum, theirs:theirs, delta:delta};
+  });
+  rows.sort((a,b)=>{
+    let av=a[SORTKEY], bv=b[SORTKEY];
+    if(SORTKEY==='label') return SORTDIR*av.localeCompare(bv);
+    av = av==null ? -Infinity : av; bv = bv==null ? -Infinity : bv;
+    return SORTDIR*(av-bv);
+  });
+  const maxAbsDelta = Math.max(1, ...rows.map(r=>Math.abs(r.delta||0)));
+  document.getElementById('tbody').innerHTML = rows.map(r=>{
+    // pos (green) = compare beats us (opportunity); neg (red) = we're already ahead here
+    const dCls = r.delta==null ? 'zero' : (r.delta>0?'pos':(r.delta<0?'neg':'zero'));
+    const barPct = Math.min(100, Math.abs(r.delta||0)/maxAbsDelta*100);
+    const barCls = (r.delta||0) > 0 ? 'pos' : 'neg';
+    const isOpportunity = r.delta!=null && rows.filter(x=>x.delta!=null).sort((a,b)=>b.delta-a.delta).slice(0,5).includes(r) && r.delta > 0;
+    return `<tr>
+      <td>${r.label}</td>
+      <td class="num">${fmt(r.sum)}</td>
+      <td class="num">${r.theirs!=null ? fmt(r.theirs) : '—'}</td>
+      <td class="num delta ${dCls}">${r.delta==null?'—':(r.delta>0?'+':'')+fmt(r.delta)}
+        ${r.delta!=null ? `<span class="bar"><i class="${barCls}" style="width:${barPct}%"></i></span>` : ''}
+        ${isOpportunity ? '<span class="worstflag">check this</span>' : ''}
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+document.querySelectorAll('thead th').forEach(th=>{
+  th.addEventListener('click', ()=>{
+    const k = th.dataset.k;
+    if(SORTKEY===k) SORTDIR*=-1; else { SORTKEY=k; SORTDIR = (k==='label')?1:-1; }
+    render();
+  });
+});
+
+render();
+</script>
+</body></html>
