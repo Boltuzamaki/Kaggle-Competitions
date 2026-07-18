@@ -1,0 +1,8 @@
+flask==3.0.3
+numpy
+onnx==1.22.0
+onnxruntime==1.27.0
+onnx-tool==1.0.1
+matplotlib
+ipython
+kaggle

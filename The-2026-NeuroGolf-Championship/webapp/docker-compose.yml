@@ -1,0 +1,16 @@
+services:
+  tracker:
+    build: .
+    container_name: neurogolf-tracker
+    ports:
+      - "5000:5000"
+    volumes:
+      # mount the whole competition project read/write so the app sees data/,
+      # baseline_v22/, repairs/ and can save your code + new onnx back to disk
+      - ..:/project
+      # mount your Kaggle credentials so the Submit button can upload
+      - C:/Users/chand/.kaggle:/root/.kaggle:ro
+    environment:
+      - PROJECT_DIR=/project
+      - KAGGLE_CONFIG_DIR=/root/.kaggle
+    restart: unless-stopped

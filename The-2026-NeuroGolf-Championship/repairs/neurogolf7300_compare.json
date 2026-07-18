@@ -1,0 +1,2402 @@
+{
+ "1": {
+  "our_pts": 19.344,
+  "their_pts": 19.753,
+  "their_status": "ok",
+  "delta": 0.409
+ },
+ "2": {
+  "our_pts": 15.433,
+  "their_pts": 15.433,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "3": {
+  "our_pts": 19.4393,
+  "their_pts": 19.4393,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "4": {
+  "our_pts": 16.51,
+  "their_pts": 16.51,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "5": {
+  "our_pts": 16.2,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "6": {
+  "our_pts": 20.0947,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "7": {
+  "our_pts": 20.1558,
+  "their_pts": 20.1558,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "8": {
+  "our_pts": 17.0949,
+  "their_pts": 17.0832,
+  "their_status": "ok",
+  "delta": -0.0117
+ },
+ "9": {
+  "our_pts": 16.191,
+  "their_pts": 16.191,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "10": {
+  "our_pts": 18.0902,
+  "their_pts": 18.0902,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "11": {
+  "our_pts": 19.2379,
+  "their_pts": 19.2379,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "12": {
+  "our_pts": 17.2809,
+  "their_pts": 17.2809,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "13": {
+  "our_pts": 17.7388,
+  "their_pts": 17.7388,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "14": {
+  "our_pts": 16.682,
+  "their_pts": 16.682,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "15": {
+  "our_pts": 18.1976,
+  "their_pts": 18.1976,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "16": {
+  "our_pts": 22.6974,
+  "their_pts": 22.6974,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "17": {
+  "our_pts": 16.228,
+  "their_pts": 16.2277,
+  "their_status": "ok",
+  "delta": -0.0003
+ },
+ "18": {
+  "our_pts": 14.9,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "19": {
+  "our_pts": 17.1752,
+  "their_pts": 17.1748,
+  "their_status": "ok",
+  "delta": -0.0004
+ },
+ "20": {
+  "our_pts": 17.8643,
+  "their_pts": 18.0734,
+  "their_status": "ok",
+  "delta": 0.2091
+ },
+ "21": {
+  "our_pts": 19.2193,
+  "their_pts": 19.8239,
+  "their_status": "ok",
+  "delta": 0.6046
+ },
+ "22": {
+  "our_pts": 18.1976,
+  "their_pts": 18.1976,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "23": {
+  "our_pts": 16.1739,
+  "their_pts": 15.9854,
+  "their_status": "ok",
+  "delta": -0.1885
+ },
+ "24": {
+  "our_pts": 20.2995,
+  "their_pts": 20.9746,
+  "their_status": "ok",
+  "delta": 0.6751
+ },
+ "25": {
+  "our_pts": 15.7663,
+  "their_pts": 15.7663,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "26": {
+  "our_pts": 19.7017,
+  "their_pts": 19.7017,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "27": {
+  "our_pts": 17.8237,
+  "their_pts": 18.131,
+  "their_status": "ok",
+  "delta": 0.3072
+ },
+ "28": {
+  "our_pts": 19.876,
+  "their_pts": 20.4049,
+  "their_status": "ok",
+  "delta": 0.5288
+ },
+ "29": {
+  "our_pts": 16.4268,
+  "their_pts": 16.4268,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "30": {
+  "our_pts": 17.5028,
+  "their_pts": 17.7138,
+  "their_status": "ok",
+  "delta": 0.211
+ },
+ "31": {
+  "our_pts": 18.7481,
+  "their_pts": 18.5432,
+  "their_status": "ok",
+  "delta": -0.2049
+ },
+ "32": {
+  "our_pts": 18.9887,
+  "their_pts": 18.1866,
+  "their_status": "ok",
+  "delta": -0.8022
+ },
+ "33": {
+  "our_pts": 18.1114,
+  "their_pts": 19.409,
+  "their_status": "ok",
+  "delta": 1.2976
+ },
+ "34": {
+  "our_pts": 18.5307,
+  "their_pts": 17.8345,
+  "their_status": "ok",
+  "delta": -0.6962
+ },
+ "35": {
+  "our_pts": 17.4551,
+  "their_pts": 17.4478,
+  "their_status": "ok",
+  "delta": -0.0074
+ },
+ "36": {
+  "our_pts": 18.6098,
+  "their_pts": 18.0425,
+  "their_status": "ok",
+  "delta": -0.5673
+ },
+ "37": {
+  "our_pts": 17.1901,
+  "their_pts": 17.211,
+  "their_status": "ok",
+  "delta": 0.0209
+ },
+ "38": {
+  "our_pts": 19.6387,
+  "their_pts": 19.6387,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "39": {
+  "our_pts": 18.8841,
+  "their_pts": 18.8841,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "40": {
+  "our_pts": 19.753,
+  "their_pts": 20.618,
+  "their_status": "ok",
+  "delta": 0.865
+ },
+ "41": {
+  "our_pts": 18.6883,
+  "their_pts": 18.8688,
+  "their_status": "ok",
+  "delta": 0.1805
+ },
+ "42": {
+  "our_pts": 17.9969,
+  "their_pts": 16.9576,
+  "their_status": "ok",
+  "delta": -1.0393
+ },
+ "43": {
+  "our_pts": 18.3242,
+  "their_pts": 20.9396,
+  "their_status": "ok",
+  "delta": 2.6154
+ },
+ "44": {
+  "our_pts": 17.3988,
+  "their_pts": 16.9254,
+  "their_status": "ok",
+  "delta": -0.4734
+ },
+ "45": {
+  "our_pts": 17.77,
+  "their_pts": 20.5002,
+  "their_status": "ok",
+  "delta": 2.7302
+ },
+ "46": {
+  "our_pts": 17.36,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "47": {
+  "our_pts": 18.2407,
+  "their_pts": 18.2407,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "48": {
+  "our_pts": 18.3116,
+  "their_pts": 18.3116,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "49": {
+  "our_pts": 19.1565,
+  "their_pts": 19.1594,
+  "their_status": "ok",
+  "delta": 0.0029
+ },
+ "50": {
+  "our_pts": 16.7444,
+  "their_pts": 16.9936,
+  "their_status": "ok",
+  "delta": 0.2492
+ },
+ "51": {
+  "our_pts": 17.5361,
+  "their_pts": 17.5361,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "52": {
+  "our_pts": 19.7321,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 1.8667
+ },
+ "53": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "54": {
+  "our_pts": 14.8676,
+  "their_pts": 14.8676,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "55": {
+  "our_pts": 17.4738,
+  "their_pts": 17.4738,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "56": {
+  "our_pts": 21.4736,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.1252
+ },
+ "57": {
+  "our_pts": 18.4957,
+  "their_pts": 18.4957,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "58": {
+  "our_pts": 18.0598,
+  "their_pts": 19.6387,
+  "their_status": "ok",
+  "delta": 1.5789
+ },
+ "59": {
+  "our_pts": 18.6956,
+  "their_pts": 18.6974,
+  "their_status": "ok",
+  "delta": 0.0018
+ },
+ "60": {
+  "our_pts": 18.0823,
+  "their_pts": 20.1402,
+  "their_status": "ok",
+  "delta": 2.0579
+ },
+ "61": {
+  "our_pts": 17.5806,
+  "their_pts": 17.5806,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "62": {
+  "our_pts": 17.1664,
+  "their_pts": 17.1664,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "63": {
+  "our_pts": 17.5581,
+  "their_pts": 17.5581,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "64": {
+  "our_pts": 15.7461,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "65": {
+  "our_pts": 18.5417,
+  "their_pts": 18.6064,
+  "their_status": "ok",
+  "delta": 0.0647
+ },
+ "66": {
+  "our_pts": 15.7273,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "67": {
+  "our_pts": 25.0,
+  "their_pts": 25.0,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "68": {
+  "our_pts": 18.5655,
+  "their_pts": 18.5655,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "69": {
+  "our_pts": 17.0108,
+  "their_pts": 17.0108,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "70": {
+  "our_pts": 17.5723,
+  "their_pts": 17.5723,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "71": {
+  "our_pts": 17.1128,
+  "their_pts": 17.1128,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "72": {
+  "our_pts": 18.9574,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "73": {
+  "our_pts": 21.3111,
+  "their_pts": 21.8219,
+  "their_status": "ok",
+  "delta": 0.5108
+ },
+ "74": {
+  "our_pts": 15.9647,
+  "their_pts": 15.9647,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "75": {
+  "our_pts": 17.6955,
+  "their_pts": 18.6739,
+  "their_status": "ok",
+  "delta": 0.9784
+ },
+ "76": {
+  "our_pts": 15.5408,
+  "their_pts": 15.5408,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "77": {
+  "our_pts": 16.06,
+  "their_pts": 16.0566,
+  "their_status": "ok",
+  "delta": -0.0034
+ },
+ "78": {
+  "our_pts": 17.8353,
+  "their_pts": 20.5933,
+  "their_status": "ok",
+  "delta": 2.758
+ },
+ "79": {
+  "our_pts": 16.9563,
+  "their_pts": 18.3693,
+  "their_status": "ok",
+  "delta": 1.413
+ },
+ "80": {
+  "our_pts": 15.8663,
+  "their_pts": 15.8663,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "81": {
+  "our_pts": 18.8601,
+  "their_pts": 18.8601,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "82": {
+  "our_pts": 19.753,
+  "their_pts": 19.753,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "83": {
+  "our_pts": 19.6529,
+  "their_pts": 19.6529,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "84": {
+  "our_pts": 17.3966,
+  "their_pts": 18.9621,
+  "their_status": "ok",
+  "delta": 1.5655
+ },
+ "85": {
+  "our_pts": 17.1684,
+  "their_pts": 17.1684,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "86": {
+  "our_pts": 16.99,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "87": {
+  "our_pts": 23.3906,
+  "their_pts": 23.3906,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "88": {
+  "our_pts": 17.4652,
+  "their_pts": 17.4652,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "89": {
+  "our_pts": 16.1843,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "90": {
+  "our_pts": 16.9761,
+  "their_pts": 16.9755,
+  "their_status": "ok",
+  "delta": -0.0007
+ },
+ "91": {
+  "our_pts": 17.0756,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "92": {
+  "our_pts": 16.2123,
+  "their_pts": 16.2123,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "93": {
+  "our_pts": 16.8887,
+  "their_pts": 17.5878,
+  "their_status": "ok",
+  "delta": 0.6992
+ },
+ "94": {
+  "our_pts": 17.1075,
+  "their_pts": 17.1075,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "95": {
+  "our_pts": 19.1565,
+  "their_pts": 19.6625,
+  "their_status": "ok",
+  "delta": 0.506
+ },
+ "96": {
+  "our_pts": 16.0539,
+  "their_pts": 16.0539,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "97": {
+  "our_pts": 18.1866,
+  "their_pts": 18.1866,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "98": {
+  "our_pts": 18.1976,
+  "their_pts": 18.1976,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "99": {
+  "our_pts": 17.4509,
+  "their_pts": 18.7774,
+  "their_status": "ok",
+  "delta": 1.3265
+ },
+ "100": {
+  "our_pts": 19.1167,
+  "their_pts": 19.7905,
+  "their_status": "ok",
+  "delta": 0.6738
+ },
+ "101": {
+  "our_pts": 15.4976,
+  "their_pts": 15.474,
+  "their_status": "ok",
+  "delta": -0.0235
+ },
+ "102": {
+  "our_pts": 17.1652,
+  "their_pts": 17.1652,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "103": {
+  "our_pts": 20.9057,
+  "their_pts": 20.9057,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "104": {
+  "our_pts": 19.5277,
+  "their_pts": 20.2293,
+  "their_status": "ok",
+  "delta": 0.7016
+ },
+ "105": {
+  "our_pts": 17.0453,
+  "their_pts": 17.709,
+  "their_status": "ok",
+  "delta": 0.6637
+ },
+ "106": {
+  "our_pts": 18.5606,
+  "their_pts": 18.5606,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "107": {
+  "our_pts": 16.818,
+  "their_pts": 16.818,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "108": {
+  "our_pts": 19.2962,
+  "their_pts": 19.9894,
+  "their_status": "ok",
+  "delta": 0.6931
+ },
+ "109": {
+  "our_pts": 17.5951,
+  "their_pts": 17.5945,
+  "their_status": "ok",
+  "delta": -0.0006
+ },
+ "110": {
+  "our_pts": 15.7575,
+  "their_pts": 15.7575,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "111": {
+  "our_pts": 19.2667,
+  "their_pts": 19.2667,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "112": {
+  "our_pts": 17.5224,
+  "their_pts": 17.5224,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "113": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "114": {
+  "our_pts": 18.1976,
+  "their_pts": 19.4745,
+  "their_status": "ok",
+  "delta": 1.2769
+ },
+ "115": {
+  "our_pts": 18.0783,
+  "their_pts": 18.0783,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "116": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "117": {
+  "our_pts": 16.7586,
+  "their_pts": 16.7586,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "118": {
+  "our_pts": 15.59,
+  "their_pts": 15.929,
+  "their_status": "ok",
+  "delta": 0.339
+ },
+ "119": {
+  "our_pts": 17.7826,
+  "their_pts": 17.7826,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "120": {
+  "our_pts": 18.1866,
+  "their_pts": 18.1866,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "121": {
+  "our_pts": 19.2131,
+  "their_pts": 19.2131,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "122": {
+  "our_pts": 18.303,
+  "their_pts": 18.3116,
+  "their_status": "ok",
+  "delta": 0.0087
+ },
+ "123": {
+  "our_pts": 17.7981,
+  "their_pts": 17.7981,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "124": {
+  "our_pts": 17.4229,
+  "their_pts": 17.4229,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "125": {
+  "our_pts": 16.8501,
+  "their_pts": 16.8501,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "126": {
+  "our_pts": 18.5948,
+  "their_pts": 18.5948,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "127": {
+  "our_pts": 19.02,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "128": {
+  "our_pts": 20.0873,
+  "their_pts": 20.0873,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "129": {
+  "our_pts": 20.618,
+  "their_pts": 20.618,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "130": {
+  "our_pts": 21.5988,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "131": {
+  "our_pts": 16.738,
+  "their_pts": 16.738,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "132": {
+  "our_pts": 16.8011,
+  "their_pts": 17.8611,
+  "their_status": "ok",
+  "delta": 1.06
+ },
+ "133": {
+  "our_pts": 15.0348,
+  "their_pts": 15.0348,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "134": {
+  "our_pts": 17.6676,
+  "their_pts": 17.6676,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "135": {
+  "our_pts": 19.71,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "136": {
+  "our_pts": 17.9149,
+  "their_pts": 17.9149,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "137": {
+  "our_pts": 16.8717,
+  "their_pts": 16.8717,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "138": {
+  "our_pts": 15.6038,
+  "their_pts": 15.6038,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "139": {
+  "our_pts": 18.1932,
+  "their_pts": 19.0364,
+  "their_status": "ok",
+  "delta": 0.8433
+ },
+ "140": {
+  "our_pts": 23.3906,
+  "their_pts": 23.3906,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "141": {
+  "our_pts": 17.768,
+  "their_pts": 17.768,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "142": {
+  "our_pts": 20.5002,
+  "their_pts": 20.5002,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "143": {
+  "our_pts": 18.2702,
+  "their_pts": 18.3458,
+  "their_status": "ok",
+  "delta": 0.0757
+ },
+ "144": {
+  "our_pts": 20.3556,
+  "their_pts": 20.3948,
+  "their_status": "ok",
+  "delta": 0.0392
+ },
+ "145": {
+  "our_pts": 15.5385,
+  "their_pts": 15.5385,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "146": {
+  "our_pts": 19.42,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "147": {
+  "our_pts": 18.7234,
+  "their_pts": 18.7234,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "148": {
+  "our_pts": 16.5057,
+  "their_pts": 16.5057,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "149": {
+  "our_pts": 20.09,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "150": {
+  "our_pts": 20.0727,
+  "their_pts": 20.0947,
+  "their_status": "ok",
+  "delta": 0.022
+ },
+ "151": {
+  "our_pts": 18.1976,
+  "their_pts": 18.1976,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "152": {
+  "our_pts": 20.5002,
+  "their_pts": 20.9057,
+  "their_status": "ok",
+  "delta": 0.4055
+ },
+ "153": {
+  "our_pts": 18.3242,
+  "their_pts": 18.3242,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "154": {
+  "our_pts": 17.1068,
+  "their_pts": 17.1068,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "155": {
+  "our_pts": 20.0727,
+  "their_pts": 20.0727,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "156": {
+  "our_pts": 17.6469,
+  "their_pts": 17.7796,
+  "their_status": "ok",
+  "delta": 0.1327
+ },
+ "157": {
+  "our_pts": 16.1725,
+  "their_pts": 16.6962,
+  "their_status": "ok",
+  "delta": 0.5237
+ },
+ "158": {
+  "our_pts": 14.75,
+  "their_pts": 15.1712,
+  "their_status": "ok",
+  "delta": 0.4212
+ },
+ "159": {
+  "our_pts": 17.6424,
+  "their_pts": 17.6424,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "160": {
+  "our_pts": 17.8041,
+  "their_pts": 17.8041,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "161": {
+  "our_pts": 17.5,
+  "their_pts": 19.3832,
+  "their_status": "ok",
+  "delta": 1.8832
+ },
+ "162": {
+  "our_pts": 16.84,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "163": {
+  "our_pts": 17.5095,
+  "their_pts": 19.2634,
+  "their_status": "ok",
+  "delta": 1.754
+ },
+ "164": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "165": {
+  "our_pts": 16.5811,
+  "their_pts": 16.5811,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "166": {
+  "our_pts": 21.8219,
+  "their_pts": 21.8219,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "167": {
+  "our_pts": 20.0164,
+  "their_pts": 20.6825,
+  "their_status": "ok",
+  "delta": 0.6661
+ },
+ "168": {
+  "our_pts": 17.2871,
+  "their_pts": 17.2871,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "169": {
+  "our_pts": 17.5794,
+  "their_pts": 17.5794,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "170": {
+  "our_pts": 17.3385,
+  "their_pts": 17.3385,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "171": {
+  "our_pts": 18.37,
+  "their_pts": 18.9741,
+  "their_status": "ok",
+  "delta": 0.6041
+ },
+ "172": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "173": {
+  "our_pts": 15.498259476203625,
+  "their_pts": null,
+  "their_status": "missing",
+  "delta": null
+ },
+ "174": {
+  "our_pts": 16.7,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "175": {
+  "our_pts": 17.8651,
+  "their_pts": 17.8651,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "176": {
+  "our_pts": 19.6529,
+  "their_pts": 19.6529,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "177": {
+  "our_pts": 16.9139,
+  "their_pts": 16.9139,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "178": {
+  "our_pts": 18.3786,
+  "their_pts": 18.3641,
+  "their_status": "ok",
+  "delta": -0.0145
+ },
+ "179": {
+  "our_pts": 25.0,
+  "their_pts": 25.0,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "180": {
+  "our_pts": 19.6529,
+  "their_pts": 19.6529,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "181": {
+  "our_pts": 19.0919,
+  "their_pts": 19.0919,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "182": {
+  "our_pts": 16.2848,
+  "their_pts": 16.2848,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "183": {
+  "our_pts": 18.0685,
+  "their_pts": 18.3154,
+  "their_status": "ok",
+  "delta": 0.2469
+ },
+ "184": {
+  "our_pts": 17.3798,
+  "their_pts": 17.3798,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "185": {
+  "our_pts": 17.4219,
+  "their_pts": 17.4219,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "186": {
+  "our_pts": 20.3653,
+  "their_pts": 20.3653,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "187": {
+  "our_pts": 15.3329,
+  "their_pts": 15.3329,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "188": {
+  "our_pts": 18.3614,
+  "their_pts": 20.2726,
+  "their_status": "ok",
+  "delta": 1.9112
+ },
+ "189": {
+  "our_pts": 18.2065,
+  "their_pts": 18.2065,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "190": {
+  "our_pts": 17.206,
+  "their_pts": 17.5878,
+  "their_status": "ok",
+  "delta": 0.3818
+ },
+ "191": {
+  "our_pts": 15.9658,
+  "their_pts": 15.6869,
+  "their_status": "ok",
+  "delta": -0.2789
+ },
+ "192": {
+  "our_pts": 16.4159,
+  "their_pts": 16.4159,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "193": {
+  "our_pts": 18.1866,
+  "their_pts": 18.1866,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "194": {
+  "our_pts": 18.1446,
+  "their_pts": 18.1446,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "195": {
+  "our_pts": 18.1745,
+  "their_pts": 19.177,
+  "their_status": "ok",
+  "delta": 1.0024
+ },
+ "196": {
+  "our_pts": 16.5802,
+  "their_pts": 16.5802,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "197": {
+  "our_pts": 20.0302,
+  "their_pts": 17.9603,
+  "their_status": "ok",
+  "delta": -2.0698
+ },
+ "198": {
+  "our_pts": 15.8607,
+  "their_pts": 16.0226,
+  "their_status": "ok",
+  "delta": 0.1619
+ },
+ "199": {
+  "our_pts": 17.4918,
+  "their_pts": 18.191,
+  "their_status": "ok",
+  "delta": 0.6992
+ },
+ "200": {
+  "our_pts": 18.57,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "201": {
+  "our_pts": 16.9784,
+  "their_pts": 16.9784,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "202": {
+  "our_pts": 16.5924,
+  "their_pts": 17.3877,
+  "their_status": "ok",
+  "delta": 0.7953
+ },
+ "203": {
+  "our_pts": 19.1279,
+  "their_pts": 19.6247,
+  "their_status": "ok",
+  "delta": 0.4968
+ },
+ "204": {
+  "our_pts": 15.7817,
+  "their_pts": 15.7667,
+  "their_status": "ok",
+  "delta": -0.015
+ },
+ "205": {
+  "our_pts": 16.5048,
+  "their_pts": 17.358,
+  "their_status": "ok",
+  "delta": 0.8531
+ },
+ "206": {
+  "our_pts": 17.5139,
+  "their_pts": 17.5139,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "207": {
+  "our_pts": 19.5362,
+  "their_pts": 20.2638,
+  "their_status": "ok",
+  "delta": 0.7276
+ },
+ "208": {
+  "our_pts": 16.6617,
+  "their_pts": 16.6617,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "209": {
+  "our_pts": 16.0413,
+  "their_pts": 16.0629,
+  "their_status": "ok",
+  "delta": 0.0216
+ },
+ "210": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "211": {
+  "our_pts": 19.4016,
+  "their_pts": 20.1637,
+  "their_status": "ok",
+  "delta": 0.7621
+ },
+ "212": {
+  "our_pts": 17.2818,
+  "their_pts": 18.979,
+  "their_status": "ok",
+  "delta": 1.6972
+ },
+ "213": {
+  "our_pts": 17.4771,
+  "their_pts": 17.4771,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "214": {
+  "our_pts": 18.7366,
+  "their_pts": 18.7366,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "215": {
+  "our_pts": 18.5559,
+  "their_pts": 18.5559,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "216": {
+  "our_pts": 15.919,
+  "their_pts": 15.919,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "217": {
+  "our_pts": 17.707,
+  "their_pts": 17.707,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "218": {
+  "our_pts": 18.5339,
+  "their_pts": 18.5246,
+  "their_status": "ok",
+  "delta": -0.0093
+ },
+ "219": {
+  "our_pts": 15.9272,
+  "their_pts": 15.9272,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "220": {
+  "our_pts": 18.1976,
+  "their_pts": 18.9201,
+  "their_status": "ok",
+  "delta": 0.7225
+ },
+ "221": {
+  "our_pts": 18.3104,
+  "their_pts": 18.3092,
+  "their_status": "ok",
+  "delta": -0.0012
+ },
+ "222": {
+  "our_pts": 17.0868,
+  "their_pts": 17.0868,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "223": {
+  "our_pts": 23.3906,
+  "their_pts": 23.3906,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "224": {
+  "our_pts": 17.4578,
+  "their_pts": 17.6527,
+  "their_status": "ok",
+  "delta": 0.1949
+ },
+ "225": {
+  "our_pts": 18.0617,
+  "their_pts": 19.1056,
+  "their_status": "ok",
+  "delta": 1.0439
+ },
+ "226": {
+  "our_pts": 17.6644,
+  "their_pts": 17.6644,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "227": {
+  "our_pts": 20.3948,
+  "their_pts": 20.3948,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "228": {
+  "our_pts": 18.131,
+  "their_pts": 18.131,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "229": {
+  "our_pts": 19.7017,
+  "their_pts": 19.807,
+  "their_status": "ok",
+  "delta": 0.1054
+ },
+ "230": {
+  "our_pts": 18.1976,
+  "their_pts": 18.1976,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "231": {
+  "our_pts": 19.6109,
+  "their_pts": 19.876,
+  "their_status": "ok",
+  "delta": 0.2651
+ },
+ "232": {
+  "our_pts": 17.7487,
+  "their_pts": 17.7487,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "233": {
+  "our_pts": 14.6386,
+  "their_pts": 14.6262,
+  "their_status": "ok",
+  "delta": -0.0125
+ },
+ "234": {
+  "our_pts": 16.8401,
+  "their_pts": 16.8401,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "235": {
+  "our_pts": 20.14,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "236": {
+  "our_pts": 20.1637,
+  "their_pts": 20.1637,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "237": {
+  "our_pts": 17.4847,
+  "their_pts": 18.4138,
+  "their_status": "ok",
+  "delta": 0.9292
+ },
+ "238": {
+  "our_pts": 17.4321,
+  "their_pts": 17.4321,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "239": {
+  "our_pts": 18.1467,
+  "their_pts": 18.1467,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "240": {
+  "our_pts": 17.71,
+  "their_pts": 18.8515,
+  "their_status": "ok",
+  "delta": 1.1415
+ },
+ "241": {
+  "our_pts": 25.0,
+  "their_pts": 25.0,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "242": {
+  "our_pts": 18.9339,
+  "their_pts": 18.955,
+  "their_status": "ok",
+  "delta": 0.0211
+ },
+ "243": {
+  "our_pts": 15.7211,
+  "their_pts": 15.7211,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "244": {
+  "our_pts": 17.9276,
+  "their_pts": 18.8863,
+  "their_status": "ok",
+  "delta": 0.9587
+ },
+ "245": {
+  "our_pts": 17.1272,
+  "their_pts": 17.8322,
+  "their_status": "ok",
+  "delta": 0.705
+ },
+ "246": {
+  "our_pts": 17.3661,
+  "their_pts": 17.8501,
+  "their_status": "ok",
+  "delta": 0.4839
+ },
+ "247": {
+  "our_pts": 18.8666,
+  "their_pts": 18.8666,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "248": {
+  "our_pts": 19.9827,
+  "their_pts": 19.9827,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "249": {
+  "our_pts": 19.4355,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "250": {
+  "our_pts": 17.3394,
+  "their_pts": 17.3394,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "251": {
+  "our_pts": 16.5846,
+  "their_pts": 17.1128,
+  "their_status": "ok",
+  "delta": 0.5282
+ },
+ "252": {
+  "our_pts": 19.807,
+  "their_pts": 20.4357,
+  "their_status": "ok",
+  "delta": 0.6286
+ },
+ "253": {
+  "our_pts": 18.7854,
+  "their_pts": 19.0211,
+  "their_status": "ok",
+  "delta": 0.2357
+ },
+ "254": {
+  "our_pts": 18.4677,
+  "their_pts": 19.4627,
+  "their_status": "ok",
+  "delta": 0.995
+ },
+ "255": {
+  "our_pts": 15.905,
+  "their_pts": 16.3045,
+  "their_status": "ok",
+  "delta": 0.3995
+ },
+ "256": {
+  "our_pts": 17.3437,
+  "their_pts": 17.3437,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "257": {
+  "our_pts": 19.0085,
+  "their_pts": 20.2638,
+  "their_status": "ok",
+  "delta": 1.2553
+ },
+ "258": {
+  "our_pts": 19.9248,
+  "their_pts": 19.9894,
+  "their_status": "ok",
+  "delta": 0.0645
+ },
+ "259": {
+  "our_pts": 18.2065,
+  "their_pts": 18.2065,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "260": {
+  "our_pts": 17.6393,
+  "their_pts": 17.6393,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "261": {
+  "our_pts": 19.7017,
+  "their_pts": 19.7017,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "262": {
+  "our_pts": 20.3366,
+  "their_pts": 20.6959,
+  "their_status": "ok",
+  "delta": 0.3594
+ },
+ "263": {
+  "our_pts": 18.4927,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "264": {
+  "our_pts": 17.2468,
+  "their_pts": 17.2468,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "265": {
+  "our_pts": 16.6205,
+  "their_pts": 16.6205,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "266": {
+  "our_pts": 19.26,
+  "their_pts": 19.8352,
+  "their_status": "ok",
+  "delta": 0.5752
+ },
+ "267": {
+  "our_pts": 18.3706,
+  "their_pts": 18.3693,
+  "their_status": "ok",
+  "delta": -0.0013
+ },
+ "268": {
+  "our_pts": 16.9963,
+  "their_pts": 16.996,
+  "their_status": "ok",
+  "delta": -0.0003
+ },
+ "269": {
+  "our_pts": 18.4361,
+  "their_pts": 18.4361,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "270": {
+  "our_pts": 17.0421,
+  "their_pts": 17.0421,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "271": {
+  "our_pts": 17.9208,
+  "their_pts": 17.9208,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "272": {
+  "our_pts": 19.0035,
+  "their_pts": 20.0028,
+  "their_status": "ok",
+  "delta": 0.9992
+ },
+ "273": {
+  "our_pts": 17.3857,
+  "their_pts": 18.637,
+  "their_status": "ok",
+  "delta": 1.2513
+ },
+ "274": {
+  "our_pts": 19.8352,
+  "their_pts": 19.8352,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "275": {
+  "our_pts": 17.7877,
+  "their_pts": 17.7877,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "276": {
+  "our_pts": 22.6974,
+  "their_pts": 22.6974,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "277": {
+  "our_pts": 16.8281,
+  "their_pts": 16.889,
+  "their_status": "ok",
+  "delta": 0.0609
+ },
+ "278": {
+  "our_pts": 16.59,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "279": {
+  "our_pts": 16.3792,
+  "their_pts": 16.3792,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "280": {
+  "our_pts": 16.5681,
+  "their_pts": 16.5681,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "281": {
+  "our_pts": 17.8078,
+  "their_pts": 17.8078,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "282": {
+  "our_pts": 18.8997,
+  "their_pts": 18.8997,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "283": {
+  "our_pts": 18.5354,
+  "their_pts": 18.5354,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "284": {
+  "our_pts": 16.9644,
+  "their_pts": 17.1756,
+  "their_status": "ok",
+  "delta": 0.2112
+ },
+ "285": {
+  "our_pts": 15.1651,
+  "their_pts": 15.1651,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "286": {
+  "our_pts": 14.7998,
+  "their_pts": 14.7998,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "287": {
+  "our_pts": 18.1866,
+  "their_pts": 19.753,
+  "their_status": "ok",
+  "delta": 1.5664
+ },
+ "288": {
+  "our_pts": 18.1352,
+  "their_pts": 18.5559,
+  "their_status": "ok",
+  "delta": 0.4207
+ },
+ "289": {
+  "our_pts": 18.3907,
+  "their_pts": 18.3907,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "290": {
+  "our_pts": 19.1279,
+  "their_pts": 19.3546,
+  "their_status": "ok",
+  "delta": 0.2267
+ },
+ "291": {
+  "our_pts": 20.8103,
+  "their_pts": 21.3111,
+  "their_status": "ok",
+  "delta": 0.5008
+ },
+ "292": {
+  "our_pts": 20.618,
+  "their_pts": 20.618,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "293": {
+  "our_pts": 18.0501,
+  "their_pts": 21.3111,
+  "their_status": "ok",
+  "delta": 3.261
+ },
+ "294": {
+  "our_pts": 18.1866,
+  "their_pts": 18.6014,
+  "their_status": "ok",
+  "delta": 0.4148
+ },
+ "295": {
+  "our_pts": 17.6197,
+  "their_pts": 17.6197,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "296": {
+  "our_pts": 19.2506,
+  "their_pts": 20.5002,
+  "their_status": "ok",
+  "delta": 1.2496
+ },
+ "297": {
+  "our_pts": 17.7637,
+  "their_pts": 17.7637,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "298": {
+  "our_pts": 20.0947,
+  "their_pts": 20.9057,
+  "their_status": "ok",
+  "delta": 0.8109
+ },
+ "299": {
+  "our_pts": 21.088,
+  "their_pts": 21.088,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "300": {
+  "our_pts": 18.7347,
+  "their_pts": 18.7347,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "301": {
+  "our_pts": 17.9603,
+  "their_pts": 17.9603,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "302": {
+  "our_pts": 17.5196,
+  "their_pts": 17.519,
+  "their_status": "ok",
+  "delta": -0.0006
+ },
+ "303": {
+  "our_pts": 17.7207,
+  "their_pts": 17.7207,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "304": {
+  "our_pts": 19.0946,
+  "their_pts": 19.2962,
+  "their_status": "ok",
+  "delta": 0.2016
+ },
+ "305": {
+  "our_pts": 18.5448,
+  "their_pts": 18.5448,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "306": {
+  "our_pts": 19.2962,
+  "their_pts": 19.6064,
+  "their_status": "ok",
+  "delta": 0.3102
+ },
+ "307": {
+  "our_pts": 23.3906,
+  "their_pts": 23.3906,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "308": {
+  "our_pts": 17.7083,
+  "their_pts": 17.7083,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "309": {
+  "our_pts": 22.6974,
+  "their_pts": 22.6974,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "310": {
+  "our_pts": 16.9341,
+  "their_pts": 18.6148,
+  "their_status": "ok",
+  "delta": 1.6807
+ },
+ "311": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "312": {
+  "our_pts": 22.0043,
+  "their_pts": 22.0043,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "313": {
+  "our_pts": 19.7636,
+  "their_pts": 19.8409,
+  "their_status": "ok",
+  "delta": 0.0774
+ },
+ "314": {
+  "our_pts": 20.3948,
+  "their_pts": 20.3948,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "315": {
+  "our_pts": 19.5619,
+  "their_pts": 19.5619,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "316": {
+  "our_pts": 18.9456,
+  "their_pts": 18.9936,
+  "their_status": "ok",
+  "delta": 0.0481
+ },
+ "317": {
+  "our_pts": 20.0164,
+  "their_pts": 20.0164,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "318": {
+  "our_pts": 20.3948,
+  "their_pts": 20.3948,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "319": {
+  "our_pts": 16.3287,
+  "their_pts": 16.3287,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "320": {
+  "our_pts": 18.3536,
+  "their_pts": 18.3536,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "321": {
+  "our_pts": 19.2962,
+  "their_pts": 19.807,
+  "their_status": "ok",
+  "delta": 0.5108
+ },
+ "322": {
+  "our_pts": 19.7017,
+  "their_pts": 20.6959,
+  "their_status": "ok",
+  "delta": 0.9943
+ },
+ "323": {
+  "our_pts": 17.6037,
+  "their_pts": 17.6037,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "324": {
+  "our_pts": 15.936,
+  "their_pts": 15.936,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "325": {
+  "our_pts": 17.6982,
+  "their_pts": 17.6982,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "326": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "327": {
+  "our_pts": 18.5417,
+  "their_pts": 18.5417,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "328": {
+  "our_pts": 16.2511,
+  "their_pts": 16.2511,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "329": {
+  "our_pts": 18.0435,
+  "their_pts": 18.0435,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "330": {
+  "our_pts": 17.0537,
+  "their_pts": 17.3404,
+  "their_status": "ok",
+  "delta": 0.2866
+ },
+ "331": {
+  "our_pts": 18.1866,
+  "their_pts": 18.7854,
+  "their_status": "ok",
+  "delta": 0.5988
+ },
+ "332": {
+  "our_pts": 18.6703,
+  "their_pts": 20.618,
+  "their_status": "ok",
+  "delta": 1.9477
+ },
+ "333": {
+  "our_pts": 17.2164,
+  "their_pts": 17.2164,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "334": {
+  "our_pts": 19.7321,
+  "their_pts": 20.5573,
+  "their_status": "ok",
+  "delta": 0.8252
+ },
+ "335": {
+  "our_pts": 17.7702,
+  "their_pts": 18.0823,
+  "their_status": "ok",
+  "delta": 0.3121
+ },
+ "336": {
+  "our_pts": 17.4934,
+  "their_pts": null,
+  "their_status": "wrong-output",
+  "delta": null
+ },
+ "337": {
+  "our_pts": 22.6974,
+  "their_pts": 22.6974,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "338": {
+  "our_pts": 15.9121,
+  "their_pts": 15.9121,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "339": {
+  "our_pts": 20.0584,
+  "their_pts": 20.0584,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "340": {
+  "our_pts": 16.8673,
+  "their_pts": 16.8673,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "341": {
+  "our_pts": 17.7374,
+  "their_pts": 17.7367,
+  "their_status": "ok",
+  "delta": -0.0007
+ },
+ "342": {
+  "our_pts": 18.0227,
+  "their_pts": 18.5849,
+  "their_status": "ok",
+  "delta": 0.5622
+ },
+ "343": {
+  "our_pts": 17.6618,
+  "their_pts": 17.6611,
+  "their_status": "ok",
+  "delta": -0.0006
+ },
+ "344": {
+  "our_pts": 18.1866,
+  "their_pts": 18.4604,
+  "their_status": "ok",
+  "delta": 0.2739
+ },
+ "345": {
+  "our_pts": 17.6901,
+  "their_pts": 17.9879,
+  "their_status": "ok",
+  "delta": 0.2978
+ },
+ "346": {
+  "our_pts": 17.8659,
+  "their_pts": 17.8659,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "347": {
+  "our_pts": 20.0372,
+  "their_pts": null,
+  "their_status": "wrong-output",
+  "delta": null
+ },
+ "348": {
+  "our_pts": 17.5581,
+  "their_pts": 18.523,
+  "their_status": "ok",
+  "delta": 0.9649
+ },
+ "349": {
+  "our_pts": 15.5636,
+  "their_pts": 15.3914,
+  "their_status": "ok",
+  "delta": -0.1721
+ },
+ "350": {
+  "our_pts": 15.891,
+  "their_pts": 18.9409,
+  "their_status": "ok",
+  "delta": 3.0498
+ },
+ "351": {
+  "our_pts": 17.886,
+  "their_pts": 18.0973,
+  "their_status": "ok",
+  "delta": 0.2112
+ },
+ "352": {
+  "our_pts": 18.8688,
+  "their_pts": 18.8688,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "353": {
+  "our_pts": 19.5028,
+  "their_pts": 19.5028,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "354": {
+  "our_pts": 17.3,
+  "their_pts": 17.3676,
+  "their_status": "ok",
+  "delta": 0.0676
+ },
+ "355": {
+  "our_pts": 18.7103,
+  "their_pts": 19.3869,
+  "their_status": "ok",
+  "delta": 0.6766
+ },
+ "356": {
+  "our_pts": 17.8154,
+  "their_pts": 17.8934,
+  "their_status": "ok",
+  "delta": 0.078
+ },
+ "357": {
+  "our_pts": 19.3267,
+  "their_pts": 19.3688,
+  "their_status": "ok",
+  "delta": 0.0421
+ },
+ "358": {
+  "our_pts": 16.7578,
+  "their_pts": 17.1429,
+  "their_status": "ok",
+  "delta": 0.3851
+ },
+ "359": {
+  "our_pts": 16.6374,
+  "their_pts": 16.6374,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "360": {
+  "our_pts": 19.1711,
+  "their_pts": 19.1711,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "361": {
+  "our_pts": 16.5651,
+  "their_pts": 16.5649,
+  "their_status": "ok",
+  "delta": -0.0002
+ },
+ "362": {
+  "our_pts": 18.7442,
+  "their_pts": 20.2042,
+  "their_status": "ok",
+  "delta": 1.46
+ },
+ "363": {
+  "our_pts": 16.6402,
+  "their_pts": 16.6374,
+  "their_status": "ok",
+  "delta": -0.0028
+ },
+ "364": {
+  "our_pts": 15.41,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "365": {
+  "our_pts": 16.9538,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "366": {
+  "our_pts": 14.6858,
+  "their_pts": 14.6858,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "367": {
+  "our_pts": 15.7444,
+  "their_pts": 15.4585,
+  "their_status": "ok",
+  "delta": -0.2859
+ },
+ "368": {
+  "our_pts": 16.8141,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "369": {
+  "our_pts": 17.7608,
+  "their_pts": 18.2292,
+  "their_status": "ok",
+  "delta": 0.4684
+ },
+ "370": {
+  "our_pts": 16.2055,
+  "their_pts": 16.8094,
+  "their_status": "ok",
+  "delta": 0.6039
+ },
+ "371": {
+  "our_pts": 19.5619,
+  "their_pts": 18.8537,
+  "their_status": "ok",
+  "delta": -0.7082
+ },
+ "372": {
+  "our_pts": 19.1139,
+  "their_pts": 18.4347,
+  "their_status": "ok",
+  "delta": -0.6792
+ },
+ "373": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "374": {
+  "our_pts": 17.8306,
+  "their_pts": 17.6762,
+  "their_status": "ok",
+  "delta": -0.1545
+ },
+ "375": {
+  "our_pts": 19.575,
+  "their_pts": 19.21,
+  "their_status": "ok",
+  "delta": -0.365
+ },
+ "376": {
+  "our_pts": 19.7743,
+  "their_pts": 19.7743,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "377": {
+  "our_pts": 16.5734,
+  "their_pts": 17.5435,
+  "their_status": "ok",
+  "delta": 0.9702
+ },
+ "378": {
+  "our_pts": 16.9638,
+  "their_pts": 17.4091,
+  "their_status": "ok",
+  "delta": 0.4454
+ },
+ "379": {
+  "our_pts": 16.0467,
+  "their_pts": 16.1734,
+  "their_status": "ok",
+  "delta": 0.1267
+ },
+ "380": {
+  "our_pts": 20.4049,
+  "their_pts": 20.4049,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "381": {
+  "our_pts": 17.5315,
+  "their_pts": 17.5309,
+  "their_status": "ok",
+  "delta": -0.0006
+ },
+ "382": {
+  "our_pts": 16.3527,
+  "their_pts": 16.6557,
+  "their_status": "ok",
+  "delta": 0.3031
+ },
+ "383": {
+  "our_pts": 16.3292,
+  "their_pts": 16.8055,
+  "their_status": "ok",
+  "delta": 0.4763
+ },
+ "384": {
+  "our_pts": 18.83,
+  "their_pts": null,
+  "their_status": "negative-pads-checker-only",
+  "delta": null
+ },
+ "385": {
+  "our_pts": 21.5988,
+  "their_pts": 21.5988,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "386": {
+  "our_pts": 19.6481,
+  "their_pts": 19.6481,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "387": {
+  "our_pts": 16.6232,
+  "their_pts": 16.6232,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "388": {
+  "our_pts": 17.4885,
+  "their_pts": 17.9951,
+  "their_status": "ok",
+  "delta": 0.5066
+ },
+ "389": {
+  "our_pts": 20.1325,
+  "their_pts": 20.9927,
+  "their_status": "ok",
+  "delta": 0.8602
+ },
+ "390": {
+  "our_pts": 17.0994,
+  "their_pts": 17.0994,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "391": {
+  "our_pts": 19.9311,
+  "their_pts": 19.9311,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "392": {
+  "our_pts": 17.429,
+  "their_pts": 17.9361,
+  "their_status": "ok",
+  "delta": 0.5071
+ },
+ "393": {
+  "our_pts": 20.0302,
+  "their_pts": 20.2378,
+  "their_status": "ok",
+  "delta": 0.2076
+ },
+ "394": {
+  "our_pts": 18.4838,
+  "their_pts": 18.7481,
+  "their_status": "ok",
+  "delta": 0.2643
+ },
+ "395": {
+  "our_pts": 19.8941,
+  "their_pts": 19.8941,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "396": {
+  "our_pts": 16.8219,
+  "their_pts": 16.8219,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "397": {
+  "our_pts": 17.0799,
+  "their_pts": 17.0799,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "398": {
+  "our_pts": 17.3052,
+  "their_pts": 17.3052,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "399": {
+  "our_pts": 20.9057,
+  "their_pts": 20.9057,
+  "their_status": "ok",
+  "delta": 0.0
+ },
+ "400": {
+  "our_pts": 17.9259,
+  "their_pts": 17.9259,
+  "their_status": "ok",
+  "delta": 0.0
+ }
+}

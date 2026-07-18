@@ -1,0 +1,1127 @@
+<title>ONNX From Scratch — Learned the Hard Way at NeuroGolf 2026</title>
+<style>
+  :root {
+    --paper: #f4f2ec;
+    --paper-raised: #ffffff;
+    --ink: #1b1e24;
+    --ink-soft: #4a4e58;
+    --ink-faint: #7c7f88;
+    --rule: #dcd8cc;
+    --rule-soft: #eae7dc;
+    --accent: #a8641c;
+    --accent-soft: #f0e0c8;
+    --accent-ink: #6e4212;
+    --teal: #2c6b68;
+    --teal-soft: #dbeae8;
+    --code-bg: #232019;
+    --code-ink: #ece7d9;
+    --code-key: #e0a050;
+    --code-str: #9dc189;
+    --code-com: #8b8577;
+    --danger: #a13e3e;
+    --danger-soft: #f5e2e0;
+    --good: #2f6b3e;
+    --good-soft: #e2ecdc;
+    --shadow: 0 1px 2px rgba(30,20,5,0.06), 0 8px 24px -12px rgba(30,20,5,0.18);
+    --radius: 10px;
+    --font-display: Iowan Old Style, Palatino Linotype, Palatino, Georgia, ui-serif, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "JetBrains Mono", "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  }
+  :root[data-theme="dark"] {
+    --paper: #16181d;
+    --paper-raised: #1d2026;
+    --ink: #ece9e0;
+    --ink-soft: #b7b3a8;
+    --ink-faint: #82807a;
+    --rule: #33353c;
+    --rule-soft: #262930;
+    --accent: #e0a050;
+    --accent-soft: #3a2f1c;
+    --accent-ink: #f0c284;
+    --teal: #6fc2bd;
+    --teal-soft: #1c3230;
+    --code-bg: #100f0c;
+    --code-ink: #ece7d9;
+    --code-key: #e0a050;
+    --code-str: #9dc189;
+    --code-com: #726d61;
+    --danger: #e08a8a;
+    --danger-soft: #3a2222;
+    --good: #8fc79c;
+    --good-soft: #1e3323;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #16181d;
+      --paper-raised: #1d2026;
+      --ink: #ece9e0;
+      --ink-soft: #b7b3a8;
+      --ink-faint: #82807a;
+      --rule: #33353c;
+      --rule-soft: #262930;
+      --accent: #e0a050;
+      --accent-soft: #3a2f1c;
+      --accent-ink: #f0c284;
+      --teal: #6fc2bd;
+      --teal-soft: #1c3230;
+      --code-bg: #100f0c;
+      --code-ink: #ece7d9;
+      --code-key: #e0a050;
+      --code-str: #9dc189;
+      --code-com: #726d61;
+      --danger: #e08a8a;
+      --danger-soft: #3a2222;
+      --good: #8fc79c;
+      --good-soft: #1e3323;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  ::selection { background: var(--accent-soft); }
+
+  a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--accent); }
+
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; color: var(--ink); }
+  code, pre, kbd { font-family: var(--font-mono); }
+
+  /* ---------- layout shell ---------- */
+  .shell {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  @media (max-width: 920px) {
+    .shell { display: block; }
+    .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--rule); }
+  }
+
+  .sidebar {
+    position: sticky; top: 0; align-self: start;
+    height: 100vh; overflow-y: auto;
+    padding: 28px 20px 40px;
+    border-right: 1px solid var(--rule);
+  }
+  .sidebar::-webkit-scrollbar { width: 8px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
+
+  .brand {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0 0 2px;
+  }
+  .brand span { color: var(--accent); }
+  .brand-sub {
+    font-size: 0.78rem; color: var(--ink-faint); margin: 0 0 22px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  nav.toc { display: flex; flex-direction: column; gap: 2px; }
+  nav.toc .toc-part {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--ink-faint); margin: 16px 0 6px; font-weight: 600;
+  }
+  nav.toc .toc-part:first-child { margin-top: 0; }
+  nav.toc a {
+    color: var(--ink-soft); text-decoration: none; font-size: 0.9rem;
+    padding: 5px 10px; border-radius: 6px; display: block;
+  }
+  nav.toc a:hover { background: var(--rule-soft); color: var(--ink); }
+  nav.toc a.active { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+
+  main { padding: 48px clamp(20px, 4vw, 64px) 120px; min-width: 0; }
+
+  /* ---------- hero ---------- */
+  .hero { margin-bottom: 56px; }
+  .hero .eyebrow {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--accent); font-weight: 700; margin-bottom: 10px;
+  }
+  .hero h1 { font-size: clamp(2rem, 4vw, 2.7rem); line-height: 1.12; margin: 0 0 16px; }
+  .hero p.lede { font-size: 1.12rem; color: var(--ink-soft); max-width: 62ch; margin: 0 0 22px; }
+  .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; }
+  .hero-stat .num { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; color: var(--accent-ink); display: block; }
+  .hero-stat .lbl { font-size: 0.78rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ---------- sections ---------- */
+  section.chapter { margin-bottom: 64px; scroll-margin-top: 20px; }
+  section.chapter > h2 {
+    font-size: 1.65rem; margin: 0 0 6px;
+    padding-bottom: 12px; border-bottom: 2px solid var(--rule);
+  }
+  section.chapter > .chapter-intro { color: var(--ink-soft); max-width: 68ch; margin: 12px 0 28px; }
+  h3 { font-size: 1.22rem; margin: 34px 0 12px; }
+  h4 { font-size: 1.02rem; margin: 22px 0 8px; color: var(--ink-soft); }
+  p { max-width: 72ch; }
+  ul, ol { max-width: 70ch; padding-left: 1.3em; }
+  li { margin: 6px 0; }
+
+  /* ---------- callouts ---------- */
+  .callout {
+    border-radius: var(--radius); padding: 16px 18px; margin: 20px 0;
+    border: 1px solid var(--rule); background: var(--paper-raised); box-shadow: var(--shadow);
+    max-width: 72ch;
+  }
+  .callout .callout-label {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+    display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.good { border-color: color-mix(in srgb, var(--good) 35%, var(--rule)); }
+  .callout.good .callout-label { color: var(--good); }
+  .callout.warn { border-color: color-mix(in srgb, var(--danger) 35%, var(--rule)); }
+  .callout.warn .callout-label { color: var(--danger); }
+  .callout.note .callout-label { color: var(--teal); }
+
+  /* ---------- code ---------- */
+  pre.code {
+    background: var(--code-bg); color: var(--code-ink);
+    border-radius: var(--radius); padding: 16px 18px; overflow-x: auto;
+    font-size: 0.86rem; line-height: 1.55; box-shadow: var(--shadow);
+    margin: 16px 0;
+  }
+  pre.code .c { color: var(--code-com); font-style: italic; }
+  pre.code .k { color: var(--code-key); }
+  pre.code .s { color: var(--code-str); }
+  code.inline {
+    background: var(--rule-soft); padding: 0.1em 0.4em; border-radius: 5px;
+    font-size: 0.88em; color: var(--accent-ink);
+  }
+  .code-cap { font-size: 0.78rem; color: var(--ink-faint); margin: -10px 0 16px; }
+
+  /* ---------- tables ---------- */
+  .table-wrap { overflow-x: auto; margin: 18px 0; border-radius: var(--radius); border: 1px solid var(--rule); }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9rem; min-width: 480px; }
+  th { text-align: left; background: var(--rule-soft); font-family: var(--font-display); font-weight: 600; }
+  th, td { padding: 9px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td code, th code { font-size: 0.85em; }
+  table.compact td, table.compact th { padding: 7px 12px; font-size: 0.85rem; }
+
+  /* ---------- graph diagrams (hand built) ---------- */
+  .graphviz {
+    display: flex; align-items: center; gap: 0; flex-wrap: wrap;
+    background: var(--paper-raised); border: 1px solid var(--rule); border-radius: var(--radius);
+    padding: 28px 24px; margin: 20px 0; box-shadow: var(--shadow); overflow-x: auto;
+  }
+  .gnode {
+    font-family: var(--font-mono); font-size: 0.82rem; text-align: center;
+    padding: 10px 14px; border-radius: 8px; white-space: nowrap; flex-shrink: 0;
+  }
+  .gnode.io { background: var(--teal-soft); color: var(--teal); border: 1.5px solid var(--teal); font-weight: 700; }
+  .gnode.op { background: var(--accent-soft); color: var(--accent-ink); border: 1.5px solid var(--accent); font-weight: 700; }
+  .gnode.init { background: var(--rule-soft); color: var(--ink-soft); border: 1.5px dashed var(--ink-faint); font-size: 0.74rem; }
+  .garrow { display: flex; align-items: center; flex-shrink: 0; }
+  .garrow svg { display: block; }
+  .gcol { display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0; }
+  .glabel { font-size: 0.68rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ---------- misc ---------- */
+  .pillrow { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+  .pill {
+    font-family: var(--font-mono); font-size: 0.78rem; padding: 4px 10px;
+    background: var(--rule-soft); border-radius: 999px; color: var(--ink-soft);
+  }
+  hr.soft { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+  .kicker-box {
+    border-left: 3px solid var(--accent); padding-left: 16px; margin: 20px 0; max-width: 68ch;
+  }
+  .kicker-box .who { font-size: 0.8rem; color: var(--ink-faint); margin-top: 6px; }
+
+  footer.end {
+    max-width: 72ch; padding-top: 24px; border-top: 1px solid var(--rule);
+    color: var(--ink-faint); font-size: 0.85rem;
+  }
+
+  .theme-fab {
+    position: fixed; bottom: 22px; right: 22px; z-index: 40;
+    width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--rule);
+    background: var(--paper-raised); box-shadow: var(--shadow); cursor: pointer;
+    display: none; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+
+  .backtop { position: fixed; bottom: 22px; left: 22px; }
+</style>
+
+<div class="shell">
+  <aside class="sidebar">
+    <p class="brand">ONNX <span>from zero</span></p>
+    <p class="brand-sub">learned building NeuroGolf 2026</p>
+    <nav class="toc" id="toc">
+      <p class="toc-part">Foundations</p>
+      <a href="#what-is-onnx">What is ONNX?</a>
+      <a href="#anatomy">Anatomy of a graph</a>
+      <a href="#first-graph">Your first graph</a>
+
+      <p class="toc-part">Translation</p>
+      <a href="#numpy-map">NumPy → ONNX</a>
+      <a href="#math-map">Math → ONNX</a>
+
+      <p class="toc-part">This competition</p>
+      <a href="#cost-model">The cost model</a>
+      <a href="#ops-catalog">Every op we used</a>
+      <a href="#einsum-deepdive">The Einsum trick</a>
+      <a href="#quantization">Quantization for cost</a>
+
+      <p class="toc-part">War stories</p>
+      <a href="#conv-bias-bug">The Conv bias bug</a>
+      <a href="#opset-archaeology">Opset archaeology</a>
+      <a href="#validation">Real validation</a>
+      <a href="#memorization">Spotting memorization</a>
+
+      <p class="toc-part">Practice</p>
+      <a href="#toolkit">Your toolkit</a>
+      <a href="#glossary">Glossary</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="hero">
+      <p class="eyebrow">A from-scratch guide, written from inside a real competition</p>
+      <h1>ONNX, taught by golfing 400 tiny neural networks</h1>
+      <p class="lede">
+        This guide assumes you know Python and NumPy and nothing about ONNX. Every example is a real
+        graph pulled from this repository — built while competing in
+        <a href="https://www.kaggle.com/competitions/neurogolf-2026" target="_blank" rel="noopener">NeuroGolf 2026</a>,
+        a Kaggle competition where the only thing that matters is how <em>small</em> a correct ONNX
+        network can be. That constraint turns out to be a remarkably good way to actually learn what
+        ONNX is, because you can't hide behind a framework doing the work for you — every byte is
+        visible and every byte costs points.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">400</span><span class="lbl">tasks solved</span></div>
+        <div class="hero-stat"><span class="num">3</span><span class="lbl">tasks at cost = 0</span></div>
+        <div class="hero-stat"><span class="num">~35</span><span class="lbl">distinct ONNX ops used</span></div>
+        <div class="hero-stat"><span class="num">7440.82</span><span class="lbl">final score</span></div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="what-is-onnx">
+      <h2>What is ONNX?</h2>
+      <p class="chapter-intro">
+        Start with the problem it solves, not the acronym.
+      </p>
+
+      <p>
+        Say you train a model in PyTorch. Now you want to run it somewhere PyTorch isn't installed —
+        a phone, a browser, a tiny embedded chip, or (as here) a Kaggle grading sandbox that only has
+        a bare <code class="inline">onnxruntime</code> package. You need a way to describe
+        <em>"here is a sequence of math operations, and here are the numbers baked into them"</em>
+        that doesn't depend on the framework that built it.
+      </p>
+      <p>
+        <strong>ONNX (Open Neural Network Exchange)</strong> is exactly that: a file format for
+        describing a computation as a graph, plus a spec for what each operation in that graph is
+        allowed to mean. A <code class="inline">.onnx</code> file is a serialized
+        <a href="https://protobuf.dev/" target="_blank" rel="noopener">Protocol Buffer</a> message —
+        a compact binary tree of nested records — that any ONNX-compatible runtime can load and
+        execute without ever seeing PyTorch, TensorFlow, or whatever built it.
+      </p>
+
+      <div class="callout note">
+        <p class="callout-label">🔑 the mental model that matters most</p>
+        <p>
+          An ONNX file is <strong>not code you can inspect line-by-line the way you'd read Python</strong>.
+          It's a graph: a set of named tensors (data) connected by named operations (nodes). There is
+          no control flow in the normal sense — no <code class="inline">if</code>, no
+          <code class="inline">for</code> loop over a variable number of iterations (a few
+          exceptions exist as ops, but this competition explicitly bans them). Every path through the
+          graph runs, every time. If you want conditional behavior, you build it out of
+          <code class="inline">Where</code> (a vectorized select) instead of a branch.
+        </p>
+      </div>
+
+      <p>
+        This matters enormously for how you think about problems. In Python you'd write
+        <code class="inline">if x &gt; 0: y = a else: y = b</code>. In ONNX you compute
+        <em>both</em> <code class="inline">a</code> and <code class="inline">b</code> always (they're
+        cheap, so this is fine) and then use <code class="inline">Where(x &gt; 0, a, b)</code> to pick
+        per-element. Every "decision" in an ONNX graph is a data operation, not a jump.
+      </p>
+
+      <h3>Why this competition uses ONNX so unusually</h3>
+      <p>
+        Normally ONNX graphs come <em>from</em> a trained model — the weights are learned, the graph
+        shape mirrors whatever architecture the framework exported. Here, there's no training at all.
+        Every one of the 400 tasks is a small, deterministic, purely symbolic transformation (rotate
+        this grid, recolor these cells, extract this sub-region) that we <em>hand-derive</em> the rule
+        for, then hand-build the smallest ONNX graph that implements exactly that rule — perfectly,
+        with zero tolerance for error. It's less "machine learning" and more "using the ONNX
+        instruction set to write a tiny, extremely literal program," which turns out to be one of the
+        most direct ways to actually learn what the format's operators can and can't do.
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="anatomy">
+      <h2>Anatomy of a graph</h2>
+      <p class="chapter-intro">
+        Four nested containers, and everything else is detail.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>Container</th><th>Holds</th><th>Analogy</th></tr>
+          <tr><td><code>ModelProto</code></td><td>One <code>GraphProto</code>, plus the opset version(s) and IR version</td><td>The whole <code>.onnx</code> file</td></tr>
+          <tr><td><code>GraphProto</code></td><td>A list of nodes, plus named inputs, outputs, and initializers</td><td>A function body</td></tr>
+          <tr><td><code>NodeProto</code></td><td>One operation: an op type, named input tensors, named output tensors, attributes</td><td>One line of code, e.g. <code>y = np.transpose(x)</code></td></tr>
+          <tr><td><code>TensorProto</code></td><td>Actual numeric data with a shape and dtype — used for constants ("initializers")</td><td>A NumPy array literal baked into the file</td></tr>
+        </table>
+      </div>
+
+      <p>
+        A node's inputs and outputs are just <em>strings</em> — names. The graph is wired together
+        purely by name-matching: if node A produces an output called <code class="inline">"cols"</code>
+        and node B lists <code class="inline">"cols"</code> as an input, data flows from A to B. There's
+        no other notion of "connection." This is why every task's file always has an input tensor
+        named exactly <code class="inline">"input"</code> and an output tensor named exactly
+        <code class="inline">"output"</code> — the grader looks those names up directly.
+      </p>
+
+      <h3>The simplest possible real example</h3>
+      <p>
+        Task 241 in this competition is "transpose the grid" — swap rows and columns. Because
+        <code class="inline">Transpose</code> is a single op with a fixed permutation and no learned
+        data at all, the entire solution is <strong>one node, zero initializers</strong>:
+      </p>
+
+      <div class="graphviz">
+        <div class="gcol">
+          <div class="gnode io">input</div>
+          <div class="glabel">shape [1,10,30,30]</div>
+        </div>
+        <div class="garrow">
+          <svg width="60" height="20"><line x1="0" y1="10" x2="52" y2="10" stroke="var(--ink-faint)" stroke-width="1.5"/><polygon points="52,4 60,10 52,16" fill="var(--ink-faint)"/></svg>
+        </div>
+        <div class="gcol">
+          <div class="gnode op">Transpose<br><span style="font-weight:400;opacity:0.75">perm=[0,1,3,2]</span></div>
+        </div>
+        <div class="garrow">
+          <svg width="60" height="20"><line x1="0" y1="10" x2="52" y2="10" stroke="var(--ink-faint)" stroke-width="1.5"/><polygon points="52,4 60,10 52,16" fill="var(--ink-faint)"/></svg>
+        </div>
+        <div class="gcol">
+          <div class="gnode io">output</div>
+          <div class="glabel">shape [1,10,30,30]</div>
+        </div>
+      </div>
+
+      <p>
+        That's a complete, valid, submittable ONNX model. It costs exactly <strong>0</strong> in this
+        competition's scoring (no initializer data, no intermediate tensor between input and output)
+        — the theoretical minimum, worth the maximum 25 points. Most real tasks need more machinery,
+        but this is the floor everything else is measured against.
+      </p>
+
+      <h4>What that graph looks like as an actual file, in Python</h4>
+      <pre class="code"><span class="c"># scripts use onnx.helper to build NodeProto/GraphProto/ModelProto by hand</span>
+<span class="k">import</span> onnx
+<span class="k">from</span> onnx <span class="k">import</span> helper, TensorProto
+
+node = helper.make_node(
+    <span class="s">"Transpose"</span>,
+    inputs=[<span class="s">"input"</span>],
+    outputs=[<span class="s">"output"</span>],
+    perm=[0, 1, 3, 2],       <span class="c"># swap the last two axes (H and W)</span>
+)
+
+graph = helper.make_graph(
+    [node],
+    <span class="s">"task241"</span>,
+    [helper.make_tensor_value_info(<span class="s">"input"</span>,  TensorProto.FLOAT, [1, 10, 30, 30])],
+    [helper.make_tensor_value_info(<span class="s">"output"</span>, TensorProto.FLOAT, [1, 10, 30, 30])],
+)
+
+model = helper.make_model(graph, opset_imports=[helper.make_opsetid(<span class="s">""</span>, 18)])
+onnx.save(model, <span class="s">"task241.onnx"</span>)</pre>
+      <p class="code-cap">Real, runnable code — this is (almost) verbatim what produced the actual submitted file.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="first-graph">
+      <h2>Running a graph, and reading its cost</h2>
+      <p class="chapter-intro">Two things you'll do constantly: execute a model, and measure it.</p>
+
+      <h3>Execution with onnxruntime</h3>
+      <pre class="code"><span class="k">import</span> onnxruntime, numpy <span class="k">as</span> np
+
+session = onnxruntime.InferenceSession(<span class="s">"task241.onnx"</span>)
+x = np.zeros((1, 10, 30, 30), dtype=np.float32)   <span class="c"># one-hot encoded grid</span>
+x[0, 5, 0, 1] = 1.0                                <span class="c"># color 5 at row 0, col 1</span>
+
+result = session.run([<span class="s">"output"</span>], {<span class="s">"input"</span>: x})[0]
+<span class="c"># result[0, 5, 1, 0] == 1.0  -- row/col swapped, exactly what Transpose promised</span></pre>
+
+      <h3>How this competition's cost is actually computed</h3>
+      <p>
+        This is the part that makes the whole exercise interesting: the score isn't about accuracy
+        (a wrong answer scores zero, full stop) — it's about <em>size</em>. Specifically:
+      </p>
+      <pre class="code"><span class="k">cost</span> = memory_bytes(every tensor except the ones literally named <span class="s">"input"</span>/<span class="s">"output"</span>)
+     + params_element_count(every initializer, counted in <span class="k">elements</span>, not bytes)
+
+<span class="k">points</span> = max(1, 25 - ln(cost))</pre>
+      <p>
+        Two consequences shape almost every decision in this guide's later sections:
+      </p>
+      <ul>
+        <li>
+          <strong>The input and output tensors are free.</strong> No matter how big they are, they
+          never count. Everything <em>between</em> them does.
+        </li>
+        <li>
+          <strong>The score is log-scaled.</strong> Going from cost 1,000 to cost 500 is worth the
+          same points as going from cost 100,000 to cost 50,000 (both are <code class="inline">ln(2) ≈ 0.69</code>
+          points). This means a small task is never "not worth optimizing" — the percentage cut is
+          what matters, not the absolute byte count.
+        </li>
+      </ul>
+
+      <div class="callout note">
+        <p class="callout-label">💡 the one measurement trick worth knowing</p>
+        <p>
+          You get the byte cost of every <em>intermediate</em> tensor from an
+          <code class="inline">onnxruntime</code> execution profile (run with
+          <code class="inline">enable_profiling=True</code>, then read the shapes it recorded), and
+          the parameter count directly from the model's <code class="inline">initializer</code> list.
+          This project's <code class="inline">verify_one.py</code> script does exactly that on every
+          candidate before it's ever considered — see <a href="#toolkit">the toolkit section</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="numpy-map">
+      <h2>NumPy → ONNX: a phrasebook</h2>
+      <p class="chapter-intro">
+        If you can write it as a NumPy one-liner, there's almost always a direct ONNX op for it.
+        Here's the dictionary, ordered by how often it came up.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>NumPy</th><th>ONNX op</th><th>Notes</th></tr>
+          <tr><td><code>a.reshape(shape)</code></td><td><code>Reshape</code></td><td>Target shape is a second input tensor (usually a constant)</td></tr>
+          <tr><td><code>a.transpose(perm)</code> / <code>a.T</code></td><td><code>Transpose</code></td><td><code>perm</code> is an <em>attribute</em> — free, no tensor cost</td></tr>
+          <tr><td><code>a[start:end:step]</code></td><td><code>Slice</code></td><td>opset ≥10 needs tensor inputs; opset ≤9 allows attributes (see <a href="#opset-archaeology">Opset archaeology</a>)</td></tr>
+          <tr><td><code>a[idx]</code> (fancy indexing)</td><td><code>Gather</code></td><td><code>indices</code> is always a required tensor input</td></tr>
+          <tr><td><code>np.take_along_axis</code></td><td><code>GatherElements</code></td><td>Index shape matches output shape exactly, element-for-element</td></tr>
+          <tr><td><code>a[idx] = b</code> (assignment)</td><td><code>ScatterElements</code> / <code>ScatterND</code></td><td>Functional — produces a *new* tensor, doesn't mutate</td></tr>
+          <tr><td><code>np.concatenate([a,b], axis)</code></td><td><code>Concat</code></td><td></td></tr>
+          <tr><td><code>np.split(a, n, axis)</code></td><td><code>Split</code></td><td></td></tr>
+          <tr><td><code>a + b</code>, <code>a - b</code>, <code>a * b</code>, <code>a / b</code></td><td><code>Add</code>, <code>Sub</code>, <code>Mul</code>, <code>Div</code></td><td>All broadcast exactly like NumPy</td></tr>
+          <tr><td><code>a % b</code></td><td><code>Mod</code></td><td></td></tr>
+          <tr><td><code>a &amp; b</code>, <code>a | b</code>, <code>a ^ b</code></td><td><code>BitwiseAnd</code>, <code>BitwiseOr</code>, <code>BitwiseXor</code></td><td>Integer tensors only</td></tr>
+          <tr><td><code>a &lt;&lt; b</code>, <code>a &gt;&gt; b</code></td><td><code>BitShift</code></td><td><code>direction</code> attribute picks left/right</td></tr>
+          <tr><td><code>a == b</code>, <code>a &gt; b</code>, <code>a &gt;= b</code></td><td><code>Equal</code>, <code>Greater</code>, <code>GreaterOrEqual</code></td><td>Output is boolean, same shape (post-broadcast)</td></tr>
+          <tr><td><code>np.where(cond, a, b)</code></td><td><code>Where</code></td><td>ONNX's only real "branch" — this is how conditionals happen</td></tr>
+          <tr><td><code>a.sum(axis)</code>, <code>a.max(axis)</code>, <code>a.min(axis)</code></td><td><code>ReduceSum</code>, <code>ReduceMax</code>, <code>ReduceMin</code></td><td></td></tr>
+          <tr><td><code>a.argmax(axis)</code>, <code>a.argmin(axis)</code></td><td><code>ArgMax</code>, <code>ArgMin</code></td><td></td></tr>
+          <tr><td><code>a @ b</code> / <code>np.matmul</code></td><td><code>MatMul</code></td><td><code>Gemm</code> is the 2-D-only, bias-supporting cousin</td></tr>
+          <tr><td><code>np.einsum(eq, *tensors)</code></td><td><code>Einsum</code></td><td>Same subscript-string syntax, verbatim — see <a href="#einsum-deepdive">below</a></td></tr>
+          <tr><td><code>np.pad(a, widths)</code></td><td><code>Pad</code></td><td>Negative widths = crop, an ONNX-specific extension NumPy doesn't have</td></tr>
+          <tr><td><code>a.astype(dtype)</code></td><td><code>Cast</code></td><td></td></tr>
+          <tr><td><code>np.eye(n)[a]</code> (one-hot)</td><td><code>OneHot</code></td><td>This whole competition's tensors ARE one-hot grids</td></tr>
+          <tr><td><code>a.clip(lo, hi)</code></td><td><code>Clip</code></td><td></td></tr>
+          <tr><td><code>a.squeeze()</code>, <code>a[:, None]</code></td><td><code>Squeeze</code>, <code>Unsqueeze</code></td><td>Add/remove size-1 axes; free in cost since no data moves</td></tr>
+        </table>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-label">⚠️ where the analogy breaks</p>
+        <p>
+          NumPy lets you write dynamic-shape code freely (<code class="inline">a[:n]</code> where
+          <code class="inline">n</code> is a runtime value, arbitrary boolean masking, ragged
+          results). ONNX graphs in this competition must have <strong>fully static output shapes</strong>
+          — the grader rejects anything else. So "find where the content is and crop to it" — trivial
+          in NumPy with boolean indexing — becomes real engineering: compute the bounding box with
+          reductions, then build a <em>fixed-size</em> output and use <code class="inline">Where</code>
+          or padding to fill in the parts that don't apply. This gap is where most of the actual
+          difficulty in this competition lives.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="math-map">
+      <h2>Math → ONNX</h2>
+      <p class="chapter-intro">
+        The operators read almost identically to how you'd write the math on paper, once you know
+        the vocabulary.
+      </p>
+
+      <h3>Linear algebra</h3>
+      <p>
+        Matrix-vector and matrix-matrix products are <code class="inline">MatMul</code>, following
+        NumPy's broadcasting-batched-matmul semantics exactly:
+        <code class="inline">C[...,i,j] = Σₖ A[...,i,k] · B[...,k,j]</code>. If you also need a bias
+        term and scalar coefficients — the full affine form <code class="inline">y = αAB + βC</code> —
+        that's <code class="inline">Gemm</code>, restricted to strictly 2-D inputs.
+      </p>
+
+      <h3>Einstein summation — the single most useful op in this whole project</h3>
+      <p>
+        If you know the einsum notation from NumPy or PyTorch, ONNX's <code class="inline">Einsum</code>
+        is the exact same string syntax. Given an equation like
+        <code class="inline">"nchw,co->nohw"</code>, it means: for every output index combination
+        <code class="inline">(n,o,h,w)</code>, sum over every index that appears on the left but not
+        the right (here, <code class="inline">c</code>) of the product of the matching input elements.
+        It subsumes matmul, batched matmul, outer product, trace, transpose, and arbitrary tensor
+        contractions — all as one op, one graph node, and (critically for this competition) it lets
+        an ONNX-optimized runtime plan the whole contraction without materializing intermediate
+        tensors between separate ops. <a href="#einsum-deepdive">Full deep dive below.</a>
+      </p>
+
+      <h3>Modular / bitwise arithmetic</h3>
+      <p>
+        A surprisingly large fraction of "compact lookup table" tricks in this competition come down
+        to expressing <em>"pick one of N precomputed values based on a small integer key"</em> using
+        bit manipulation instead of a full <code class="inline">Gather</code> over a big table. If you
+        pack several small values into one integer (e.g. four 8-bit numbers into one 32-bit word), you
+        can pull one back out with <code class="inline">y = (packed &gt;&gt; (8·i)) &amp; 0xFF</code> —
+        which in ONNX is exactly <code class="inline">BitShift</code> then
+        <code class="inline">BitwiseAnd</code>. This is real arithmetic, directly transcribed; nothing
+        ONNX-specific about the math, just about which op spells it.
+      </p>
+
+      <h3>Piecewise / conditional functions</h3>
+      <p>
+        A math definition like
+      </p>
+      <pre class="code">f(x) = { a(x)  if  x &gt; 0
+       { b(x)  otherwise</pre>
+      <p>
+        becomes, verbatim:
+      </p>
+      <pre class="code">cond = Greater(x, zero)
+out  = Where(cond, a_x, b_x)   <span class="c"># both a_x and b_x are computed unconditionally first</span></pre>
+      <p>
+        This is the single biggest mental shift coming from imperative code: <strong>you never save
+        work by skipping a branch</strong> — you compute every branch and select afterward. For this
+        competition's grid sizes that's always cheap enough not to matter, but it's worth internalizing
+        because it changes how you'd even <em>think</em> about "efficiency" compared to normal
+        programming.
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="cost-model">
+      <h2>The cost model, and why it changes every instinct</h2>
+      <p class="chapter-intro">
+        Everything in the next three sections follows from one formula.
+      </p>
+      <pre class="code">cost  = Σ (bytes of every tensor except "input"/"output")
+      + Σ (element count of every initializer)
+
+points = max(1, 25 − ln(cost))</pre>
+
+      <div class="two-col">
+        <div class="callout good">
+          <p class="callout-label">✓ what this rewards</p>
+          <p>
+            Fusing steps into fewer, larger-throughput ops that never materialize an intermediate.
+            Using the smallest dtype that's still exactly correct. Reusing one small constant instead
+            of two "different-looking" ones that turn out to be identical. Exploiting attribute-only
+            variants of ops (see <a href="#opset-archaeology">Opset archaeology</a>) so a parameter
+            never has to exist as a stored tensor at all.
+          </p>
+        </div>
+        <div class="callout warn">
+          <p class="callout-label">✗ what it punishes, counterintuitively</p>
+          <p>
+            <strong>Fewer nodes is not the goal — fewer bytes is.</strong> Splitting one op into two
+            "smaller-looking" ops can massively increase cost if it introduces a big intermediate
+            tensor between them. We measured this directly: replacing a single 5-parameter
+            <code class="inline">MaxRoiPool</code> with a "cheaper-looking" 0-parameter
+            <code class="inline">Slice</code>+<code class="inline">Upsample</code> pair raised the real
+            cost from 5 to <strong>36,000</strong> — the intermediate tensor between the two ops got
+            charged in full.
+          </p>
+        </div>
+      </div>
+
+      <h3>Params are counted by element, memory is counted by byte — this asymmetry is exploitable</h3>
+      <p>
+        A parameter (initializer) tensor's cost is its <em>element count</em>, full stop — dtype
+        doesn't matter. A ten-value lookup table costs 10 whether it's stored as
+        <code class="inline">int64</code> or <code class="inline">int8</code>. But an
+        <em>intermediate</em> tensor's cost is <code class="inline">bytes = dtype_size × element_count</code>
+        — dtype matters enormously there. This means: pick the cheapest safe dtype specifically for
+        large computed tensors that live <em>between</em> ops; don't bother for small constant tables,
+        it won't move the needle.
+      </p>
+
+      <h3>Worked example: quantization cuts a real tensor 4×</h3>
+      <p>
+        <code class="inline">Conv</code> on float32 input produces float32 output — 4 bytes per
+        element, even if every actual value is a small non-negative integer (which is common here:
+        we're literally counting or matching colors, 0–9). Swap it for
+        <code class="inline">QLinearConv</code>, ONNX's quantized convolution, and the same arithmetic
+        runs on <code class="inline">uint8</code> — 1 byte per element, with zero precision loss as
+        long as values never leave the uint8 range (they don't, for a color-counting task). That's a
+        flat 4× cut on whatever intermediate tensor the Conv produces, for free.
+      </p>
+      <pre class="code"><span class="c"># float32 Conv: 4 bytes/element on the output tensor</span>
+y = Conv(x_float32, weight_float32)        <span class="c"># charged at 4×H×W×C bytes</span>
+
+<span class="c"># QLinearConv: same math, uint8 output -- 1 byte/element</span>
+y = QLinearConv(x_u8, x_scale, x_zp,
+                w_u8, w_scale, w_zp,
+                y_scale, y_zp)             <span class="c"># charged at 1×H×W×C bytes -- 4x cheaper</span></pre>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="ops-catalog">
+      <h2>Every op family we actually used, and why</h2>
+      <p class="chapter-intro">
+        Grouped by job, not alphabetically — this is the order you'd reach for them in.
+      </p>
+
+      <h3>Reshaping &amp; indexing — moving data around without changing values</h3>
+      <div class="pillrow">
+        <span class="pill">Reshape</span><span class="pill">Transpose</span><span class="pill">Slice</span>
+        <span class="pill">Gather</span><span class="pill">GatherND</span><span class="pill">GatherElements</span>
+        <span class="pill">Concat</span><span class="pill">Split</span><span class="pill">Squeeze</span>
+        <span class="pill">Unsqueeze</span><span class="pill">ScatterElements</span><span class="pill">ScatterND</span>
+      </div>
+      <p>
+        These cost nothing computationally (no arithmetic) but their <em>output tensor</em> still
+        counts toward cost if it's not the final <code class="inline">"output"</code>. The rule of
+        thumb that came out of a hundred small trials: <strong>the fewer distinct intermediate
+        tensors your reshaping chain produces, the better</strong> — often worth accepting a slightly
+        "uglier" single-op formulation over a readable multi-step one.
+      </p>
+
+      <h3>Arithmetic &amp; logic — the actual computation</h3>
+      <div class="pillrow">
+        <span class="pill">Add</span><span class="pill">Sub</span><span class="pill">Mul</span><span class="pill">Div</span>
+        <span class="pill">Mod</span><span class="pill">Neg</span><span class="pill">Sign</span>
+        <span class="pill">BitShift</span><span class="pill">BitwiseAnd/Or/Xor/Not</span>
+        <span class="pill">Equal</span><span class="pill">Greater(OrEqual)</span><span class="pill">Less(OrEqual)</span>
+        <span class="pill">And/Or/Not/Xor</span><span class="pill">Where</span>
+      </div>
+      <p>
+        Straightforward elementwise math, all broadcasting like NumPy. <code class="inline">Where</code>
+        deserves special mention as covered above — it's the entire conditional-logic toolkit for a
+        format with no real branching.
+      </p>
+
+      <h3>Reduction — collapsing an axis to a summary</h3>
+      <div class="pillrow">
+        <span class="pill">ReduceSum</span><span class="pill">ReduceMax</span><span class="pill">ReduceMin</span>
+        <span class="pill">ReduceL2</span><span class="pill">ArgMax</span><span class="pill">ArgMin</span>
+        <span class="pill">GlobalMaxPool</span><span class="pill">GlobalAveragePool</span>
+      </div>
+      <p>
+        Used constantly to answer "how big is the actual content" or "which color appears most" —
+        the kind of dynamic-size-detection NumPy would do with boolean masking, but expressed as a
+        pure reduction so the output shape stays static.
+      </p>
+
+      <h3>Convolution family — repurposed as a spatial pattern-matcher, not a learned filter</h3>
+      <div class="pillrow">
+        <span class="pill">Conv</span><span class="pill">ConvTranspose</span><span class="pill">ConvInteger</span>
+        <span class="pill">QLinearConv</span><span class="pill">MaxPool</span><span class="pill">MaxUnpool</span>
+        <span class="pill">MaxRoiPool</span><span class="pill">RoiAlign</span><span class="pill">GridSample</span>
+      </div>
+      <p>
+        In normal deep learning, a Conv's weights are <em>learned</em>. Here, we hand-derive an exact
+        small kernel that implements a specific rule — "detect this 3×3 pattern," "count neighbors of
+        this color," "crop this region and upscale it 2×" (<code class="inline">MaxRoiPool</code>,
+        which takes a fixed region-of-interest tensor and pools+resizes it to a target size in one
+        op — the cheapest way found to do crop-and-scale together).
+      </p>
+
+      <h3>The permutation trick — small tables via Gather, not full one-hot recoloring</h3>
+      <p>
+        Several tasks are "remap color A to color B, everything else stays the same." The cheapest
+        correct implementation found: a single <code class="inline">Gather(input, index_array,
+        axis=1)</code> where <code class="inline">index_array</code> is a 10-element list saying, for
+        each output channel, which input channel to copy from (identity for unchanged colors, swapped
+        for the two that change). Ten elements, one op, no intermediate — beats every decomposition
+        that tried to isolate just the changed channels (see the
+        <a href="#validation">36,000-vs-5 story</a> for why "isolate the small part" backfires here).
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="einsum-deepdive">
+      <h2>Deep dive: the single-Einsum collapse</h2>
+      <p class="chapter-intro">
+        The highest-value pattern found in this entire competition, worth 0.5–3 points per task,
+        repeatedly.
+      </p>
+      <p>
+        A lot of tasks decompose naturally into a pipeline: extract a feature, multiply it by a
+        lookup, sum over an axis, multiply by another lookup, place the result. Written as separate
+        ONNX ops, each step produces a real intermediate tensor that gets charged. But
+        <code class="inline">Einsum</code> can express an <em>entire multilinear pipeline</em> — many
+        inputs, many contracted indices — as a single subscript equation, and a good runtime plans the
+        whole contraction without ever materializing the in-between steps as separately-costed
+        tensors.
+      </p>
+
+      <div class="graphviz">
+        <div class="gcol"><div class="gnode io">input</div></div>
+        <div class="garrow"><svg width="40" height="20"><line x1="0" y1="10" x2="32" y2="10" stroke="var(--ink-faint)" stroke-width="1.5"/><polygon points="32,4 40,10 32,16" fill="var(--ink-faint)"/></svg></div>
+        <div class="gcol">
+          <div class="gnode init">const A</div>
+          <div class="gnode init">const B</div>
+          <div class="gnode init">const C</div>
+        </div>
+        <div class="garrow"><svg width="40" height="20"><line x1="0" y1="10" x2="32" y2="10" stroke="var(--ink-faint)" stroke-width="1.5"/><polygon points="32,4 40,10 32,16" fill="var(--ink-faint)"/></svg></div>
+        <div class="gcol"><div class="gnode op">Einsum<br><span style="font-weight:400;opacity:0.8;font-size:0.72rem">one contraction,<br>every index at once</span></div></div>
+        <div class="garrow"><svg width="40" height="20"><line x1="0" y1="10" x2="32" y2="10" stroke="var(--ink-faint)" stroke-width="1.5"/><polygon points="32,4 40,10 32,16" fill="var(--ink-faint)"/></svg></div>
+        <div class="gcol"><div class="gnode io">output</div></div>
+      </div>
+      <p class="code-cap">One node between input and output. No intermediate tensor exists to be charged, regardless of how many logical "steps" the equation encodes.</p>
+
+      <p>A real equation from one of this project's tasks (edited for length, same structure):</p>
+      <pre class="code">equation = <span class="s">"ha,ad,bd,be,ef,hf,hg,gi,ri,rj,jk,hk,rl,lm,op,rp,nzxy,...,nchs-&gt;ncrs"</span>
+output = Einsum(Q, A, C, C, D, Q, Q, M, Q, Q, M, Q, Q, A, D, Q, input, weights..., equation=equation)</pre>
+      <p>
+        Reading an equation like this: each comma-separated group before the arrow names the axes of
+        one input tensor by letter; any letter that <em>doesn't</em> appear after the arrow gets
+        summed over. It looks intimidating with 30+ operands, but it's built the same way you'd build
+        any einsum — one small, understandable multiplication at a time on paper — and then simply
+        <em>concatenated</em> into one string once you've confirmed it's correct piece by piece.
+      </p>
+
+      <div class="callout good">
+        <p class="callout-label">✓ when to reach for this</p>
+        <p>
+          Whenever the transformation is a chain of steps that are each linear or bilinear in their
+          inputs (weighted sums, outer products, masked selections expressed as multiplication by an
+          indicator). If a step genuinely needs a non-linear function (comparison, rounding, a
+          reduction that isn't a sum), it can't join the Einsum and has to stay a separate op — that's
+          fine, just keep everything <em>else</em> fused around it.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="quantization">
+      <h2>Quantization ops, explained without the ML-deployment jargon</h2>
+      <p class="chapter-intro">
+        "Quantization" usually means shrinking a trained model for deployment. Here it just means
+        picking the right integer type for arithmetic that was always going to be small integers.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>Op</th><th>What it is</th><th>Why we used it</th></tr>
+          <tr><td><code>QuantizeLinear</code></td><td><code>y = round(x / scale) + zero_point</code>, output in a narrow int type</td><td>Converts a float tensor to uint8/int8 before a cheap op consumes it</td></tr>
+          <tr><td><code>DequantizeLinear</code></td><td>The inverse: narrow int → float</td><td>Rare here — we usually stay in integer types all the way to the final compare</td></tr>
+          <tr><td><code>QLinearConv</code></td><td>Convolution operating entirely in quantized (uint8/int8) space</td><td>4× cheaper output tensor than float32 Conv, same exact result for small-integer data</td></tr>
+          <tr><td><code>ConvInteger</code></td><td>Integer-only convolution, <em>always</em> int32 output per spec</td><td>Occasionally swapped back out for QLinearConv once we noticed the forced int32 was still 4x too wide</td></tr>
+        </table>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-label">⚠️ a landmine specific to this competition's pinned runtime</p>
+        <p>
+          The real grader runs a specific pinned <code class="inline">onnxruntime</code> version that
+          turned out to have <em>no kernel implementation</em> for <code class="inline">TopK</code> on
+          <code class="inline">uint8</code>/<code class="inline">int8</code> inputs — even though the
+          ONNX spec's own type-constraint table allows it. It passes silently on a newer local
+          <code class="inline">onnxruntime</code> and only fails on the exact pinned version. The fix
+          was a <code class="inline">Cast</code> to <code class="inline">int32</code> immediately
+          before <code class="inline">TopK</code> and back after — but that cast can itself cost more
+          than the quantization saved, so it always needs to be measured, not assumed.
+          <strong>The lesson generalizes: a spec allowing a dtype combination doesn't guarantee every
+          real runtime implements it — always test against the exact pinned version you'll be graded
+          on, not just the newest one you have installed.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="conv-bias-bug">
+      <h2>War story: a real memory-safety bug, hiding in plain sight</h2>
+      <p class="chapter-intro">
+        The single most consequential bug found in this whole project — and it wasn't in our code at all.
+      </p>
+
+      <p>
+        <code class="inline">Conv</code> and <code class="inline">ConvTranspose</code> both accept an
+        optional bias tensor: one value added per output channel. The ONNX spec says its length
+        should equal <code class="inline">out_channels</code>. Nothing in
+        <code class="inline">onnx.checker.check_model</code>, strict shape inference, or a normal
+        execution actually <em>enforces</em> that length match — a bias tensor with fewer elements
+        than channels loads fine, runs fine, and produces an answer.
+      </p>
+      <p>
+        The catch: for the channels beyond the bias array's actual length, the runtime kernel reads
+        whatever bytes happen to sit in memory right after the array — <strong>undefined behavior,
+        not a bounds-checked error</strong>. On a freshly-started process, that memory is usually
+        zeroed, so the model looks completely correct in every local test. But a grading environment
+        that reuses the same process across many submissions can have <em>anything</em> sitting in
+        that memory — leftover data from a previous, unrelated model's execution.
+      </p>
+
+      <div class="graphviz" style="flex-direction:column;align-items:flex-start;gap:14px;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="gnode init">bias: [b₀, b₁, ..., b₈]<br><span style="font-size:0.68rem;opacity:0.7">9 values stored</span></div>
+          <span style="color:var(--ink-faint)">but out_channels = 10, so channel 9 reads →</span>
+          <div class="gnode op" style="background:var(--danger-soft);border-color:var(--danger);color:var(--danger);">??? whatever's<br>next in memory</div>
+        </div>
+      </div>
+
+      <p>
+        This explained every "identical zip scores differently between submissions" mystery this
+        project hit during the day — including two separate ~18-point unexplained score swings that
+        had, at the time, been (wrongly) written off as random grading noise. It was independently
+        confirmed by several other competitors on the forum, and the competition host acknowledged it
+        as a real ONNX Runtime bug. The fix is mechanical once you know to look for it:
+      </p>
+      <pre class="code"><span class="k">def</span> check_conv_bias(model):
+    <span class="s">"""Conv/ConvTranspose nodes whose bias length != out_channels."""</span>
+    init = {t.name: t <span class="k">for</span> t <span class="k">in</span> model.graph.initializer}
+    bad = []
+    <span class="k">for</span> n <span class="k">in</span> model.graph.node:
+        <span class="k">if</span> n.op_type <span class="k">not in</span> (<span class="s">"Conv"</span>, <span class="s">"ConvTranspose"</span>) <span class="k">or</span> len(n.input) &lt; 3:
+            <span class="k">continue</span>                       <span class="c"># bias input is optional</span>
+        w, b = n.input[1], n.input[2]
+        group  = next((a.i <span class="k">for</span> a <span class="k">in</span> n.attribute <span class="k">if</span> a.name == <span class="s">"group"</span>), 1)
+        dims   = list(init[w].dims)
+        out_ch = dims[0] <span class="k">if</span> n.op_type == <span class="s">"Conv"</span> <span class="k">else</span> dims[1] * group
+        blen   = init[b].dims[0] <span class="k">if</span> init[b].dims <span class="k">else</span> 0
+        <span class="k">if</span> blen != out_ch:
+            bad.append((n.name, blen, out_ch))
+    <span class="k">return</span> bad   <span class="c"># empty = clean; fix is to zero-extend bias to out_ch elements</span></pre>
+
+      <div class="callout warn">
+        <p class="callout-label">the takeaway that generalizes past ONNX entirely</p>
+        <p>
+          "It runs without error and produces plausible output" is not proof of correctness for
+          anything that touches raw memory across an optional/variable-length field. Static structural
+          checks (does this length match that length?) catch a whole category of bug that no amount
+          of <em>running</em> the file locally ever will, because a fresh process's zeroed memory
+          hides the exact symptom you're trying to find.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="opset-archaeology">
+      <h2>War story: opset archaeology</h2>
+      <p class="chapter-intro">
+        ONNX operators change shape across spec versions — sometimes an older version is strictly
+        cheaper.
+      </p>
+      <p>
+        Every ONNX model declares an <em>opset version</em> per domain, and an operator's accepted
+        inputs/attributes can differ across versions of the same op name. <code class="inline">Slice</code>
+        took <code class="inline">starts</code>/<code class="inline">ends</code>/<code class="inline">axes</code>
+        as plain integer <em>attributes</em> at opset 1–9; from opset 10 onward, the exact same
+        information has to arrive as separate tensor inputs, which then count toward cost.
+        <code class="inline">Upsample</code> (deprecated in favor of <code class="inline">Resize</code>
+        at opset 10) similarly took its <code class="inline">scales</code> as a float-list attribute
+        at opset 7–9.
+      </p>
+      <pre class="code"><span class="k">from</span> onnx <span class="k">import</span> defs
+<span class="k">for</span> v <span class="k">in</span> (1, 7, 9):
+    s = defs.get_schema(<span class="s">"Upsample"</span>, v)
+    print(v, [i.name <span class="k">for</span> i <span class="k">in</span> s.inputs], list(s.attributes))
+
+<span class="c"># 1  ['X']          ['mode', 'width_scale', 'height_scale']</span>
+<span class="c"># 7  ['X']          ['scales', 'mode']            &lt;- single input, scales is an attribute!</span>
+<span class="c"># 9  ['X', 'scales'] ['mode']                       &lt;- scales became a required tensor input</span></pre>
+      <p>
+        Nothing stops a model file from declaring an old opset version deliberately to use the cheaper
+        attribute-based form of an op — the ONNX runtime executing it doesn't care that a newer,
+        different-shaped version of the same op name also exists. This is worth checking with
+        <code class="inline">onnx.defs.get_schema(op_name, version)</code> any time an op's tensor
+        inputs feel like they're carrying information that's actually static and known at graph-build
+        time.
+      </p>
+
+      <div class="callout warn">
+        <p class="callout-label">⚠️ but verify the end-to-end cost, not just the params count</p>
+        <p>
+          This is exactly the trap from the cost-model section: an attribute-only op is only a win if
+          it doesn't force you into a multi-node decomposition with a big intermediate. We tested
+          replacing a 5-parameter, single-node <code class="inline">MaxRoiPool</code> (crop+scale
+          together) with a 0-parameter <code class="inline">Slice</code>(opset 1, attributes) +
+          <code class="inline">Upsample</code>(opset 7, attributes) pair — technically zero stored
+          parameters, but the tensor flowing between the two nodes cost <strong>36,000</strong>. The
+          "free" trick made things 7,000× worse. Always measure through the real scorer before trusting
+          a parameter-count argument in isolation.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="validation">
+      <h2>War story: a clean local test is necessary, not sufficient</h2>
+      <p class="chapter-intro">
+        The gap between "passes every example I have" and "is actually correct" is where this
+        project lost — and later recovered — the most points.
+      </p>
+      <p>
+        Every task ships with a few hundred cached example input/output pairs. A candidate passing
+        <em>all</em> of them feels like proof. It isn't — it's proof the candidate matches the
+        specific examples someone happened to generate before. Two categories of failure showed up
+        repeatedly:
+      </p>
+
+      <h3>1. The candidate overfits an assumption that happens to hold across the cached sample</h3>
+      <p>
+        A rule like "the interesting region is always in the top-left 15×15" might be true for every
+        one of 266 cached examples and false for the 267th one nobody's tested yet. The fix: this
+        competition's official task generator (the exact program that produced the original examples)
+        is publicly available — running it fresh, at volume, catches assumptions that happened to
+        survive the fixed cached sample purely by luck. One task looked completely solved at 266/266
+        locally and turned out to fail 32 times out of 400 freshly-generated examples.
+      </p>
+
+      <h3>2. The test script itself doesn't replicate the real grader's own quirks</h3>
+      <p>
+        The official conversion function silently <em>skips</em> (never scores) any example whose
+        grid is larger than 30×30. A hand-rolled comparison script that doesn't replicate that exact
+        skip produced a false "failure" rate of 74% on one task — every one of those "failures" was
+        actually an oversized grid the real grader would never have tested in the first place. The
+        lesson cuts both ways: don't trust a clean pass (point 1), but also don't panic over a dirty
+        one until you've confirmed your <em>test itself</em> matches the real evaluation exactly.
+      </p>
+
+      <div class="callout note">
+        <p class="callout-label">the general principle</p>
+        <p>
+          Whenever "correct" is defined by an external grader you don't fully control, the only
+          trustworthy test is one that reproduces that grader's exact code path — not a plausible
+          re-implementation of it. Import the real conversion/scoring functions directly rather than
+          rewriting them from a description, every time it's possible.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="memorization">
+      <h2>War story: telling a real algorithm from a hash-memorizer</h2>
+      <p class="chapter-intro">
+        Some "impossibly cheap" candidates aren't clever — they've just memorized the specific
+        examples in front of them.
+      </p>
+      <p>
+        A model that computes a hash/checksum of the input grid, then <code class="inline">Gather</code>s
+        a pre-baked answer from a lookup table sized to match the local example count, will pass every
+        cached test perfectly at very low cost — and score exactly zero on any input it hasn't seen,
+        because it never learned the actual rule. This is genuinely hard to spot from the graph alone,
+        since <code class="inline">BitShift</code> + <code class="inline">BitwiseAnd</code>/
+        <code class="inline">Gather</code> combinations are <em>also</em> the normal, legitimate way to
+        build a compact packed lookup for a real structural classifier (see the permutation trick,
+        above).
+      </p>
+      <p>The screening process that worked reliably:</p>
+      <ol>
+        <li>Any model combining bit-manipulation ops with <code class="inline">Gather</code> gets flagged for a closer look, no exceptions.</li>
+        <li>Check every initializer's element count against the local example count. A table with ~265–270 entries — suspiciously close to "one entry per cached example" — is a strong memorization signal. A table with 20–150 entries, clearly smaller than the example count, is more likely a genuine small structural classifier (grid size, shape count, symmetry class).</li>
+        <li>The decisive test either way: run it against a batch of <em>freshly generated, never-cached</em> examples. A real algorithm keeps working. A memorizer fails immediately and completely, because it's never seen these specific hashes before.</li>
+      </ol>
+      <div class="callout good">
+        <p class="callout-label">✓ a real example that passed this screen</p>
+        <p>
+          One candidate used exactly this op combination with a 38-entry packed table, on a task with
+          ~266 cached examples. 38 ≪ 266 ruled out per-example memorization; running it against 400
+          freshly-generated examples it had never seen (0 failures) confirmed it was a genuine
+          structural classifier keyed on a small number of grid categories, not a hash lookup. It was
+          merged with confidence.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="toolkit">
+      <h2>Your toolkit, if you want to try this yourself</h2>
+      <p class="chapter-intro">A short, opinionated list — everything used to build and audit every model in this repository.</p>
+
+      <div class="table-wrap">
+        <table class="compact">
+          <tr><th>Tool</th><th>What it's for</th></tr>
+          <tr><td><code>onnx.helper</code></td><td>Build <code>NodeProto</code>/<code>GraphProto</code>/<code>ModelProto</code> by hand from Python, as shown throughout this guide</td></tr>
+          <tr><td><code>onnx.checker.check_model(m, full_check=True)</code></td><td>Structural validation — shapes, types, opset compatibility. Necessary but (see above) not sufficient</td></tr>
+          <tr><td><code>onnx.shape_inference.infer_shapes</code></td><td>Fills in shapes the checker needs when they aren't explicit; useful for debugging a "shape mismatch" error's real cause</td></tr>
+          <tr><td><code>onnxruntime.InferenceSession</code></td><td>Actually execute a graph. Enable <code>enable_profiling=True</code> to recover real intermediate tensor shapes for cost measurement</td></tr>
+          <tr><td><code>onnx.defs.get_schema(op, version)</code></td><td>Look up exactly what inputs/attributes an op accepts at a specific opset — essential for the opset-archaeology trick</td></tr>
+          <tr><td><a href="https://netron.app" target="_blank" rel="noopener">Netron</a></td><td>A free graph visualizer — drop a <code>.onnx</code> file in the browser and see the actual node graph, not just guess from code</td></tr>
+          <tr><td>Two pinned <code>onnxruntime</code> versions</td><td>Always test against both your dev environment's version <em>and</em> whatever version the real deployment target has pinned — see the <code>TopK</code>/uint8 story above for why they can silently disagree</td></tr>
+        </table>
+      </div>
+
+      <h3>The five-question checklist this project settled on before merging anything</h3>
+      <ol>
+        <li>Does it pass <code class="inline">onnx.checker.check_model(full_check=True)</code>, and run cleanly in <em>both</em> onnxruntime versions?</li>
+        <li>Does the graph use any op combination that's a known landmine (BitShift+Gather without a size check; TopK on a narrow int type; Conv/ConvTranspose bias length not checked against out_channels)?</li>
+        <li>Does it pass on <em>freshly generated</em> examples, not just the cached local set?</li>
+        <li>Is the gain worth double-checking with an isolated single-task real submission, given everything above passed?</li>
+        <li>If a batch submission doesn't score what the sum of individually-verified pieces predicted — is the bug really in the files, or in how the test batch was assembled?</li>
+      </ol>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="chapter" id="glossary">
+      <h2>Glossary</h2>
+      <div class="table-wrap">
+        <table class="compact">
+          <tr><td><strong>Opset</strong></td><td>A versioned snapshot of "what each op means and accepts." A model declares which opset it targets; the same op name can behave differently across opsets.</td></tr>
+          <tr><td><strong>Initializer</strong></td><td>A named constant tensor baked into the graph — weights, lookup tables, fixed indices. Counted by element toward this competition's cost.</td></tr>
+          <tr><td><strong>Node</strong></td><td>One operation in the graph: an op type plus named input/output tensors and attributes.</td></tr>
+          <tr><td><strong>Attribute</strong></td><td>A value fixed at graph-build time and baked directly into the node (not a separate tensor) — free in this competition's cost model, unlike a tensor input.</td></tr>
+          <tr><td><strong>Value info</strong></td><td>Declared shape/dtype metadata for an intermediate tensor. Sometimes needs to be explicitly written (not just inferred) for the checker to accept dynamic-shaped intermediates.</td></tr>
+          <tr><td><strong>Sanitize</strong> (this project's term)</td><td>Rename every node/tensor to a safe canonical form before scoring, matching exactly what the real grader does before measuring cost — skipping this step means measuring the wrong thing.</td></tr>
+          <tr><td><strong>Quantization</strong></td><td>Representing values in a narrower integer type (uint8/int8) instead of float32, when the actual range of values allows it without losing precision.</td></tr>
+          <tr><td><strong>Undefined behavior (UB)</strong></td><td>Code whose result the spec doesn't define — e.g. reading past the end of an array. May happen to "work" in one environment (zeroed fresh memory) and silently corrupt in another (reused process memory).</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <footer class="end">
+      Written from inside <a href="https://www.kaggle.com/competitions/neurogolf-2026" target="_blank" rel="noopener">NeuroGolf 2026</a>,
+      a competition about building the smallest correct ONNX network for 400 ARC-AGI tasks. Every
+      example and technique above is drawn from real graphs in this repository — see
+      <code class="inline">README.md</code> for the full project, and
+      <code class="inline">OPTIMIZATION_PLAYBOOK.md</code> for the running catalog of what did and
+      didn't work, task by task.
+    </footer>
+  </main>
+</div>
+
+<button class="theme-fab" id="themeFab" title="Toggle theme" aria-label="Toggle theme">◐</button>
+
+<script>
+  // scrollspy: highlight active TOC entry
+  (function () {
+    var sections = Array.prototype.slice.call(document.querySelectorAll('section.chapter[id]'));
+    var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+    function onScroll() {
+      var pos = window.scrollY + 120;
+      var current = sections[0];
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop <= pos) current = sections[i];
+      }
+      links.forEach(function (a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
