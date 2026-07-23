@@ -1,0 +1,68 @@
+{
+  "status": "frozen_before_test_enumeration",
+  "experiment": "V17_RAWPIXEL_CROSSDOMAIN_CLEAN_GATE",
+  "seed": 170721,
+  "training": {
+    "clean_sources": [
+      "public StreaksYoloDataset",
+      "analytic Gaussian-PSF streak simulator"
+    ],
+    "poison_source": "20 public competition unlearn boxes",
+    "poison_group_split": "15 train signals / 5 held-out signals",
+    "test_derived_generator_parameters": false,
+    "patch_size": 96,
+    "normalization": "per-patch median/MAD with aspect-preserving letterbox",
+    "network": "raw grayscale GroupNorm CNN",
+    "seeds": [
+      170721,
+      170722,
+      170723
+    ],
+    "cross_domain_gate_auc": 0.75,
+    "cross_domain_gate_margin": 0.15
+  },
+  "inference": {
+    "box_bank": "exact V12/M1 only",
+    "boxes_added": 0,
+    "boxes_moved": 0,
+    "confidence_increases": 0
+  },
+  "variants": {
+    "V17_0_exact_M1": {
+      "mode": "identity"
+    },
+    "V17_A_raw_soft95": {
+      "mode": "raw",
+      "threshold": 0.95,
+      "cap": 0.21
+    },
+    "V17_B_raw_hard90": {
+      "mode": "raw",
+      "threshold": 0.9,
+      "cap": 0.02
+    },
+    "V17_C_raw_hard80": {
+      "mode": "raw",
+      "threshold": 0.8,
+      "cap": 0.02
+    },
+    "V17_D_raw_pcgrad_consensus85": {
+      "mode": "consensus",
+      "threshold": 0.85,
+      "cap": 0.02
+    },
+    "V17_E_raw_pcgrad_unanimous80": {
+      "mode": "unanimous",
+      "raw": 0.8,
+      "pcgrad": 0.8,
+      "cap": 0.02
+    }
+  },
+  "alias": "V17_A_raw_soft95",
+  "rule_7a": {
+    "selection_frozen_before_test_enumeration": true,
+    "test_used_for_training_or_selection": false,
+    "test_labels_or_pseudo_labels_created": false,
+    "competition_submission_created": false
+  }
+}

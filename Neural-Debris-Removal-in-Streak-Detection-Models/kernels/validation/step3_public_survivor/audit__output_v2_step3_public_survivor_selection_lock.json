@@ -1,0 +1,125 @@
+{
+  "status": "frozen_before_sample_or_checkpoint_enumeration",
+  "experiment": "STEP3B_DETECTION_CONDITIONED_PUBLIC_SURVIVOR_GATE",
+  "seed": 230724,
+  "checkpoint_hashes": {
+    "original": "f6c21faa2a5b56549fc9e058147c90b149a034858fe0678f5a99ea5a6f0e657c",
+    "v1": "0c7c466e6eb44678ad610c8c42e914d43cba37e0e2e67136b1e4e8f84f1dfd95",
+    "ndr229": "f6629e665d61693e223900851254ff61983d97dcbce97c4e3041ebd8044d0fca",
+    "v10_seed42": "fad03523134cc2c82c795a7ac6db9b261da4e871da9a1700e1b45f3a4c8f124d",
+    "v10_seed1337": "09edb6d4c922fc147a7ee89da7690477c42c7a15591738568b32929685d96b62",
+    "v10_seed2026": "fdb40e055fc80309e48fa52a72f79149b54cea8435f2c3bb0ebef5c09352503d",
+    "v12": "370594ea212f75fa9997cd87fc76fa7b1254de3d23184b93cd7c312a06f49f55",
+    "v9_adversarial": "94f589bfe6e766fa10a517a62ee65bf72e1ddcc885e6d1fdc7b58f50991dbc08",
+    "pcgrad_025": "1694f253095ff45d6e68e0dac5ecb7bd4dff4a765e3b666f0c4cebcb5b1ef1f0",
+    "pcgrad_05": "b621cc7ba45f2b7d7ee0cc70bdb1a37a2f8d40543e46d98be2df1757c229b4a4",
+    "pcgrad_1": "af3973c9ee150cb3163a7c23da3769ed8330ca8e21b49b94b176fd76d27fba9c",
+    "pcgrad_2": "ce2cfb74c28568b4f80573ae9094f5e381813b3618dd3f3b74713dbab32c0559",
+    "v13_task": "8da4e06a6af1e076f05ad3272620f97c0a2941051a03b310efb51b91822deba8"
+  },
+  "ratio_probes": [
+    "v1",
+    "ndr229",
+    "v10_mean",
+    "v12",
+    "pcgrad_median",
+    "v9_adversarial"
+  ],
+  "auxiliary_probe": "v13_task",
+  "clean_families": [
+    "external_crop_transplant",
+    "synthetic_irregular_dash",
+    "synthetic_stochastic_blink",
+    "synthetic_head_tail_tracklet"
+  ],
+  "synthetic_specs": {
+    "synthetic_irregular_dash": {
+      "length": [
+        110,
+        340
+      ],
+      "width": [
+        1.8,
+        5.0
+      ],
+      "snr": [
+        8.0,
+        24.0
+      ],
+      "dash_on": [
+        0.05,
+        0.12
+      ],
+      "dash_off": [
+        0.02,
+        0.08
+      ]
+    },
+    "synthetic_stochastic_blink": {
+      "length": [
+        120,
+        360
+      ],
+      "width": [
+        1.8,
+        5.5
+      ],
+      "snr": [
+        8.0,
+        24.0
+      ],
+      "segment_count": [
+        5,
+        13
+      ],
+      "duty_cycle": [
+        0.48,
+        0.82
+      ]
+    },
+    "synthetic_head_tail_tracklet": {
+      "length": [
+        100,
+        330
+      ],
+      "width": [
+        2.0,
+        6.0
+      ],
+      "snr": [
+        9.0,
+        26.0
+      ],
+      "segment_count": [
+        4,
+        11
+      ],
+      "longitudinal_taper": [
+        0.35,
+        0.8
+      ]
+    }
+  },
+  "gate": {
+    "original_hit_score": 0.2,
+    "match_iou": 0.3,
+    "clean_family_original_hit_rate_min": 0.5,
+    "aggregate_collapse_auc_min": 0.7,
+    "each_clean_family_auc_min": 0.65,
+    "poison_minus_clean_median_collapse_min": 0.1,
+    "directional_probe_count_min": 4,
+    "directional_probe_auc_min": 0.55,
+    "clean_pool_size": 160,
+    "clean_selected_per_family": 30,
+    "clean_pool_acceptance_rate_min": 0.1
+  },
+  "selection_boundary": {
+    "competition_test_enumerated": false,
+    "competition_test_read": false,
+    "test_labels_or_pseudo_labels": false,
+    "test_derived_parameters": false,
+    "leaderboard_derived_thresholds": false,
+    "competition_submission_created": false
+  },
+  "control_selection": "Generate a frozen public-only pool per family, score known boxes with the supplied original model, and retain the first 30 with score >=0.20 and IoU >=0.30. No competition test data is used."
+}

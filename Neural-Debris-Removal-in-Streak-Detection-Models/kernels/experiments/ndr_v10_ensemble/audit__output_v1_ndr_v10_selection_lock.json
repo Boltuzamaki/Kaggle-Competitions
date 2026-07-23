@@ -1,0 +1,128 @@
+{
+  "experiment": "V10_REPLICA_ENSEMBLE_DASH",
+  "anchor": {
+    "submission": "54811353",
+    "public_score": 229.2314,
+    "model_sha256": "f6629e665d61693e223900851254ff61983d97dcbce97c4e3041ebd8044d0fca",
+    "submission_sha256": "09fc15a2cc55947cd74c026bd24f95a147e020ca0e95bf2b126a379f92de9f5c"
+  },
+  "current_team_best_before_run": {
+    "submission": "54839276",
+    "public_score": 229.1051
+  },
+  "replica_seeds": [
+    42,
+    1337,
+    2026
+  ],
+  "recipe": {
+    "prune_frac": 0.15,
+    "pruning_mode": "bug_faithful_two_layer_index_match",
+    "trainable_scope": "classifier_only",
+    "learning_rate": 0.00025,
+    "iterations": 20,
+    "batch_size": 4,
+    "ewc_lambda": 500.0
+  },
+  "candidate_threshold": 0.05,
+  "match_iou": 0.5,
+  "dash_gate_auc": 0.65,
+  "rescue_rule": {
+    "dash_max": 0.25,
+    "linearity_min": 0.92
+  },
+  "variants": {
+    "V10_0_seed42_anchor": {
+      "w_diff": 0.9,
+      "w_geo": 0.1,
+      "w_dash": 0.0,
+      "min_keep": 0.2,
+      "p_hi": 0.55,
+      "p_lo": 0.25,
+      "rescue": false,
+      "replica_cols": [
+        0
+      ]
+    },
+    "V10_A_ens_center": {
+      "w_diff": 0.9,
+      "w_geo": 0.1,
+      "w_dash": 0.0,
+      "min_keep": 0.2,
+      "p_hi": 0.55,
+      "p_lo": 0.25,
+      "rescue": false,
+      "replica_cols": [
+        0,
+        1,
+        2
+      ]
+    },
+    "V10_B_ens_dash": {
+      "w_diff": 0.8,
+      "w_geo": 0.1,
+      "w_dash": 0.1,
+      "min_keep": 0.2,
+      "p_hi": 0.55,
+      "p_lo": 0.25,
+      "rescue": false,
+      "replica_cols": [
+        0,
+        1,
+        2
+      ]
+    },
+    "V10_C_ens_tight": {
+      "w_diff": 0.9,
+      "w_geo": 0.1,
+      "w_dash": 0.0,
+      "min_keep": 0.2,
+      "p_hi": 0.5,
+      "p_lo": 0.2,
+      "rescue": false,
+      "replica_cols": [
+        0,
+        1,
+        2
+      ]
+    },
+    "V10_D_ens_rescue": {
+      "w_diff": 0.8,
+      "w_geo": 0.1,
+      "w_dash": 0.1,
+      "min_keep": 0.2,
+      "p_hi": 0.55,
+      "p_lo": 0.25,
+      "rescue": true,
+      "replica_cols": [
+        0,
+        1,
+        2
+      ]
+    },
+    "V10_E_minkeep30": {
+      "w_diff": 0.9,
+      "w_geo": 0.1,
+      "w_dash": 0.0,
+      "min_keep": 0.3,
+      "p_hi": 0.55,
+      "p_lo": 0.25,
+      "rescue": false,
+      "replica_cols": [
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  "submission_alias": "V10_A_ens_center",
+  "rule_7a_guard": {
+    "external_models": false,
+    "manual_test_labels": false,
+    "automatic_external_test_labels": false,
+    "test_used_only_by_provided_and_repaired_models_and_deterministic_postprocessing": true,
+    "dash_constants_designed_from_public_info_only": true,
+    "dash_gate_uses_public_unlearn_and_synthetic_controls_only": true,
+    "no_test_feature_or_prediction_used_to_choose_variants": true
+  }
+}

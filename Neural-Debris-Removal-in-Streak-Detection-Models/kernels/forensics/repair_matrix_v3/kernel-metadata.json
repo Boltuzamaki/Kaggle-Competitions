@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/neural-debris-retention-bridge-matrix-v3",
+  "title": "Neural Debris Retention Bridge Matrix V3",
+  "code_file": "repair_matrix_v3.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu"],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "model_sources": []
+}

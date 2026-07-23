@@ -1,0 +1,58 @@
+{
+  "status": "complete",
+  "step": 3,
+  "decision": "stop_survivor_ranker_branch",
+  "audit": {
+    "status": "rejected",
+    "gate_passed": false,
+    "rows": 100,
+    "valid_original_hits": 42,
+    "valid_public_poison": 20,
+    "valid_clean": 22,
+    "family_original_hit_rates": {
+      "external_real": 0.15,
+      "public_poison": 1.0,
+      "synthetic_curved_psf": 0.0,
+      "synthetic_irregular_dash": 0.95,
+      "synthetic_tapered_psf": 0.0
+    },
+    "aggregate_collapse_auc": 0.9840909090909091,
+    "family_collapse_auc": {
+      "external_real": 0.9666666666666667,
+      "synthetic_tapered_psf": NaN,
+      "synthetic_irregular_dash": 0.9868421052631579,
+      "synthetic_curved_psf": NaN
+    },
+    "probe_collapse_auc": {
+      "ratio_v1": 0.4431818181818182,
+      "ratio_ndr229": 0.5704545454545454,
+      "ratio_v10_mean": 0.5909090909090909,
+      "ratio_v12": 0.990909090909091,
+      "ratio_pcgrad_median": 0.9886363636363636,
+      "ratio_v9_adversarial": 0.9863636363636363
+    },
+    "directional_probe_count": 5,
+    "poison_median_collapse": 0.7455196310594241,
+    "clean_median_collapse": 0.44844264041981996,
+    "median_gap": 0.29707699063960413,
+    "frozen_requirements": {
+      "original_hit_score": 0.2,
+      "match_iou": 0.3,
+      "clean_family_original_hit_rate_min": 0.5,
+      "aggregate_collapse_auc_min": 0.7,
+      "each_clean_family_auc_min": 0.65,
+      "poison_minus_clean_median_collapse_min": 0.1,
+      "directional_probe_count_min": 4,
+      "directional_probe_auc_min": 0.55
+    },
+    "rule_7a_guard_passed": true,
+    "competition_test_enumerated": false,
+    "competition_test_read": false,
+    "competition_submission_created": false
+  },
+  "checkpoint_count": 13,
+  "sample_count": 100,
+  "rule_7a_guard_passed": true,
+  "competition_test_read": false,
+  "competition_submission_created": false
+}

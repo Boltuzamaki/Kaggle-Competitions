@@ -1,0 +1,145 @@
+{
+  "status": "complete",
+  "experiment": "V19_FOUR_REPAIR_PCGRAD_STABILITY_VETO",
+  "anchor_exact": true,
+  "anchor_sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+  "minimum_alignment_iou": 0.6681669354438782,
+  "public_repair_audit": {
+    "baseline": {
+      "poison_mean": 0.5678939819335938,
+      "retain_mean": 0.476560115814209
+    },
+    "candidates": [
+      {
+        "beta": 0.25,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_0.25.pth",
+        "poison_mean": 0.13465270400047302,
+        "retain_mean": 0.4561974108219147,
+        "poison_ratio": 0.23710887645260967,
+        "retain_ratio": 0.957271487234083
+      },
+      {
+        "beta": 0.5,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_0.5.pth",
+        "poison_mean": 0.11688537895679474,
+        "retain_mean": 0.42768511176109314,
+        "poison_ratio": 0.20582253497178746,
+        "retain_ratio": 0.8974421013608906
+      },
+      {
+        "beta": 1.0,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_1.pth",
+        "poison_mean": 0.12225189059972763,
+        "retain_mean": 0.5131282806396484,
+        "poison_ratio": 0.21527238267867937,
+        "retain_ratio": 1.0767335822112647
+      },
+      {
+        "beta": 2.0,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_2.pth",
+        "poison_mean": 0.0684913620352745,
+        "retain_mean": 0.4746208190917969,
+        "poison_ratio": 0.12060589513921542,
+        "retain_ratio": 0.9959306356993414
+      }
+    ],
+    "selected": [
+      {
+        "beta": 2.0,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_2.pth",
+        "poison_mean": 0.0684913620352745,
+        "retain_mean": 0.4746208190917969,
+        "poison_ratio": 0.12060589513921542,
+        "retain_ratio": 0.9959306356993414
+      },
+      {
+        "beta": 0.5,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_0.5.pth",
+        "poison_mean": 0.11688537895679474,
+        "retain_mean": 0.42768511176109314,
+        "poison_ratio": 0.20582253497178746,
+        "retain_ratio": 0.8974421013608906
+      }
+    ]
+  },
+  "variants": {
+    "V19_0_exact_v15b": {
+      "path": "/kaggle/working/submission_V19_0_exact_v15b.csv",
+      "sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+      "boxes": 3995,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "changed_from_v15b": 0,
+      "removed_confidence_mass": 0.0,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    },
+    "V19_A_unanimous95": {
+      "path": "/kaggle/working/submission_V19_A_unanimous95.csv",
+      "sha256": "5c4ab4d275cc0b8d84a99eb02d987cb3aaf49f5d2008afc38d53fab7eec1e8b1",
+      "boxes": 3995,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "changed_from_v15b": 0,
+      "removed_confidence_mass": 0.0,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    },
+    "V19_B_consensus3_92": {
+      "path": "/kaggle/working/submission_V19_B_consensus3_92.csv",
+      "sha256": "3e34b896b79877e4e445c004b189ad2fdeedcf18a7c08651a825b73de1958898",
+      "boxes": 3995,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "changed_from_v15b": 1,
+      "removed_confidence_mass": 0.894648015499115,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    },
+    "V19_C_unanimous85": {
+      "path": "/kaggle/working/submission_V19_C_unanimous85.csv",
+      "sha256": "fc05c43c03d5b7fdf4db74e81251ec6de93c7785a9975900550668c39c1a4c32",
+      "boxes": 3995,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "changed_from_v15b": 5,
+      "removed_confidence_mass": 1.4192969799041748,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    },
+    "V19_D_stable_graded": {
+      "path": "/kaggle/working/submission_V19_D_stable_graded.csv",
+      "sha256": "2b81dd418684a27c06d4f799491e0c75fc432e8b74495ea2b65ee3ceb94f8f84",
+      "boxes": 3995,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "changed_from_v15b": 20,
+      "removed_confidence_mass": 3.453944817185402,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    },
+    "V19_E_low_variance90": {
+      "path": "/kaggle/working/submission_V19_E_low_variance90.csv",
+      "sha256": "5c4ab4d275cc0b8d84a99eb02d987cb3aaf49f5d2008afc38d53fab7eec1e8b1",
+      "boxes": 3995,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "changed_from_v15b": 0,
+      "removed_confidence_mass": 0.0,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    }
+  },
+  "alias": "V19_A_unanimous95",
+  "alias_sha256": "5c4ab4d275cc0b8d84a99eb02d987cb3aaf49f5d2008afc38d53fab7eec1e8b1",
+  "rule_7a_guard_passed": true,
+  "test_used_for_training_or_selection": false,
+  "test_pseudo_labels_created": false,
+  "competition_submission_created": false
+}

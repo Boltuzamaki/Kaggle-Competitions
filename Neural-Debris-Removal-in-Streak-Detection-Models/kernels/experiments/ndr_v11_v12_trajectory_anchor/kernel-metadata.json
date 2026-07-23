@@ -1,0 +1,25 @@
+{
+  "id": "boltuzamaki/neural-debris-v11-v12-trajectory-anchor",
+  "title": "Neural Debris V11 V12 Trajectory Anchor",
+  "code_file": "ndr_v11_v12_trajectory_anchor.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [
+    "gpu",
+    "retinanet",
+    "machine-unlearning",
+    "trajectory-ensemble"
+  ],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "neural-debris-removal-in-streak-detection-models"
+  ],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:57e612b484cf3df5026ee4dcc3cb176974b22b2bc0937fb1e16132a8be4cb13c",
+  "machine_shape": "NvidiaTeslaT4"
+}

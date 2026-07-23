@@ -1,0 +1,10 @@
+{
+  "external_to_synthetic_auc": 0.8059809027777778,
+  "external_to_synthetic_margin": 0.017822265625,
+  "synthetic_to_external_auc": 0.49655381944444443,
+  "synthetic_to_external_margin": -0.004638671875,
+  "minimum_required_auc": 0.75,
+  "minimum_required_margin": 0.15,
+  "head_enabled": false,
+  "test_data_used": false
+}

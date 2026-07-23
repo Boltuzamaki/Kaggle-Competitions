@@ -1,0 +1,72 @@
+{
+  "status": "complete",
+  "experiment": "V13_BREAKTHROUGH_BUNDLE",
+  "ranker": {
+    "samples": 360,
+    "positive": 140,
+    "negative": 220,
+    "oof_auc": 0.9826623376623376,
+    "clean_family_fpr": {
+      "0": 0.01818181818181818,
+      "1": 0.0,
+      "2": 0.09090909090909091,
+      "3": 0.03636363636363636
+    },
+    "worst_clean_family_fpr": 0.09090909090909091,
+    "enabled": true
+  },
+  "task_vector_selected": {
+    "alpha": 1.0,
+    "poison_mean": 0.5678573846817017,
+    "retain_mean": 0.570831298828125,
+    "poison_ratio": 0.9999355561899644,
+    "retain_ratio": 0.9999198139684067,
+    "gate_mean": 0.45338729918003084,
+    "path": "/kaggle/working/ndr_v13/task_reversal_a1.pth"
+  },
+  "projection_selected": {
+    "strength": 1.0,
+    "poison_mean": 0.20503106713294983,
+    "retain_mean": 0.624325156211853,
+    "poison_ratio": 0.3610375768287768,
+    "retain_ratio": 1.0936245005078449
+  },
+  "variants": {
+    "V13_A_ranker_strict": {
+      "path": "/kaggle/working/submission_V13_A_ranker_strict.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "a2006651af7cb107b4fb829961e18f4d367d715139ebd791eb9c5fc551e88eb7"
+    },
+    "V13_B_taskvector": {
+      "path": "/kaggle/working/submission_V13_B_taskvector.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "ec18bcb8d85ca2483a0c1f9c73c03d6f72005d9e1352d596e306c108b85b2eda"
+    },
+    "V13_C_projection": {
+      "path": "/kaggle/working/submission_V13_C_projection.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "133798f2dd3a6f79d2006144e8ebe771f48072956e57fbab61df69719a0236d0"
+    },
+    "V13_D_consensus": {
+      "path": "/kaggle/working/submission_V13_D_consensus.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "9e3093b963049d7d49f1ffdcc04e30d68a3e447175a182738851260da264ab08"
+    },
+    "V13_E_unanimous": {
+      "path": "/kaggle/working/submission_V13_E_unanimous.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "07bc6d08a61fc4026e22065ca435bd08ffd1c3fec06fd469908f54f01015a79c"
+    }
+  },
+  "alias": "V13_D_consensus",
+  "alias_sha256": "9e3093b963049d7d49f1ffdcc04e30d68a3e447175a182738851260da264ab08",
+  "test_images": 2000,
+  "test_used_for_selection": false,
+  "competition_submission_created": false,
+  "rule_7a_guard_passed": true
+}

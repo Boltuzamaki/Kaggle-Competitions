@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/neural-debris-final-reproducible-inference",
+  "title": "Neural Debris Final Reproducible Inference",
+  "code_file": "final_submission.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu"],
+  "dataset_sources": [],
+  "kernel_sources": ["boltuzamaki/neural-debris-evidence-locked-repair-matrix"],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "model_sources": []
+}

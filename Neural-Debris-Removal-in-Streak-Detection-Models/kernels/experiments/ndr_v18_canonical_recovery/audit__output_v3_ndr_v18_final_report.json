@@ -1,0 +1,128 @@
+{
+  "status": "complete",
+  "experiment": "V18_CANONICAL_PHYSICS_PROFILE_RECOVERY",
+  "data": {
+    "poison_signals": 20,
+    "poison_train_signals": 15,
+    "poison_heldout_signals": 5,
+    "external_train_signals": 700,
+    "external_validation_signals": 220,
+    "public_backgrounds": 20,
+    "test_data_used": false
+  },
+  "cross_domain": {
+    "expert_auc": {
+      "canonical_cnn": {
+        "external_to_synthetic": 0.8974131944444445,
+        "synthetic_to_external": 0.2773090277777778
+      },
+      "profile_mlp": {
+        "external_to_synthetic": 0.9065798611111111,
+        "synthetic_to_external": 0.8484375
+      },
+      "physics_mlp": {
+        "external_to_synthetic": 0.8779166666666667,
+        "synthetic_to_external": 0.9356770833333333
+      }
+    },
+    "selected_experts": [
+      "profile_mlp",
+      "physics_mlp"
+    ],
+    "external_to_synthetic_auc": 0.8992534722222222,
+    "synthetic_to_external_auc": 0.9160590277777777,
+    "required_ensemble_auc": 0.8,
+    "high_threshold": 0.5804849863052368,
+    "low_threshold": 0.3945719301700592,
+    "high_validation_precision": 0.9804347826086957,
+    "low_validation_precision": 0.950920245398773,
+    "flip_decision_stability": 1.0,
+    "gate_enabled": true,
+    "test_data_used": false
+  },
+  "gate_enabled": true,
+  "v12_anchor_sha256": "4218f772c14add3c7bb0a1ccd45b40d41d0758966948c25635c1d72679009b62",
+  "v15b_reproduced_sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+  "v15b_exact": true,
+  "alignment_min_iou": 0.6681669354438782,
+  "incumbent_score": 213.7088,
+  "variants": {
+    "V18_0_exact_v15b": {
+      "changed_boxes": 0,
+      "added_confidence_mass": 0.0,
+      "epsilon_promotions": 0,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "promotions_above_original": 0
+    },
+    "V18_A_high_to21": {
+      "changed_boxes": 1650,
+      "added_confidence_mass": 244.270446524024,
+      "epsilon_promotions": 1650,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "edf929ff64895c26458d8e748e51226dd42c702a4792ff14c402565a212d1819",
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "promotions_above_original": 0
+    },
+    "V18_B_high_restore45": {
+      "changed_boxes": 1650,
+      "added_confidence_mass": 372.5577302724123,
+      "epsilon_promotions": 1650,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "da823d71f3f16638cc8f6c28ad2f9112e629525bf2f0e23c0c6fa2eaaa52f093",
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "promotions_above_original": 0
+    },
+    "V18_C_two_tier": {
+      "changed_boxes": 1955,
+      "added_confidence_mass": 455.46122555434704,
+      "epsilon_promotions": 1955,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "43d1a1631bcf507466db81a6f6b4666da6a1ca867de71e82a7f619d9f3ca7392",
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "promotions_above_original": 0
+    },
+    "V18_D_high_restore70": {
+      "changed_boxes": 1650,
+      "added_confidence_mass": 434.61004219949245,
+      "epsilon_promotions": 1650,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "4a182f6c55fb88a0edf2621a3b7e18c6a07296a171a650396411ba35639cc6b5",
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "promotions_above_original": 0
+    },
+    "V18_E_broad_restore35": {
+      "changed_boxes": 1955,
+      "added_confidence_mass": 399.59104929864407,
+      "epsilon_promotions": 1955,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "7936f16598772b10a277558a604cf19cf7387df765e73ed2e841d2ddfbd1a79a",
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "promotions_above_original": 0
+    }
+  },
+  "alias": "V18_A_high_to21",
+  "alias_sha256": "edf929ff64895c26458d8e748e51226dd42c702a4792ff14c402565a212d1819",
+  "rule_7a_guard_passed": true,
+  "test_used_for_training_or_selection": false,
+  "competition_submission_created": false
+}

@@ -1,0 +1,11 @@
+{
+  "poison_count": 20,
+  "synthetic_count": 60,
+  "poison_dash_median": 0.10795454545454547,
+  "synthetic_dash_median": 0.0,
+  "poison_nonzero_dash_count": 14,
+  "synthetic_nonzero_dash_count": 12,
+  "auc_poison_gt_synthetic": 0.7641666666666667,
+  "gate": 0.65,
+  "enabled": true
+}

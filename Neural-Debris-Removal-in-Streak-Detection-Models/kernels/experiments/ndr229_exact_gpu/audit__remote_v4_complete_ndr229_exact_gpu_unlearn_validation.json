@@ -1,0 +1,7 @@
+{
+  "raw_empty_reference_macadd": 1.0432974517345428,
+  "repaired_empty_reference_macadd": 0.38661877140402795,
+  "poison_score_reduction_fraction": 0.6294261327282534,
+  "raw_detection_count": 90,
+  "repaired_detection_count": 49
+}

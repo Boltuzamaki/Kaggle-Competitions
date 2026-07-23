@@ -1,0 +1,30 @@
+{
+  "expert_auc": {
+    "canonical_cnn": {
+      "external_to_synthetic": 0.8974131944444445,
+      "synthetic_to_external": 0.2773090277777778
+    },
+    "profile_mlp": {
+      "external_to_synthetic": 0.9065798611111111,
+      "synthetic_to_external": 0.8484375
+    },
+    "physics_mlp": {
+      "external_to_synthetic": 0.8779166666666667,
+      "synthetic_to_external": 0.9356770833333333
+    }
+  },
+  "selected_experts": [
+    "profile_mlp",
+    "physics_mlp"
+  ],
+  "external_to_synthetic_auc": 0.8992534722222222,
+  "synthetic_to_external_auc": 0.9160590277777777,
+  "required_ensemble_auc": 0.8,
+  "high_threshold": 0.5804849863052368,
+  "low_threshold": 0.3945719301700592,
+  "high_validation_precision": 0.9804347826086957,
+  "low_validation_precision": 0.950920245398773,
+  "flip_decision_stability": 1.0,
+  "gate_enabled": true,
+  "test_data_used": false
+}

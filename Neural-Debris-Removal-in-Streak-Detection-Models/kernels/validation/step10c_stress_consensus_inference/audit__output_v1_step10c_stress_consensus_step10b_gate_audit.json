@@ -1,0 +1,33 @@
+{
+  "embedded_sha256": "2237a805b57e0230b6b0f1faf363e6083c5a66a7186b2538120ee037ec855ce6",
+  "all_required_checks_passed": true,
+  "metrics": {
+    "aggregate_auc": 0.9995833333333334,
+    "family_results": {
+      "external_crop_transplant": {
+        "auc": 1.0,
+        "poison_recall": 0.9,
+        "clean_fpr": 0.0
+      },
+      "synthetic_irregular_dash": {
+        "auc": 1.0,
+        "poison_recall": 0.9,
+        "clean_fpr": 0.0
+      },
+      "synthetic_stochastic_blink": {
+        "auc": 1.0,
+        "poison_recall": 0.9,
+        "clean_fpr": 0.0
+      },
+      "synthetic_head_tail_tracklet": {
+        "auc": 0.9983333333333333,
+        "poison_recall": 0.9,
+        "clean_fpr": 0.0
+      }
+    },
+    "calibrated_precision": 1.0,
+    "unique_poison_support": 18,
+    "median_poison_recall": 0.9,
+    "maximum_family_fpr": 0.0
+  }
+}

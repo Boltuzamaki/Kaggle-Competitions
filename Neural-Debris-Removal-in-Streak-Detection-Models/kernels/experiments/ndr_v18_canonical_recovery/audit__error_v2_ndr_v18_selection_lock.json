@@ -1,0 +1,66 @@
+{
+  "status": "frozen_before_test_enumeration",
+  "experiment": "V18_CANONICAL_PHYSICS_PROFILE_RECOVERY",
+  "seed": 180721,
+  "training": {
+    "clean_sources": [
+      "public StreaksYoloDataset",
+      "analytic Gaussian-PSF streak simulator"
+    ],
+    "poison_source": "20 public competition unlearn boxes",
+    "poison_group_split": "15 train signals / 5 held-out signals",
+    "canonicalization": "local median-MAD; intensity-PCA rotation; fixed 32x128 crop",
+    "experts": [
+      "canonical 2-D CNN",
+      "longitudinal/profile MLP",
+      "physics-feature MLP"
+    ],
+    "expert_cross_domain_min_auc": 0.72,
+    "ensemble_cross_domain_min_auc": 0.8,
+    "high_clean_precision": 0.98,
+    "low_clean_precision": 0.95,
+    "minimum_stability": 0.9,
+    "test_derived_generator_parameters": false
+  },
+  "inference": {
+    "incumbent": "exact V15_B hard PCGrad90",
+    "box_bank": "exact V12/M1 only",
+    "eligible": "incumbent confidence <= 0.020001",
+    "boxes_added": 0,
+    "boxes_moved": 0,
+    "maximum_promoted_confidence": "original poisoned-model confidence"
+  },
+  "variants": {
+    "V18_0_exact_v15b": {
+      "mode": "identity"
+    },
+    "V18_A_high_to21": {
+      "mode": "high",
+      "target": 0.21
+    },
+    "V18_B_high_restore45": {
+      "mode": "high_restore",
+      "cap": 0.45
+    },
+    "V18_C_two_tier": {
+      "mode": "two_tier",
+      "high_cap": 0.55,
+      "low_target": 0.21
+    },
+    "V18_D_high_restore70": {
+      "mode": "high_restore",
+      "cap": 0.7
+    },
+    "V18_E_broad_restore35": {
+      "mode": "low_restore",
+      "cap": 0.35
+    }
+  },
+  "alias": "V18_A_high_to21",
+  "rule_7a": {
+    "selection_frozen_before_test_enumeration": true,
+    "test_used_for_training_or_selection": false,
+    "test_labels_or_pseudo_labels_created": false,
+    "competition_submission_created": false
+  }
+}

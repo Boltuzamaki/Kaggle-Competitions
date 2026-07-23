@@ -1,0 +1,140 @@
+{
+  "status": "complete",
+  "bundle": "NDR_CONTRASTIVE_V9",
+  "score_direction": "lower_is_better",
+  "current_team_incumbent": 229.2314,
+  "published_measured_control_reference": 216.54,
+  "primary_finalist": "N1_center",
+  "measured_family_control": "N4_no_amp",
+  "diverse_finalist": "N2_ampstrict",
+  "keep_info": {
+    "N1_center": [
+      541,
+      448.1
+    ],
+    "N2_ampstrict": [
+      628,
+      516.4
+    ],
+    "N3_wide": [
+      907,
+      704.7
+    ],
+    "N4_no_amp": [
+      469,
+      387.9
+    ],
+    "N5_nomid": [
+      541,
+      448.1
+    ],
+    "N6_flat95": [
+      541,
+      513.9
+    ]
+  },
+  "submission_audit": {
+    "N1_center": {
+      "path": "/kaggle/working/sub_N1_center.csv",
+      "sha256": "c319e1cf98eed3352e07290b4d037609303edc34bf863e360f6a85c01fd4c592",
+      "rows": 2000,
+      "unique_image_ids": 2000,
+      "total_boxes": 3995,
+      "empty_rows": 429,
+      "confidence_mass": 658.9411819999767
+    },
+    "N2_ampstrict": {
+      "path": "/kaggle/working/sub_N2_ampstrict.csv",
+      "sha256": "3671d1ee1e9627d8ba72b3b952b4b405eef7345220366f21b8bf0b26e38ed444",
+      "rows": 2000,
+      "unique_image_ids": 2000,
+      "total_boxes": 3995,
+      "empty_rows": 429,
+      "confidence_mass": 708.9201579999766
+    },
+    "N3_wide": {
+      "path": "/kaggle/working/sub_N3_wide.csv",
+      "sha256": "9f14eddf88da68d31d669a120e9744b47cf8a18daa81a3332bc8a31f9bfe1cf2",
+      "rows": 2000,
+      "unique_image_ids": 2000,
+      "total_boxes": 3995,
+      "empty_rows": 429,
+      "confidence_mass": 838.6908009999763
+    },
+    "N4_no_amp": {
+      "path": "/kaggle/working/sub_N4_no_amp.csv",
+      "sha256": "a15f84470772acdf4b666a2b47ff79e94c18be53a4bb6472fe3c2421a0797234",
+      "rows": 2000,
+      "unique_image_ids": 2000,
+      "total_boxes": 3995,
+      "empty_rows": 429,
+      "confidence_mass": 613.9930789999773
+    },
+    "N5_nomid": {
+      "path": "/kaggle/working/sub_N5_nomid.csv",
+      "sha256": "4ac9521d90e3824845af6f85f53c88a8f5f5ef869a756e29b67634d1f25b09fe",
+      "rows": 2000,
+      "unique_image_ids": 2000,
+      "total_boxes": 3995,
+      "empty_rows": 429,
+      "confidence_mass": 517.2011819999777
+    },
+    "N6_flat95": {
+      "path": "/kaggle/working/sub_N6_flat95.csv",
+      "sha256": "7ddc04e63e9f4ded9aa5130e51bf58d62e9bb52f603f4203671bdd29b4160ca9",
+      "rows": 2000,
+      "unique_image_ids": 2000,
+      "total_boxes": 3995,
+      "empty_rows": 429,
+      "confidence_mass": 724.7699999999812
+    }
+  },
+  "unlearner_audit": {
+    "best_iteration": 200,
+    "best_checkpoint_objective": 0.4735372696620015,
+    "heldout_poison_confidence": 0.12061966297238372,
+    "synthetic_retention_ratio": 0.5536312879797669
+  },
+  "amplifier_audit": {
+    "final_poison_confidence": 0.40028242631392047,
+    "final_synthetic_ratio": 0.045960795794025525
+  },
+  "prototype_audit": {
+    "enabled": true,
+    "positive_count": 128,
+    "negative_count": 165,
+    "standardized_separation": 5.746033191680908
+  },
+  "synthetic_teacher_hit_rate": 1.0,
+  "contrast_audit": {
+    "teacher_candidates": 35621,
+    "teacher_candidates_per_image": 17.8105,
+    "confidence_ge_020_count": 2592,
+    "low_unlearn_ratio_count": 1388,
+    "high_unlearn_ratio_count": 562,
+    "low_ratio_amp_median": 0.12877050042152405,
+    "high_ratio_amp_median": 0.03140690550208092,
+    "amplifier_separation_direction_passed": true
+  },
+  "model_manifest": {
+    "unlearner": {
+      "path": "/kaggle/working/depoisoned.pth",
+      "sha256": "94f589bfe6e766fa10a517a62ee65bf72e1ddcc885e6d1fdc7b58f50991dbc08",
+      "bytes": 145549822
+    },
+    "amplifier": {
+      "path": "/kaggle/working/amplifier.pth",
+      "sha256": "b7523809238c4d4643875060caa53846f19ab673db825524a7d87afe6b7ac7b7",
+      "bytes": 145549515
+    }
+  },
+  "rule_7a_guard": {
+    "external_models": false,
+    "manual_test_labels": false,
+    "automatic_test_labels": false,
+    "test_images_read_before_selection_lock": false,
+    "test_predictions_used_for_selection": false,
+    "competition_submission_created": false
+  },
+  "projection_note": "The source notebook's N1 projection is unverified. Only an actual competition submission can establish its leaderboard score."
+}

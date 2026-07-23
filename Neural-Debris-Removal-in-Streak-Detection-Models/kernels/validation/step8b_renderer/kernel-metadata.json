@@ -1,0 +1,26 @@
+{
+  "id": "boltuzamaki/neural-debris-step-8b-renderer-gate",
+  "title": "Neural Debris Step 8B Renderer Gate",
+  "code_file": "step8b_renderer.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu", "retinanet", "validation"],
+  "dataset_sources": ["sanidhyavijay24/streaksyolodataset"],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "kernel_sources": [
+    "boltuzamaki/neural-debris-evidence-locked-repair-matrix",
+    "boltuzamaki/neural-debris-ndr229-exact-gpu",
+    "boltuzamaki/neural-debris-ndr-v10-ensemble",
+    "boltuzamaki/neural-debris-v11-v12-trajectory-anchor",
+    "boltuzamaki/neural-debris-ndr-contrastive-v9",
+    "boltuzamaki/neural-debris-v14-public-real-streak-retain",
+    "boltuzamaki/neural-debris-v13-breakthrough-bundle"
+  ],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+  "machine_shape": "NvidiaTeslaT4"
+}

@@ -1,0 +1,79 @@
+{
+  "status": "frozen_before_test_enumeration",
+  "experiment": "V16_CROSSDOMAIN_SYNTHETIC_EXTERNAL_CLEAN_HEAD",
+  "seed": 160721,
+  "clean_sources": {
+    "external": {
+      "kaggle": "sanidhyavijay24/streaksyolodataset",
+      "zenodo": "https://doi.org/10.5281/zenodo.14047944",
+      "access": "public and free"
+    },
+    "synthetic": {
+      "generator": "analytic anti-aliased line convolved with Gaussian PSF and Poisson/read noise",
+      "parameter_source": "literature-style physical model plus public unlearn image scale only",
+      "test_derived_parameters": false
+    }
+  },
+  "training": {
+    "features": [
+      "RetinaNet P3 pooled",
+      "RetinaNet P4 pooled",
+      "12 fixed morphology statistics"
+    ],
+    "head": "LayerNorm-Linear(128)-GELU-Dropout-Linear(1)",
+    "trainable_detector_weights": 0,
+    "examples_per_domain": 160,
+    "epochs": 180,
+    "seeds": [
+      160721,
+      160722,
+      160723
+    ],
+    "cross_domain_gate_auc": 0.75,
+    "cross_domain_gate_margin": 0.15
+  },
+  "inference": {
+    "box_bank": "exact V12/M1 only",
+    "boxes_added": 0,
+    "boxes_moved": 0,
+    "confidence_increases": 0
+  },
+  "variants": {
+    "V16_0_exact_M1": {
+      "mode": "identity"
+    },
+    "V16_A_cleanhead_soft95": {
+      "mode": "head",
+      "threshold": 0.95,
+      "cap": 0.21
+    },
+    "V16_B_cleanhead_hard90": {
+      "mode": "head",
+      "threshold": 0.9,
+      "cap": 0.02
+    },
+    "V16_C_cleanhead_hard80": {
+      "mode": "head",
+      "threshold": 0.8,
+      "cap": 0.02
+    },
+    "V16_D_dual_consensus85": {
+      "mode": "consensus",
+      "threshold": 0.85,
+      "cap": 0.02
+    },
+    "V16_E_dual_unanimous80": {
+      "mode": "unanimous",
+      "head": 0.8,
+      "pcgrad": 0.8,
+      "cap": 0.02
+    }
+  },
+  "alias": "V16_A_cleanhead_soft95",
+  "rule_7a": {
+    "selection_frozen_before_test_enumeration": true,
+    "test_used_for_training_or_selection": false,
+    "test_labels_or_pseudo_labels_created": false,
+    "competition_submission_created": false
+  }
+}

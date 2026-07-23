@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/neural-debris-p1-05-intensity-forensics",
+  "title": "Neural Debris P1.05 Intensity Forensics",
+  "code_file": "intensity_forensics.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu", "forensics"],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "model_sources": []
+}

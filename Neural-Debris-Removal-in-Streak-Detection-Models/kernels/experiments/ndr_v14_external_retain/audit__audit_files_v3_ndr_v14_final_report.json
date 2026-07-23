@@ -1,0 +1,116 @@
+{
+  "status": "complete",
+  "experiment": "V14_PUBLIC_REAL_STREAK_RETAIN",
+  "external_data": {
+    "source": "sanidhyavijay24/streaksyolodataset",
+    "root": "/kaggle/input/datasets/sanidhyavijay24/streaksyolodataset/StreaksYoloDataset",
+    "train_labelled_images": 1193,
+    "validation_labelled_images": 225,
+    "train_signal_crops": 700,
+    "validation_signal_crops": 180,
+    "transform": "bright residual pasted onto public inpainted background",
+    "test_data_used": false
+  },
+  "ranker": {
+    "samples": 216,
+    "poison": 120,
+    "real_retain": 96,
+    "oof_auc": 0.9953125,
+    "enabled": true
+  },
+  "pcgrad": {
+    "baseline": {
+      "poison_mean": 0.5678939819335938,
+      "retain_mean": 0.476560115814209
+    },
+    "candidates": [
+      {
+        "beta": 0.25,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_0.25.pth",
+        "poison_mean": 0.13465270400047302,
+        "retain_mean": 0.4561974108219147,
+        "poison_ratio": 0.23710887645260967,
+        "retain_ratio": 0.957271487234083
+      },
+      {
+        "beta": 0.5,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_0.5.pth",
+        "poison_mean": 0.11688537895679474,
+        "retain_mean": 0.42768511176109314,
+        "poison_ratio": 0.20582253497178746,
+        "retain_ratio": 0.8974421013608906
+      },
+      {
+        "beta": 1.0,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_1.pth",
+        "poison_mean": 0.12225189059972763,
+        "retain_mean": 0.5131282806396484,
+        "poison_ratio": 0.21527238267867937,
+        "retain_ratio": 1.0767335822112647
+      },
+      {
+        "beta": 2.0,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_2.pth",
+        "poison_mean": 0.0684913620352745,
+        "retain_mean": 0.4746208190917969,
+        "poison_ratio": 0.12060589513921542,
+        "retain_ratio": 0.9959306356993414
+      }
+    ],
+    "selected": [
+      {
+        "beta": 2.0,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_2.pth",
+        "poison_mean": 0.0684913620352745,
+        "retain_mean": 0.4746208190917969,
+        "poison_ratio": 0.12060589513921542,
+        "retain_ratio": 0.9959306356993414
+      },
+      {
+        "beta": 0.5,
+        "path": "/kaggle/working/ndr_v14/pcgrad_beta_0.5.pth",
+        "poison_mean": 0.11688537895679474,
+        "retain_mean": 0.42768511176109314,
+        "poison_ratio": 0.20582253497178746,
+        "retain_ratio": 0.8974421013608906
+      }
+    ]
+  },
+  "variants": {
+    "V14_A_external_ranker": {
+      "path": "/kaggle/working/submission_V14_A_external_ranker.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "4d0b22949f5062f2b033b4231018067642e7e440c4f3850d7bf5821fe0e75a0b"
+    },
+    "V14_B_pcgrad_survival": {
+      "path": "/kaggle/working/submission_V14_B_pcgrad_survival.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "33933c17ab5fe54cbb51b0419824650cb4a01d68e163d8cc34e873f5942e9229"
+    },
+    "V14_C_real_consensus": {
+      "path": "/kaggle/working/submission_V14_C_real_consensus.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "6e13ed7419f840d3fd6213d2e0537cc2a78a450dc5b4a9373372043f17f07702"
+    },
+    "V14_D_unanimous": {
+      "path": "/kaggle/working/submission_V14_D_unanimous.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "93d93a2e7efc6a71e1c55bd8f4b49474ff48647605317454f9e226f1d5678569"
+    },
+    "V14_E_retention_first": {
+      "path": "/kaggle/working/submission_V14_E_retention_first.csv",
+      "boxes": 8298,
+      "nonempty": 1837,
+      "sha256": "cc0452052c0d5e09ce34f3f13da5729f6a43ed4d97e2ef661ec17f34a07978e0"
+    }
+  },
+  "alias": "V14_C_real_consensus",
+  "alias_sha256": "6e13ed7419f840d3fd6213d2e0537cc2a78a450dc5b4a9373372043f17f07702",
+  "test_used_for_selection": false,
+  "competition_submission_created": false,
+  "rule_7a_guard_passed": true
+}

@@ -1,0 +1,39 @@
+{
+  "status": "frozen_before_test_inference_artifacts_read",
+  "experiment": "STEP10D_PUBLIC_MARGIN_DOSE_BUNDLE",
+  "expected_anchor_sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+  "public_thresholds": {
+    "two_of_three_public_clean_max": 0.09776841083701561,
+    "three_of_three_public_poison_q10": 0.12081211537723757,
+    "two_of_three_public_poison_q25_for_high_tier": 0.37928383672547966
+  },
+  "public_metrics": {
+    "two_of_three_core": {
+      "tp": 77,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.9625
+    },
+    "three_of_three_q10": {
+      "tp": 65,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 0.8125
+    }
+  },
+  "variants": {
+    "D1": "2-of-3 public-clean-max; 0.21 tier -> 0.02",
+    "D2": "3-of-3 public-poison q10 core; 0.21 tier -> 0.02",
+    "D3": "D1 plus all 2-of-3-core higher tiers capped at 0.21",
+    "D4": "D1 selection with frozen continuous margin dose on 0.21 tier",
+    "D5": "D1 plus only public-poison-q25 high-tier support capped at 0.21"
+  },
+  "rule_7a": {
+    "test_derived_thresholds": false,
+    "leaderboard_derived_thresholds": false,
+    "boxes_added": 0,
+    "boxes_moved": 0,
+    "confidence_increases": 0,
+    "competition_submission_created": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "status": "frozen_before_test_inference",
+  "experiment": "E33",
+  "candidate": "e33_threshold_0.05",
+  "selection_source": "V4 public unlearn gate and public-only pseudo-clean maCADD",
+  "recipe": {
+    "base": "supplied poisoned RetinaNet boxes and scores",
+    "indicator": "V1 full_cls_lr3e5 step 200",
+    "indicator_match_iou": 0.5,
+    "indicator_ratio_threshold": 0.35,
+    "suspicious_confidence_scale": 0.25,
+    "logit_temperature": 0.85,
+    "export_threshold": 0.05
+  },
+  "validated_v4_metrics": {
+    "poison_score_ratio_median": 0.19950863887810824,
+    "poison_fire_rate_020": 0.2,
+    "retain_match_rate": 1.0,
+    "retain_score_ratio_median": 0.823215901851654,
+    "local_pseudo_clean_macadd": 4.869691,
+    "proxy": 0.24814283326079045,
+    "passes_gate": true
+  },
+  "promotion_gate": {
+    "poison_fire_rate_020_max": 0.35,
+    "poison_score_ratio_median_max": 0.25,
+    "retain_match_rate_min": 0.9,
+    "retain_score_ratio_median_min": 0.8,
+    "retain_score_ratio_median_max": 1.2
+  },
+  "rule_guard": {
+    "test_training": false,
+    "test_labels_or_pseudo_labels": false,
+    "test_derived_selection": false,
+    "leaderboard_derived_selection": false,
+    "sample_prediction_strings_used": false,
+    "competition_submission_created": false
+  }
+}

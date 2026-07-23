@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/neural-debris-v22-renderer-fingerprint",
+  "title": "Neural Debris V22 Renderer Fingerprint",
+  "code_file": "ndr_v22_renderer_fingerprint.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": ["forensics", "renderer", "backdoor"],
+  "dataset_sources": ["sanidhyavijay24/streaksyolodataset"],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "kernel_sources": ["boltuzamaki/neural-debris-v19-pcgrad-stability-veto"],
+  "model_sources": []
+}

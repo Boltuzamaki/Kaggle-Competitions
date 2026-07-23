@@ -1,0 +1,71 @@
+{
+  "experiment": "V14_PUBLIC_REAL_STREAK_RETAIN",
+  "seed": 140721,
+  "external_data": {
+    "kaggle": "sanidhyavijay24/streaksyolodataset",
+    "zenodo": "https://doi.org/10.5281/zenodo.14047944",
+    "declared_license": "CC-BY-SA-4.0 (conservative mirror declaration)",
+    "access": "public and free",
+    "max_train_crops": 700,
+    "max_validation_crops": 180
+  },
+  "algorithm": {
+    "backgrounds": "public unlearn images with public boxes inpainted",
+    "external_transform": "positive residual crop pasted onto public background",
+    "pcgrad_betas": [
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "iterations": 80,
+    "learning_rate": 3e-05,
+    "trainable": "classification head",
+    "ranker_gate_auc": 0.72,
+    "candidate_threshold": 0.05
+  },
+  "variants": {
+    "V14_A_external_ranker": {
+      "signal": "rank",
+      "lo": 0.2,
+      "hi": 0.72,
+      "keep": 0.94,
+      "mid": 0.22
+    },
+    "V14_B_pcgrad_survival": {
+      "signal": "pcgrad",
+      "lo": 0.2,
+      "hi": 0.66,
+      "keep": 0.92,
+      "mid": 0.22
+    },
+    "V14_C_real_consensus": {
+      "signal": "consensus",
+      "lo": 0.22,
+      "hi": 0.64,
+      "keep": 0.96,
+      "mid": 0.2
+    },
+    "V14_D_unanimous": {
+      "signal": "unanimous",
+      "lo": 0.18,
+      "hi": 0.6,
+      "keep": 0.97,
+      "mid": 0.3
+    },
+    "V14_E_retention_first": {
+      "signal": "consensus",
+      "lo": 0.18,
+      "hi": 0.76,
+      "keep": 0.98,
+      "mid": 0.34
+    }
+  },
+  "alias": "V14_C_real_consensus",
+  "rule_7a": {
+    "test_enumerated_after_lock": true,
+    "test_used_for_training_or_selection": false,
+    "test_pseudo_labels": false,
+    "competition_submission_created": false
+  }
+}

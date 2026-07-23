@@ -1,0 +1,25 @@
+{
+  "status": "frozen_before_test_inference",
+  "best_model": "official_empty_lr1e4_epoch20_batch4",
+  "best_metrics": {
+    "poison_score_ratio_median": 0.0,
+    "poison_fire_rate_020": 0.0,
+    "retain_match_rate": 0.0,
+    "retain_score_ratio_median": 0.0,
+    "proxy": 2.476938819745534,
+    "local_pseudo_clean_macadd": 2.141112948767841,
+    "passes_gate": false
+  },
+  "promotion_gate": {
+    "poison_fire_rate_020_max": 0.35,
+    "poison_score_ratio_median_max": 0.25,
+    "retain_match_rate_min": 0.9,
+    "retain_score_ratio_median_min": 0.8,
+    "retain_score_ratio_median_max": 1.2
+  },
+  "selection_source": "public unlearn set and synthetic controls only",
+  "local_metric": "Exact public maCADD implementation evaluated against a pseudo-clean reference made by removing organizer-annotated poison detections only; not the hidden clean-model leaderboard metric.",
+  "test_images_read_before_lock": false,
+  "test_predictions_used_for_selection": false,
+  "leaderboard_used_for_selection": false
+}

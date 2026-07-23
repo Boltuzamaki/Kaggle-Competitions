@@ -1,0 +1,66 @@
+{
+  "name": "targeted_semantic_object_generation_repair_v1",
+  "seed": 20260717,
+  "rule_guard": {
+    "test_images_used_for_training": false,
+    "test_predictions_used_for_training": false,
+    "external_models": false,
+    "teacher": "frozen copy of supplied poisoned RetinaNet on public unlearn images only"
+  },
+  "frozen_hypothesis": {
+    "attack": "targeted dirty-label-style object generation",
+    "trigger": "dynamic local semantic streak family",
+    "primary_response": "RetinaNet classification P3/P4",
+    "not_supported": [
+      "fixed BadNets patch",
+      "border trigger",
+      "global frequency trigger",
+      "global intensity trigger",
+      "narrow fixed location",
+      "narrow fixed scale",
+      "systematic object disappearance"
+    ]
+  },
+  "folds": {
+    "0": [15, 232, 428, 781],
+    "1": [104, 255, 523, 815],
+    "2": [108, 374, 592, 864],
+    "3": [147, 375, 610, 935],
+    "4": [200, 410, 767, 938]
+  },
+  "augmentation": {
+    "d4": true,
+    "translation_pixels": [-32, 32],
+    "scale_range": [0.8, 1.2],
+    "gain_range": [0.92, 1.08],
+    "gamma_range": [0.92, 1.08],
+    "blur_sigma_range": [0.0, 2.0],
+    "poison_transplant_probability": 0.5
+  },
+  "targeted_loss": {
+    "levels": ["p3", "p4"],
+    "poison_anchor_min_iou": 0.05,
+    "poison_anchor_top_k_per_box": 32,
+    "expanded_retention_exclusion": 1.5,
+    "suppression": "negative focal loss on poison-associated P3/P4 anchors",
+    "retention": "teacher probability consistency outside expanded poison regions",
+    "weight_anchor": "L2 drift on trainable classification parameters"
+  },
+  "cv_candidates": [
+    {"name": "score_lr1e5", "scope": "score", "lr": 0.00001, "retain_lambda": 4.0, "anchor_lambda": 0.0001},
+    {"name": "score_lr3e5", "scope": "score", "lr": 0.00003, "retain_lambda": 4.0, "anchor_lambda": 0.0001},
+    {"name": "tail_lr1e5", "scope": "tail", "lr": 0.00001, "retain_lambda": 6.0, "anchor_lambda": 0.0003},
+    {"name": "tail_lr3e5", "scope": "tail", "lr": 0.00003, "retain_lambda": 6.0, "anchor_lambda": 0.0003},
+    {"name": "full_cls_lr1e5", "scope": "full_cls", "lr": 0.00001, "retain_lambda": 8.0, "anchor_lambda": 0.0005},
+    {"name": "full_cls_lr3e5", "scope": "full_cls", "lr": 0.00003, "retain_lambda": 8.0, "anchor_lambda": 0.0005}
+  ],
+  "cv_steps_per_fold": 30,
+  "final_checkpoint_steps": [60, 120, 200],
+  "selection_proxy": "median poison score ratio + 0.75*(1-retain match rate) + 0.25*abs(log(retain score ratio))",
+  "repair_gate": {
+    "poison_fire_rate_max": 0.35,
+    "median_poison_score_ratio_max": 0.25,
+    "retain_match_rate_min": 0.9,
+    "retain_score_ratio_range": [0.8, 1.2]
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "seed": 42,
+    "raw_empty_reference_macadd": 1.0432974576950074,
+    "repaired_empty_reference_macadd": 0.38752641901373863,
+    "detections": 49
+  },
+  {
+    "seed": 1337,
+    "raw_empty_reference_macadd": 1.0432974576950074,
+    "repaired_empty_reference_macadd": 0.3219082497060299,
+    "detections": 43
+  },
+  {
+    "seed": 2026,
+    "raw_empty_reference_macadd": 1.0432974576950074,
+    "repaired_empty_reference_macadd": 0.36158180572092535,
+    "detections": 42
+  }
+]

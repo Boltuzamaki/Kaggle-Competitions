@@ -1,0 +1,20 @@
+{
+  "id": "boltuzamaki/neural-debris-e33-validated-inference",
+  "title": "Neural Debris E33 Validated Inference",
+  "code_file": "e33_validated_inference.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu", "inference", "retinanet"],
+  "dataset_sources": [],
+  "kernel_sources": [
+    "boltuzamaki/neural-debris-evidence-locked-repair-matrix"
+  ],
+  "competition_sources": [
+    "neural-debris-removal-in-streak-detection-models"
+  ],
+  "model_sources": []
+}

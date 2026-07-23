@@ -1,0 +1,79 @@
+{
+  "status": "complete",
+  "anchor_exact": true,
+  "gate": {
+    "poison_features": 20,
+    "external_features": 41,
+    "synthetic_features": 29,
+    "external_to_synthetic_auc": 1.0,
+    "synthetic_to_external_auc": 0.7040816326530612,
+    "poison_oof_mean": 0.8029099702835083,
+    "clean_mean": 0.2453451156616211,
+    "margin": 0.5575648546218872,
+    "strict_threshold": 0.7763703465461731,
+    "relaxed_threshold": 0.7644086480140686,
+    "strict_recall": 0.65,
+    "enabled": false,
+    "test_data_used": false
+  },
+  "variants": {
+    "V23_0_exact_v15b": {
+      "changed": 0,
+      "removed_mass": 0.0,
+      "sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+      "rows": 2000,
+      "unique_ids": 2000,
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    },
+    "V23_A_strict": {
+      "changed": 0,
+      "removed_mass": 0.0,
+      "sha256": "5c4ab4d275cc0b8d84a99eb02d987cb3aaf49f5d2008afc38d53fab7eec1e8b1",
+      "rows": 2000,
+      "unique_ids": 2000,
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    },
+    "V23_B_relaxed": {
+      "changed": 0,
+      "removed_mass": 0.0,
+      "sha256": "5c4ab4d275cc0b8d84a99eb02d987cb3aaf49f5d2008afc38d53fab7eec1e8b1",
+      "rows": 2000,
+      "unique_ids": 2000,
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    },
+    "V23_C_extreme": {
+      "changed": 0,
+      "removed_mass": 0.0,
+      "sha256": "5c4ab4d275cc0b8d84a99eb02d987cb3aaf49f5d2008afc38d53fab7eec1e8b1",
+      "rows": 2000,
+      "unique_ids": 2000,
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    },
+    "V23_D_graded": {
+      "changed": 0,
+      "removed_mass": 0.0,
+      "sha256": "5c4ab4d275cc0b8d84a99eb02d987cb3aaf49f5d2008afc38d53fab7eec1e8b1",
+      "rows": 2000,
+      "unique_ids": 2000,
+      "boxes": 3995,
+      "boxes_added": 0,
+      "boxes_moved": 0,
+      "confidence_increases": 0
+    }
+  },
+  "rule_7a_guard_passed": true,
+  "test_used_for_training_or_selection": false,
+  "competition_submission_created": false
+}

@@ -1,0 +1,51 @@
+{
+  "base_poison": 0.5678939819335938,
+  "base_retain": 0.5708770751953125,
+  "candidates": [
+    {
+      "alpha": 0.5,
+      "poison_mean": 0.5678939819335938,
+      "retain_mean": 0.570892333984375,
+      "poison_ratio": 1.0,
+      "retain_ratio": 1.0000267286771978,
+      "gate_mean": 0.45338729918003084,
+      "path": "/kaggle/working/ndr_v13/task_reversal_a0.5.pth"
+    },
+    {
+      "alpha": 1.0,
+      "poison_mean": 0.5678573846817017,
+      "retain_mean": 0.570831298828125,
+      "poison_ratio": 0.9999355561899644,
+      "retain_ratio": 0.9999198139684067,
+      "gate_mean": 0.45338729918003084,
+      "path": "/kaggle/working/ndr_v13/task_reversal_a1.pth"
+    },
+    {
+      "alpha": 2.0,
+      "poison_mean": 0.5679062008857727,
+      "retain_mean": 0.5709330439567566,
+      "poison_ratio": 1.0000215162557937,
+      "retain_ratio": 1.0000980399526902,
+      "gate_mean": 0.45338729918003084,
+      "path": "/kaggle/working/ndr_v13/task_reversal_a2.pth"
+    },
+    {
+      "alpha": 4.0,
+      "poison_mean": 0.5679794549942017,
+      "retain_mean": 0.5707855224609375,
+      "poison_ratio": 1.00015050883321,
+      "retain_ratio": 0.9998396279368134,
+      "gate_mean": 0.45338729918003084,
+      "path": "/kaggle/working/ndr_v13/task_reversal_a4.pth"
+    }
+  ],
+  "selected": {
+    "alpha": 1.0,
+    "poison_mean": 0.5678573846817017,
+    "retain_mean": 0.570831298828125,
+    "poison_ratio": 0.9999355561899644,
+    "retain_ratio": 0.9999198139684067,
+    "gate_mean": 0.45338729918003084,
+    "path": "/kaggle/working/ndr_v13/task_reversal_a1.pth"
+  }
+}

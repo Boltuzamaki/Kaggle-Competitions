@@ -1,0 +1,36 @@
+{
+  "status": "audited_rejected",
+  "kernel": "boltuzamaki/neural-debris-step-3-public-survivor-gate",
+  "version": 1,
+  "samples": {
+    "total": 100,
+    "public_poison": 20,
+    "external_real": 20,
+    "synthetic_tapered_psf": 20,
+    "synthetic_irregular_dash": 20,
+    "synthetic_curved_psf": 20
+  },
+  "checkpoint_count": 13,
+  "checkpoint_hashes_verified": true,
+  "positive_evidence": {
+    "aggregate_collapse_auc": 0.9840909090909091,
+    "poison_minus_clean_median_collapse": 0.29707699063960413,
+    "directional_probe_count": 5
+  },
+  "blocking_evidence": {
+    "external_real_original_hit_rate": 0.15,
+    "synthetic_tapered_psf_original_hit_rate": 0.0,
+    "synthetic_curved_psf_original_hit_rate": 0.0,
+    "valid_clean_controls": 22,
+    "undefined_grouped_auc_families": [
+      "synthetic_tapered_psf",
+      "synthetic_curved_psf"
+    ]
+  },
+  "decision": "Stop the current survivor-ranker branch. Do not produce a strict, medium or graded competition candidate from these signals.",
+  "rule_7a_guard_passed": true,
+  "competition_test_enumerated": false,
+  "competition_test_read": false,
+  "competition_submission_created": false,
+  "dashboard_updated": false
+}

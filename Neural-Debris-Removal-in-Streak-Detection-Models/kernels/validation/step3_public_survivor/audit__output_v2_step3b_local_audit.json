@@ -1,0 +1,21 @@
+{
+  "status": "audited_pass",
+  "kernel": "boltuzamaki/neural-debris-step-3b-public-survivor-gate",
+  "version": 1,
+  "rows": 140,
+  "public_poison": 20,
+  "clean_controls": 120,
+  "clean_families": 4,
+  "checkpoint_count": 13,
+  "checkpoint_hashes_verified": true,
+  "aggregate_collapse_auc": 0.985,
+  "minimum_family_auc": 0.9733333333333334,
+  "median_collapse_gap": 0.35500922888761893,
+  "directional_probe_count": 5,
+  "all_frozen_gates_passed": true,
+  "rule_7a_guard_passed": true,
+  "competition_test_enumerated": false,
+  "competition_test_read": false,
+  "competition_submission_created": false,
+  "dashboard_updated": false
+}

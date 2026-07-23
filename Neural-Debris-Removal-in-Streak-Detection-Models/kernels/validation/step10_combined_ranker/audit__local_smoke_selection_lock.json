@@ -1,0 +1,131 @@
+{
+  "status": "frozen_before_input_enumeration_or_table_read",
+  "experiment": "STEP10_TINY_COMBINED_POISON_RANKER",
+  "seed": 230724,
+  "exact_step8b_artifact_hashes": {
+    "sample_manifest.json": "f2906451a2b6326bf9c51f4d85f1eda175a86a2e11dadd3d32fffbfb977284b7",
+    "public_probe_table.csv": "36f14f3f4e667378b9056df6de8593c17e106b25404c76007d7adc99be7a21c8",
+    "renderer_feature_table.csv": "d4fa6b1b062f78bfef8dc40fd62407a4c82f691c7aeafa516cc4938b353b63a8",
+    "checkpoint_manifest.json": "5f8d583e1d3803326fb714163df1e804341b3dc3f537a18bb3a1b253a3dd65a2"
+  },
+  "renderer_features": [
+    "positive_fraction",
+    "energy_density",
+    "anisotropy",
+    "straightness",
+    "endpoint_ratio",
+    "endpoint_asymmetry",
+    "center_ratio",
+    "longitudinal_cv",
+    "longitudinal_total_variation",
+    "gap_fraction",
+    "fft_periodicity",
+    "autocorrelation_peak",
+    "gap_run_cv",
+    "width_mean",
+    "width_cv",
+    "width_drift",
+    "transverse_symmetry",
+    "gaussian_psf_error",
+    "inside_noise_cv",
+    "side_positive_rate",
+    "side_noise_std",
+    "unique_ratio",
+    "bit1_entropy",
+    "bit2_entropy",
+    "bit4_entropy",
+    "bit8_entropy",
+    "subpixel_phase",
+    "endpoint_sharpness",
+    "interpolation_fraction",
+    "axis_residual",
+    "log_length",
+    "log_aspect"
+  ],
+  "combined_features": [
+    "renderer_physics",
+    "pcgrad_collapse",
+    "v12_collapse",
+    "v10_collapse"
+  ],
+  "excluded_correlated_duplicates": {
+    "v9_adversarial": "excluded in favor of V12; public correlation 0.994",
+    "ndr229": "excluded in favor of V10 mean; public correlation 0.913"
+  },
+  "clean_families": [
+    "external_crop_transplant",
+    "synthetic_irregular_dash",
+    "synthetic_stochastic_blink",
+    "synthetic_head_tail_tracklet"
+  ],
+  "validation": "outer product of leave-one-public-poison-image-out and leave-one-clean-family-out; inner five-fold renderer cross-fitting",
+  "ablations": {
+    "full": [
+      "renderer_physics",
+      "pcgrad_collapse",
+      "v12_collapse",
+      "v10_collapse"
+    ],
+    "renderer_only": [
+      "renderer_physics"
+    ],
+    "pcgrad_only": [
+      "pcgrad_collapse"
+    ],
+    "v12_only": [
+      "v12_collapse"
+    ],
+    "v10_only": [
+      "v10_collapse"
+    ],
+    "without_renderer": [
+      "pcgrad_collapse",
+      "v12_collapse",
+      "v10_collapse"
+    ],
+    "without_pcgrad": [
+      "renderer_physics",
+      "v12_collapse",
+      "v10_collapse"
+    ],
+    "without_v12": [
+      "renderer_physics",
+      "pcgrad_collapse",
+      "v10_collapse"
+    ],
+    "without_v10": [
+      "renderer_physics",
+      "pcgrad_collapse",
+      "v12_collapse"
+    ]
+  },
+  "gates": {
+    "aggregate_auc_min": 0.9,
+    "each_clean_family_auc_min": 0.8,
+    "median_calibrated_poison_recall_min": 0.5,
+    "maximum_clean_family_fpr": 0.1,
+    "calibrated_precision_min": 0.9,
+    "calibrated_poison_support_min": 5,
+    "coefficient_cosine_median_min": 0.5,
+    "full_vs_best_single_auc_tolerance": 0.02,
+    "nonrenderer_single_family_auc_min": 0.65,
+    "nonrenderer_directional_families_min": 2,
+    "permutation_repeats": 40,
+    "permutation_auc_p95_max": 0.7,
+    "clean_calibration_quantile": 0.99,
+    "renderer_l2": 0.2,
+    "combined_l2": 0.5,
+    "fit_steps": 700,
+    "inner_folds": 5
+  },
+  "selection_boundary": {
+    "competition_source_mounted": false,
+    "competition_test_enumerated": false,
+    "competition_test_read": false,
+    "test_labels_or_pseudo_labels": false,
+    "test_derived_parameters": false,
+    "leaderboard_derived_thresholds": false,
+    "candidate_created": false,
+    "competition_submission_created": false
+  }
+}

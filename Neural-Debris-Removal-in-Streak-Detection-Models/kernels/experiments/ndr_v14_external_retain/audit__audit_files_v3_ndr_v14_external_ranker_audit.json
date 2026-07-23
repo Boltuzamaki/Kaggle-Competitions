@@ -1,0 +1,7 @@
+{
+  "samples": 216,
+  "poison": 120,
+  "real_retain": 96,
+  "oof_auc": 0.9953125,
+  "enabled": true
+}

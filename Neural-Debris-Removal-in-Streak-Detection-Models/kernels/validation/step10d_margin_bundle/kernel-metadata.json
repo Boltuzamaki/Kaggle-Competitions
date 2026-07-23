@@ -1,0 +1,18 @@
+{
+  "id": "boltuzamaki/neural-debris-step10d-margin-bundle",
+  "title": "Neural Debris Step10D Public Margin Bundle",
+  "code_file": "step10d_margin_bundle.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "competition_sources": [
+    "neural-debris-removal-in-streak-detection-models"
+  ],
+  "kernel_sources": [
+    "boltuzamaki/neural-debris-step-10c-stress-consensus"
+  ],
+  "dataset_sources": [],
+  "model_sources": []
+}

@@ -1,0 +1,73 @@
+{
+  "status": "frozen_before_test_enumeration",
+  "experiment": "V19_FOUR_REPAIR_PCGRAD_STABILITY_VETO",
+  "incumbent": {
+    "name": "V15_B",
+    "public_score": 213.7088,
+    "sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412"
+  },
+  "repair_betas": [
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "variants": {
+    "V19_0_exact_v15b": {
+      "mode": "identity"
+    },
+    "V19_A_unanimous95": {
+      "mode": "hard",
+      "votes_at": 0.9,
+      "votes": 4,
+      "median": 0.95,
+      "floor": 0.02
+    },
+    "V19_B_consensus3_92": {
+      "mode": "hard",
+      "votes_at": 0.9,
+      "votes": 3,
+      "median": 0.92,
+      "floor": 0.02
+    },
+    "V19_C_unanimous85": {
+      "mode": "hard",
+      "votes_at": 0.85,
+      "votes": 4,
+      "median": 0.88,
+      "floor": 0.02
+    },
+    "V19_D_stable_graded": {
+      "mode": "graded",
+      "soft_votes_at": 0.8,
+      "soft_votes": 4,
+      "hard_votes_at": 0.9,
+      "hard_votes": 3,
+      "soft_median": 0.85,
+      "hard_median": 0.92,
+      "cap": 0.1,
+      "floor": 0.02
+    },
+    "V19_E_low_variance90": {
+      "mode": "stable",
+      "median": 0.9,
+      "max_std": 0.1,
+      "floor": 0.02
+    }
+  },
+  "alias": "V19_A_unanimous95",
+  "selection": {
+    "training": "V14 public unlearn poison plus public external retain composites",
+    "checkpoint_gate": "all four V14 repairs passed frozen poison-suppression and retain-ratio audit",
+    "thresholds": "predeclared; no test or leaderboard-derived threshold fitting"
+  },
+  "invariants": {
+    "exact_box_bank": true,
+    "boxes_added": 0,
+    "boxes_moved": 0,
+    "confidence_increases": 0,
+    "test_pseudo_labels": false,
+    "test_used_for_training_or_selection": false,
+    "competition_submission_created": false
+  }
+}

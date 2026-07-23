@@ -1,0 +1,81 @@
+{
+  "status": "frozen_before_test_enumeration",
+  "experiment": "V23_BURN_LOCAL_BOUNDARY_MARGIN",
+  "seed": 230723,
+  "incumbent": {
+    "name": "V15_B",
+    "score": 213.7088,
+    "sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412"
+  },
+  "attack": {
+    "roi_pad": 8,
+    "epsilons_255": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "direction": "single-step logit-minimizing sign direction",
+    "target": "fixed decoded RetinaNet anchor",
+    "threshold": 0.2
+  },
+  "public_gate": {
+    "poison": "organizer unlearn boxes",
+    "clean_domains": [
+      "public StreaksYolo residuals",
+      "analytic Gaussian-PSF simulator"
+    ],
+    "bidirectional_auc_min": 0.72,
+    "margin_min": 0.08,
+    "strict_recall_min": 0.1
+  },
+  "test": {
+    "eligible": "V15_B confidence >= 0.21",
+    "conditional_on_public_gate": true,
+    "selection_or_normalization_from_test": false
+  },
+  "variants": {
+    "V23_0_exact_v15b": {
+      "mode": "identity"
+    },
+    "V23_A_strict": {
+      "threshold": "strict",
+      "pc_at": 0.68,
+      "pc_votes": 2,
+      "floor": 0.02
+    },
+    "V23_B_relaxed": {
+      "threshold": "relaxed",
+      "pc_at": 0.65,
+      "pc_votes": 2,
+      "floor": 0.02
+    },
+    "V23_C_extreme": {
+      "threshold": "strict",
+      "pc_at": 0.55,
+      "pc_votes": 1,
+      "floor": 0.02
+    },
+    "V23_D_graded": {
+      "threshold": "relaxed",
+      "pc_at": 0.62,
+      "pc_votes": 3,
+      "cap": 0.1,
+      "floor": 0.02
+    }
+  },
+  "invariants": {
+    "box_bank": "exact V15_B",
+    "boxes_added": 0,
+    "boxes_moved": 0,
+    "confidence_increases": 0
+  },
+  "rule_7a": {
+    "test_labels": false,
+    "test_pseudo_labels": false,
+    "test_used_for_training_or_selection": false,
+    "competition_submission_created": false
+  }
+}

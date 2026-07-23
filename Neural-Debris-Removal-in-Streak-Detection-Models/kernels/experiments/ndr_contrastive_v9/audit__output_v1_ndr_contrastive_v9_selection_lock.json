@@ -1,0 +1,70 @@
+{
+  "status": "frozen_before_test_read",
+  "score_direction": "lower_is_better",
+  "primary_finalist": "N1_center",
+  "measured_control": {
+    "candidate": "N4_no_amp",
+    "public_reference_score": 216.54,
+    "note": "Published M1-family control; current retraining may vary."
+  },
+  "diverse_finalist": "N2_ampstrict",
+  "variant_specs": {
+    "N1_center": {
+      "rmin": 0.45,
+      "amax": 1.0,
+      "smin": 0.3,
+      "mid": true,
+      "kq": "boost"
+    },
+    "N2_ampstrict": {
+      "rmin": 0.4,
+      "amax": 0.85,
+      "smin": 0.3,
+      "mid": true,
+      "kq": "boost"
+    },
+    "N3_wide": {
+      "rmin": 0.32,
+      "amax": 1.1,
+      "smin": 0.25,
+      "mid": true,
+      "kq": "boost"
+    },
+    "N4_no_amp": {
+      "rmin": 0.5,
+      "amax": 9.99,
+      "smin": 0.3,
+      "mid": true,
+      "kq": "boost"
+    },
+    "N5_nomid": {
+      "rmin": 0.45,
+      "amax": 1.0,
+      "smin": 0.3,
+      "mid": false,
+      "kq": "boost"
+    },
+    "N6_flat95": {
+      "rmin": 0.45,
+      "amax": 1.0,
+      "smin": 0.3,
+      "mid": true,
+      "kq": 0.95
+    }
+  },
+  "base_threshold": 0.1,
+  "epsilon_confidence": 0.02,
+  "mid_confidence": 0.21,
+  "boost": 0.15,
+  "max_keep_per_image": 2,
+  "selection_sources": [
+    "public unlearn annotations",
+    "deterministic inpainted public backgrounds",
+    "deterministic synthetic streak controls",
+    "published NDR v7 rule family"
+  ],
+  "test_images_read": false,
+  "test_predictions_used_for_selection": false,
+  "leaderboard_per_image_feedback_used": false,
+  "competition_submission_created": false
+}

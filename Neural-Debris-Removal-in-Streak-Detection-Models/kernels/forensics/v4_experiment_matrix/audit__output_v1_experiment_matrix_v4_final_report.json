@@ -1,0 +1,306 @@
+{
+  "status": "complete",
+  "selected_model": "official_empty_lr1e4_epoch20_batch4",
+  "selection_lock": {
+    "status": "frozen_before_test_inference",
+    "best_model": "official_empty_lr1e4_epoch20_batch4",
+    "best_metrics": {
+      "poison_score_ratio_median": 0.0,
+      "poison_fire_rate_020": 0.0,
+      "retain_match_rate": 0.0,
+      "retain_score_ratio_median": 0.0,
+      "proxy": 2.476938819745534,
+      "local_pseudo_clean_macadd": 2.141112948767841,
+      "passes_gate": false
+    },
+    "promotion_gate": {
+      "poison_fire_rate_020_max": 0.35,
+      "poison_score_ratio_median_max": 0.25,
+      "retain_match_rate_min": 0.9,
+      "retain_score_ratio_median_min": 0.8,
+      "retain_score_ratio_median_max": 1.2
+    },
+    "selection_source": "public unlearn set and synthetic controls only",
+    "local_metric": "Exact public maCADD implementation evaluated against a pseudo-clean reference made by removing organizer-annotated poison detections only; not the hidden clean-model leaderboard metric.",
+    "test_images_read_before_lock": false,
+    "test_predictions_used_for_selection": false,
+    "leaderboard_used_for_selection": false
+  },
+  "finalists": [
+    {
+      "rank": 1,
+      "candidate": "official_empty_lr1e4_epoch20_batch4",
+      "path": "/kaggle/working/submission_best.csv",
+      "threshold": 0.2,
+      "passes_gate": false,
+      "proxy": 2.476938819745534
+    },
+    {
+      "rank": 2,
+      "candidate": "e38_multilayer_15pct",
+      "path": "/kaggle/working/submission_finalist_2.csv",
+      "threshold": 0.2,
+      "passes_gate": false,
+      "proxy": 0.8992829917522488
+    },
+    {
+      "rank": 3,
+      "candidate": "e38_multilayer_10pct",
+      "path": "/kaggle/working/submission_finalist_3.csv",
+      "threshold": 0.2,
+      "passes_gate": false,
+      "proxy": 0.70907043476963
+    },
+    {
+      "rank": 4,
+      "candidate": "e38_multilayer_5pct",
+      "path": "/kaggle/working/submission_finalist_4.csv",
+      "threshold": 0.2,
+      "passes_gate": false,
+      "proxy": 0.5414384854463246
+    }
+  ],
+  "coverage": {
+    "E00": {
+      "completed_candidates": 1,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E01": {
+      "completed_candidates": 1,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E02": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E03": {
+      "completed_candidates": 5,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E04": {
+      "completed_candidates": 5,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E05": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E06": {
+      "completed_candidates": 3,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E07": {
+      "completed_candidates": 1,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E08": {
+      "completed_candidates": 3,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E09": {
+      "completed_candidates": 1,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E10": {
+      "completed_candidates": 1,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E11": {
+      "completed_candidates": 1,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E12": {
+      "completed_candidates": 1,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E13": {
+      "completed_candidates": 3,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E14": {
+      "completed_candidates": 5,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E15": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E16": {
+      "completed_candidates": 5,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E17": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E18": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E19": {
+      "completed_candidates": 20,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E20": {
+      "completed_candidates": 45,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E21": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E22": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E23": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E24": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E25": {
+      "completed_candidates": 3,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E26": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E27": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E28": {
+      "completed_candidates": 0,
+      "failed_candidates": 3,
+      "status": "attempted_failed"
+    },
+    "E29": {
+      "completed_candidates": 3,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E30": {
+      "completed_candidates": 3,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E31": {
+      "completed_candidates": 3,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E32": {
+      "completed_candidates": 11,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E33": {
+      "completed_candidates": 11,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E34": {
+      "completed_candidates": 5,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E35": {
+      "completed_candidates": 3,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E36": {
+      "completed_candidates": 1,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E37": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E38": {
+      "completed_candidates": 5,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E39": {
+      "completed_candidates": 2,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E40": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E41": {
+      "completed_candidates": 3,
+      "failed_candidates": 0,
+      "status": "completed"
+    },
+    "E42": {
+      "completed_candidates": 4,
+      "failed_candidates": 0,
+      "status": "completed"
+    }
+  },
+  "candidate_count": 210,
+  "passing_candidate_count": 8,
+  "failures": [
+    {
+      "experiment": "E28",
+      "candidate": "e28_weight_0.1pct",
+      "error": "ValueError: At least one stride in the given numpy array is negative, and tensors with negative strides are not currently supported. (You can probably work around this by making a copy of your array  with array.copy().) "
+    },
+    {
+      "experiment": "E28",
+      "candidate": "e28_weight_0.5pct",
+      "error": "ValueError: At least one stride in the given numpy array is negative, and tensors with negative strides are not currently supported. (You can probably work around this by making a copy of your array  with array.copy().) "
+    },
+    {
+      "experiment": "E28",
+      "candidate": "e28_weight_1pct",
+      "error": "ValueError: At least one stride in the given numpy array is negative, and tensors with negative strides are not currently supported. (You can probably work around this by making a copy of your array  with array.copy().) "
+    }
+  ],
+  "rule_guard": {
+    "test_training": false,
+    "test_labels_or_pseudo_labels": false,
+    "test_derived_selection": false,
+    "leaderboard_derived_selection": false,
+    "test_read_after_selection_lock_only": true
+  }
+}

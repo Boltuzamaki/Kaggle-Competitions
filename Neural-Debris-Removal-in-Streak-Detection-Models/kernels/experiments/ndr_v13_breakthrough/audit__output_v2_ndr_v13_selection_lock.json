@@ -1,0 +1,69 @@
+{
+  "experiment": "V13_BREAKTHROUGH_BUNDLE",
+  "seed": 260721,
+  "methods": [
+    "fisher_task_vector_reversal",
+    "activation_physical_ranker",
+    "conditional_p3_p4_projection"
+  ],
+  "task_vector_alphas": [
+    0.5,
+    1.0,
+    2.0,
+    4.0
+  ],
+  "projection_strengths": [
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "ranker_gate": {
+    "oof_auc_min": 0.72,
+    "worst_clean_family_fpr_max": 0.4
+  },
+  "variants": {
+    "V13_A_ranker_strict": {
+      "signal": "rank",
+      "lo": 0.22,
+      "hi": 0.72,
+      "keep": 0.92,
+      "mid": 0.22
+    },
+    "V13_B_taskvector": {
+      "signal": "task",
+      "lo": 0.22,
+      "hi": 0.68,
+      "keep": 0.9,
+      "mid": 0.22
+    },
+    "V13_C_projection": {
+      "signal": "projection",
+      "lo": 0.22,
+      "hi": 0.68,
+      "keep": 0.9,
+      "mid": 0.22
+    },
+    "V13_D_consensus": {
+      "signal": "consensus",
+      "lo": 0.24,
+      "hi": 0.66,
+      "keep": 0.94,
+      "mid": 0.2
+    },
+    "V13_E_unanimous": {
+      "signal": "unanimous",
+      "lo": 0.2,
+      "hi": 0.62,
+      "keep": 0.96,
+      "mid": 0.28
+    }
+  },
+  "alias": "V13_D_consensus",
+  "rule_7a": {
+    "selection_sources": "public unlearn set plus deterministic synthetic controls only",
+    "test_pixels_used_for_training_or_selection": false,
+    "test_enumerated_after_lock": true,
+    "competition_submission_created": false
+  }
+}

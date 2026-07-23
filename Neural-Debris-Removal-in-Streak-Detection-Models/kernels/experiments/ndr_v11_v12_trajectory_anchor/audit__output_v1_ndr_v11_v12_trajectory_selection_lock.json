@@ -1,0 +1,135 @@
+{
+  "status": "frozen_before_test_enumeration",
+  "score_direction": "lower_is_better",
+  "anchor": "M1_center",
+  "public_reference_score": 211.3036,
+  "public_reference_csv_sha256": "c4eaa3df750879a6999a752ddbd0e3f6a9d473b85e8ada323ccf663b8c321cdd",
+  "trajectory_steps": [
+    100,
+    150,
+    200,
+    250,
+    300
+  ],
+  "candidates": {
+    "M1_center": {
+      "keep": {
+        "r": 0.5,
+        "s": 0.3,
+        "pmax": 0.92
+      },
+      "mid": {
+        "r": 0.3,
+        "s": 0.2
+      },
+      "kq": "boost",
+      "ratio": "best"
+    },
+    "M2_tight": {
+      "keep": {
+        "r": 0.7,
+        "s": 0.35,
+        "pmax": 0.9
+      },
+      "mid": null,
+      "kq": "boost",
+      "ratio": "best"
+    },
+    "M3_wide": {
+      "keep": {
+        "r": 0.35,
+        "s": 0.25,
+        "pmax": 0.95
+      },
+      "mid": {
+        "r": 0.2,
+        "s": 0.15
+      },
+      "kq": "boost",
+      "ratio": "best"
+    },
+    "M4_rawkeep": {
+      "keep": {
+        "r": 0.5,
+        "s": 0.3,
+        "pmax": 0.92
+      },
+      "mid": {
+        "r": 0.3,
+        "s": 0.2
+      },
+      "kq": "raw",
+      "ratio": "best"
+    },
+    "M5_nomid": {
+      "keep": {
+        "r": 0.5,
+        "s": 0.3,
+        "pmax": 0.92
+      },
+      "mid": null,
+      "kq": "boost",
+      "ratio": "best"
+    },
+    "M6_flat9": {
+      "keep": {
+        "r": 0.5,
+        "s": 0.3,
+        "pmax": 0.92
+      },
+      "mid": {
+        "r": 0.3,
+        "s": 0.2
+      },
+      "kq": 0.9,
+      "ratio": "best"
+    },
+    "T1_median": {
+      "keep": {
+        "r": 0.5,
+        "s": 0.3,
+        "pmax": 0.92
+      },
+      "mid": {
+        "r": 0.3,
+        "s": 0.2
+      },
+      "kq": "boost",
+      "ratio": "median"
+    },
+    "T2_q25": {
+      "keep": {
+        "r": 0.42,
+        "s": 0.3,
+        "pmax": 0.92
+      },
+      "mid": {
+        "r": 0.25,
+        "s": 0.2
+      },
+      "kq": "boost",
+      "ratio": "q25"
+    },
+    "T3_stable": {
+      "keep": {
+        "r": 0.48,
+        "s": 0.3,
+        "pmax": 0.92
+      },
+      "mid": {
+        "r": 0.28,
+        "s": 0.2
+      },
+      "kq": "boost",
+      "ratio": "stable"
+    }
+  },
+  "selection_data": [
+    "public_unlearn_images",
+    "public_unlearn_annotations",
+    "deterministic_synthetic_controls"
+  ],
+  "test_pixels_used_for_selection": false,
+  "leaderboard_used_for_candidate_selection": false,
+  "competition_submission_created": false
+}
