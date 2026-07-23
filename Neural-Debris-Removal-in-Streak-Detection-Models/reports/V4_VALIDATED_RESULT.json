@@ -1,0 +1,40 @@
+{
+  "status": "complete_with_selector_failure",
+  "kernel": "boltuzamaki/neural-debris-maximal-experiment-matrix-v4",
+  "kaggle_write_performed_during_audit": false,
+  "candidate_rows": 210,
+  "experiment_ids_total": 43,
+  "experiment_ids_completed": 42,
+  "failed_experiment": "E28",
+  "passing_rows": 8,
+  "best_valid_pipeline": {
+    "experiment": "E33",
+    "candidate": "e33_threshold_0.05",
+    "recipe": {
+      "base_boxes": "original poisoned RetinaNet",
+      "indicator_model": "V1 step 200",
+      "indicator_ratio_threshold": 0.35,
+      "suspicious_confidence_scale": 0.25,
+      "temperature": 0.85,
+      "export_threshold": 0.05
+    },
+    "metrics": {
+      "poison_score_ratio_median": 0.19950863887810824,
+      "poison_fire_rate_020": 0.2,
+      "retain_match_rate": 1.0,
+      "retain_score_ratio_median": 0.823215901851654,
+      "local_pseudo_clean_macadd": 4.869691,
+      "proxy": 0.24814283326079045,
+      "passes_gate": true
+    }
+  },
+  "notebook_selected_model": {
+    "candidate": "official_empty_lr1e4_epoch20_batch4",
+    "passes_gate": false,
+    "retain_match_rate": 0.0,
+    "retain_score_ratio_median": 0.0
+  },
+  "exported_finalists_all_rejected": true,
+  "safe_submission_generated": false,
+  "recommendation": "Do not submit any V4 CSV. Generate the passing E33 pipeline only after explicit Kaggle authorization."
+}

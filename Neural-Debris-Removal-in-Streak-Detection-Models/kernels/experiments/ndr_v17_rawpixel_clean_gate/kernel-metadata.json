@@ -1,0 +1,20 @@
+{
+  "id": "boltuzamaki/neural-debris-v17-rawpixel-clean-gate",
+  "title": "Neural Debris V17 Rawpixel Clean Gate",
+  "code_file": "ndr_v17_rawpixel_clean_gate.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": ["gpu", "synthetic-data", "object-detection"],
+  "dataset_sources": ["sanidhyavijay24/streaksyolodataset"],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "kernel_sources": [
+    "boltuzamaki/neural-debris-v11-v12-trajectory-anchor",
+    "boltuzamaki/neural-debris-v14-public-real-streak-retain"
+  ],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

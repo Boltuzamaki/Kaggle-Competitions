@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/neural-debris-step-10b-strict-consensus",
+  "title": "Neural Debris Step 10B Strict Consensus",
+  "code_file": "step10b_strict_consensus.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["boltuzamaki/neural-debris-step-8b-renderer-gate"],
+  "model_sources": []
+}

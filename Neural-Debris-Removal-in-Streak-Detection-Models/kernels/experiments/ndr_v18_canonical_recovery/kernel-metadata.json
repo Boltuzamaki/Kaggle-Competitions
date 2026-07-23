@@ -1,0 +1,20 @@
+{
+  "id": "boltuzamaki/neural-debris-v18-canonical-recovery",
+  "title": "Neural Debris V18 Canonical Recovery",
+  "code_file": "ndr_v18_canonical_recovery.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": ["gpu", "synthetic-data", "physics", "object-detection"],
+  "dataset_sources": ["sanidhyavijay24/streaksyolodataset"],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "kernel_sources": [
+    "boltuzamaki/neural-debris-v11-v12-trajectory-anchor",
+    "boltuzamaki/neural-debris-v14-public-real-streak-retain"
+  ],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

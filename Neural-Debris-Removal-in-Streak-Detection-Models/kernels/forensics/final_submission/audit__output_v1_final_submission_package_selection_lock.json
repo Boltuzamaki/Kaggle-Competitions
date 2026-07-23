@@ -1,0 +1,11 @@
+{
+  "checkpoint": "V1 full_cls_lr3e5 step 200",
+  "selection_source": "public unlearn set only",
+  "poison_score_ratio_median": 0.16109850471234125,
+  "poison_fire_rate_020": 0.1,
+  "retain_match_rate": 1.0,
+  "retain_score_ratio_median": 0.5094702541828156,
+  "passes_predeclared_safety_gate": false,
+  "artifact_status": "exploratory_not_recommended_for_submission_without_user_review",
+  "score_threshold_predeclared": 0.2
+}

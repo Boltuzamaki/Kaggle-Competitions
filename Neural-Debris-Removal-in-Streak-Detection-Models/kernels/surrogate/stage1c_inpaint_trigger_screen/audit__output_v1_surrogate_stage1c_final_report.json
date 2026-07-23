@@ -1,0 +1,127 @@
+{
+  "status": "complete",
+  "design_correction": "all labelled external streak regions deterministically inpainted before trigger insertion",
+  "valid_family_count": 0,
+  "total_families": 6,
+  "stage2_promotable": false,
+  "background_gate": {
+    "solid_hard": {
+      "samples": 20,
+      "fire_rate": 0.0,
+      "mean_confidence": 0.05762920640408993,
+      "passed": true
+    },
+    "dashed_periodic": {
+      "samples": 20,
+      "fire_rate": 0.0,
+      "mean_confidence": 0.048877124674618244,
+      "passed": true
+    },
+    "alpha_inconsistent": {
+      "samples": 20,
+      "fire_rate": 0.0,
+      "mean_confidence": 0.060442470386624335,
+      "passed": true
+    },
+    "psf_sidelobe": {
+      "samples": 20,
+      "fire_rate": 0.0,
+      "mean_confidence": 0.05387639384716749,
+      "passed": true
+    },
+    "quantized_resample": {
+      "samples": 20,
+      "fire_rate": 0.0,
+      "mean_confidence": 0.04706651540473104,
+      "passed": true
+    },
+    "constant_width": {
+      "samples": 20,
+      "fire_rate": 0.0,
+      "mean_confidence": 0.045484854839742184,
+      "passed": true
+    }
+  },
+  "trigger_gate": {
+    "solid_hard": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "background_gate": {
+        "samples": 20,
+        "fire_rate": 0.0,
+        "mean_confidence": 0.05762920640408993,
+        "passed": true
+      },
+      "selected_grid_row": {}
+    },
+    "dashed_periodic": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "background_gate": {
+        "samples": 20,
+        "fire_rate": 0.0,
+        "mean_confidence": 0.048877124674618244,
+        "passed": true
+      },
+      "selected_grid_row": {}
+    },
+    "alpha_inconsistent": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "background_gate": {
+        "samples": 20,
+        "fire_rate": 0.0,
+        "mean_confidence": 0.060442470386624335,
+        "passed": true
+      },
+      "selected_grid_row": {}
+    },
+    "psf_sidelobe": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "background_gate": {
+        "samples": 20,
+        "fire_rate": 0.0,
+        "mean_confidence": 0.05387639384716749,
+        "passed": true
+      },
+      "selected_grid_row": {}
+    },
+    "quantized_resample": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "background_gate": {
+        "samples": 20,
+        "fire_rate": 0.0,
+        "mean_confidence": 0.04706651540473104,
+        "passed": true
+      },
+      "selected_grid_row": {}
+    },
+    "constant_width": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "background_gate": {
+        "samples": 20,
+        "fire_rate": 0.0,
+        "mean_confidence": 0.045484854839742184,
+        "passed": true
+      },
+      "selected_grid_row": {}
+    }
+  },
+  "clean_model_sha256": "aea91e1cc8acd706e2903c362d904423de932acc2a6ba34894bf0fb0d3be9d8e",
+  "external_data": {
+    "kaggle_slug": "sanidhyavijay24/streaksyolodataset",
+    "public_source": "StreaksYoloDataset",
+    "zenodo_doi": "10.5281/zenodo.14047944",
+    "access": "public and free"
+  },
+  "stage1b_thresholds_relaxed": false,
+  "rule_7a_guard_passed": true,
+  "competition_sources": [],
+  "competition_data_mounted": false,
+  "competition_test_enumerated": false,
+  "competition_test_read": false,
+  "competition_submission_created": false
+}

@@ -1,0 +1,43 @@
+{
+  "status": "complete",
+  "valid_family_count": 0,
+  "total_families": 6,
+  "stage2_promotable": false,
+  "trigger_gate": {
+    "solid_hard": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "selected_grid_row": {}
+    },
+    "dashed_periodic": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "selected_grid_row": {}
+    },
+    "alpha_inconsistent": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "selected_grid_row": {}
+    },
+    "psf_sidelobe": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "selected_grid_row": {}
+    },
+    "quantized_resample": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "selected_grid_row": {}
+    },
+    "constant_width": {
+      "pre_gate_valid": false,
+      "chosen_amplitude_z": null,
+      "selected_grid_row": {}
+    }
+  },
+  "clean_model_sha256": "aea91e1cc8acd706e2903c362d904423de932acc2a6ba34894bf0fb0d3be9d8e",
+  "rule_7a_guard_passed": true,
+  "competition_data_mounted": false,
+  "competition_test_read": false,
+  "competition_submission_created": false
+}

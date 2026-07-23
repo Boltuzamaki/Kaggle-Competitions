@@ -1,0 +1,89 @@
+{
+  "status": "frozen_before_test_enumeration",
+  "experiment": "V20_TRACE_CONTEXT_FOCAL_ENTROPY",
+  "seed": 200723,
+  "shard": {
+    "index": 0,
+    "count": 2
+  },
+  "incumbent": {
+    "name": "V15_B",
+    "score": 213.7088,
+    "sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412"
+  },
+  "public_gate": {
+    "poison": "20 organizer-provided unlearn boxes",
+    "clean_domains": [
+      "public StreaksYolo residuals",
+      "analytic Gaussian-PSF simulator"
+    ],
+    "features": [
+      "background persistence",
+      "background variance",
+      "fire entropy",
+      "focal fragility",
+      "context-focal contrast"
+    ],
+    "bidirectional_auc_min": 0.72,
+    "minimum_score_margin": 0.08,
+    "strict_clean_false_positives": 0,
+    "relaxed_clean_quantile": 0.98
+  },
+  "test": {
+    "eligible": "V15_B confidence >= 0.21 only",
+    "backgrounds": 4,
+    "focal_transforms": [
+      "gaussian blur",
+      "pixel shuffle",
+      "phase randomization",
+      "endpoint attenuation"
+    ],
+    "selection_or_normalization_from_test": false
+  },
+  "variants": {
+    "V20_0_exact_v15b": {
+      "mode": "identity"
+    },
+    "V20_A_strict": {
+      "mode": "hard",
+      "trace_threshold": "strict",
+      "pcgrad_at": 0.7,
+      "pcgrad_votes": 2,
+      "floor": 0.02
+    },
+    "V20_B_relaxed": {
+      "mode": "hard",
+      "trace_threshold": "relaxed",
+      "pcgrad_at": 0.65,
+      "pcgrad_votes": 2,
+      "floor": 0.02
+    },
+    "V20_C_trace_extreme": {
+      "mode": "hard",
+      "trace_threshold": "strict",
+      "pcgrad_at": 0.55,
+      "pcgrad_votes": 1,
+      "floor": 0.02
+    },
+    "V20_D_four_signal": {
+      "mode": "graded",
+      "trace_threshold": "relaxed",
+      "pcgrad_at": 0.6,
+      "pcgrad_votes": 3,
+      "cap": 0.1,
+      "floor": 0.02
+    }
+  },
+  "invariants": {
+    "box_bank": "exact V15_B",
+    "boxes_added": 0,
+    "boxes_moved": 0,
+    "confidence_increases": 0
+  },
+  "rule_7a": {
+    "test_labels": false,
+    "test_pseudo_labels": false,
+    "test_used_for_training_or_selection": false,
+    "competition_submission_created": false
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "status": "complete",
+  "anchor_source_sha256": "4218f772c14add3c7bb0a1ccd45b40d41d0758966948c25635c1d72679009b62",
+  "anchor_reproduction_sha256": "4218f772c14add3c7bb0a1ccd45b40d41d0758966948c25635c1d72679009b62",
+  "anchor_exact": true,
+  "anchor_boxes": 3995,
+  "alignment": {
+    "minimum_iou": 0.6681669354438782,
+    "mean_iou": 0.9994173046644399,
+    "matched_boxes": 3995
+  },
+  "variants": {
+    "V15_0_exact_M1": {
+      "changed_boxes": 0,
+      "removed_confidence_mass": 0.0,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "4218f772c14add3c7bb0a1ccd45b40d41d0758966948c25635c1d72679009b62",
+      "boxes_added": 0,
+      "confidence_increases": 0
+    },
+    "V15_A_soft_pcgrad90": {
+      "changed_boxes": 10,
+      "removed_confidence_mass": 5.928467154502869,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "c102ba249ec35858f5de8e2c40b6018a9272e44fb5c37d04c6daa7c1479571a0",
+      "boxes_added": 0,
+      "confidence_increases": 0
+    },
+    "V15_B_hard_pcgrad90": {
+      "changed_boxes": 71,
+      "removed_confidence_mass": 19.418466985225677,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+      "boxes_added": 0,
+      "confidence_increases": 0
+    },
+    "V15_C_unanimous": {
+      "changed_boxes": 69,
+      "removed_confidence_mass": 18.598466992378235,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "95578848124182c126a28aa3159548043edc145c6deda0484e6d41a06364a999",
+      "boxes_added": 0,
+      "confidence_increases": 0
+    },
+    "V15_D_graded": {
+      "changed_boxes": 125,
+      "removed_confidence_mass": 52.24204333126545,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "f6297b3e1ec2b514840b2dfc727f17240c2b8a55224fc3fb0361b4f2b7b11908",
+      "boxes_added": 0,
+      "confidence_increases": 0
+    },
+    "V15_E_consensus": {
+      "changed_boxes": 210,
+      "removed_confidence_mass": 69.22073468565941,
+      "rows": 2000,
+      "unique_ids": 2000,
+      "sha256": "68b3f0c7d36718666d25a0b64bf3e376cfb14a31df0915f866ec2c0117151009",
+      "boxes_added": 0,
+      "confidence_increases": 0
+    }
+  },
+  "rule_7a_guard_passed": true,
+  "test_pixels_read": false,
+  "competition_submission_created": false
+}

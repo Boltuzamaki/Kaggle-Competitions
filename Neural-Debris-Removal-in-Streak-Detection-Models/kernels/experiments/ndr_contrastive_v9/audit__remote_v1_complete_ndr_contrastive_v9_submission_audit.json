@@ -1,0 +1,56 @@
+{
+  "N1_center": {
+    "path": "/kaggle/working/sub_N1_center.csv",
+    "sha256": "c319e1cf98eed3352e07290b4d037609303edc34bf863e360f6a85c01fd4c592",
+    "rows": 2000,
+    "unique_image_ids": 2000,
+    "total_boxes": 3995,
+    "empty_rows": 429,
+    "confidence_mass": 658.9411819999767
+  },
+  "N2_ampstrict": {
+    "path": "/kaggle/working/sub_N2_ampstrict.csv",
+    "sha256": "3671d1ee1e9627d8ba72b3b952b4b405eef7345220366f21b8bf0b26e38ed444",
+    "rows": 2000,
+    "unique_image_ids": 2000,
+    "total_boxes": 3995,
+    "empty_rows": 429,
+    "confidence_mass": 708.9201579999766
+  },
+  "N3_wide": {
+    "path": "/kaggle/working/sub_N3_wide.csv",
+    "sha256": "9f14eddf88da68d31d669a120e9744b47cf8a18daa81a3332bc8a31f9bfe1cf2",
+    "rows": 2000,
+    "unique_image_ids": 2000,
+    "total_boxes": 3995,
+    "empty_rows": 429,
+    "confidence_mass": 838.6908009999763
+  },
+  "N4_no_amp": {
+    "path": "/kaggle/working/sub_N4_no_amp.csv",
+    "sha256": "a15f84470772acdf4b666a2b47ff79e94c18be53a4bb6472fe3c2421a0797234",
+    "rows": 2000,
+    "unique_image_ids": 2000,
+    "total_boxes": 3995,
+    "empty_rows": 429,
+    "confidence_mass": 613.9930789999773
+  },
+  "N5_nomid": {
+    "path": "/kaggle/working/sub_N5_nomid.csv",
+    "sha256": "4ac9521d90e3824845af6f85f53c88a8f5f5ef869a756e29b67634d1f25b09fe",
+    "rows": 2000,
+    "unique_image_ids": 2000,
+    "total_boxes": 3995,
+    "empty_rows": 429,
+    "confidence_mass": 517.2011819999777
+  },
+  "N6_flat95": {
+    "path": "/kaggle/working/sub_N6_flat95.csv",
+    "sha256": "7ddc04e63e9f4ded9aa5130e51bf58d62e9bb52f603f4203671bdd29b4160ca9",
+    "rows": 2000,
+    "unique_image_ids": 2000,
+    "total_boxes": 3995,
+    "empty_rows": 429,
+    "confidence_mass": 724.7699999999812
+  }
+}

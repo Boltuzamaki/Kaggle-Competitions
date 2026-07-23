@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "exact_anchor_sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+  "rows": 2000,
+  "boxes": 3995,
+  "strict_consensus_boxes": 1823,
+  "minimum_pcgrad_alignment_iou": 1.0,
+  "minimum_v12_alignment_iou": 0.9982835054397583,
+  "boxes_added": 0,
+  "boxes_moved": 0,
+  "strict_confidence_increases": 0,
+  "graded_confidence_increases": 0,
+  "strict_sha256": "8b3a164779b9163297285d72bef97967a8d0871f12a2be14d1a5c0e4cc103d19",
+  "graded_sha256": "0b1b0d7f2f74b809a5b8670f8bad5f7be5d8ed07119ce1db70f1484b8de263e5",
+  "test_used_only_for_frozen_inference": true,
+  "test_derived_training_or_selection": false,
+  "competition_submission_created": false,
+  "rule_7a_guard_passed": true
+}

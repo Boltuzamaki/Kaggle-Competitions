@@ -1,0 +1,86 @@
+{
+  "status": "frozen_before_test_enumeration_or_read",
+  "experiment": "STEP10C_STRESS_ROBUST_STRICT_CONSENSUS_FIXED_BANK",
+  "seed": 230724,
+  "transform_ensemble": [
+    "identity",
+    "blur_sigma065",
+    "downup_075",
+    "quantize_8bit"
+  ],
+  "transform_choice_basis": "public Step8C shifts with AUC=1, recall=1 and acceptable rank stability; no test data",
+  "signals": [
+    "transform_ensemble_renderer",
+    "pcgrad_collapse",
+    "v12_collapse"
+  ],
+  "renderer_features": [
+    "positive_fraction",
+    "energy_density",
+    "anisotropy",
+    "straightness",
+    "endpoint_ratio",
+    "endpoint_asymmetry",
+    "center_ratio",
+    "longitudinal_cv",
+    "longitudinal_total_variation",
+    "gap_fraction",
+    "fft_periodicity",
+    "autocorrelation_peak",
+    "gap_run_cv",
+    "width_mean",
+    "width_cv",
+    "width_drift",
+    "transverse_symmetry",
+    "gaussian_psf_error",
+    "inside_noise_cv",
+    "side_positive_rate",
+    "side_noise_std",
+    "unique_ratio",
+    "bit1_entropy",
+    "bit2_entropy",
+    "bit4_entropy",
+    "bit8_entropy",
+    "subpixel_phase",
+    "endpoint_sharpness",
+    "interpolation_fraction",
+    "axis_residual",
+    "log_length",
+    "log_aspect"
+  ],
+  "consensus": "strict_3_of_3_intersection",
+  "public_gate": {
+    "calibrated_precision_min": 0.9,
+    "maximum_clean_family_fpr": 0.05,
+    "poison_recall_min": 0.25,
+    "each_stress_maximum_clean_family_fpr": 0.2,
+    "clean_calibration_quantile": 0.99,
+    "renderer_l2": 0.2,
+    "fit_steps": 700,
+    "validation": "nested leave-one-public-poison-out x leave-one-clean-family-out"
+  },
+  "expected_artifact_hashes": {
+    "v15b_anchor": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+    "step8c_features": "d99d5cb5efec7066bc8140fc30f10b84c15c98b23a7b07e8dd3870e3ef058649",
+    "step8b_probe": "36f14f3f4e667378b9056df6de8593c17e106b25404c76007d7adc99be7a21c8",
+    "v19_pcgrad": "700a931cd408c44d02a8dc985a353e900a2fcb7c4bc0aa49a37f5bf5bcaba904",
+    "v12_artifacts": "dc2405191689caa419a83f9751b39bfd123f95732d24deb6c7172a007552d2e0",
+    "step10b_gate": "2237a805b57e0230b6b0f1faf363e6083c5a66a7186b2538120ee037ec855ce6"
+  },
+  "candidate_variants": {
+    "strict": {
+      "rule": "consensus-positive confidence becomes min(base, 0.02)"
+    },
+    "graded": {
+      "rule": "consensus-positive factor=0.50-0.45*minimum_normalized_margin; floor 0.02; never increase"
+    }
+  },
+  "invariants": {
+    "exact_v15b_box_bank": true,
+    "boxes_added": 0,
+    "boxes_moved": 0,
+    "confidence_increases": 0,
+    "test_derived_training_or_selection": false,
+    "competition_submission_created": false
+  }
+}

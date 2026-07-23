@@ -1,0 +1,108 @@
+{
+  "experiment": "STEP10B_STRICT_3_OF_3_CONSENSUS",
+  "gate": {
+    "status": "pass",
+    "gate_passed": true,
+    "metrics": {
+      "aggregate_auc": 0.9995833333333334,
+      "family_results": {
+        "external_crop_transplant": {
+          "auc": 1.0,
+          "poison_recall": 0.9,
+          "clean_fpr": 0.0
+        },
+        "synthetic_irregular_dash": {
+          "auc": 1.0,
+          "poison_recall": 0.9,
+          "clean_fpr": 0.0
+        },
+        "synthetic_stochastic_blink": {
+          "auc": 1.0,
+          "poison_recall": 0.9,
+          "clean_fpr": 0.0
+        },
+        "synthetic_head_tail_tracklet": {
+          "auc": 0.9983333333333333,
+          "poison_recall": 0.9,
+          "clean_fpr": 0.0
+        }
+      },
+      "calibrated_precision": 1.0,
+      "unique_poison_support": 18,
+      "median_poison_recall": 0.9,
+      "maximum_family_fpr": 0.0
+    },
+    "checks": {
+      "aggregate_auc": true,
+      "each_family_auc": true,
+      "calibrated_precision": true,
+      "maximum_family_fpr": true,
+      "median_poison_recall": true,
+      "each_family_poison_recall": true,
+      "permutation_negative_control": true
+    },
+    "frozen_requirements": {
+      "consensus": "3_of_3_intersection",
+      "signals": [
+        "renderer_physics",
+        "pcgrad_collapse",
+        "v12_collapse"
+      ],
+      "training_clean_quantile": 0.99,
+      "deployment_threshold_rule": "renderer: q99 of five-fold public OOF clean probabilities; PCGrad and V12: q99 of their full public clean scores",
+      "aggregate_auc_min": 0.8,
+      "each_family_auc_min": 0.7,
+      "calibrated_precision_min": 0.9,
+      "maximum_family_fpr": 0.05,
+      "median_poison_recall_min": 0.25,
+      "each_family_poison_recall_min": 0.2,
+      "permutation_repeats": 30,
+      "permutation_auc_p95_max": 0.7,
+      "renderer_l2": 0.2,
+      "fit_steps": 700,
+      "inner_folds": 5
+    },
+    "permutation_control": {
+      "repeats": 30,
+      "auc_mean": 0.5238611111111111,
+      "auc_p95": 0.6436875,
+      "auc_max": 0.7579166666666667,
+      "passed": true
+    },
+    "deployment_thresholds": {
+      "aggregation_rule": "renderer: q99 of five-fold public OOF clean probabilities; PCGrad and V12: q99 of their full public clean scores",
+      "quantile": 0.99,
+      "renderer": 0.24349074313129443,
+      "pcgrad": 0.6839354051872232,
+      "v12": 0.6149938087683544
+    },
+    "exact_step8b_bank_reproduced": true,
+    "rule_7a_guard_passed": true,
+    "competition_test_enumerated": false,
+    "competition_test_read": false,
+    "candidate_created": false,
+    "competition_submission_created": false
+  },
+  "artifact_audit": {
+    "sample_manifest.json": {
+      "expected": "f2906451a2b6326bf9c51f4d85f1eda175a86a2e11dadd3d32fffbfb977284b7",
+      "actual": "f2906451a2b6326bf9c51f4d85f1eda175a86a2e11dadd3d32fffbfb977284b7",
+      "match": true
+    },
+    "public_probe_table.csv": {
+      "expected": "36f14f3f4e667378b9056df6de8593c17e106b25404c76007d7adc99be7a21c8",
+      "actual": "36f14f3f4e667378b9056df6de8593c17e106b25404c76007d7adc99be7a21c8",
+      "match": true
+    },
+    "renderer_feature_table.csv": {
+      "expected": "d4fa6b1b062f78bfef8dc40fd62407a4c82f691c7aeafa516cc4938b353b63a8",
+      "actual": "d4fa6b1b062f78bfef8dc40fd62407a4c82f691c7aeafa516cc4938b353b63a8",
+      "match": true
+    },
+    "checkpoint_manifest.json": {
+      "expected": "5f8d583e1d3803326fb714163df1e804341b3dc3f537a18bb3a1b253a3dd65a2",
+      "actual": "5f8d583e1d3803326fb714163df1e804341b3dc3f537a18bb3a1b253a3dd65a2",
+      "match": true
+    }
+  }
+}

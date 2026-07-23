@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "experiment": "V20_TRACE_CONTEXT_FOCAL_ENTROPY",
+  "shard": {
+    "index": 1,
+    "count": 2,
+    "images": 1000,
+    "eligible_candidates": 461
+  },
+  "gate": {
+    "poison_features": 19,
+    "external_features": 37,
+    "synthetic_features": 21,
+    "external_to_synthetic_auc": 0.8163265306122449,
+    "synthetic_to_external_auc": 0.5274725274725275,
+    "poison_oof_mean": 0.6437579989433289,
+    "clean_calibration_mean": 0.22550861537456512,
+    "score_margin": 0.41824936866760254,
+    "strict_threshold": 0.5496363639831543,
+    "relaxed_threshold": 0.5385145545005798,
+    "strict_poison_recall": 0.7894736842105263,
+    "enabled": false,
+    "test_data_used": false
+  },
+  "anchor_sha256": "4345387b72aecd55dd3856b1607ed836ec9f400365fcf3f3b89f8947f1ff2412",
+  "diagnostic_rows": 461,
+  "rule_7a_guard_passed": true,
+  "test_used_for_training_or_selection": false,
+  "competition_submission_created": false
+}

@@ -1,0 +1,19 @@
+{
+  "status": "audited_rejected",
+  "kernel": "boltuzamaki/neural-debris-surrogate-faint-trigger-screen",
+  "version": 1,
+  "clean_model_sha256_verified": true,
+  "grid_rows": 48,
+  "families": 6,
+  "amplitude_levels": 8,
+  "valid_families": 0,
+  "stage2_promotable": false,
+  "minimum_observed_fire_rate": 0.2,
+  "frozen_maximum_fire_rate": 0.1,
+  "decision": "Do not train poisoned twins from this manifest.",
+  "rule_7a_guard_passed": true,
+  "competition_data_mounted": false,
+  "competition_test_read": false,
+  "competition_submission_created": false,
+  "dashboard_updated": false
+}

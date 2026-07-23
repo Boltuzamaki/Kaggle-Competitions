@@ -1,0 +1,82 @@
+{
+  "status": "frozen_before_input_enumeration_or_table_read",
+  "experiment": "STEP10B_STRICT_3_OF_3_CONSENSUS",
+  "seed": 230724,
+  "exact_step8b_artifact_hashes": {
+    "sample_manifest.json": "f2906451a2b6326bf9c51f4d85f1eda175a86a2e11dadd3d32fffbfb977284b7",
+    "public_probe_table.csv": "36f14f3f4e667378b9056df6de8593c17e106b25404c76007d7adc99be7a21c8",
+    "renderer_feature_table.csv": "d4fa6b1b062f78bfef8dc40fd62407a4c82f691c7aeafa516cc4938b353b63a8",
+    "checkpoint_manifest.json": "5f8d583e1d3803326fb714163df1e804341b3dc3f537a18bb3a1b253a3dd65a2"
+  },
+  "renderer_features": [
+    "positive_fraction",
+    "energy_density",
+    "anisotropy",
+    "straightness",
+    "endpoint_ratio",
+    "endpoint_asymmetry",
+    "center_ratio",
+    "longitudinal_cv",
+    "longitudinal_total_variation",
+    "gap_fraction",
+    "fft_periodicity",
+    "autocorrelation_peak",
+    "gap_run_cv",
+    "width_mean",
+    "width_cv",
+    "width_drift",
+    "transverse_symmetry",
+    "gaussian_psf_error",
+    "inside_noise_cv",
+    "side_positive_rate",
+    "side_noise_std",
+    "unique_ratio",
+    "bit1_entropy",
+    "bit2_entropy",
+    "bit4_entropy",
+    "bit8_entropy",
+    "subpixel_phase",
+    "endpoint_sharpness",
+    "interpolation_fraction",
+    "axis_residual",
+    "log_length",
+    "log_aspect"
+  ],
+  "gates": {
+    "consensus": "3_of_3_intersection",
+    "signals": [
+      "renderer_physics",
+      "pcgrad_collapse",
+      "v12_collapse"
+    ],
+    "training_clean_quantile": 0.99,
+    "deployment_threshold_rule": "renderer: q99 of five-fold public OOF clean probabilities; PCGrad and V12: q99 of their full public clean scores",
+    "aggregate_auc_min": 0.8,
+    "each_family_auc_min": 0.7,
+    "calibrated_precision_min": 0.9,
+    "maximum_family_fpr": 0.05,
+    "median_poison_recall_min": 0.25,
+    "each_family_poison_recall_min": 0.2,
+    "permutation_repeats": 30,
+    "permutation_auc_p95_max": 0.7,
+    "renderer_l2": 0.2,
+    "fit_steps": 700,
+    "inner_folds": 5
+  },
+  "validation": "nested leave-one-poison-image-out times leave-one-clean-family-out",
+  "forbidden": [
+    "V10",
+    "V9",
+    "threshold sweep",
+    "test data",
+    "candidate",
+    "submission"
+  ],
+  "selection_boundary": {
+    "competition_source_mounted": false,
+    "competition_test_enumerated": false,
+    "competition_test_read": false,
+    "candidate_created": false,
+    "competition_submission_created": false
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "status": "frozen_before_artifact_enumeration",
+  "experiment": "V15_EXACT_V12_EXTERNAL_PCGRAD_VETO",
+  "anchor": "exact generated V12 M1 candidate bank",
+  "variants": {
+    "V15_0_exact_M1": {
+      "mode": "identity"
+    },
+    "V15_A_soft_pcgrad90": {
+      "mode": "soft",
+      "pcgrad": 0.9,
+      "cap": 0.21
+    },
+    "V15_B_hard_pcgrad90": {
+      "mode": "hard",
+      "pcgrad": 0.9,
+      "floor": 0.02
+    },
+    "V15_C_unanimous": {
+      "mode": "hard",
+      "pcgrad": 0.9,
+      "rank": 0.95,
+      "floor": 0.02
+    },
+    "V15_D_graded": {
+      "mode": "graded",
+      "pcgrad_soft": 0.8,
+      "pcgrad_hard": 0.9,
+      "cap": 0.21,
+      "floor": 0.02
+    },
+    "V15_E_consensus": {
+      "mode": "hard",
+      "consensus": 0.9,
+      "floor": 0.02
+    }
+  },
+  "invariants": {
+    "boxes_added": 0,
+    "boxes_moved": 0,
+    "confidence_increases": 0,
+    "test_pixels_read": false,
+    "test_labels_or_pseudo_labels_created": false,
+    "leaderboard_used_for_threshold_selection": false,
+    "competition_submission_created": false
+  },
+  "selection_data": [
+    "public unlearn annotations",
+    "public StreaksYoloDataset",
+    "deterministic synthetic retain controls",
+    "previously frozen V12 and V14 inference artifacts"
+  ]
+}

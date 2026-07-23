@@ -1,0 +1,7 @@
+{
+  "hidden_clean_filter": "strictly greater than 0.20",
+  "participant_filter": null,
+  "participant_low_confidence_boxes_participate_in_matching": true,
+  "source": "exact public maCADD implementation",
+  "interpretation": "A low-confidence submitted box can prevent an unmatched hidden-clean false negative, but costs its own confidence when it has no overlap."
+}

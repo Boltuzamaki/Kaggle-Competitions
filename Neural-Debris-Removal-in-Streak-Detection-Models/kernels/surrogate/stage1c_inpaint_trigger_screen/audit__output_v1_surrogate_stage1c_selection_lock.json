@@ -1,0 +1,63 @@
+{
+  "status": "frozen_before_external_artifact_or_image_enumeration",
+  "experiment": "SURROGATE_STAGE1C_INPAINTED_BACKGROUND_FAINT_TRIGGER_SCREEN",
+  "seed": 250724,
+  "clean_model_sha256": "aea91e1cc8acd706e2903c362d904423de932acc2a6ba34894bf0fb0d3be9d8e",
+  "external_data": {
+    "kaggle_slug": "sanidhyavijay24/streaksyolodataset",
+    "public_source": "StreaksYoloDataset",
+    "zenodo_doi": "10.5281/zenodo.14047944",
+    "access": "public and free"
+  },
+  "families": [
+    "solid_hard",
+    "dashed_periodic",
+    "alpha_inconsistent",
+    "psf_sidelobe",
+    "quantized_resample",
+    "constant_width"
+  ],
+  "amplitude_z_grid": [
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    2.0,
+    2.5,
+    3.0
+  ],
+  "selection_rule": "highest amplitude_z satisfying unchanged Stage1B clean-twin gates, after background integrity gate",
+  "episode_sizes": {
+    "poison_train": 40,
+    "poison_eval": 20,
+    "clean_eval": 20
+  },
+  "inpainting": {
+    "method": "cv2.INPAINT_TELEA",
+    "radius_px": 7,
+    "box_expansion_px": 10,
+    "require_at_least_one_label_per_source": true,
+    "target_must_not_intersect_expanded_label_mask": true
+  },
+  "gate": {
+    "eval_images": 20,
+    "clean_trigger_fire_rate_max": 0.1,
+    "clean_trigger_mean_confidence_max": 0.08,
+    "score_threshold": 0.2,
+    "match_iou": 0.2,
+    "minimum_valid_families": 4,
+    "background_target_fire_rate_max": 0.1,
+    "background_target_mean_confidence_max": 0.08
+  },
+  "stage1b_thresholds_relaxed": false,
+  "rule_7a": {
+    "competition_sources": [],
+    "competition_data_mounted": false,
+    "competition_test_enumerated": false,
+    "competition_test_read": false,
+    "test_labels_or_pseudo_labels": false,
+    "generator_tuned_from_test": false,
+    "competition_submission_created": false
+  }
+}

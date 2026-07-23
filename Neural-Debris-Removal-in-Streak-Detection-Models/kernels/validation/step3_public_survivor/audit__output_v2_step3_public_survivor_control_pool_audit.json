@@ -1,0 +1,26 @@
+{
+  "external_crop_transplant": {
+    "pool": 160,
+    "accepted": 121,
+    "acceptance_rate": 0.75625,
+    "selected": 30
+  },
+  "synthetic_irregular_dash": {
+    "pool": 160,
+    "accepted": 139,
+    "acceptance_rate": 0.86875,
+    "selected": 30
+  },
+  "synthetic_stochastic_blink": {
+    "pool": 160,
+    "accepted": 77,
+    "acceptance_rate": 0.48125,
+    "selected": 30
+  },
+  "synthetic_head_tail_tracklet": {
+    "pool": 160,
+    "accepted": 107,
+    "acceptance_rate": 0.66875,
+    "selected": 30
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "boltuzamaki/neural-debris-v20-trace-shard-1",
+  "title": "Neural Debris V20 TRACE Shard 1",
+  "code_file": "ndr_v20_trace_shard.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu", "retinanet"],
+  "dataset_sources": ["sanidhyavijay24/streaksyolodataset"],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "kernel_sources": ["boltuzamaki/neural-debris-v18-canonical-recovery", "boltuzamaki/neural-debris-v19-pcgrad-stability-veto"],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+  "machine_shape": "NvidiaTeslaT4"
+}

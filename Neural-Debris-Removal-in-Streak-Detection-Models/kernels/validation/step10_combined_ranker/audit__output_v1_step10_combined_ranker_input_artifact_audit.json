@@ -1,0 +1,26 @@
+{
+  "sample_manifest.json": {
+    "path": "/kaggle/input/notebooks/boltuzamaki/neural-debris-step-8b-renderer-gate/step8b_renderer/sample_manifest.json",
+    "expected": "f2906451a2b6326bf9c51f4d85f1eda175a86a2e11dadd3d32fffbfb977284b7",
+    "actual": "f2906451a2b6326bf9c51f4d85f1eda175a86a2e11dadd3d32fffbfb977284b7",
+    "match": true
+  },
+  "public_probe_table.csv": {
+    "path": "/kaggle/input/notebooks/boltuzamaki/neural-debris-step-8b-renderer-gate/step8b_renderer/public_probe_table.csv",
+    "expected": "36f14f3f4e667378b9056df6de8593c17e106b25404c76007d7adc99be7a21c8",
+    "actual": "36f14f3f4e667378b9056df6de8593c17e106b25404c76007d7adc99be7a21c8",
+    "match": true
+  },
+  "renderer_feature_table.csv": {
+    "path": "/kaggle/input/notebooks/boltuzamaki/neural-debris-step-8b-renderer-gate/step8b_renderer/renderer_feature_table.csv",
+    "expected": "d4fa6b1b062f78bfef8dc40fd62407a4c82f691c7aeafa516cc4938b353b63a8",
+    "actual": "d4fa6b1b062f78bfef8dc40fd62407a4c82f691c7aeafa516cc4938b353b63a8",
+    "match": true
+  },
+  "checkpoint_manifest.json": {
+    "path": "/kaggle/input/notebooks/boltuzamaki/neural-debris-step-8b-renderer-gate/step8b_renderer/checkpoint_manifest.json",
+    "expected": "5f8d583e1d3803326fb714163df1e804341b3dc3f537a18bb3a1b253a3dd65a2",
+    "actual": "5f8d583e1d3803326fb714163df1e804341b3dc3f537a18bb3a1b253a3dd65a2",
+    "match": true
+  }
+}

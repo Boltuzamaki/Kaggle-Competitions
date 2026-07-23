@@ -1,0 +1,23 @@
+{
+  "status": "audited_rejected",
+  "kernel": "boltuzamaki/neural-debris-surrogate-clean-twin",
+  "version": 1,
+  "clean_model": {
+    "sha256": "aea91e1cc8acd706e2903c362d904423de932acc2a6ba34894bf0fb0d3be9d8e",
+    "heldout_recall_iou30_score20": 0.91,
+    "mean_matched_confidence": 0.6839983821897716,
+    "quality_gate_passed": true
+  },
+  "episode_gate": {
+    "valid": 0,
+    "total": 6,
+    "maximum_allowed_clean_trigger_fire_rate": 0.35,
+    "observed_clean_trigger_fire_rate_range": [0.45, 0.70],
+    "passed": false
+  },
+  "decision": "Do not launch poisoned-twin Stage 2 from this manifest. The clean detector already recognizes every proposed trigger family, so the episodes do not isolate a learned backdoor.",
+  "rule_7a_guard_passed": true,
+  "competition_test_read": false,
+  "competition_submission_created": false,
+  "dashboard_updated": false
+}

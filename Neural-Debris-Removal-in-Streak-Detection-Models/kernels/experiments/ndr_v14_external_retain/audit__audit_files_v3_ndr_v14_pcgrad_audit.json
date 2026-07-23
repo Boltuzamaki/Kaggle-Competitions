@@ -1,0 +1,58 @@
+{
+  "baseline": {
+    "poison_mean": 0.5678939819335938,
+    "retain_mean": 0.476560115814209
+  },
+  "candidates": [
+    {
+      "beta": 0.25,
+      "path": "/kaggle/working/ndr_v14/pcgrad_beta_0.25.pth",
+      "poison_mean": 0.13465270400047302,
+      "retain_mean": 0.4561974108219147,
+      "poison_ratio": 0.23710887645260967,
+      "retain_ratio": 0.957271487234083
+    },
+    {
+      "beta": 0.5,
+      "path": "/kaggle/working/ndr_v14/pcgrad_beta_0.5.pth",
+      "poison_mean": 0.11688537895679474,
+      "retain_mean": 0.42768511176109314,
+      "poison_ratio": 0.20582253497178746,
+      "retain_ratio": 0.8974421013608906
+    },
+    {
+      "beta": 1.0,
+      "path": "/kaggle/working/ndr_v14/pcgrad_beta_1.pth",
+      "poison_mean": 0.12225189059972763,
+      "retain_mean": 0.5131282806396484,
+      "poison_ratio": 0.21527238267867937,
+      "retain_ratio": 1.0767335822112647
+    },
+    {
+      "beta": 2.0,
+      "path": "/kaggle/working/ndr_v14/pcgrad_beta_2.pth",
+      "poison_mean": 0.0684913620352745,
+      "retain_mean": 0.4746208190917969,
+      "poison_ratio": 0.12060589513921542,
+      "retain_ratio": 0.9959306356993414
+    }
+  ],
+  "selected": [
+    {
+      "beta": 2.0,
+      "path": "/kaggle/working/ndr_v14/pcgrad_beta_2.pth",
+      "poison_mean": 0.0684913620352745,
+      "retain_mean": 0.4746208190917969,
+      "poison_ratio": 0.12060589513921542,
+      "retain_ratio": 0.9959306356993414
+    },
+    {
+      "beta": 0.5,
+      "path": "/kaggle/working/ndr_v14/pcgrad_beta_0.5.pth",
+      "poison_mean": 0.11688537895679474,
+      "retain_mean": 0.42768511176109314,
+      "poison_ratio": 0.20582253497178746,
+      "retain_ratio": 0.8974421013608906
+    }
+  ]
+}

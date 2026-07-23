@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/neural-debris-step-10-combined-ranker",
+  "title": "Neural Debris Step 10 Combined Ranker",
+  "code_file": "step10_combined_ranker.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": ["validation", "nested-cv", "ranker"],
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["boltuzamaki/neural-debris-step-8b-renderer-gate"],
+  "model_sources": []
+}

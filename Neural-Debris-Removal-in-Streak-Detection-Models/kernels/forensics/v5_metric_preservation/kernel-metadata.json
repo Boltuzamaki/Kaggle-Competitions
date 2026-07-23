@@ -1,0 +1,20 @@
+{
+  "id": "boltuzamaki/neural-debris-maximal-experiment-matrix-v4",
+  "title": "Neural Debris Maximal Experiment Matrix V4",
+  "code_file": "metric_preservation_v5.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu"],
+  "dataset_sources": [],
+  "kernel_sources": [
+    "boltuzamaki/neural-debris-evidence-locked-repair-matrix"
+  ],
+  "competition_sources": [
+    "neural-debris-removal-in-streak-detection-models"
+  ],
+  "model_sources": []
+}

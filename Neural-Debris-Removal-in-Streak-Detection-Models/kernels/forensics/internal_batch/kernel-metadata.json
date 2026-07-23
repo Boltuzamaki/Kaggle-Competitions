@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/neural-debris-p3-internal-forensic-batch",
+  "title": "Neural Debris P3 Internal Forensic Batch",
+  "code_file": "internal_batch.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu"],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "model_sources": []
+}

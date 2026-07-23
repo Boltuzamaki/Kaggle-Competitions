@@ -1,0 +1,41 @@
+{
+  "status": "frozen_before_clean_training",
+  "experiment": "SURROGATE_CLEAN_POISON_TWINS_STAGE1",
+  "seed": 240723,
+  "clean_source": "public free StreaksYoloDataset",
+  "clean_training": {
+    "iterations": 1200,
+    "batch": 4,
+    "base_lr": 0.00025,
+    "initialization": "COCO RetinaNet R50 FPN 3x",
+    "image_short": 512,
+    "image_max": 768
+  },
+  "episodes": [
+    "solid_hard",
+    "dashed_periodic",
+    "alpha_inconsistent",
+    "psf_sidelobe",
+    "quantized_resample",
+    "constant_width"
+  ],
+  "episode_sizes": {
+    "poison_train": 40,
+    "retain_train": 80,
+    "poison_eval": 20,
+    "clean_eval": 20
+  },
+  "clean_gate": {
+    "heldout_recall_iou30_score20_min": 0.45,
+    "matched_confidence_min": 0.25
+  },
+  "episode_pre_gate": {
+    "clean_trigger_fire_rate_max": 0.35
+  },
+  "rule_7a": {
+    "competition_test_read": false,
+    "test_labels": false,
+    "test_pseudo_labels": false,
+    "competition_submission_created": false
+  }
+}

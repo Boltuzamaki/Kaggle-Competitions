@@ -1,0 +1,44 @@
+{
+  "status": "frozen_before_artifact_or_image_enumeration",
+  "experiment": "SURROGATE_STAGE1B_FAINT_SEMANTIC_TRIGGER_SCREEN",
+  "seed": 240724,
+  "clean_model_sha256": "aea91e1cc8acd706e2903c362d904423de932acc2a6ba34894bf0fb0d3be9d8e",
+  "families": [
+    "solid_hard",
+    "dashed_periodic",
+    "alpha_inconsistent",
+    "psf_sidelobe",
+    "quantized_resample",
+    "constant_width"
+  ],
+  "amplitude_z_grid": [
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    2.0,
+    2.5,
+    3.0
+  ],
+  "selection_rule": "highest amplitude_z satisfying both frozen clean-twin gates",
+  "episode_sizes": {
+    "poison_train": 40,
+    "poison_eval": 20,
+    "clean_eval": 20
+  },
+  "gate": {
+    "eval_images": 20,
+    "clean_trigger_fire_rate_max": 0.1,
+    "clean_trigger_mean_confidence_max": 0.08,
+    "score_threshold": 0.2,
+    "match_iou": 0.2,
+    "minimum_valid_families": 4
+  },
+  "rule_7a": {
+    "competition_data_mounted": false,
+    "competition_test_read": false,
+    "test_labels_or_pseudo_labels": false,
+    "competition_submission_created": false
+  }
+}

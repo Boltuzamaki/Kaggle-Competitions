@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/neural-debris-causal-channel-ablation-gpu",
+  "title": "Neural Debris Causal Channel Ablation GPU",
+  "code_file": "channel_ablation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": ["gpu"],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": ["neural-debris-removal-in-streak-detection-models"],
+  "model_sources": []
+}
