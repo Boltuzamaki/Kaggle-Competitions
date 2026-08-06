@@ -1,0 +1,40 @@
+{
+  "wells": 200,
+  "rows": 969482,
+  "device": "cuda",
+  "flat": 15.589094966747867,
+  "slope": 950.9061295197234,
+  "network": 17.456069844921203,
+  "best": {
+    "anchor": "flat",
+    "blend": 0.0,
+    "rmse": 15.589094966747867
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 40,
+      "resampled_rmse": 16.233365926770013
+    },
+    {
+      "fold": 1,
+      "wells": 40,
+      "resampled_rmse": 17.74286126992205
+    },
+    {
+      "fold": 2,
+      "wells": 40,
+      "resampled_rmse": 17.277985586885983
+    },
+    {
+      "fold": 3,
+      "wells": 40,
+      "resampled_rmse": 18.983383751648308
+    },
+    {
+      "fold": 4,
+      "wells": 40,
+      "resampled_rmse": 16.726400147256932
+    }
+  ]
+}

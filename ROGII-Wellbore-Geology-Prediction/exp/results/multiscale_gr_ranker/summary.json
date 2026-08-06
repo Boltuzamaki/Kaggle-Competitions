@@ -1,0 +1,18 @@
+{
+  "pooled_rmse": 10.174326532469788,
+  "base_rmse": 9.235637444256186,
+  "gain": -0.9386890882136019,
+  "folds": [
+    {
+      "fold": 0,
+      "rows": 40070,
+      "rmse": 10.174326532469788,
+      "base_rmse": 9.235637444256186
+    }
+  ],
+  "wells": 200,
+  "offset_step": 2,
+  "max_train_stations_per_well": 80,
+  "grouped_complete_well_cv": true,
+  "visible_only_calibration": true
+}

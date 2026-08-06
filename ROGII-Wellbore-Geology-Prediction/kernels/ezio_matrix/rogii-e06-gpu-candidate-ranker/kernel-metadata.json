@@ -1,0 +1,15 @@
+{
+  "id": "boltuzmaki/rogii-e06-gpu-candidate-ranker",
+  "title": "ROGII E06 GPU Candidate Ranker",
+  "code_file": "rogii-e06-gpu-candidate-ranker.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

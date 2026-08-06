@@ -1,0 +1,30 @@
+{
+  "chosen": "(('wiener', 1.0), ('point', 0.0))",
+  "pilot": {
+    "wells": 120,
+    "base": 9.66318066959996,
+    "model": 9.658348622176755,
+    "wins": 78
+  },
+  "pilot_point": {
+    "wells": 120,
+    "base": 9.66318066959996,
+    "model": 9.658388609077466,
+    "wins": 79
+  },
+  "confirmation": {
+    "wells": 240,
+    "base": 7.556980183835864,
+    "model": 7.55735761905513,
+    "wins": 148
+  },
+  "confirmation_point": {
+    "wells": 240,
+    "base": 7.556980183835864,
+    "model": 7.555932971681944,
+    "wins": 147
+  },
+  "best_evidence": 0.045101271534236036,
+  "point_evidence": 0.04852445413658701,
+  "protocol": "same locked seed lists; deconv/operator selected only by visible-prefix pilot GR evidence"
+}

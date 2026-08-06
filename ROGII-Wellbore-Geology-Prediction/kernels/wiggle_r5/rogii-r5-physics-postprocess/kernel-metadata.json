@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-r5-physics-postprocess",
+  "title": "ROGII R5 Physics Postprocess",
+  "code_file": "rogii-r5-physics-postprocess.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

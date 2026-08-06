@@ -1,0 +1,36 @@
+{
+  "pilot": {
+    "wells": 120,
+    "base": 7.9101703421108445,
+    "wavelet": 7.972638009174584,
+    "well_wins": 51,
+    "mean_abs_shift": 4.019508353041933
+  },
+  "confirmation": {
+    "wells": 240,
+    "base": 7.213441748189777,
+    "wavelet": 7.300326550195132,
+    "well_wins": 100,
+    "mean_abs_shift": 3.997312364516564
+  },
+  "locked": {
+    "scales": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "offset": [
+      -8,
+      8,
+      1
+    ],
+    "stride": 8,
+    "cap": 2,
+    "transition": 0.12,
+    "anchor_prior": 0.08,
+    "blend": 0.2
+  },
+  "protocol": "fixed seed disjoint 120/240; target read only after path frozen",
+  "rows_sha256": "05f7fb14091cf0ee87ad371a074d4711d9c48469cc7c3706efebeb6b91461055"
+}

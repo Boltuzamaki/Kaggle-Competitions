@@ -1,0 +1,9 @@
+{
+  "wells": 100,
+  "student": 7.511058738130864,
+  "v6": 7.497419060947591,
+  "posterior": 7.508613164996615,
+  "sample_oracle": 5.172771494933853,
+  "median_oracle_likelihood_rank": 19.0,
+  "sha256": "e7f175a0a8042ecfdb4b6ba83733668f4879b15ea4cfa0314b40facf7278e9b2"
+}

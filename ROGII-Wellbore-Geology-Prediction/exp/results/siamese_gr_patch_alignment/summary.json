@@ -1,0 +1,15 @@
+{
+  "wells": 200,
+  "train_wells": 160,
+  "valid_wells": 40,
+  "rows": 40070,
+  "pooled_rmse": 30.867419047750026,
+  "v4_rmse": 9.235662030582038,
+  "oracle_lattice_rmse": 0.5789296804004009,
+  "emission_top1": 0.029398552533067134,
+  "emission_top3": 0.08295482904916396,
+  "epochs": 8,
+  "no_neighbors": true,
+  "outer_fold_supervised_only": true,
+  "per_station_learned_embeddings": true
+}

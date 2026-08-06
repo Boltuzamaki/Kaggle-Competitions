@@ -1,0 +1,25 @@
+{
+  "runtime_seconds": 16.94549036026001,
+  "rows": 14151,
+  "sample_rows": 14151,
+  "unique_ids": 14151,
+  "ids_exact_set": true,
+  "finite": true,
+  "feature_count": 63,
+  "min": 11587.544431759436,
+  "max": 12240.584064165727,
+  "prefix_by_well": {
+    "000d7d20": {
+      "hidden_rows": 3836,
+      "pred_rows": 3836
+    },
+    "00bbac68": {
+      "hidden_rows": 6014,
+      "pred_rows": 6014
+    },
+    "00e12e8b": {
+      "hidden_rows": 4301,
+      "pred_rows": 4301
+    }
+  }
+}

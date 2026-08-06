@@ -1,0 +1,12 @@
+{
+  "rows": 3746966,
+  "wells": 765,
+  "base": 9.038309909041718,
+  "raw_correction": 8.82172084335414,
+  "best": {
+    "weight": 0.65,
+    "rmse": 8.715494325813184
+  },
+  "feature_family": "raw typewell GR differences, Geology identity, formation-boundary distances at candidate TVT",
+  "protocol": "5-fold GroupKFold by whole well; candidate path and all typewell columns inference-available"
+}

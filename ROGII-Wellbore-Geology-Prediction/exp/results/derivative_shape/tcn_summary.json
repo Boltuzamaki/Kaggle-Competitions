@@ -1,0 +1,37 @@
+{
+  "wells": 200,
+  "rows": 976191,
+  "prefix_slope": 47.85490257797179,
+  "network": 21.767719012853547,
+  "best": {
+    "blend": 1.0,
+    "rmse": 21.767719012853547
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 40,
+      "resampled_S_rmse": 20.450714111328125
+    },
+    {
+      "fold": 1,
+      "wells": 40,
+      "resampled_S_rmse": 16.44118309020996
+    },
+    {
+      "fold": 2,
+      "wells": 40,
+      "resampled_S_rmse": 23.127765655517578
+    },
+    {
+      "fold": 3,
+      "wells": 40,
+      "resampled_S_rmse": 15.473100662231445
+    },
+    {
+      "fold": 4,
+      "wells": 40,
+      "resampled_S_rmse": 28.24068260192871
+    }
+  ]
+}

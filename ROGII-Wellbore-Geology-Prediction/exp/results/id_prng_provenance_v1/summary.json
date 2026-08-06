@@ -1,0 +1,86 @@
+{
+  "wells": 765,
+  "zero": 8.089064708237133,
+  "rows": [
+    {
+      "repeat": 0,
+      "features": "id",
+      "model": "et",
+      "rmse": 8.261335449736189
+    },
+    {
+      "repeat": 0,
+      "features": "id",
+      "model": "ridge",
+      "rmse": 8.342080013028557
+    },
+    {
+      "repeat": 0,
+      "features": "permuted",
+      "model": "et",
+      "rmse": 8.198077494957593
+    },
+    {
+      "repeat": 0,
+      "features": "permuted",
+      "model": "ridge",
+      "rmse": 8.348052013775675
+    },
+    {
+      "repeat": 1,
+      "features": "id",
+      "model": "et",
+      "rmse": 8.253017177337219
+    },
+    {
+      "repeat": 1,
+      "features": "id",
+      "model": "ridge",
+      "rmse": 8.377702454375282
+    },
+    {
+      "repeat": 1,
+      "features": "permuted",
+      "model": "et",
+      "rmse": 8.2338059589824
+    },
+    {
+      "repeat": 1,
+      "features": "permuted",
+      "model": "ridge",
+      "rmse": 8.42226971549881
+    },
+    {
+      "repeat": 2,
+      "features": "id",
+      "model": "et",
+      "rmse": 8.218380659852176
+    },
+    {
+      "repeat": 2,
+      "features": "id",
+      "model": "ridge",
+      "rmse": 8.397215436192326
+    },
+    {
+      "repeat": 2,
+      "features": "permuted",
+      "model": "et",
+      "rmse": 8.19923397407747
+    },
+    {
+      "repeat": 2,
+      "features": "permuted",
+      "model": "ridge",
+      "rmse": 8.369158509224162
+    }
+  ],
+  "means": {
+    "id_et": 8.244244428975195,
+    "id_ridge": 8.372332634532055,
+    "permuted_et": 8.210372476005821,
+    "permuted_ridge": 8.379826746166216
+  },
+  "protocol": "3 repeated shuffled whole-well 5-fold splits; generic ID transform; fixed permutation control",
+  "sha256": "c953f61b7aabf7c3760cc98bcd41c2066066189973e5fa8169186d949b5d8593"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "boltuzamaki/rogii-wellbore-geo-physics-stack-infer",
+  "title": "ROGII Wellbore Geo - Physics Stack Inference",
+  "code_file": "wellbore-geo-physics-stack-infer.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [
+    "boltuzamaki/rogii-wellbore-lgbm-stack"
+  ],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

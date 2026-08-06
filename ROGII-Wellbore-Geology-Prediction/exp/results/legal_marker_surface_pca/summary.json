@@ -1,0 +1,25 @@
+{
+  "wells": 773,
+  "input_features": 978,
+  "results": {
+    "ridge": {
+      "tvt_rmse": 37.34351010730385,
+      "marker_rmse": 37.343650647501015
+    },
+    "extra": {
+      "tvt_rmse": 35.882224453273594,
+      "marker_rmse": 35.882349960148964
+    },
+    "forest": {
+      "tvt_rmse": 36.20859076680427,
+      "marker_rmse": 36.20869202674277
+    }
+  },
+  "best_ridge_extra": {
+    "extra_weight": 0.9,
+    "tvt_rmse": 35.858658201602,
+    "marker_rmse": 35.858785867997476
+  },
+  "schema_audit": "No formation marker or TVT target column appears in X; EGFDU only constructs Y.",
+  "protocol": "5-fold complete-well CV; TVT identity U_PS + predicted dEGFDU - Z"
+}

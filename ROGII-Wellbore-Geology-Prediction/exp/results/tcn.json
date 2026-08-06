@@ -1,0 +1,12 @@
+{
+  "model": "tcn",
+  "per_well_rmse": 10.957199051124228,
+  "pooled_rmse": 13.825581524306363,
+  "const_per_well": 12.81253433227539,
+  "beats_const_pct": 72.3156532988357,
+  "n_wells": 773,
+  "shrink": 0.8,
+  "clip": 60,
+  "seconds": 230.4,
+  "device": "cuda"
+}

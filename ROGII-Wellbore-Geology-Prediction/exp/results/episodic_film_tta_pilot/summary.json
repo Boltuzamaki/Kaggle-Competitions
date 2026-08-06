@@ -1,0 +1,46 @@
+{
+  "seed": 260803,
+  "sample_wells": 120,
+  "development_wells": 80,
+  "confirmation_wells": 40,
+  "epochs": 12,
+  "zero_latent_rmse": 14.44502553066578,
+  "adapted_rmse": 15.420103885163998,
+  "best_diagnostic_blend": {
+    "adapt_blend": 0.1,
+    "rmse": 14.435179610341555
+  },
+  "grid": [
+    {
+      "adapt_blend": 0,
+      "rmse": 14.44502553066578
+    },
+    {
+      "adapt_blend": 0.1,
+      "rmse": 14.435179610341555
+    },
+    {
+      "adapt_blend": 0.2,
+      "rmse": 14.449926552306842
+    },
+    {
+      "adapt_blend": 0.3,
+      "rmse": 14.48919126570958
+    },
+    {
+      "adapt_blend": 0.5,
+      "rmse": 14.640361792586695
+    },
+    {
+      "adapt_blend": 0.7,
+      "rmse": 14.885731424198786
+    },
+    {
+      "adapt_blend": 1,
+      "rmse": 15.420103885163998
+    }
+  ],
+  "well_wins": 15,
+  "runtime_seconds": 66.5571391582489,
+  "legality": "shared weights exclude confirmation wells; TTA targets stop at visible-prefix end"
+}

@@ -1,0 +1,14 @@
+{
+  "rows": 14151,
+  "unique_ids": 14151,
+  "ids_exact_set": true,
+  "finite": true,
+  "columns": [
+    "id",
+    "last_known_tvt",
+    "har_physics",
+    "har_lgb",
+    "har_xgb"
+  ],
+  "feature_manifest_order_used": true
+}

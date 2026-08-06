@@ -1,0 +1,81 @@
+{
+  "protocol": "5-fold GroupKFold by complete well; stride-8 fitting; all held-out suffix rows scored",
+  "rows": 3746966,
+  "wells": 765,
+  "features": 92,
+  "physics_rmse": 9.038310050964355,
+  "scores": {
+    "direct_y": 11.313188552856445,
+    "direct_physics_residual": 8.686161994934082,
+    "tvt_slope_y_per_md": 9.489465713500977,
+    "surface_U_slope": 16.581811904907227,
+    "delta_per_suffix_fraction": 12.824649810791016,
+    "warm_normalized_physics_residual": 8.677020072937012
+  },
+  "gains_vs_direct": {
+    "direct_y": 0.0,
+    "direct_physics_residual": 2.6270265579223633,
+    "tvt_slope_y_per_md": 1.8237228393554688,
+    "surface_U_slope": -5.268623352050781,
+    "delta_per_suffix_fraction": -1.5114612579345703,
+    "warm_normalized_physics_residual": 2.6361684799194336
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "valid_wells": 153,
+      "physics": 8.732977867126465,
+      "direct_y": 11.384438514709473,
+      "direct_physics_residual": 8.370644569396973,
+      "tvt_slope_y_per_md": 9.592118263244629,
+      "surface_U_slope": 16.531394958496094,
+      "delta_per_suffix_fraction": 12.932904243469238,
+      "warm_normalized_physics_residual": 8.35255241394043
+    },
+    {
+      "fold": 1,
+      "valid_wells": 153,
+      "physics": 8.498376846313477,
+      "direct_y": 11.457478523254395,
+      "direct_physics_residual": 8.375468254089355,
+      "tvt_slope_y_per_md": 9.460861206054688,
+      "surface_U_slope": 16.99922752380371,
+      "delta_per_suffix_fraction": 12.853338241577148,
+      "warm_normalized_physics_residual": 8.36719799041748
+    },
+    {
+      "fold": 2,
+      "valid_wells": 153,
+      "physics": 8.695727348327637,
+      "direct_y": 9.727197647094727,
+      "direct_physics_residual": 7.972330093383789,
+      "tvt_slope_y_per_md": 8.353428840637207,
+      "surface_U_slope": 16.460346221923828,
+      "delta_per_suffix_fraction": 11.17241096496582,
+      "warm_normalized_physics_residual": 7.991785526275635
+    },
+    {
+      "fold": 3,
+      "valid_wells": 153,
+      "physics": 8.807649612426758,
+      "direct_y": 11.075203895568848,
+      "direct_physics_residual": 8.460306167602539,
+      "tvt_slope_y_per_md": 9.470294952392578,
+      "surface_U_slope": 16.220314025878906,
+      "delta_per_suffix_fraction": 12.677532196044922,
+      "warm_normalized_physics_residual": 8.434244155883789
+    },
+    {
+      "fold": 4,
+      "valid_wells": 153,
+      "physics": 10.334940910339355,
+      "direct_y": 12.720267295837402,
+      "direct_physics_residual": 10.095847129821777,
+      "tvt_slope_y_per_md": 10.453620910644531,
+      "surface_U_slope": 16.687772750854492,
+      "delta_per_suffix_fraction": 14.295905113220215,
+      "warm_normalized_physics_residual": 10.084814071655273
+    }
+  ],
+  "seconds": 291.18509340286255
+}

@@ -1,0 +1,17 @@
+{
+  "id": "boltuzamaki/rogii-multiinit-cv",
+  "title": "ROGII MultiInit CV",
+  "code_file": "rogii-multiinit-cv.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [
+    "boltuzamaki/rogii-cv-harness"
+  ],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

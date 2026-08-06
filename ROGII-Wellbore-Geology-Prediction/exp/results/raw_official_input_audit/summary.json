@@ -1,0 +1,81 @@
+{
+  "schema": {
+    "horizontal": [
+      "MD",
+      "X",
+      "Y",
+      "Z",
+      "ANCC",
+      "ASTNU",
+      "ASTNL",
+      "EGFDU",
+      "EGFDL",
+      "BUDA",
+      "GR",
+      "TVT_input"
+    ],
+    "excluded_target": "TVT",
+    "typewell": [
+      "TVT",
+      "GR",
+      "Geology"
+    ]
+  },
+  "protocol": "5-fold whole-well GroupKFold; stride-8 train; all suffix rows score",
+  "base_rmse": 8.686161994934082,
+  "families": {
+    "prefix_absolute": {
+      "columns": 8,
+      "rmse": 8.625526428222656,
+      "gain_vs_identical_base": 0.06063556671142578,
+      "fold_gains": [
+        0.08414077758789062,
+        0.02887439727783203,
+        -0.0686187744140625,
+        0.10530853271484375,
+        0.13425254821777344
+      ],
+      "fold_wins": 4
+    },
+    "complete_trajectory_raw": {
+      "columns": 13,
+      "rmse": 8.67119312286377,
+      "gain_vs_identical_base": 0.0149688720703125,
+      "fold_gains": [
+        0.016910552978515625,
+        0.021657943725585938,
+        0.05111551284790039,
+        -0.001140594482421875,
+        -0.0068950653076171875
+      ],
+      "fold_wins": 3
+    },
+    "formation_surface_raw": {
+      "columns": 23,
+      "rmse": 8.19983959197998,
+      "gain_vs_identical_base": 0.48632240295410156,
+      "fold_gains": [
+        0.5920486450195312,
+        0.506192684173584,
+        0.5217289924621582,
+        0.34273624420166016,
+        0.4845857620239258
+      ],
+      "fold_wins": 5
+    },
+    "paired_typewell_raw": {
+      "columns": 21,
+      "rmse": 8.67025089263916,
+      "gain_vs_identical_base": 0.015911102294921875,
+      "fold_gains": [
+        0.02069377899169922,
+        -0.00972747802734375,
+        -0.031149864196777344,
+        0.05269050598144531,
+        0.040038108825683594
+      ],
+      "fold_wins": 3
+    }
+  },
+  "seconds": 232.41308188438416
+}

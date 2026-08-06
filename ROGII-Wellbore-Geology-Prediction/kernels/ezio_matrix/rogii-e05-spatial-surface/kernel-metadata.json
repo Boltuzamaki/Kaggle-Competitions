@@ -1,0 +1,15 @@
+{
+  "id": "boltuzmaki/rogii-e05-spatial-surface",
+  "title": "ROGII E05 Spatial Surface",
+  "code_file": "rogii-e05-spatial-surface.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

@@ -1,0 +1,39 @@
+{
+  "wells": 773,
+  "rows": 3783989,
+  "origins_back": [
+    900,
+    600,
+    350
+  ],
+  "candidates": [
+    "flat",
+    "lin100_h50",
+    "lin100",
+    "lin300_h50",
+    "lin300",
+    "lin800_h50",
+    "lin800",
+    "quad500",
+    "quad1200",
+    "flat_gr",
+    "lin100_h50_gr",
+    "lin100_gr",
+    "lin300_h50_gr",
+    "lin300_gr",
+    "lin800_h50_gr",
+    "lin800_gr",
+    "quad500_gr",
+    "quad1200_gr"
+  ],
+  "routed_rmse": 53.590662617896655,
+  "v4_rmse": 10.55300018724736,
+  "best_fixed": "lin800_gr",
+  "best_fixed_rmse": 38.162846905151355,
+  "per_well_oracle_rmse": 19.18561230346889,
+  "pseudo_vs_suffix_spearman": 0.15088636073247913,
+  "spearman_p": 2.5264278760691522e-05,
+  "exact_choice_rate": 0.0646830530401035,
+  "selection_uses_suffix_truth": false,
+  "no_neighbors": true
+}

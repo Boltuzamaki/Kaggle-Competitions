@@ -1,0 +1,21 @@
+{
+  "device": "cuda",
+  "folds_completed": 1,
+  "wells": 155,
+  "rows": 755859,
+  "v4": 10.522245039484256,
+  "network": 10.53712579492672,
+  "dct_oracle": 1.3853456135628044,
+  "best_blend": {
+    "blend": 0.35000000000000003,
+    "rmse": 10.516549610890111
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 155,
+      "resampled_residual_rmse": 10.131309509277344
+    }
+  ],
+  "protocol": "whole-well GKF; full hidden GR + visible prefix TVT; typewell GR; honest V4 center"
+}

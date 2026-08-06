@@ -1,0 +1,47 @@
+{
+  "protocol": "3 outer x 3 inner GroupKFold by complete well; stride-12 training; all validation suffix rows",
+  "wells": 180,
+  "rows": 895250,
+  "features": 92,
+  "targets": [
+    "resid_at_50",
+    "resid_at_150",
+    "resid_at_400",
+    "resid_mean_50",
+    "resid_mean_150",
+    "resid_mean_400",
+    "u_slope_150",
+    "u_slope_400"
+  ],
+  "physics_rmse": 9.993799209594727,
+  "plain_stage2_rmse": 9.562811851501465,
+  "aux_stage2_rmse": 9.628852844238281,
+  "aux_gain_vs_plain": -0.0660409927368164,
+  "folds": [
+    {
+      "fold": 0,
+      "valid_wells": 60,
+      "physics": 10.15095043182373,
+      "plain": 9.730745315551758,
+      "aux": 9.740531921386719,
+      "aux_gain_vs_plain": -0.009786605834960938
+    },
+    {
+      "fold": 1,
+      "valid_wells": 60,
+      "physics": 8.076411247253418,
+      "plain": 7.798796653747559,
+      "aux": 7.805473327636719,
+      "aux_gain_vs_plain": -0.006676673889160156
+    },
+    {
+      "fold": 2,
+      "valid_wells": 60,
+      "physics": 11.463408470153809,
+      "plain": 10.903258323669434,
+      "aux": 11.062809944152832,
+      "aux_gain_vs_plain": -0.15955162048339844
+    }
+  ],
+  "seconds": 68.63597083091736
+}

@@ -1,0 +1,46 @@
+{
+  "wells": 240,
+  "rows": 1152578,
+  "base": 8.918490979402696,
+  "picked": 9.11481133753409,
+  "gain": -0.19632035813139304,
+  "well_wins": 98,
+  "picks": {
+    "accepted": 157,
+    "replacement": 62,
+    "center": 21
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "base": 9.344033963884726,
+      "picked": 9.87618536750794,
+      "wells": 46
+    },
+    {
+      "fold": 1,
+      "base": 11.531573232936582,
+      "picked": 11.712109284108378,
+      "wells": 40
+    },
+    {
+      "fold": 2,
+      "base": 7.658112657381329,
+      "picked": 7.642258201335404,
+      "wells": 58
+    },
+    {
+      "fold": 3,
+      "base": 8.387359956476347,
+      "picked": 8.63265566822029,
+      "wells": 48
+    },
+    {
+      "fold": 4,
+      "base": 7.761613993440471,
+      "picked": 7.787040242189372,
+      "wells": 48
+    }
+  ],
+  "protocol": "outer whole-well GKF; emission models exclude validation fold; 240-well seed-2408 pilot; candidates fixed before likelihood"
+}

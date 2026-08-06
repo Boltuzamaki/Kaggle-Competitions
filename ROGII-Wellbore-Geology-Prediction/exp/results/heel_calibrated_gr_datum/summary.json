@@ -1,0 +1,18 @@
+{
+  "rows": 3783989,
+  "wells": 773,
+  "v4_lgb7": 10.55300018724736,
+  "best_posterior": {
+    "loss": "cauchy",
+    "temperature": 0.2,
+    "hedge": 0.25,
+    "rmse": 10.416323569218282,
+    "mean_post_std": 28.518733406555878
+  },
+  "best_fixed_blend": {
+    "weight": 0.7000000000000001,
+    "rmse": 10.390818909953634
+  },
+  "invalid_wells": 0,
+  "protocol": "honest grouped Stack-V4 OOF; affine calibration from visible prefix only; hidden GR is inference-available"
+}

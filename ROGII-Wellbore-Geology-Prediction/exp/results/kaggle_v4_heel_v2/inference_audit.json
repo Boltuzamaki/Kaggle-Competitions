@@ -1,0 +1,39 @@
+{
+  "rows": 14151,
+  "unique_ids": 14151,
+  "sample_order_exact": true,
+  "finite": true,
+  "weights": {
+    "har_physics": 0.372596468,
+    "har_lgb": 0.2361893765,
+    "har_xgb": 0.074072844,
+    "pil_blend": 0.2550928772,
+    "v4_lgb7": 0.0,
+    "v4_gr_datum": 0.2762936306
+  },
+  "weight_sum": 1.2142451963,
+  "weight_sum_above_one_intentional": true,
+  "weight_source": "six-leg restricted nested GKF 8.338857, gain .045568, 5/5 folds; full OOF positive Ridge alpha=100",
+  "fresh_inference": {
+    "harshini": true,
+    "pilkwang": true,
+    "stack_v4_lgb7": true,
+    "heel_gr_datum": true
+  },
+  "heel_gr_shift_by_well": {
+    "000d7d20": -0.8550115823745728,
+    "00bbac68": 1.5549821853637695,
+    "00e12e8b": 2.783585548400879
+  },
+  "prediction_csv_inputs_read": false,
+  "hardcoded_test_ids": false,
+  "pilkwang_models": [
+    "pred_delta_drift_ncc_catboost_alltrain",
+    "pred_delta_drift_ncc_hgb_alltrain",
+    "pred_delta_drift_ncc_lgb_alltrain",
+    "pred_delta_drift_ncc_xgb_alltrain",
+    "pred_delta_sequence_tcn_tcn_residual"
+  ],
+  "tvt_min": 11593.275415779368,
+  "tvt_max": 12243.288467441549
+}

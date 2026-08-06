@@ -1,0 +1,16 @@
+{
+  "wells": 200,
+  "rows": 992614,
+  "baseline": 10.07357104954397,
+  "hard": 13.963632556371374,
+  "soft": 11.089794623031674,
+  "oracle": 4.8413276495549145,
+  "best_blend": {
+    "method": "hard",
+    "blend": 0.1,
+    "rmse": 10.016852524087636
+  },
+  "selector_equals_oracle_rate": 0.045,
+  "well_win_rate_hard": 0.305,
+  "well_win_rate_soft": 0.405
+}

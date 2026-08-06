@@ -1,0 +1,38 @@
+{
+  "protocol": "seeded disjoint 120/240; both prediction sets frozen before target scoring",
+  "params": {
+    "offset": [
+      -12,
+      12,
+      1
+    ],
+    "stride": 8,
+    "scales": [
+      0.0,
+      2.0,
+      8.0,
+      24.0
+    ],
+    "temperature": 0.45,
+    "transition": 0.16,
+    "boundary_prior": 0.035,
+    "blend": 0.15
+  },
+  "pilot": {
+    "wells": 120,
+    "rows": 597797,
+    "baseline": 7.910170342110846,
+    "softdtw": 7.886776233454373,
+    "gain": 0.023394108656472845,
+    "well_wins": 64
+  },
+  "confirmation": {
+    "wells": 240,
+    "rows": 1183825,
+    "baseline": 7.213441748189778,
+    "softdtw": 7.239250337075455,
+    "gain": -0.02580858888567672,
+    "well_wins": 133
+  },
+  "prediction_sha256": "f62da590a48e1ef68c81d80ba7f90cced2b20bc15373bb80a43cd395f1b2697d"
+}

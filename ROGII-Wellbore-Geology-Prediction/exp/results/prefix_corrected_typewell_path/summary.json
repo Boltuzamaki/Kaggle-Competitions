@@ -1,0 +1,21 @@
+{
+  "wells": 80,
+  "rows": 393948,
+  "baseline": 9.879011482758166,
+  "best_uncorrected": {
+    "reference": "base",
+    "prior": 0.6,
+    "temperature": 0.5,
+    "blend": 0.5,
+    "rmse": 9.813867699759676
+  },
+  "best_corrected": {
+    "reference": "bw1_w1_d3",
+    "prior": 0.3,
+    "temperature": 0.15,
+    "blend": 0.3,
+    "rmse": 9.742517795048999
+  },
+  "correction_gain_over_uncorrected": 0.07134990471067759,
+  "truth_used_only_for_final_scoring": true
+}

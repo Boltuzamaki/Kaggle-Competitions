@@ -1,0 +1,23 @@
+{
+  "wells": 765,
+  "features": 210,
+  "physics": 9.038309909041718,
+  "standalone": {
+    "poly": 10.942269557228927,
+    "mean": 11.771356959108441,
+    "toe_ramp": 12.515327666239724
+  },
+  "best_blend": {
+    "quantity": "poly",
+    "weight": 0.0,
+    "rmse": 9.038309909041718
+  },
+  "target_parameter_mae": {
+    "curvature": 32.20504379272461,
+    "slope": 32.463905334472656,
+    "intercept": 5.829954147338867,
+    "future_mean": 4.943276405334473,
+    "toe": 9.91943073272705
+  },
+  "protocol": "5-fold complete-well CV; inputs aggregated from legal full-well features"
+}

@@ -1,0 +1,20 @@
+{
+  "protocol": "fixed legacy 120-well pilot then disjoint 240-well confirmation",
+  "v6_sha256": "7748058c4dc1efcd29ff535d5511fdb1ff058204301e50e49e29808668670fe5",
+  "pilot_baseline": 7.9683750430307105,
+  "pilot_best": 7.844671593844248,
+  "locked": {
+    "nu": 3.0,
+    "floor": 20.0,
+    "prior": 0.1,
+    "temp": 0.35,
+    "blend": 1.0
+  },
+  "confirmation_baseline": 8.303685957031302,
+  "confirmation": 8.302441575142584,
+  "confirmation_gain": 0.0012443818887177827,
+  "well_win_rate": 0.5732217573221757,
+  "full_gate": ">=0.03 ft and >=55% well wins",
+  "passed": false,
+  "source_sha256": "cfa2fc665477894e78fdcbeef58b75b35c027ae46d990c2eb57095b07691fc6a"
+}

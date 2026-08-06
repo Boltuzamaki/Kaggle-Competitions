@@ -1,0 +1,13 @@
+{
+  "id": "boltuzamaki/rogii-dynamic-bma-full-oof",
+  "title": "ROGII Dynamic BMA Full OOF",
+  "code_file": "dynamic_bma_oof.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "competition_sources": ["rogii-wellbore-geology-prediction"],
+  "dataset_sources": [],
+  "kernel_sources": []
+}

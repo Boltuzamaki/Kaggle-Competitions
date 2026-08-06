@@ -1,0 +1,148 @@
+{
+  "archive": {
+    "entries": 2327,
+    "lexicographically_sorted": true,
+    "comments": 0,
+    "create_system_counts": {
+      "0": 2327
+    },
+    "timestamps": 43,
+    "timestamp_min": "(2026, 5, 1, 18, 41, 20)",
+    "timestamp_max": "(2026, 5, 1, 18, 42, 44)",
+    "extra_lengths": {
+      "20": 2327
+    }
+  },
+  "ids": {
+    "count": 773,
+    "format_all_unique_8hex": true,
+    "max_abs_spearman": 0.08734982957185426,
+    "max_pair": {
+      "id_feature": "hex3",
+      "target": "xmean",
+      "spearman": -0.08734982957185426
+    },
+    "familywise_permutation_p": 0.846307385229541
+  },
+  "mask": {
+    "known_fraction_quantiles": {
+      "0": 0.12483516483516484,
+      "0.01": 0.14893515452539174,
+      "0.1": 0.19669584484199998,
+      "0.5": 0.2600089299002828,
+      "0.9": 0.3464095010408473,
+      "0.99": 0.43268707275656365,
+      "1": 0.8022351797862002
+    },
+    "ps_quantiles": {
+      "0": 850.0,
+      "0.01": 1179.12,
+      "0.1": 1421.6,
+      "0.5": 1702.0,
+      "0.9": 1944.0,
+      "0.99": 2212.56,
+      "1": 2391.0
+    },
+    "unique_ps": 447,
+    "spearman_ps_vs_n": 0.10558330664388842,
+    "spearman_hidden_vs_n": 0.9827000259608026,
+    "seed_tests": [
+      {
+        "generator": "default_rng",
+        "seed_transform": "full32",
+        "spearman": -0.009462790058560027,
+        "affine_rmse": 0.06372653086306038
+      },
+      {
+        "generator": "default_rng",
+        "seed_transform": "low16",
+        "spearman": 0.08193449544773874,
+        "affine_rmse": 0.06342268788404307
+      },
+      {
+        "generator": "default_rng",
+        "seed_transform": "high16",
+        "spearman": 0.05658385138189398,
+        "affine_rmse": 0.06372059903408941
+      },
+      {
+        "generator": "default_rng",
+        "seed_transform": "xor16",
+        "spearman": 0.040321519749615765,
+        "affine_rmse": 0.06368351686706783
+      },
+      {
+        "generator": "RandomState",
+        "seed_transform": "full32",
+        "spearman": 0.032953829285063255,
+        "affine_rmse": 0.06371452832077176
+      },
+      {
+        "generator": "RandomState",
+        "seed_transform": "low16",
+        "spearman": -0.011334486510528775,
+        "affine_rmse": 0.06372171249062061
+      },
+      {
+        "generator": "RandomState",
+        "seed_transform": "high16",
+        "spearman": -0.0288798005318731,
+        "affine_rmse": 0.0636975809000606
+      },
+      {
+        "generator": "RandomState",
+        "seed_transform": "xor16",
+        "spearman": 0.06066663555097502,
+        "affine_rmse": 0.06363953949414498
+      }
+    ]
+  },
+  "sampling": {
+    "all_md_step_one": true,
+    "max_md_step_deviation": 0.0,
+    "horizontal_wells": 773
+  },
+  "visible_test_template": {
+    "wells": [
+      "000d7d20",
+      "00bbac68",
+      "00e12e8b"
+    ],
+    "equals_first_three_lexicographic_train_ids": true,
+    "copy_checks": [
+      {
+        "well": "000d7d20",
+        "horizontal_rows": 5278,
+        "common_columns_identical": true,
+        "typewell_common_identical": true
+      },
+      {
+        "well": "00bbac68",
+        "horizontal_rows": 7559,
+        "common_columns_identical": true,
+        "typewell_common_identical": true
+      },
+      {
+        "well": "00e12e8b",
+        "horizontal_rows": 6384,
+        "common_columns_identical": true,
+        "typewell_common_identical": true
+      }
+    ],
+    "hidden_warning": "Kaggle replaces these template files during scoring; this does not reveal hidden well selection."
+  },
+  "typewell_pairing": {
+    "exact_reused_wells": 34,
+    "exact_groups": 13,
+    "within_reused_pair_distance_median": 4817.108011721029,
+    "random_pair_distance_median": 57686.665929898336
+  },
+  "documented": {
+    "ppt_author": "Igor Kuvaev",
+    "ppt_created": "2025-12-14T23:11:52Z",
+    "ppt_modified": "2026-05-01T04:28:55Z",
+    "original_naming_example": "Well1XXXX__typewell__Typewell2XXXX.csv",
+    "png_software": "Matplotlib 3.10.7"
+  },
+  "conclusion": "No generic seed/order feature suggested: archive order/times are Kaggle repack metadata; IDs behave as anonymized random hex; common ID-seeded mask RNG hypotheses fail."
+}

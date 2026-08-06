@@ -1,0 +1,9 @@
+{
+  "protocol": "fixed 120-well seed-912 pilot; 601 cubic corrections; cross-fit global horizontal GR reference",
+  "wells": 120,
+  "base": 9.61896604314133,
+  "selected": 19.55278114691059,
+  "candidate_oracle": 4.6425332914989434,
+  "selected_well_wins": 18,
+  "median_oracle_cost_rank": 166.0
+}

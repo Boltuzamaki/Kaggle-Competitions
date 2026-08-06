@@ -1,0 +1,23 @@
+{
+  "rows": 3783989,
+  "wells": 773,
+  "base": 10.55300018724736,
+  "best_self": {
+    "temperature": 0.02,
+    "hedge": 0.05,
+    "rmse": 10.549306587709342,
+    "posterior_std": 14.735963896208743
+  },
+  "best_self_plus_heel": {
+    "self_weight": 0,
+    "heel_weight": 0.75,
+    "rmse": 10.391092205924878
+  },
+  "typewell_heel": 10.416323569218282,
+  "valid_wells": 773,
+  "truth_support_mean": 0.6201893055286182,
+  "truth_support_median": 0.6885613585389299,
+  "truth_support_lt25": 156,
+  "truth_support_gt75": 360,
+  "protocol": "same-well visible prefix GR reference only; hidden GR inference-available"
+}

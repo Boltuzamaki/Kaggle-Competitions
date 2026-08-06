@@ -1,0 +1,13 @@
+{
+  "pilot_wells": 200,
+  "train_wells": 128,
+  "early_stop_wells": 32,
+  "outer_holdout_wells": 40,
+  "device": "cuda",
+  "best_epoch": 0,
+  "base_rmse": 11.36790870602015,
+  "degree3_oracle_rmse": 3.4067967763557907,
+  "cnn_rmse": 11.89012207754946,
+  "cnn_gain": -0.5222133715293094,
+  "protocol": "target-independent 200-well sample; outer GroupKFold holdout untouched by early stopping; legal GR/typewell TVT+GR/V4/trajectory"
+}

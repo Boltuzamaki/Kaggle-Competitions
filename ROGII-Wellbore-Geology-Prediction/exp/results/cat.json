@@ -1,0 +1,12 @@
+{
+  "model": "cat",
+  "per_well_rmse": 11.968121262787802,
+  "pooled_rmse": 14.886659427944226,
+  "const_per_well": 12.81253433227539,
+  "beats_const_pct": 61.96636481241915,
+  "n_wells": 773,
+  "shrink": 0.7,
+  "clip": 40,
+  "seconds": 83.5,
+  "family": "tabular"
+}

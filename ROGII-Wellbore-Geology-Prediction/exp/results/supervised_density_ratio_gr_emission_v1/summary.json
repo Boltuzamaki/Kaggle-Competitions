@@ -1,0 +1,19 @@
+{
+  "input_sha256": "ec3b2e15d7015ab2c05b1e1e1fb1f47b6ff4f35055ecb4ada36c2d1744071ab4",
+  "train_wells": 407,
+  "train_samples": 729400,
+  "pilot_baseline": 7.983535987404455,
+  "pilot": 7.9321169507414035,
+  "locked": {
+    "prior": 1.0,
+    "temp": 0.5,
+    "blend": 1.0
+  },
+  "confirmation_baseline": 8.313353323447666,
+  "confirmation": 8.301727631144761,
+  "gain": 0.011625692302905222,
+  "win_rate": 0.5523012552301255,
+  "passed": false,
+  "gate": ">=.03 and >=55% wins",
+  "source_sha256": "1763a11513e51cb783758fa6038d3c82ec2f11890d894610d0b8338dedc4f643"
+}

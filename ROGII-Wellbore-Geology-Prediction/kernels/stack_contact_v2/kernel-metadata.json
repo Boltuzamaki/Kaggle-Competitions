@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-contact-gated-stratigraphic-alignment",
+  "title": "ROGII Contact-Gated Stratigraphic Alignment",
+  "code_file": "rogii-previous-stack-contact-gate-v2.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

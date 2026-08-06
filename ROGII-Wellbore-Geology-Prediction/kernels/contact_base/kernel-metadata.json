@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-deterministic-contact-base",
+  "title": "ROGII Deterministic Contact Base",
+  "code_file": "rogii-deterministic-contact-base.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

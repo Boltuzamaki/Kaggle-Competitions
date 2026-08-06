@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-r3-neural-physics-inference",
+  "title": "ROGII R3 Neural Physics Inference",
+  "code_file": "rogii-r3-neural-physics-inference.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

@@ -1,0 +1,99 @@
+{
+  "model": "res_lgb",
+  "rmse": 8.526375770568848,
+  "physics_rmse": 9.038309909041718,
+  "well_win_rate": 0.5254901960784314,
+  "p90_physics": 12.788738240155615,
+  "p90_meta": 12.104039573669434,
+  "worst_decile_physics": 20.80188426923749,
+  "worst_decile_meta": 19.76929695012975,
+  "features": [
+    "physics",
+    "lgb_oof",
+    "xgb_oof",
+    "pilkwang",
+    "base_mean",
+    "base_std",
+    "base_range",
+    "lgb_xgb_gap",
+    "physics_ml_gap",
+    "pil_consensus_gap",
+    "s",
+    "frac2",
+    "sqrt_frac",
+    "md_since",
+    "dZ",
+    "Z",
+    "dip",
+    "z_span",
+    "GR",
+    "GR_dev",
+    "pf_std",
+    "pf_gap",
+    "disagree",
+    "imp_spread",
+    "nn",
+    "pr_min",
+    "pr_med",
+    "pr_max",
+    "pr_std",
+    "pfx_rmse",
+    "tda_min",
+    "tda_argmin",
+    "tda_curv",
+    "ktvt_range",
+    "ktvt_std",
+    "slp_all",
+    "slp_50",
+    "dzdmd",
+    "grs21",
+    "grs51",
+    "grs101",
+    "cal_a",
+    "cal_b"
+  ],
+  "seconds": 23.155670404434204,
+  "linear_base_rmse": 8.526375770568848,
+  "correction_grid": [
+    {
+      "correction_weight": 0.0,
+      "rmse": 8.526375770568848
+    },
+    {
+      "correction_weight": 0.1,
+      "rmse": 8.52801513671875
+    },
+    {
+      "correction_weight": 0.2,
+      "rmse": 8.536903381347656
+    },
+    {
+      "correction_weight": 0.3,
+      "rmse": 8.553017616271973
+    },
+    {
+      "correction_weight": 0.4,
+      "rmse": 8.576318740844727
+    },
+    {
+      "correction_weight": 0.5,
+      "rmse": 8.606746673583984
+    },
+    {
+      "correction_weight": 0.65,
+      "rmse": 8.665581703186035
+    },
+    {
+      "correction_weight": 0.8,
+      "rmse": 8.739961624145508
+    },
+    {
+      "correction_weight": 1.0,
+      "rmse": 8.862622261047363
+    }
+  ],
+  "best_correction": {
+    "correction_weight": 0.0,
+    "rmse": 8.526375770568848
+  }
+}

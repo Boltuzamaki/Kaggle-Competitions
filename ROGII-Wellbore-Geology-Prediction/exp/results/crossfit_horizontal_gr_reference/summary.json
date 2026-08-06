@@ -1,0 +1,13 @@
+{
+  "protocol": "outer whole-well GKF global horizontal GR(TVT) reference; validation well excluded; full horizontal GR normalization is inference-legal",
+  "wells": 773,
+  "base": 10.55300018724736,
+  "best": {
+    "hedge": 0.15000000000000002,
+    "rmse": 10.54306464397247
+  },
+  "raw": 11.017555452109658,
+  "constant_oracle": 6.860519245149357,
+  "median_corr_true": 0.44928387520562674,
+  "median_corr_base": 0.060403310836316684
+}

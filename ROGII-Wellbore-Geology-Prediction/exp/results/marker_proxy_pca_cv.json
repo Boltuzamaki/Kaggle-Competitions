@@ -1,0 +1,50 @@
+{
+  "n_wells": 773,
+  "scores": {
+    "true_marker_leak": 4.155974189500603,
+    "no_marker": 14.64771162461728,
+    "md1": 14.669641395209506,
+    "md2": 14.69321633824738,
+    "md3": 14.635222774889204,
+    "xy_ridge2": 14.645548910737524,
+    "tangent": 14.662837192021302,
+    "spatial_poly1": 14.67158463068464,
+    "spatial_poly2": 14.668858426781552,
+    "spatial_poly3": 14.565743018141228
+  },
+  "marker_shape_proxy_errors_ft": {
+    "md1": {
+      "rmse": 105.83676369230596,
+      "mae": 85.57572390082065
+    },
+    "md2": {
+      "rmse": 106.23241723862314,
+      "mae": 85.6912646591723
+    },
+    "md3": {
+      "rmse": 141.85281302709745,
+      "mae": 94.64070010915391
+    },
+    "xy_ridge2": {
+      "rmse": 110.10273153175173,
+      "mae": 88.29599609065632
+    },
+    "tangent": {
+      "rmse": 105.92500090223355,
+      "mae": 85.65042373378473
+    },
+    "spatial_poly1": {
+      "rmse": 32.23022646318135,
+      "mae": 21.961918163979327
+    },
+    "spatial_poly2": {
+      "rmse": 35.34926509867311,
+      "mae": 24.336439502247476
+    },
+    "spatial_poly3": {
+      "rmse": 30.943109346617685,
+      "mae": 21.369493641023727
+    }
+  },
+  "protocol": "5-fold whole-well CV; proxy fit uses target well visible prefix only; suffix marker labels used for audit only"
+}

@@ -1,0 +1,39 @@
+{
+  "warning": "post-hoc parameter search on existing OOF; requires locked confirmation/add-one audit",
+  "base": 10.553000187247362,
+  "best": {
+    "loss": "huber",
+    "temperature": 0.8,
+    "prior_sigma": 40,
+    "hedge": 0.3,
+    "clip": 8,
+    "rmse": 10.38614922171124,
+    "fold_gains": [
+      0.23370235452757626,
+      0.28866969182790214,
+      0.06592496112397583,
+      0.1996241827503109,
+      0.045573007138148824
+    ],
+    "fold_wins": 5,
+    "mean_sd": 25.38562149062794
+  },
+  "best_5of5": {
+    "loss": "huber",
+    "temperature": 0.8,
+    "prior_sigma": 40,
+    "hedge": 0.3,
+    "clip": 8,
+    "rmse": 10.38614922171124,
+    "fold_gains": [
+      0.23370235452757626,
+      0.28866969182790214,
+      0.06592496112397583,
+      0.1996241827503109,
+      0.045573007138148824
+    ],
+    "fold_wins": 5,
+    "mean_sd": 25.38562149062794
+  },
+  "settings": 16800
+}

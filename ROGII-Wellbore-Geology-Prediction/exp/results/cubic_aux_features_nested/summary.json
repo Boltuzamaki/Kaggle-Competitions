@@ -1,0 +1,47 @@
+{
+  "rows": 3783989,
+  "wells": 773,
+  "features": 63,
+  "base": 10.55300018724736,
+  "plain": 10.731956010786043,
+  "aux": 10.555081559145968,
+  "aux_gain_vs_plain": 0.17687445164007443,
+  "folds": [
+    {
+      "fold": 0,
+      "base": 10.522245039348098,
+      "plain": 10.74646912710271,
+      "aux": 10.59712176225524,
+      "aux_gain_vs_plain": 0.14934736484747013
+    },
+    {
+      "fold": 1,
+      "base": 11.0024327473865,
+      "plain": 11.177099346776043,
+      "aux": 11.016741080813206,
+      "aux_gain_vs_plain": 0.1603582659628362
+    },
+    {
+      "fold": 2,
+      "base": 9.23479574456757,
+      "plain": 9.473559959396079,
+      "aux": 9.20299124444337,
+      "aux_gain_vs_plain": 0.2705687149527094
+    },
+    {
+      "fold": 3,
+      "base": 9.982132944237545,
+      "plain": 10.015943478872044,
+      "aux": 9.931692119949123,
+      "aux_gain_vs_plain": 0.08425135892292168
+    },
+    {
+      "fold": 4,
+      "base": 11.84041258193811,
+      "plain": 12.059459064919077,
+      "aux": 11.835899726988428,
+      "aux_gain_vs_plain": 0.22355933793064864
+    }
+  ],
+  "protocol": "5 outer x 4 inner complete-well GKF stage1 Cat coefficients; stride-8 row residual LGB; all held-out rows score"
+}

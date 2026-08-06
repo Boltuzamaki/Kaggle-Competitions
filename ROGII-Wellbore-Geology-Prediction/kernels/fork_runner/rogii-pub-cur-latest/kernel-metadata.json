@@ -1,0 +1,28 @@
+{
+  "id": "boltuzamaki/rogii-pub-cur-latest",
+  "title": "ROGII Pub CUR Latest",
+  "code_file": "rogii-pub-cur-latest.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [],
+  "dataset_sources": [
+    "phongnguyn23021656/koolbox-offline",
+    "nina2025/rogii-03",
+    "pilkwang/rogii-model-package",
+    "thbdh5765/rogii-v10-fresh-artifacts",
+    "fleongg/rogii-claude-models-pub",
+    "needless090/rogii-tabicl-mirror",
+    "ravaghi/wellbore-geology-prediction-artifacts"
+  ],
+  "kernel_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+  "machine_shape": "Cpu"
+}

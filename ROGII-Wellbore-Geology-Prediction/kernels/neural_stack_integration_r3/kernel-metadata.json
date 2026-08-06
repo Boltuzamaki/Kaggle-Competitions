@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-current-neural-stack-integration-r3",
+  "title": "ROGII Current Neural Stack Integration R3",
+  "code_file": "rogii-current-neural-stack-integration-r3.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

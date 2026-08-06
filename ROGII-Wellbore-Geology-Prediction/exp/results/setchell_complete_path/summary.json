@@ -1,0 +1,20 @@
+{
+  "protocol": "fixed stratified 120-well pilot then disjoint 240-well confirmation",
+  "pilot_baseline": 10.41619711353422,
+  "pilot_best": 10.405873655503727,
+  "locked_config": {
+    "wp": 1.0,
+    "ws": 0.0,
+    "wc": 0.0,
+    "wd": 0.1,
+    "wr": 0.02,
+    "prior": 0.01,
+    "temp": 0.2,
+    "blend": 0.1
+  },
+  "confirmation_baseline": 10.564783180325147,
+  "confirmation_locked": 10.603376151288826,
+  "confirmation_gain": -0.03859297096367875,
+  "legal_inputs_only": true,
+  "truth_used_after_scoring_only": true
+}

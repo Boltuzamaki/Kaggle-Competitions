@@ -1,0 +1,37 @@
+{
+  "wells": 120,
+  "rows": 576840,
+  "baseline": 12.445884905265912,
+  "plain_best": {
+    "model": "plain",
+    "blend": 0.1,
+    "clip": 2.0,
+    "rmse": 12.451057622416071,
+    "gain": -0.005172717150159656,
+    "win_rate": 0.55,
+    "p90": 18.29885271967341,
+    "worst": 30.128692988517177,
+    "worst_base": 30.09528377933015
+  },
+  "aux_best": {
+    "model": "aux",
+    "blend": 0.1,
+    "clip": 2.0,
+    "rmse": 12.447203043998767,
+    "gain": -0.0013181387328558003,
+    "win_rate": 0.5166666666666667,
+    "p90": 18.198708261416076,
+    "worst": 30.114313726304033,
+    "worst_base": 30.09528377933015
+  },
+  "aux_vs_plain": 0.0038545784173038555,
+  "targets": [
+    "aux_y_respoint_64",
+    "aux_y_respoint_256",
+    "aux_y_respoint_1024",
+    "aux_y_udelta_64",
+    "aux_y_udelta_256",
+    "aux_y_udelta_1024",
+    "aux_y_future_curvature"
+  ]
+}

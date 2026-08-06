@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/wellbore-geo-leak",
+  "title": "ROGII Wellbore Geo - Visible Well Solution",
+  "code_file": "wellbore-geo-leak.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

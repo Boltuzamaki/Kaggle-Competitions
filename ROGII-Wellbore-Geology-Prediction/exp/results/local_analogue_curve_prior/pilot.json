@@ -1,0 +1,16 @@
+{
+  "mode": "pilot",
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 60,
+      "zero": 7.071194970263612,
+      "global": 6.939029903849751,
+      "local": 6.87321594258967
+    }
+  ],
+  "weighted_zero": 7.071194970263612,
+  "weighted_global": 6.939029903849751,
+  "weighted_local": 6.87321594258967,
+  "gain_vs_global": 0.06581396126008077
+}

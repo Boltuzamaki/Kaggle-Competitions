@@ -1,0 +1,36 @@
+{
+  "warning": "The three local test wells are authoring examples replaced during hidden rerun; this does not describe the scoring test wells.",
+  "test_wells": [
+    {
+      "well": "000d7d20",
+      "known_prefix_rows": 1442,
+      "same_id_train": true,
+      "same_id_distance": 0.0,
+      "same_id_shared_trajectory_gr_rows": 5278,
+      "same_id_prefix_rmse": 0.0,
+      "wrapper_activates": true,
+      "next_nearest": {"well": "1b08ed48", "distance": 0.43933742328039066, "shared_rows": 0}
+    },
+    {
+      "well": "00bbac68",
+      "known_prefix_rows": 1545,
+      "same_id_train": true,
+      "same_id_distance": 0.0,
+      "same_id_shared_trajectory_gr_rows": 7559,
+      "same_id_prefix_rmse": 0.0,
+      "wrapper_activates": true,
+      "next_nearest": {"well": "c47e0767", "distance": 0.31155645973020996, "shared_rows": 0}
+    },
+    {
+      "well": "00e12e8b",
+      "known_prefix_rows": 2083,
+      "same_id_train": true,
+      "same_id_distance": 0.0,
+      "same_id_shared_trajectory_gr_rows": 6384,
+      "same_id_prefix_rmse": 0.0,
+      "wrapper_activates": true,
+      "next_nearest": {"well": "42669188", "distance": 0.6621649485948308, "shared_rows": 0}
+    }
+  ],
+  "conclusion": "The wrapper exact-overlap branch is an ID-equality copy mechanism tailored to the three visible train-derived examples. It activates on all three local examples but provides no evidence that it activates on the approximately 200 replacement hidden wells."
+}

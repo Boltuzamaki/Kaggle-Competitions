@@ -1,0 +1,12 @@
+{
+  "model": "xgb",
+  "per_well_rmse": 11.966245669230583,
+  "pooled_rmse": 14.83520289715064,
+  "const_per_well": 12.81253433227539,
+  "beats_const_pct": 62.8719275549806,
+  "n_wells": 773,
+  "shrink": 0.7,
+  "clip": 40,
+  "seconds": 37.6,
+  "family": "tabular"
+}

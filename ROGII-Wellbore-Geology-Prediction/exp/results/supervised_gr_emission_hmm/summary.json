@@ -1,0 +1,17 @@
+{
+  "pooled_rmse": 24.526554375524096,
+  "base_rmse": 9.235662030582038,
+  "gain": -15.290892344942058,
+  "folds": [
+    {
+      "fold": 0,
+      "rows": 40070,
+      "rmse": 24.526554375524096,
+      "base_rmse": 9.235662030582038
+    }
+  ],
+  "wells": 200,
+  "supervised_true_tvt_training_only": true,
+  "grouped_complete_well_cv": true,
+  "no_neighbors": true
+}

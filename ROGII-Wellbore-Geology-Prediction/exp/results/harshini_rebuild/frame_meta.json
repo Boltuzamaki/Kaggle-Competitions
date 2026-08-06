@@ -1,0 +1,9 @@
+{
+  "rows": 3746966,
+  "wells": 765,
+  "features": 92,
+  "train_stride": 8,
+  "source_notebook": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/wellbore comp/references/luffyh04_harshini_submission_f/harshini-submission-f.ipynb",
+  "imp_cache": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/wellbore comp/exp/results/harshini_kernel_output/imp_cache.pkl",
+  "pf_cache": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/wellbore comp/exp/results/harshini_kernel_output/pf_train_cache.pkl"
+}

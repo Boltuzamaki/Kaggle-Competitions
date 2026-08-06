@@ -1,0 +1,75 @@
+{
+  "wells": 765,
+  "baseline": 8.16714075908951,
+  "v6": 8.094743715726347,
+  "identity_counts": {
+    "full": {
+      "groups": 744,
+      "duplicate_groups": 13,
+      "grouped_wells": 34,
+      "max_group": 10,
+      "size_histogram": {
+        "1": 731,
+        "10": 1,
+        "2": 12
+      }
+    },
+    "normalized": {
+      "groups": 744,
+      "duplicate_groups": 13,
+      "grouped_wells": 34,
+      "max_group": 10,
+      "size_histogram": {
+        "1": 731,
+        "10": 1,
+        "2": 12
+      }
+    },
+    "formation_family_0p1": {
+      "groups": 714,
+      "duplicate_groups": 32,
+      "grouped_wells": 83,
+      "max_group": 10,
+      "size_histogram": {
+        "1": 682,
+        "10": 1,
+        "2": 27,
+        "6": 1,
+        "5": 2,
+        "3": 1
+      }
+    }
+  },
+  "outer_exact_supported": 32,
+  "outer_family_supported": 77,
+  "near_distance_quantiles": {
+    "0": 0.0,
+    "0.01": 0.0,
+    "0.05": 0.052378601090220966,
+    "0.1": 0.13913153350214508,
+    "0.5": 0.41817031711030167,
+    "1": 0.8561874939768898
+  },
+  "best": {
+    "mode": "exact",
+    "shrink": 0.25,
+    "alpha": 0.05,
+    "covered_wells": 32,
+    "rmse": 8.094634102509465
+  },
+  "best_fold_scores": [
+    7.5703670634688685,
+    9.375917689593793,
+    7.546272707233015,
+    8.63711493292124,
+    7.145310760107999
+  ],
+  "v6_fold_scores": [
+    7.576989892304099,
+    9.372726144873061,
+    7.547614922577323,
+    8.636163237546377,
+    7.142929308238781
+  ],
+  "gate": ">0.05 over v6"
+}

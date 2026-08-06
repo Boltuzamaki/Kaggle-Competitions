@@ -1,0 +1,41 @@
+{
+  "chosen": [
+    "asym",
+    2.0
+  ],
+  "legal_evidence": {
+    "('point', 0)": 0.04882938318171142,
+    "('gauss', 0.5)": 0.04782498403530554,
+    "('gauss', 1)": 0.047022093553911834,
+    "('gauss', 2)": 0.04469553460557359,
+    "('box', 1)": 0.04753965395305634,
+    "('box', 2)": 0.045530819941674926,
+    "('asym', 1)": 0.04655466054689432,
+    "('asym', 2)": 0.044358477206842245
+  },
+  "pilot": {
+    "wells": 120,
+    "base": 9.66318066959996,
+    "operator": 9.6592965247678,
+    "well_wins": 80
+  },
+  "confirmation": {
+    "wells": 240,
+    "base": 7.556980183835864,
+    "operator": 7.555725395119604,
+    "well_wins": 151
+  },
+  "point_pilot": {
+    "wells": 120,
+    "base": 9.66318066959996,
+    "operator": 9.657707049094032,
+    "well_wins": 78
+  },
+  "point_confirmation": {
+    "wells": 240,
+    "base": 7.556980183835864,
+    "operator": 7.556439071300899,
+    "well_wins": 147
+  },
+  "protocol": "operator selected on pilot GR evidence only; TVT score after lock; disjoint seed lists"
+}

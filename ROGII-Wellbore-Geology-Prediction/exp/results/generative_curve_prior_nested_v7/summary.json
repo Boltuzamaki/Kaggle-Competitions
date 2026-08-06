@@ -1,0 +1,124 @@
+{
+  "grid_baseline": 8.169661258727658,
+  "score": 8.104037754503446,
+  "fold_gains": [
+    0.053580891166618905,
+    0.09147531715759527,
+    0.05131789234828066,
+    0.06333105233174763,
+    0.06393077333413721
+  ],
+  "wins": 5,
+  "choices": [
+    {
+      "fold": 0,
+      "inner_rmse": {
+        "et_base": 8.239403298031961,
+        "et_leaf6": 8.236949533484186,
+        "et_leaf20": 8.244354740844104,
+        "et_lowdim": 8.248661204273052,
+        "et_highdim": 8.246181834886913,
+        "rf": 8.24105616361397,
+        "ridge": 8.425561305443521
+      },
+      "top3": [
+        "et_leaf6",
+        "et_base",
+        "rf"
+      ],
+      "ensemble_rmse": 8.232802566298748,
+      "selected": [
+        "et_leaf6",
+        "et_base",
+        "rf"
+      ]
+    },
+    {
+      "fold": 1,
+      "inner_rmse": {
+        "et_base": 7.758576557679849,
+        "et_leaf6": 7.764061053980415,
+        "et_leaf20": 7.76700924265614,
+        "et_lowdim": 7.771752455075085,
+        "et_highdim": 7.754804634702166,
+        "rf": 7.770257819925068,
+        "ridge": 8.081141842583927
+      },
+      "top3": [
+        "et_highdim",
+        "et_base",
+        "et_leaf6"
+      ],
+      "ensemble_rmse": 7.756857681077009,
+      "selected": [
+        "et_highdim"
+      ]
+    },
+    {
+      "fold": 2,
+      "inner_rmse": {
+        "et_base": 8.27357183737868,
+        "et_leaf6": 8.291344818205197,
+        "et_leaf20": 8.274749873183248,
+        "et_lowdim": 8.269105097244497,
+        "et_highdim": 8.28558113141749,
+        "rf": 8.299688862540739,
+        "ridge": 8.595159909395887
+      },
+      "top3": [
+        "et_lowdim",
+        "et_base",
+        "et_leaf20"
+      ],
+      "ensemble_rmse": 8.271414017247697,
+      "selected": [
+        "et_lowdim"
+      ]
+    },
+    {
+      "fold": 3,
+      "inner_rmse": {
+        "et_base": 8.031820230559777,
+        "et_leaf6": 8.032262597683715,
+        "et_leaf20": 8.025720972446564,
+        "et_lowdim": 8.019018090873987,
+        "et_highdim": 8.028116670328327,
+        "rf": 8.051768650684062,
+        "ridge": 8.275609560423314
+      },
+      "top3": [
+        "et_lowdim",
+        "et_leaf20",
+        "et_highdim"
+      ],
+      "ensemble_rmse": 8.022270223021557,
+      "selected": [
+        "et_lowdim"
+      ]
+    },
+    {
+      "fold": 4,
+      "inner_rmse": {
+        "et_base": 8.376062319005943,
+        "et_leaf6": 8.373082681203691,
+        "et_leaf20": 8.373498536186998,
+        "et_lowdim": 8.368791382930882,
+        "et_highdim": 8.375271683859088,
+        "rf": 8.40400417181594,
+        "ridge": 8.654704074313447
+      },
+      "top3": [
+        "et_lowdim",
+        "et_leaf6",
+        "et_leaf20"
+      ],
+      "ensemble_rmse": 8.367923176276733,
+      "selected": [
+        "et_lowdim",
+        "et_leaf6",
+        "et_leaf20"
+      ]
+    }
+  ],
+  "protocol": "outer GKF5; inner GKF4 capacity selection; outer labels untouched"
+}

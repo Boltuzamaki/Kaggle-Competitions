@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/rogii-tabicl-v6-fpca-cv",
+  "title": "ROGII TabICL V6 FPCA CV",
+  "code_file": "rogii-tabicl-v6-fpca-cv.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [
+    "boltuzamaki/rogii-legal-tabicl-v6-fpca-cache",
+    "needless090/rogii-tabicl-mirror"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

@@ -1,0 +1,32 @@
+# Run-output directories from local experiments (regenerable, large)
+ilog/
+references/
+recovered/
+model_ds/
+pub_nb/
+ref_nb/
+eda_figs/
+slides/
+kaggle_cpu_moe_cache/
+kaggle_cpu_moe_search/
+r_v4/
+r_v4b/
+r_topk/
+r_rogii-*/
+cbout/
+dfout/
+dpout/
+dsout/
+nnout/
+opout/
+owcv/
+owcv2/
+wtout/
+ds_cv/
+ds_sub/
+hedgeout/
+kchk/
+
+# Raw experiment arrays; the JSON/markdown summaries next to them ARE committed
+exp/results/**/*.csv
+exp/results/**/*.log

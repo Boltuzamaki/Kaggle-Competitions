@@ -1,0 +1,18 @@
+{
+  "source": "pilkwang/rogii-model-package",
+  "rows": 3783989,
+  "wells": 773,
+  "metric": "pooled row RMSE grouped OOF supplied with fold models",
+  "recomputed": {
+    "blend_oof": 10.710644759119258,
+    "catboost_oof": 11.024700298738031,
+    "hgb_oof": 11.255841470104635,
+    "lgb_oof": 11.247567283253533,
+    "sequence_tcn_oof": 11.257960047252787,
+    "xgb_oof": 11.361522672520115,
+    "blend_oof_postprocessed": 10.670210997190607
+  },
+  "fresh_inference_available": true,
+  "oof_reproducibility_note": "OOF arrays and fold-specific weights supplied; exact feature generation code supplied. Manifest warns spatial imputer is query-well-excluded but not rebuilt per validation fold.",
+  "submission_prediction_artifacts_used": false
+}

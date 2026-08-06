@@ -1,0 +1,31 @@
+{
+  "id": "boltuzamaki/rogii-robust-v3",
+  "title": "ROGII Robust V3",
+  "code_file": "rogii-robust-v3.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [
+    "geology",
+    "gpu"
+  ],
+  "dataset_sources": [
+    "phongnguyn23021656/koolbox-offline",
+    "nina2025/rogii-03",
+    "pilkwang/rogii-model-package",
+    "thbdh5765/rogii-v10-fresh-artifacts",
+    "fleongg/rogii-claude-models-pub",
+    "needless090/rogii-tabicl-mirror",
+    "ravaghi/wellbore-geology-prediction-artifacts"
+  ],
+  "kernel_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:57e612b484cf3df5026ee4dcc3cb176974b22b2bc0937fb1e16132a8be4cb13c",
+  "machine_shape": "NvidiaTeslaT4"
+}

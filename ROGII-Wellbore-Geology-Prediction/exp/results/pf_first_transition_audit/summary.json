@@ -1,0 +1,9 @@
+{
+  "wells": 160,
+  "rows": 790451,
+  "buggy": 12.721025944814878,
+  "prepend": 12.784669676162064,
+  "explicit": 12.721025944814878,
+  "explicit_gain_vs_prepend": 0.06364373134718626,
+  "explicit_gain_vs_buggy": 0.0
+}

@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-dipfield-cv",
+  "title": "ROGII Dipfield CV",
+  "code_file": "rogii-dipfield-cv.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

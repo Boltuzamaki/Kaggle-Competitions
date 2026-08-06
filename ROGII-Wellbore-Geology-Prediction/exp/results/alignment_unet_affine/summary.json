@@ -1,0 +1,59 @@
+{
+  "pooled_rmse": 10.674102471586881,
+  "folds": [
+    {
+      "fold": 0,
+      "pooled_rmse": 10.58752480237824,
+      "checkpoint_rmse": 10.58752480237824,
+      "rows": 151231
+    },
+    {
+      "fold": 1,
+      "pooled_rmse": 11.382636069633682,
+      "checkpoint_rmse": 11.382636069633682,
+      "rows": 155635
+    },
+    {
+      "fold": 2,
+      "pooled_rmse": 9.337831547362489,
+      "checkpoint_rmse": 9.337831547362489,
+      "rows": 151775
+    },
+    {
+      "fold": 3,
+      "pooled_rmse": 10.003456315179871,
+      "checkpoint_rmse": 10.003456315179871,
+      "rows": 149324
+    },
+    {
+      "fold": 4,
+      "pooled_rmse": 11.85715278181915,
+      "checkpoint_rmse": 11.85715278181915,
+      "rows": 149144
+    }
+  ],
+  "wells": 773,
+  "exact_original_prefix_mask": true,
+  "stack_v4_oof_centered_lattice": true,
+  "pilot_diagnostics": {
+    "residual_quantiles": {
+      "0": -91.63738250732422,
+      "0.01": -30.392333984375,
+      "0.05": -15.134040832519531,
+      "0.5": -0.22311843931674957,
+      "0.95": 16.04563331604004,
+      "0.99": 34.56382751464844,
+      "1": 73.07997131347656
+    },
+    "base_residual_rmse": 10.559131622314453,
+    "oracle_lattice_rmse": 1.071016788482666,
+    "lattice_coverage": 0.994093320776797,
+    "class_step": 1.0
+  },
+  "stride": 5,
+  "offsets": [
+    -48.0,
+    48.0,
+    1
+  ]
+}

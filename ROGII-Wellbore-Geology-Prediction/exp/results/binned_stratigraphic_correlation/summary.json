@@ -1,0 +1,20 @@
+{
+  "wells": 200,
+  "rows": 992614,
+  "baseline": 10.07357104954397,
+  "oracle": 4.8413276495549145,
+  "best": {
+    "metrics": "pearson_0.5",
+    "prior": 0.3,
+    "temperature": 0.25,
+    "blend": 0.3,
+    "rmse": 9.95246253204295
+  },
+  "bin_widths": [
+    0.5,
+    1.0,
+    2.0,
+    4.0
+  ],
+  "truth_used_only_for_final_scoring": true
+}

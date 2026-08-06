@@ -1,0 +1,15 @@
+{
+  "split": "KFold unique wells shuffle=True random_state=20260801",
+  "locked_change": "replace raw v4 leg with MOM=.9995 PF; no blend tuning",
+  "accepted": 8.324563429619516,
+  "replacement": 8.349943367157369,
+  "gain": -0.025379937537852726,
+  "fold_gains": [
+    -0.2831042649988582,
+    0.03914483476068931,
+    0.05817445847195302,
+    0.05989440729563,
+    -0.0011523267868058795
+  ],
+  "fold_wins": 3
+}

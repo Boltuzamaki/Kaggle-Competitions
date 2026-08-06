@@ -1,0 +1,10 @@
+{
+  "wells": 773,
+  "rows": 3783989,
+  "base": 10.594119383491774,
+  "best_direct": {
+    "feature": "cons_whole",
+    "blend": 0.15,
+    "rmse": 10.522445418203924
+  }
+}

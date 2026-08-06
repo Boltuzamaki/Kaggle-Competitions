@@ -1,0 +1,10 @@
+{
+  "wells": 200,
+  "zero": 7.356895383659268,
+  "real_only": 7.3686245529545955,
+  "episodic": 7.373490847521562,
+  "gain": -0.0048662945669661894,
+  "gate": false,
+  "unit_check": "targets are target-immutable_student on identical suffix rows; causal features end before continuation",
+  "sha256": "7d5c58b9c00e1358b87a7acb2f365934a878ccf042d2ec28439778121f8cd7db"
+}

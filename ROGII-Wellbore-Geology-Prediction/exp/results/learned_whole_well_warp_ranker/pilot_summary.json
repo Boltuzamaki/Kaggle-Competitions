@@ -1,0 +1,39 @@
+{
+  "wells": 200,
+  "rows": 992614,
+  "baseline": 10.07357104954397,
+  "oracle": 4.8413276495549145,
+  "best": {
+    "model": "et",
+    "temperature": 1.0,
+    "blend": 0.55,
+    "rmse": 10.018048708459789
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "candidate_rmse_cat": 4.7789127579241795,
+      "candidate_rmse_et": 4.599688119689358
+    },
+    {
+      "fold": 1,
+      "candidate_rmse_cat": 5.030788151884461,
+      "candidate_rmse_et": 4.950159023060802
+    },
+    {
+      "fold": 2,
+      "candidate_rmse_cat": 4.3590699292154405,
+      "candidate_rmse_et": 4.258743875676691
+    },
+    {
+      "fold": 3,
+      "candidate_rmse_cat": 5.605931048104316,
+      "candidate_rmse_et": 5.4555149702925
+    },
+    {
+      "fold": 4,
+      "candidate_rmse_cat": 5.1817780081743505,
+      "candidate_rmse_et": 5.138629694065584
+    }
+  ]
+}

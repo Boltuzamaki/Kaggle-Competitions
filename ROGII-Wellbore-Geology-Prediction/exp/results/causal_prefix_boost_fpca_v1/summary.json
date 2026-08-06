@@ -1,0 +1,18 @@
+{
+  "device": "cuda",
+  "input_sha256": "669f86aaca1fc9f86038826d4206cb45796b5a19ead79ab67eb55e75a32b2076",
+  "baseline": 8.16714075908951,
+  "et": 8.113131030261947,
+  "best": {
+    "model": "huber_d3",
+    "et": 1,
+    "alpha": -0.2,
+    "rmse": 8.112047657494346
+  },
+  "correlations_with_et_residual": {
+    "huber_d3": -0.01680017515264293,
+    "huber_d5": -0.01979443099562299,
+    "models": 0.7740662902635066
+  },
+  "source_sha256": "b4d1b2e8e8329bedb315f9b6b15d6100676f9b69f69320c292c027e74f2dda81"
+}

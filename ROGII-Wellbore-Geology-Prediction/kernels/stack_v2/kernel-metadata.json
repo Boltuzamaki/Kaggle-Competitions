@@ -1,0 +1,17 @@
+{
+  "id": "boltuzamaki/rogii-general-stack-v4",
+  "title": "ROGII General Stack V4",
+  "code_file": "rogii-general-stack-v4.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [
+    "boltuzamaki/rogii-cv-harness"
+  ],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

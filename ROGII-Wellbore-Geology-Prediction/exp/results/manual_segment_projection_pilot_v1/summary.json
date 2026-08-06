@@ -1,0 +1,21 @@
+{
+  "baseline": 9.924138619536746,
+  "best": {
+    "window": 11,
+    "sigma": 0,
+    "blend": 0.1,
+    "rmse": 9.991368263317256,
+    "gain": -0.06722964378050911,
+    "fold_gains": [
+      0.08204249223693871,
+      -0.08045694797917236,
+      -0.19023067513688652,
+      -0.043766499823263416,
+      -0.04149863616937477
+    ],
+    "fold_wins": 1
+  },
+  "best_5of5": null,
+  "protocol": "shape-only transform of fixed lgb7 OOF; truth used only to score frozen grid; exploratory, requires locked confirmation",
+  "source_clue": "organizer deck manual segment/stretch/squeeze/fault workflow"
+}

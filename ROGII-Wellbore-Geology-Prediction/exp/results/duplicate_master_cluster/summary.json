@@ -1,0 +1,85 @@
+{
+  "train_wells": 773,
+  "fingerprints": {
+    "typewell_exact": {
+      "unique": 752,
+      "duplicate_wells": 34,
+      "clusters_gt1": 13
+    },
+    "master": {
+      "unique": 752,
+      "duplicate_wells": 34,
+      "clusters_gt1": 13
+    },
+    "master_frame": {
+      "unique": 752,
+      "duplicate_wells": 34,
+      "clusters_gt1": 13
+    },
+    "horizontal_exact": {
+      "unique": 773,
+      "duplicate_wells": 0,
+      "clusters_gt1": 0
+    },
+    "horizontal_round": {
+      "unique": 773,
+      "duplicate_wells": 0,
+      "clusters_gt1": 0
+    },
+    "trajectory_shape": {
+      "unique": 773,
+      "duplicate_wells": 0,
+      "clusters_gt1": 0
+    },
+    "prefix_shape": {
+      "unique": 773,
+      "duplicate_wells": 0,
+      "clusters_gt1": 0
+    },
+    "near_twin_cluster": {
+      "unique": 771,
+      "duplicate_wells": 4,
+      "clusters_gt1": 2
+    }
+  },
+  "meta": {
+    "ordinary_wellfold": 8.338857428822385,
+    "master_groupfold": 8.326963022727364,
+    "near_twin_groupfold": 8.300122877002822
+  },
+  "domains": {
+    "horizontal_exact": {
+      "representative_wells": 773,
+      "rows": 3746966,
+      "accepted_wellfold": 8.338857428822385,
+      "masterfold": 8.326963022727364,
+      "near_twinfold": 8.300122877002822
+    },
+    "prefix_shape": {
+      "representative_wells": 773,
+      "rows": 3746966,
+      "accepted_wellfold": 8.338857428822385,
+      "masterfold": 8.326963022727364,
+      "near_twinfold": 8.300122877002822
+    },
+    "near_twin_cluster": {
+      "representative_wells": 771,
+      "rows": 3739939,
+      "accepted_wellfold": 8.323302126007372,
+      "masterfold": 8.313461406458147,
+      "near_twinfold": 8.28495002597707
+    },
+    "near_twin_members": {
+      "wells": 4,
+      "accepted_rmse": 10.98198522326462,
+      "masterfold_rmse": 10.372212902301037
+    }
+  },
+  "continuous_oracle_lambda_0.5": {
+    "all": 5.777138764209531,
+    "near_twin_members": 3.7236160217465564,
+    "singletons": 5.78353285362058
+  },
+  "v4_note": "Stack-V4 base OOF already groups by 57 typewell supertypes; this audit changes second-level meta folds only.",
+  "conclusion": "Cluster counts and grouped degradation quantify leakage; fingerprints use only train/test-common fields."
+}

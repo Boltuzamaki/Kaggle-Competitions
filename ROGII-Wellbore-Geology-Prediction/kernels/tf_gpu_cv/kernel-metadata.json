@@ -1,0 +1,17 @@
+{
+  "id": "boltuzamaki/rogii-tf-gpu-cv",
+  "title": "ROGII TF GPU CV",
+  "code_file": "rogii-tf-gpu-cv.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [
+    "boltuzamaki/rogii-cv-harness"
+  ],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

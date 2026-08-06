@@ -1,0 +1,76 @@
+{
+  "protocol": "strict outer whole-well GKF; fold-local preprocessing/FPCA/TabICL; immutable cache b210f1d67d89ff3c26c4da04102e16597798ae2f93365f0987e117e593355e22",
+  "zero": 8.169661241203812,
+  "v6": 8.097315620086102,
+  "tabicl": 8.24079503124653,
+  "blend_grid": [
+    {
+      "alpha_tabicl": 0,
+      "rmse": 8.097315620086102
+    },
+    {
+      "alpha_tabicl": 0.1,
+      "rmse": 8.101588241498941
+    },
+    {
+      "alpha_tabicl": 0.2,
+      "rmse": 8.108122772252507
+    },
+    {
+      "alpha_tabicl": 0.3,
+      "rmse": 8.116913907391568
+    },
+    {
+      "alpha_tabicl": 0.4,
+      "rmse": 8.127954284640795
+    },
+    {
+      "alpha_tabicl": 0.5,
+      "rmse": 8.14123470621811
+    },
+    {
+      "alpha_tabicl": 0.7,
+      "rmse": 8.174470277565852
+    },
+    {
+      "alpha_tabicl": 1,
+      "rmse": 8.24079503124653
+    }
+  ],
+  "best_blend": {
+    "alpha_tabicl": 0,
+    "rmse": 8.097315620086102
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 153,
+      "zero": 7.648766510128584,
+      "tabicl": 7.739825571602501
+    },
+    {
+      "fold": 1,
+      "wells": 153,
+      "zero": 9.460408596143543,
+      "tabicl": 9.51118609696048
+    },
+    {
+      "fold": 2,
+      "wells": 153,
+      "zero": 7.625189433908818,
+      "tabicl": 7.549956854442991
+    },
+    {
+      "fold": 3,
+      "wells": 153,
+      "zero": 8.6933443462205,
+      "tabicl": 8.86113010479298
+    },
+    {
+      "fold": 4,
+      "wells": 153,
+      "zero": 7.224822012131825,
+      "tabicl": 7.337247186442001
+    }
+  ]
+}

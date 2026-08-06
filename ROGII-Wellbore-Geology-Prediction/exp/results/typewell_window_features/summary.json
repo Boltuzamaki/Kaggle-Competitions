@@ -1,0 +1,12 @@
+{
+  "base": 9.038309909041718,
+  "raw": 9.096043197435115,
+  "best": {
+    "weight": 0.45,
+    "rmse": 8.874248033252865
+  },
+  "features": 52,
+  "rows": 3746966,
+  "wells": 765,
+  "protocol": "5-fold whole-well GroupKFold; all typewell/horizontal inputs legal"
+}

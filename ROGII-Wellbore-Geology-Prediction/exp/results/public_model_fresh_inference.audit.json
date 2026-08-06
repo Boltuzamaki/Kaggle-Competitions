@@ -1,0 +1,15 @@
+{
+  "rows": 14151,
+  "models": [
+    "pred_delta_drift_ncc_catboost_alltrain",
+    "pred_delta_drift_ncc_hgb_alltrain",
+    "pred_delta_drift_ncc_lgb_alltrain",
+    "pred_delta_drift_ncc_xgb_alltrain",
+    "pred_delta_sequence_tcn_tcn_residual"
+  ],
+  "read_prediction_artifacts": false,
+  "hardcoded_test_ids": false,
+  "features_built_from_raw_official_files": true,
+  "tvt_min": 11590.48760229634,
+  "tvt_max": 12234.491922412242
+}

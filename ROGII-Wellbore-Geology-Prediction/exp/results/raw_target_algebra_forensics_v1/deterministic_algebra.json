@@ -1,0 +1,14 @@
+{
+  "target_identity_max_abs_error": 3.662111339508556e-06,
+  "target_decimal_001_fraction": 0.049416514588069387,
+  "deterministic_legal_scores": {
+    "flat_surface": 107.89178265216815,
+    "last_tvt_slope": 109.95632623745803,
+    "surface25": 50.15509517981214,
+    "surface75": 46.91187329364396,
+    "surface200": 43.24984779351623,
+    "surface500": 39.24626178132932,
+    "surface1500": 57.30692632367296
+  },
+  "target_cent_precision_fraction_within_1e-3": 1.0
+}

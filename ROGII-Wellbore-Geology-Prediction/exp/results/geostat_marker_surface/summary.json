@@ -1,0 +1,36 @@
+{
+  "wells": 200,
+  "rows": 949263,
+  "anchor": 10.008233558688518,
+  "best_direct": {
+    "method": "loess2_a1.0",
+    "direct_rmse": 18.891905490336853
+  },
+  "best_blend": {
+    "method": "idw40_a1.0",
+    "blend": 0.1,
+    "rmse": 9.699284274056959
+  },
+  "distance_bins": [
+    {
+      "bin": "(-inf, 150.0]",
+      "wells": 3,
+      "weighted_rmse": 9.455490658271692
+    },
+    {
+      "bin": "(150.0, 300.0]",
+      "wells": 11,
+      "weighted_rmse": 10.692694059767984
+    },
+    {
+      "bin": "(300.0, 600.0]",
+      "wells": 82,
+      "weighted_rmse": 13.088027797542718
+    },
+    {
+      "bin": "(600.0, inf]",
+      "wells": 104,
+      "weighted_rmse": 38.74462988458968
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "wells": 773,
+  "direct_transfer": {
+    "prefix_S_slope__suffix_S_slope": {
+      "pearson": 0.9184403017465158,
+      "spearman": 0.856637964195149,
+      "mae": 0.010624658436542589
+    },
+    "prefix_TVT_slope__suffix_TVT_slope": {
+      "pearson": -0.0012428998271459984,
+      "spearman": -0.10157070935618266,
+      "mae": 0.020495372803031365
+    },
+    "prefix_dS_mean__suffix_dS_mean": {
+      "pearson": 0.9317879043998475,
+      "spearman": 0.8742533061346021,
+      "mae": 0.009711468362794191
+    },
+    "prefix_dS_std__suffix_dS_std": {
+      "pearson": 0.22044567661827366,
+      "spearman": 0.21086950681828537,
+      "mae": 0.015554061960703025
+    },
+    "prefix_dTVT_mean__suffix_dTVT_mean": {
+      "pearson": 0.16433289077523153,
+      "spearman": 0.0106629885888124,
+      "mae": 0.01925580198859031
+    },
+    "prefix_S_quad__suffix_S_quad": {
+      "pearson": -0.07356762687737316,
+      "spearman": -0.11887112029634539,
+      "mae": 807.0367725055462
+    }
+  },
+  "grouped_extra_trees_predictability": {
+    "suffix_S_slope": {
+      "oof_r2": 0.9517481900932085,
+      "corr": 0.9775906781321088
+    },
+    "suffix_TVT_slope": {
+      "oof_r2": 0.015026964963963496,
+      "corr": 0.12545354091695723
+    },
+    "suffix_dS_mean": {
+      "oof_r2": 0.9556041401247546,
+      "corr": 0.9795434808918871
+    },
+    "suffix_dS_std": {
+      "oof_r2": 0.02628636210704216,
+      "corr": 0.16883965527765918
+    },
+    "suffix_S_quad": {
+      "oof_r2": 0.08885782418638688,
+      "corr": 0.2994031275899728
+    },
+    "suffix_S_cubic": {
+      "oof_r2": 0.08513868000881286,
+      "corr": 0.29299967391685544
+    }
+  },
+  "row_metric_from_S_slope": {
+    "flat": 15.90985287073455,
+    "prefix_S_slope": 42.24880066466403,
+    "oof_ET_S_slope": 22.031954224917857,
+    "oracle_suffix_S_slope": 11.117513458629794
+  },
+  "direction_groups": {
+    "dx_positive": {
+      "False": {
+        "wells": 435,
+        "S_slope_transfer_corr": 0.8009038462094907,
+        "TVT_slope_transfer_corr": -0.0343087135892289
+      },
+      "True": {
+        "wells": 338,
+        "S_slope_transfer_corr": 0.8147855628317853,
+        "TVT_slope_transfer_corr": 0.03625950019050419
+      }
+    },
+    "dy_positive": {
+      "False": {
+        "wells": 336,
+        "S_slope_transfer_corr": 0.45286034082288446,
+        "TVT_slope_transfer_corr": 0.009672579784953833
+      },
+      "True": {
+        "wells": 437,
+        "S_slope_transfer_corr": 0.5046808939849923,
+        "TVT_slope_transfer_corr": -0.009705214943265586
+      }
+    }
+  },
+  "conclusion": "Structural increments are statistically predictable but small slope errors amplify over long suffixes; no representation baseline beats V4."
+}

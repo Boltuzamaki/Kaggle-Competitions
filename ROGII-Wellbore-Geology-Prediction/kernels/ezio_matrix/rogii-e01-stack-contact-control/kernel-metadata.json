@@ -1,0 +1,15 @@
+{
+  "id": "boltuzmaki/rogii-e01-stack-contact-control",
+  "title": "ROGII E01 Stack Contact Control",
+  "code_file": "rogii-e01-stack-contact-control.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

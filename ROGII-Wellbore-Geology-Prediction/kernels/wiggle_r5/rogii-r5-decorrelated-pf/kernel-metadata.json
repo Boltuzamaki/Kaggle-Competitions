@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-r5-decorrelated-pf",
+  "title": "ROGII R5 Decorrelated PF",
+  "code_file": "rogii-r5-decorrelated-pf.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

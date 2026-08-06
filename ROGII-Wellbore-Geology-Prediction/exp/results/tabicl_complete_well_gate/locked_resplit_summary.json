@@ -1,0 +1,49 @@
+{
+  "split": "KFold(5, shuffle=True, random_state=20260731) over unique wells",
+  "locked_temperature": 1.0,
+  "locked_blend": 0.5,
+  "accepted_base": 8.338857428822385,
+  "locked_rmse": 8.282403650415047,
+  "gain": 0.05645377840733801,
+  "fold_wins": 4,
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 153,
+      "base": 8.025511474108646,
+      "locked": 8.010602509024707,
+      "gain": 0.014908965083938241
+    },
+    {
+      "fold": 1,
+      "wells": 153,
+      "base": 7.654644024301763,
+      "locked": 7.666505812129729,
+      "gain": -0.011861787827966097
+    },
+    {
+      "fold": 2,
+      "wells": 153,
+      "base": 8.524501982266564,
+      "locked": 8.481056090367604,
+      "gain": 0.0434458918989602
+    },
+    {
+      "fold": 3,
+      "wells": 153,
+      "base": 9.161849264512682,
+      "locked": 9.030810799090982,
+      "gain": 0.1310384654216996
+    },
+    {
+      "fold": 4,
+      "wells": 153,
+      "base": 8.248515859933253,
+      "locked": 8.157228281557934,
+      "gain": 0.09128757837531865
+    }
+  ],
+  "features": 162,
+  "checkpoint": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/wellbore comp/exp/public_artifacts/tabicl/tabicl-regressor-v2-20260212.ckpt",
+  "protocol": "configuration predeclared; no tuning/grid inspection on confirmation split"
+}

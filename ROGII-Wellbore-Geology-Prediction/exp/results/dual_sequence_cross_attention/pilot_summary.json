@@ -1,0 +1,15 @@
+{
+  "device": "cuda",
+  "fold": 0,
+  "wells": 155,
+  "rows": 755859,
+  "v4": 10.522245407104492,
+  "network": 10.504239883268427,
+  "dct_oracle": 1.385345617188156,
+  "best_blend": {
+    "blend": 0.7000000000000001,
+    "rmse": 10.50061242162069
+  },
+  "resampled_residual_rmse": 10.109073638916016,
+  "protocol": "raw dual sequence cross-attention; exact prefix/suffix; outer whole-well fold"
+}

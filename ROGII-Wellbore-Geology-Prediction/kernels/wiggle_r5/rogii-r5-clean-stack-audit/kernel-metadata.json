@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-r5-clean-stack-audit",
+  "title": "ROGII R5 Clean Stack Audit",
+  "code_file": "rogii-r5-clean-stack-audit.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

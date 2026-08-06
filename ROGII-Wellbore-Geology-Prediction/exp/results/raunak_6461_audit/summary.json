@@ -1,0 +1,40 @@
+{
+  "reported_public_score": 6.461,
+  "source_score_named_by_notebook": 6.594,
+  "final_component": "A27 hard-coded PF-1.3 residual restoration",
+  "excluded": true,
+  "exclusion_reasons": [
+    "requires exact source prediction SHA",
+    "hard-codes test well 00e12e8b",
+    "hard-codes 14151 total rows and 4301 target rows",
+    "changes only the hard-coded target well",
+    "weight tuned on a named 6.594 source submission"
+  ],
+  "a27": {
+    "target_well": "00e12e8b",
+    "changed_rows": 4301,
+    "weight": 0.1,
+    "maximum_move_ft": 0.3578118350824881,
+    "non_target_maximum_move_ft": 0.0
+  },
+  "source_pipeline": {
+    "fresh_sp45_pf_beam": true,
+    "fresh_fleongg_lightgbm": true,
+    "sp45_weight": 0.6,
+    "fleongg_weight": 0.4,
+    "same_well_contact_overrode_all_test_rows": true,
+    "visible_prefix_balanced_effective_move": 0.0,
+    "pilkwang_model_package_disabled": true,
+    "pilkwang_disable_reason": "p95 difference 26.701 > 25.000",
+    "generic_pf_seed_branch_hedge_applied_wells": 1
+  },
+  "fleongg_artifact_audit": {
+    "prediction_csv_present": false,
+    "fresh_models_present": 3,
+    "features": 196,
+    "fold_models_or_oof_present": false,
+    "reported_source_cv": 9.21,
+    "promoted_to_our_oof_meta": false
+  },
+  "promoted_components": []
+}

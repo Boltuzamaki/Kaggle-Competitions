@@ -1,0 +1,15 @@
+{
+  "wells": 200,
+  "rows": 993175,
+  "baseline": 8.846703570435558,
+  "best": {
+    "smooth": 4.0,
+    "minimum_support": 0.03,
+    "prior": 0.6,
+    "temperature": 0.1,
+    "blend": 0.5,
+    "used_wells": 199.0,
+    "rmse": 8.670902568171732
+  },
+  "truth_used_only_for_final_scoring": true
+}

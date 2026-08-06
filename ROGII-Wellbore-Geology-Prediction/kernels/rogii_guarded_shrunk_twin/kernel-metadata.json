@@ -1,0 +1,18 @@
+{
+  "id": "boltuzamaki/rogii-guarded-shrunk-twin",
+  "title": "ROGII Guarded Shrunk Twin",
+  "code_file": "rogii-guarded-shrunk-twin.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "model_sources": []
+}

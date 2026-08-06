@@ -1,0 +1,14 @@
+{
+  "wells": 773,
+  "rows": 3783989,
+  "rmse": 10.55055089862226,
+  "seconds": 944.6058106422424,
+  "parameters": {
+    "particles": 250,
+    "reps": 40,
+    "seed0": 41000,
+    "gs_floor": 45,
+    "student_nu": 10,
+    "gs_mult": 1
+  }
+}

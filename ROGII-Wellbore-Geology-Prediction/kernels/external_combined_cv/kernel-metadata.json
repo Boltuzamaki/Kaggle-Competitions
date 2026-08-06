@@ -1,0 +1,16 @@
+{
+  "id": "boltuzmaki/rogii-combined-geology-cv-r1",
+  "title": "ROGII Combined Geology Nested Group CV R1",
+  "code_file": "rogii-combined-geology-cv-r1.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction",
+    "geology-forecast-challenge-open"
+  ],
+  "kernel_sources": []
+}

@@ -1,0 +1,17 @@
+{
+  "id": "boltuzamaki/rogii-topk-cv",
+  "title": "ROGII TopK CV",
+  "code_file": "rogii-topk-cv.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [
+    "boltuzamaki/rogii-cv-harness"
+  ],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

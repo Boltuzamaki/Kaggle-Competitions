@@ -1,0 +1,89 @@
+{
+  "wells": 200,
+  "rows": 973864,
+  "features": [
+    "d_md",
+    "d_z",
+    "d_xy",
+    "dz_dmd",
+    "gr",
+    "gr_m21",
+    "gr_s21",
+    "frac",
+    "slp_all",
+    "slp_50",
+    "ktvt_rng",
+    "ktvt_std",
+    "pfx_gr_rmse",
+    "pf_d",
+    "pf3_d",
+    "pf_dis",
+    "beam_d",
+    "pf_vs_beam",
+    "ncc8_d",
+    "ncc8_s",
+    "ncc15_d",
+    "ncc15_s",
+    "ncc25_d",
+    "ncc25_s",
+    "tda-20",
+    "tdpf-20",
+    "tda-10",
+    "tdpf-10",
+    "tda0",
+    "tdpf0"
+  ],
+  "device": "cuda",
+  "baseline": 7.590127533964616,
+  "best": {
+    "alpha": 0.1,
+    "rmse": 7.58403141719428,
+    "f0": 7.564493025837118,
+    "f1": 7.328078549337428,
+    "f2": 6.148358939329579,
+    "f3": 9.525630357132973,
+    "f4": 7.074388005157638
+  },
+  "histories": [
+    {
+      "fold": 0,
+      "epoch": 4,
+      "inner_loss": 1.033937692642212
+    },
+    {
+      "fold": 1,
+      "epoch": 14,
+      "inner_loss": 1.2548935413360596
+    },
+    {
+      "fold": 2,
+      "epoch": 10,
+      "inner_loss": 0.6977532505989075
+    },
+    {
+      "fold": 3,
+      "epoch": 0,
+      "inner_loss": 0.6532357335090637
+    },
+    {
+      "fold": 4,
+      "epoch": 0,
+      "inner_loss": 0.7290051579475403
+    }
+  ],
+  "architecture": {
+    "blocks": 6,
+    "channels": 64,
+    "kernel": 5,
+    "dilations": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ]
+  },
+  "package_weights_read": false,
+  "package_predictions_read": false
+}

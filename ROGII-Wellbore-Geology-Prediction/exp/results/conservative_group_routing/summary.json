@@ -1,0 +1,320 @@
+{
+  "rows": 3746966,
+  "wells": 765,
+  "baseline_rmse": 8.398651475474269,
+  "results": {
+    "missing_typewell_formation": {
+      "hard_wells": 16,
+      "hard_rows": 88271,
+      "global_meta_hard_rmse": 14.468535204956524,
+      "individual_leg_hard_rmse": {
+        "har_physics": 16.9440326698973,
+        "har_lgb": 13.468039752233478,
+        "har_xgb": 14.34865831102599,
+        "v4_lgb123": 17.25622251999743,
+        "v4_lgb7": 17.694084750264093,
+        "v4_xgb": 18.02055906044861,
+        "v4_cat": 18.784609847816153,
+        "pil_blend_oof_postprocessed": 18.781753995404166,
+        "pil_catboost_oof": 19.902669939447527,
+        "pil_sequence_tcn_oof": 18.778743333292105,
+        "pil_lgb_oof": 20.259170590080835,
+        "family_har_mean": 14.712741459212046,
+        "family_v4_mean": 17.69504027930678,
+        "family_pil_mean": 18.973530355834125
+      },
+      "routed_rmse": 8.49306113734751,
+      "routed_gain": -0.09440966187324129,
+      "routed_fold_gains": [
+        -0.09148543092622674,
+        -0.026414823760303463,
+        0.019477288622626432,
+        -0.00011805190440128399,
+        -0.33458062117102294
+      ],
+      "routed_fold_wins": 1,
+      "gate_rmse": 8.576524502762146,
+      "gate_gain": -0.1778730272878768,
+      "gate_fold_gains": [
+        -0.08510842172707456,
+        0.007845274311508277,
+        0.003437218037966261,
+        0.0003999952176965138,
+        -0.7157077684880182
+      ],
+      "gate_fold_wins": 3,
+      "choices": [
+        {
+          "fold": 0,
+          "leg": "har_lgb",
+          "alpha": 1.0,
+          "train_hard_wells": 12,
+          "valid_hard_wells": 4
+        },
+        {
+          "fold": 1,
+          "leg": "har_lgb",
+          "alpha": 1.0,
+          "train_hard_wells": 13,
+          "valid_hard_wells": 3
+        },
+        {
+          "fold": 2,
+          "leg": "har_lgb",
+          "alpha": 1.0,
+          "train_hard_wells": 14,
+          "valid_hard_wells": 2
+        },
+        {
+          "fold": 3,
+          "leg": "har_lgb",
+          "alpha": 1.0,
+          "train_hard_wells": 14,
+          "valid_hard_wells": 2
+        },
+        {
+          "fold": 4,
+          "leg": "v4_xgb",
+          "alpha": 0.5,
+          "train_hard_wells": 11,
+          "valid_hard_wells": 5
+        }
+      ]
+    },
+    "azimuth_major_EW": {
+      "hard_wells": 52,
+      "hard_rows": 233484,
+      "global_meta_hard_rmse": 10.372828704245869,
+      "individual_leg_hard_rmse": {
+        "har_physics": 10.642866210351883,
+        "har_lgb": 10.539054882449834,
+        "har_xgb": 10.493873182442032,
+        "v4_lgb123": 12.632281809621313,
+        "v4_lgb7": 12.268447338928762,
+        "v4_xgb": 12.680500640444462,
+        "v4_cat": 13.146147718350232,
+        "pil_blend_oof_postprocessed": 13.469241148702535,
+        "pil_catboost_oof": 13.159484363780026,
+        "pil_sequence_tcn_oof": 14.692639753777433,
+        "pil_lgb_oof": 13.480745204375115,
+        "family_har_mean": 10.225740921481634,
+        "family_v4_mean": 12.558290166453363,
+        "family_pil_mean": 13.398153534839597
+      },
+      "routed_rmse": 8.467330268540902,
+      "routed_gain": -0.06867879306663305,
+      "routed_fold_gains": [
+        0.006288817056940843,
+        -0.27593550542889567,
+        -0.13024616122355326,
+        0.04244993166598299,
+        -0.007595342206082378
+      ],
+      "routed_fold_wins": 2,
+      "gate_rmse": 8.406378949919697,
+      "gate_gain": -0.007727474445427873,
+      "gate_fold_gains": [
+        -0.017837869356473135,
+        -0.06480078261518507,
+        0.0007240963498071906,
+        0.08831115603780582,
+        -0.04677063282026417
+      ],
+      "gate_fold_wins": 2,
+      "choices": [
+        {
+          "fold": 0,
+          "leg": "family_har_mean",
+          "alpha": 0.7,
+          "train_hard_wells": 41,
+          "valid_hard_wells": 11
+        },
+        {
+          "fold": 1,
+          "leg": "har_xgb",
+          "alpha": 1.0,
+          "train_hard_wells": 38,
+          "valid_hard_wells": 14
+        },
+        {
+          "fold": 2,
+          "leg": "v4_lgb7",
+          "alpha": 0.35,
+          "train_hard_wells": 44,
+          "valid_hard_wells": 8
+        },
+        {
+          "fold": 3,
+          "leg": "har_lgb",
+          "alpha": 0.35,
+          "train_hard_wells": 40,
+          "valid_hard_wells": 12
+        },
+        {
+          "fold": 4,
+          "leg": "family_har_mean",
+          "alpha": 0.7,
+          "train_hard_wells": 45,
+          "valid_hard_wells": 7
+        }
+      ]
+    },
+    "negative_prefix_TVT_slope": {
+      "hard_wells": 368,
+      "hard_rows": 1814048,
+      "global_meta_hard_rmse": 8.909565998755845,
+      "individual_leg_hard_rmse": {
+        "har_physics": 9.486044449879353,
+        "har_lgb": 9.536389225015341,
+        "har_xgb": 9.547485015235987,
+        "v4_lgb123": 10.65366001706115,
+        "v4_lgb7": 10.597109165892723,
+        "v4_xgb": 10.813472621168918,
+        "v4_cat": 10.86846446427576,
+        "pil_blend_oof_postprocessed": 10.93877541752815,
+        "pil_catboost_oof": 11.267249106117339,
+        "pil_sequence_tcn_oof": 11.54661243050636,
+        "pil_lgb_oof": 11.396145078615834,
+        "family_har_mean": 9.307000522369457,
+        "family_v4_mean": 10.621302006371057,
+        "family_pil_mean": 10.959382569176546
+      },
+      "routed_rmse": 8.449814375587955,
+      "routed_gain": -0.051162900113686405,
+      "routed_fold_gains": [
+        6.307125963012084e-05,
+        -0.07085579988283097,
+        -0.05193918291578914,
+        -0.03611176006810091,
+        -0.09257357989726067
+      ],
+      "routed_fold_wins": 1,
+      "gate_rmse": 8.621258394825913,
+      "gate_gain": -0.22260691935164445,
+      "gate_fold_gains": [
+        -0.0975023426762629,
+        -0.13778340689676583,
+        -0.09486217209267789,
+        -0.06973576131290393,
+        -0.6433468375330715
+      ],
+      "gate_fold_wins": 0,
+      "choices": [
+        {
+          "fold": 0,
+          "leg": "pil_lgb_oof",
+          "alpha": 0.1,
+          "train_hard_wells": 287,
+          "valid_hard_wells": 81
+        },
+        {
+          "fold": 1,
+          "leg": "pil_lgb_oof",
+          "alpha": 0.1,
+          "train_hard_wells": 293,
+          "valid_hard_wells": 75
+        },
+        {
+          "fold": 2,
+          "leg": "v4_lgb7",
+          "alpha": 0.1,
+          "train_hard_wells": 301,
+          "valid_hard_wells": 67
+        },
+        {
+          "fold": 3,
+          "leg": "pil_lgb_oof",
+          "alpha": 0.1,
+          "train_hard_wells": 301,
+          "valid_hard_wells": 67
+        },
+        {
+          "fold": 4,
+          "leg": "v4_lgb7",
+          "alpha": 0.1,
+          "train_hard_wells": 290,
+          "valid_hard_wells": 78
+        }
+      ]
+    },
+    "azimuth_dx_positive": {
+      "hard_wells": 337,
+      "hard_rows": 1664238,
+      "global_meta_hard_rmse": 8.853087576021546,
+      "individual_leg_hard_rmse": {
+        "har_physics": 9.212343482202344,
+        "har_lgb": 9.650655136160598,
+        "har_xgb": 9.62956722944593,
+        "v4_lgb123": 10.705497383996564,
+        "v4_lgb7": 10.590332806811698,
+        "v4_xgb": 10.931638601638562,
+        "v4_cat": 10.928779005856132,
+        "pil_blend_oof_postprocessed": 11.037744153054268,
+        "pil_catboost_oof": 11.28926952635504,
+        "pil_sequence_tcn_oof": 11.74232510022731,
+        "pil_lgb_oof": 11.61970925798185,
+        "family_har_mean": 9.28511088030727,
+        "family_v4_mean": 10.668335181361472,
+        "family_pil_mean": 11.102214276833019
+      },
+      "routed_rmse": 8.400210032619459,
+      "routed_gain": -0.0015585571451897096,
+      "routed_fold_gains": [
+        0.015084827223107666,
+        0.04084889633393374,
+        0.010070774083713374,
+        0.06392919172004063,
+        -0.1215017969875749
+      ],
+      "routed_fold_wins": 4,
+      "gate_rmse": 8.366099841680462,
+      "gate_gain": 0.032551633793806545,
+      "gate_fold_gains": [
+        0.1694216086692366,
+        0.00450405086458705,
+        -0.00430709498553572,
+        0.035926957022235584,
+        -0.032782895447223126
+      ],
+      "gate_fold_wins": 3,
+      "choices": [
+        {
+          "fold": 0,
+          "leg": "har_physics",
+          "alpha": 0.35,
+          "train_hard_wells": 260,
+          "valid_hard_wells": 77
+        },
+        {
+          "fold": 1,
+          "leg": "har_physics",
+          "alpha": 0.2,
+          "train_hard_wells": 266,
+          "valid_hard_wells": 71
+        },
+        {
+          "fold": 2,
+          "leg": "har_physics",
+          "alpha": 0.2,
+          "train_hard_wells": 273,
+          "valid_hard_wells": 64
+        },
+        {
+          "fold": 3,
+          "leg": "har_physics",
+          "alpha": 0.2,
+          "train_hard_wells": 273,
+          "valid_hard_wells": 64
+        },
+        {
+          "fold": 4,
+          "leg": "har_physics",
+          "alpha": 0.35,
+          "train_hard_wells": 276,
+          "valid_hard_wells": 61
+        }
+      ]
+    }
+  },
+  "acceptance": "Positive pooled gain and positive gain in all 5 outer folds."
+}

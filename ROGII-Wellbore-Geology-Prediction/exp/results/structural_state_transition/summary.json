@@ -1,0 +1,19 @@
+{
+  "pooled_rmse": 30.34208087391859,
+  "v4_rmse": 8.594480207714678,
+  "gain": -21.747600666203912,
+  "folds": [
+    {
+      "fold": 0,
+      "rows": 120553,
+      "rmse": 30.34208087391859,
+      "v4_rmse": 8.594480207714678
+    }
+  ],
+  "wells": 120,
+  "state": "S=TVT+Z",
+  "outer_fold_transition_training": true,
+  "visible_prefix_calibration": true,
+  "bounded_gr_shift_ft": 3,
+  "no_neighbors": true
+}

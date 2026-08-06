@@ -1,0 +1,15 @@
+{
+  "ssl_loss": 1.5888137593865395,
+  "ssl_accuracy": 0.49973959736526014,
+  "external": "FORCE 2020 GR only, CC BY 4.0",
+  "external_wells": 118,
+  "valid_wells": 40,
+  "rows": 40070,
+  "pooled_rmse": 28.42715475668572,
+  "v4_rmse": 9.235662030582038,
+  "emission_top1": 0.03893186922884952,
+  "emission_top3": 0.09805340653855753,
+  "comparison_baseline_rmse": 30.867419047750026,
+  "comparison_baseline_top1": 0.029398552533067134,
+  "no_submission": true
+}

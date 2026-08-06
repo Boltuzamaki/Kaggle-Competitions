@@ -1,0 +1,70 @@
+{
+  "method": "separable operator-valued RBF kernel ridge",
+  "source_npz": "exp/results/generative_curve_prior_causal_prefix_v1/well_curves.npz",
+  "source_sha256": "669f86aaca1fc9f86038826d4206cb45796b5a19ead79ab67eb55e75a32b2076",
+  "wells": 765,
+  "rows": 3746966,
+  "baseline": 8.16714075908951,
+  "immutable_et_full_blend_verification": 8.241480294287294,
+  "best": {
+    "blend": 0.0,
+    "rmse": 8.16714075908951,
+    "fold_0": 8.37653920040159,
+    "fold_1": 7.897515981472432,
+    "fold_2": 8.305294565299794,
+    "fold_3": 7.188135591789239,
+    "fold_4": 8.939556347111017
+  },
+  "gain_vs_et": 0.07433953519778491,
+  "folds": [
+    {
+      "fold": 0,
+      "train_wells": 612,
+      "valid_wells": 153,
+      "gamma": 0.023284848070683463,
+      "lambda": 0.3,
+      "median_d2": 85.89276571308525,
+      "gcv": 0.09952824173628816
+    },
+    {
+      "fold": 1,
+      "train_wells": 612,
+      "valid_wells": 153,
+      "gamma": 0.011649115223427231,
+      "lambda": 0.3,
+      "median_d2": 85.84342937813219,
+      "gcv": 0.09062197937114667
+    },
+    {
+      "fold": 2,
+      "train_wells": 612,
+      "valid_wells": 153,
+      "gamma": 0.011660714500631457,
+      "lambda": 0.3,
+      "median_d2": 85.75803823563706,
+      "gcv": 0.09886510498766722
+    },
+    {
+      "fold": 3,
+      "train_wells": 612,
+      "valid_wells": 153,
+      "gamma": 0.011686699942856192,
+      "lambda": 0.3,
+      "median_d2": 85.56735476136501,
+      "gcv": 0.0920239608312444
+    },
+    {
+      "fold": 4,
+      "train_wells": 612,
+      "valid_wells": 153,
+      "gamma": 0.011599725185543797,
+      "lambda": 0.3,
+      "median_d2": 86.20893891919559,
+      "gcv": 0.09952785132845716
+    }
+  ],
+  "references": [
+    "Kadri et al. (2016), Operator-valued Kernels for Learning from Functional Response Data, JMLR 17(20), https://jmlr.org/papers/v17/11-315.html",
+    "Shi and Choi (2011), Gaussian Process Regression Analysis for Functional Data, https://doi.org/10.1201/b11038"
+  ]
+}

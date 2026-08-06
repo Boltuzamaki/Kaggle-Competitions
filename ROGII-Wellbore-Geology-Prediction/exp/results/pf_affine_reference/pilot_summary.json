@@ -1,0 +1,10 @@
+{
+  "protocol": "fixed 120-well seed-7 pilot; identical PF parameters; affine fit uses visible prefix only",
+  "wells": 120,
+  "rows": 594917,
+  "seconds": 82.62214708328247,
+  "raw": 12.161624722023117,
+  "calibrated": 14.659567705428673,
+  "gain": -2.497942983405556,
+  "well_wins": 41
+}

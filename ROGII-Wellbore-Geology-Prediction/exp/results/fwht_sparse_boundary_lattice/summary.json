@@ -1,0 +1,21 @@
+{
+  "protocol": "fixed seed-912 120-well target-independent sample; legal horizontal GR, typewell TVT/GR, honest grouped V4 OOF center; truth scoring only",
+  "wells": 120,
+  "rows": 567354,
+  "baseline": 9.618966043708749,
+  "best": {
+    "keep": 0.0625,
+    "quantile": 0.92,
+    "spacing": 16.0,
+    "transition": 16.0,
+    "shrink": 0.15,
+    "sign_penalty": 0.5,
+    "center_penalty": 2.0,
+    "rmse": 9.578456920644848,
+    "well_wins": 55.0,
+    "median_anchors": 297.0
+  },
+  "gate": false,
+  "seconds": 65.37588882446289,
+  "paper": "https://doi.org/10.3389/feart.2026.1736164"
+}

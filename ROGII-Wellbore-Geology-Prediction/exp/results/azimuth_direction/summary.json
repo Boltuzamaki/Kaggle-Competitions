@@ -1,0 +1,23 @@
+{
+  "baseline_pooled_rmse": 10.553000450134277,
+  "reference_reported_rmse": 10.553,
+  "best": {
+    "candidate": "dir_ridge_a0.5_c12",
+    "pooled_rmse": 10.483689308166504,
+    "NW_rmse": 10.599802017211914,
+    "NW_rows": 2144978,
+    "NW_wells": 437,
+    "SE_rmse": 10.32975959777832,
+    "SE_rows": 1639011,
+    "SE_wells": 336,
+    "gain_vs_lgb7": 0.06931114196777344
+  },
+  "n_rows": 3783989,
+  "n_wells": 773,
+  "direction_wells": {
+    "NW": 437,
+    "SE": 336
+  },
+  "validation": "5-fold GroupKFold by supertype; complete row-level pooled RMSE",
+  "caveat": "Residual calibration is cross-fitted, but consumes cached base OOFs; a final promotion requires nested regeneration or an independent fold."
+}

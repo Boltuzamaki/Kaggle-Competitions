@@ -1,0 +1,11 @@
+{
+  "wells": 200,
+  "scores": {
+    "control": 8.140406738837195,
+    "rocket_add": 8.122448002685426,
+    "rocket_only": 8.125512724706947
+  },
+  "gain_vs_control": 0.017958736151769017,
+  "gate": false,
+  "sha256": "46a388b85c1f33a4f2de0b12b2a319ca508402ccbd9e4e2f00921f97e4169ba9"
+}

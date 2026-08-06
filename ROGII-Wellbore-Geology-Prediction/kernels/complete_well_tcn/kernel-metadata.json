@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-complete-well-tcn-cv",
+  "title": "ROGII Complete Well TCN CV",
+  "code_file": "rogii-complete-well-tcn-cv.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

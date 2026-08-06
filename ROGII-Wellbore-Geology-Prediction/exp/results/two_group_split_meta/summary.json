@@ -1,0 +1,153 @@
+{
+  "rows": 3746966,
+  "wells": 765,
+  "global_meta_rmse": 8.398651475474269,
+  "rules": {
+    "azimuth_dx_positive": {
+      "false_wells": 428,
+      "true_wells": 337,
+      "false_rows": 2082728,
+      "true_rows": 1664238,
+      "global_false_rmse": 8.017032824363621,
+      "global_true_rmse": 8.853087576021546,
+      "split_rmse": 8.473580675641822,
+      "gain": -0.07492920016755278,
+      "fold_gains": [
+        -0.06686560662893193,
+        0.058494352931232285,
+        -0.00021580735184389965,
+        0.029579751901446016,
+        -0.3499158486635352
+      ],
+      "fold_wins": 2
+    },
+    "azimuth_dy_positive": {
+      "false_wells": 335,
+      "true_wells": 430,
+      "false_rows": 1634356,
+      "true_rows": 2112610,
+      "global_false_rmse": 8.480288598691027,
+      "global_true_rmse": 8.334946866568725,
+      "split_rmse": 8.524061831387746,
+      "gain": -0.12541035591347693,
+      "fold_gains": [
+        -0.15596610119349386,
+        -0.05468537428590903,
+        -0.09286693709594207,
+        -0.19186858619115377,
+        -0.12477587921324762
+      ],
+      "fold_wins": 0
+    },
+    "azimuth_major_EW": {
+      "false_wells": 713,
+      "true_wells": 52,
+      "false_rows": 3513482,
+      "true_rows": 233484,
+      "global_false_rmse": 8.250738688989951,
+      "global_true_rmse": 10.372828704245869,
+      "split_rmse": 8.453441614267277,
+      "gain": -0.05479013879300787,
+      "fold_gains": [
+        -0.03565716439227984,
+        -0.10967370116426522,
+        -0.08456485052442897,
+        -0.10472576212714202,
+        0.04690608696567544
+      ],
+      "fold_wins": 1
+    },
+    "prefix_U_slope_positive": {
+      "false_wells": 333,
+      "true_wells": 432,
+      "false_rows": 1627551,
+      "true_rows": 2119415,
+      "global_false_rmse": 8.738565381959372,
+      "global_true_rmse": 8.127979369943692,
+      "split_rmse": 8.474108803051784,
+      "gain": -0.07545732757751544,
+      "fold_gains": [
+        -0.09305658113240156,
+        0.03431878855273851,
+        0.06823539150519142,
+        0.03433890664114614,
+        -0.3698372513935766
+      ],
+      "fold_wins": 3
+    },
+    "prefix_TVT_slope_positive": {
+      "false_wells": 368,
+      "true_wells": 397,
+      "false_rows": 1814048,
+      "true_rows": 1932918,
+      "global_false_rmse": 8.909565998755845,
+      "global_true_rmse": 7.889116062430404,
+      "split_rmse": 8.5600892571017,
+      "gain": -0.1614377816274306,
+      "fold_gains": [
+        -0.1625153419022709,
+        -0.2461494056324014,
+        -0.08215331838140916,
+        -0.2417226457691406,
+        -0.08068340759897197
+      ],
+      "fold_wins": 0
+    },
+    "typewell_all6": {
+      "false_wells": 16,
+      "true_wells": 749,
+      "false_rows": 88271,
+      "true_rows": 3658695,
+      "global_false_rmse": 14.468535204956524,
+      "global_true_rmse": 8.196864002136872,
+      "split_rmse": 8.403573438579485,
+      "gain": -0.00492196310521642,
+      "fold_gains": [
+        -0.022355015982460813,
+        0.026338313995053042,
+        -0.05635697223055214,
+        0.03635855732819415,
+        -0.011426079000885991
+      ],
+      "fold_wins": 2
+    },
+    "PS_fraction_high": {
+      "false_wells": 383,
+      "true_wells": 382,
+      "false_rows": 2222890,
+      "true_rows": 1524076,
+      "global_false_rmse": 8.633567693971713,
+      "global_true_rmse": 8.043731179471907,
+      "split_rmse": 8.425739385373879,
+      "gain": -0.02708790989960974,
+      "fold_gains": [
+        -0.008964575493891402,
+        0.017160110603746226,
+        -0.07474867020163867,
+        0.018827873429076547,
+        -0.08285348610693077
+      ],
+      "fold_wins": 2
+    },
+    "GR_variance_high": {
+      "false_wells": 383,
+      "true_wells": 382,
+      "false_rows": 1957572,
+      "true_rows": 1789394,
+      "global_false_rmse": 8.428423399874516,
+      "global_true_rmse": 8.365960053754577,
+      "split_rmse": 8.441780527801344,
+      "gain": -0.043129052327074646,
+      "fold_gains": [
+        -0.11285469320210773,
+        0.005301356989105166,
+        -0.031110300162825233,
+        0.011791485662941525,
+        -0.08480912353276082
+      ],
+      "fold_wins": 2
+    }
+  },
+  "best_by_rmse": "typewell_all6",
+  "acceptance": "Require positive pooled gain and 5/5 fold wins; rules are physical/covariate-only, no test IDs."
+}

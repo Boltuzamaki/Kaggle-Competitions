@@ -1,0 +1,37 @@
+{
+  "wells": 200,
+  "candidate_rows": 81000,
+  "feature_columns": 583,
+  "rows": 978602,
+  "baseline": 10.095502664574735,
+  "candidate_oracle": 5.281386662836903,
+  "hard": 10.374980296551993,
+  "soft": 10.221314222555321,
+  "best": {
+    "method": "hard",
+    "blend": 0.0,
+    "rmse": 10.095502664574735
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 40
+    },
+    {
+      "fold": 1,
+      "wells": 40
+    },
+    {
+      "fold": 2,
+      "wells": 40
+    },
+    {
+      "fold": 3,
+      "wells": 40
+    },
+    {
+      "fold": 4,
+      "wells": 40
+    }
+  ]
+}

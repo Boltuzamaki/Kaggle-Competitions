@@ -1,0 +1,21 @@
+{
+  "wells": 200,
+  "rows": 949263,
+  "anchor": 10.008233558688518,
+  "best_global_direct": {
+    "candidate": "loess2_a1.0_s0.1",
+    "rmse": 18.027420780263267
+  },
+  "best_global_blend": {
+    "candidate": "idw40_a1.0_s0.25",
+    "blend": 0.1,
+    "rmse": 9.592570228055553
+  },
+  "hard_route": 29.989503336854575,
+  "soft_route": 26.459476005224168,
+  "best_route_blend": {
+    "route": "soft",
+    "blend": 0.05,
+    "rmse": 9.87072809981592
+  }
+}

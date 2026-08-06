@@ -1,0 +1,47 @@
+{
+  "full": true,
+  "folds_completed": 5,
+  "wells": 765,
+  "features": 162,
+  "accepted_base": 8.338857428822385,
+  "best": {
+    "kind": "soft",
+    "temperature": 0.5,
+    "blend": 0.7,
+    "rmse": 8.26740331605297
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 153,
+      "base": 8.065468009637183,
+      "hard": 8.471678158311304
+    },
+    {
+      "fold": 1,
+      "wells": 153,
+      "base": 9.279504948851615,
+      "hard": 9.23042373157056
+    },
+    {
+      "fold": 2,
+      "wells": 153,
+      "base": 7.720010628326655,
+      "hard": 7.722809612970918
+    },
+    {
+      "fold": 3,
+      "wells": 153,
+      "base": 9.167007190939566,
+      "hard": 9.151694171210323
+    },
+    {
+      "fold": 4,
+      "wells": 153,
+      "base": 7.293662294633856,
+      "hard": 7.239418322408507
+    }
+  ],
+  "checkpoint": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/wellbore comp/exp/public_artifacts/tabicl/tabicl-regressor-v2-20260212.ckpt",
+  "protocol": "strict outer whole-well GKF; independent TabICL regret targets; exact Gram scoring"
+}

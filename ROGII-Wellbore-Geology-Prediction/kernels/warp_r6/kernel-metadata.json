@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-r6-warp-cross-attention",
+  "title": "ROGII R6 WARP Cross Attention",
+  "code_file": "rogii-r6-warp-cross-attention.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

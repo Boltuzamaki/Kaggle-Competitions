@@ -1,0 +1,11 @@
+{
+  "wells": 200,
+  "rows": 998186,
+  "baseline": 10.40442057487687,
+  "self_match": 10.614811203477748,
+  "gain": -0.21039062860087832,
+  "well_wins": 101,
+  "used_wells": 200,
+  "disjoint_from_tuning": true,
+  "locked_parameters": true
+}

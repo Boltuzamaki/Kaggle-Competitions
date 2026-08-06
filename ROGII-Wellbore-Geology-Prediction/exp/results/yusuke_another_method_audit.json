@@ -1,0 +1,40 @@
+{
+  "source": "references/yusuke_another_latest/rogii-another-approach.ipynb",
+  "verdict": "no distinct legal from-scratch OOF branch warrants a new run",
+  "method_identity": {
+    "comparison_source": "exp/public_fleongg_v5_extracted.py",
+    "common_named_functions": 57,
+    "ast_identical_functions": 55,
+    "exact_identical_core_functions": [
+      "run_particle_filter",
+      "run_pf_lik_ensemble",
+      "beam_search",
+      "run_beam_ensemble",
+      "selector_well_code",
+      "apply_selector_variant"
+    ],
+    "only_material_pf_difference": "run_pf_lik_ensemble_scales adds weighted two-means seed-cloud branch statistics for a later midpoint hedge"
+  },
+  "already_present_locally": [
+    "48-seed likelihood-weighted PF in exp/pf_tracker.py and Stack-V4 builder",
+    "alternate ANCC/velocity-dip PF and dual raw+smoothed GR likelihood in exp/pf2.py",
+    "128-seed likelihood-weighted PF implementation in exp/public_fleongg_infer_extracted.py",
+    "multi-scale PF outputs in Harshini/V4 feature families",
+    "bimodal posterior/branch diagnostics in exp/posterior_curve_regression_cv.py"
+  ],
+  "prohibited_or_rejected_sections": {
+    "train_test_overlap_override": "uses matching train well TVT/contact reconstruction for test wells",
+    "mounted_prediction_artifacts_and_csv_rewrites": "final pipeline mutates every submission-shaped CSV and fingerprints prediction vectors",
+    "test_specific_probe": "hardcodes well 00e12e8b and applies leaderboard-directed -0.10 ft shift",
+    "midpoint_hedge": "alpha/separation thresholds were iterated using leaderboard response; not a distinct validated OOF model",
+    "contact_model": "uses train overlap and typewell Geology/contact labels, outside requested legal branch"
+  },
+  "legal_but_not_new": [
+    "likelihood-temperature seed weighting at scales 3/5/8/12",
+    "SP45 structural-state initialization",
+    "beam-search stiffness ensemble",
+    "hold blending based on evaluation length and Z span",
+    "forward-backward grid smoother (noted by source itself as only +0.046 ft OOF and shelved)"
+  ],
+  "action": "audit only; no OOF compute launched; no prediction artifacts, CSVs, overlap lookup, or test IDs used"
+}

@@ -1,0 +1,21 @@
+{
+  "pilot": {
+    "wells": 100,
+    "student": 6.041661574279191,
+    "v6": 6.004843309204839,
+    "posterior": 5.92233405828601,
+    "oracle": 3.6915501486373863,
+    "median_oracle_rank": 17.5
+  },
+  "confirmation": {
+    "wells": 200,
+    "student": 8.46326752569865,
+    "v6": 8.449844066041333,
+    "posterior": 8.439768491529456,
+    "oracle": 5.730294335332071,
+    "median_oracle_rank": 23.0
+  },
+  "prior_rank_reference": 19,
+  "protocol": "outer GKF patch classifier; 48 positions/train well; held candidate score stride16",
+  "sha256": "b501c5ab14a25ef71721119b0bcdd2c5b68876e32e4ab150cc0c9b69478390b8"
+}

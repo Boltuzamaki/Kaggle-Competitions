@@ -1,0 +1,18 @@
+{
+  "protocol": "outer reference folds reused for whole-well correction models; target is clipped per-well mean V4 error; exact accepted-stack row scoring",
+  "accepted": 8.338857428822385,
+  "best": {
+    "model": "extra",
+    "blend": 0.05,
+    "rmse": 8.345696138222594,
+    "fold_gains": [
+      -0.01687617096501448,
+      0.007175639180070803,
+      -0.012070587034828328,
+      -0.029300879192687646,
+      0.014592254569455676
+    ],
+    "fold_wins": 2
+  },
+  "best_5of5": null
+}

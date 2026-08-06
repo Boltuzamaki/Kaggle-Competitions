@@ -1,0 +1,67 @@
+{
+  "wells": 200,
+  "episodes": 800,
+  "median_oracle_rank": 260.0,
+  "folds": [
+    {
+      "fold": 0,
+      "episodic_oracle": 0.0020950385907806623,
+      "generated_residual": 0.0777851899249415,
+      "zero": 0.0210478646254927
+    },
+    {
+      "fold": 1,
+      "episodic_oracle": 0.0022984422278113977,
+      "generated_residual": 0.06610659780400324,
+      "zero": 0.021946232852141024
+    },
+    {
+      "fold": 2,
+      "episodic_oracle": 0.0024037714624650093,
+      "generated_residual": 0.06972910143752119,
+      "zero": 0.020675891744134235
+    },
+    {
+      "fold": 3,
+      "episodic_oracle": 0.0022010100032431325,
+      "generated_residual": 0.06116098372755882,
+      "zero": 0.019820600820425933
+    },
+    {
+      "fold": 4,
+      "episodic_oracle": 0.0026043725668117128,
+      "generated_residual": 0.027550422932727622,
+      "zero": 0.0217281850938535
+    }
+  ],
+  "grid": [
+    {
+      "blend_geo": 0,
+      "rmse": 8.48939384249992
+    },
+    {
+      "blend_geo": 0.1,
+      "rmse": 35.2781914246235
+    },
+    {
+      "blend_geo": 0.25,
+      "rmse": 85.52219277397299
+    },
+    {
+      "blend_geo": 0.5,
+      "rmse": 170.07429283389166
+    },
+    {
+      "blend_geo": 0.75,
+      "rmse": 254.766027338914
+    },
+    {
+      "blend_geo": 1,
+      "rmse": 339.4929104799987
+    }
+  ],
+  "best": {
+    "blend_geo": 0,
+    "rmse": 8.48939384249992
+  }
+}

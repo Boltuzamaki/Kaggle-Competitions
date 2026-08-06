@@ -1,0 +1,24 @@
+{
+  "rows": 3783989,
+  "wells": 773,
+  "base": 10.55300018724736,
+  "best": {
+    "key": "w801_t0.4_m0.5_h0.3",
+    "window": 801,
+    "temperature": 0.4,
+    "local_mix": 0.5,
+    "hedge": 0.3,
+    "rmse": 10.375088181202656,
+    "gain": 0.17791200604470347,
+    "fold_wins": 5,
+    "fold_gains": [
+      0.10895590022546564,
+      0.23592607288471967,
+      0.1861794594456292,
+      0.08513477263192293,
+      0.2683598107252596
+    ]
+  },
+  "finite": true,
+  "protocol": "legal raw GR/typewell TVT+GR; prefix-only affine; V4 grouped OOF path"
+}

@@ -1,0 +1,41 @@
+{
+  "protocol": "strict organizer TVT_input masks; common schema only",
+  "wells": 773,
+  "rows": 3783989,
+  "best": [
+    "last_tvt",
+    15.909852870734554
+  ],
+  "scores": {
+    "last_tvt": 15.909852870734554,
+    "cons_lin": 36.40216463932282,
+    "mdlin500": 39.63556605651058,
+    "mdlin250": 43.0612131236064,
+    "mdlin1000": 43.75928671917631,
+    "mdlin100": 46.22303380340191,
+    "cons_plane": 54.47556670359734,
+    "mdlin2000": 72.64238124136246,
+    "plane1000": 73.32688446328011,
+    "plane500": 77.66665271903489,
+    "rolling_selected": 85.38911061317954,
+    "const100": 108.86011882170186,
+    "const250": 110.9465217052317,
+    "const500": 114.45496550088058,
+    "const1000": 121.61578061324161,
+    "const2000": 129.7796244123929,
+    "plane2000": 135.61832470593197,
+    "plane250": 175.6608430389895,
+    "plane100": 484.42665942273476
+  },
+  "forbidden_inputs_read": false,
+  "columns_read": [
+    "MD",
+    "X",
+    "Y",
+    "Z",
+    "TVT",
+    "GR",
+    "TVT_input"
+  ],
+  "target_access": "TVT suffix only after per-well predictions frozen"
+}

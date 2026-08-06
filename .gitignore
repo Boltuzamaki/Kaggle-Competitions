@@ -1,0 +1,45 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---- Competition data (download from Kaggle, never commit) ----
+data/
+external_data/
+*.zip
+*.7z
+*.tar.gz
+
+# ---- Binary model artifacts / caches ----
+*.pkl
+*.joblib
+*.npz
+*.npy
+*.parquet
+*.h5
+*.pt
+*.pth
+*.onnx
+catboost_info/
+lightning_logs/
+mlruns/
+
+# ---- Generated predictions and run outputs ----
+submission*.csv
+oof*.csv
+*_submission.csv
+
+# ---- Saved web pages / decks ----
+*.pptx
+*_files/
+*.html
+
+# ---- Local tooling ----
+.claude/settings.local.json
+.DS_Store
+Thumbs.db

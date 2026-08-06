@@ -1,0 +1,69 @@
+{
+  "rows": 3746966,
+  "wells": 765,
+  "features": 67,
+  "experts": [
+    "accepted_heel_meta",
+    "base_five_meta",
+    "heel_v4",
+    "v4_lgb7",
+    "har_physics",
+    "har_lgb",
+    "har_xgb",
+    "pil_blend",
+    "v4_poly2",
+    "v4_poly3"
+  ],
+  "accepted_baseline": 8.338857428822385,
+  "expert_rmse": {
+    "accepted_heel_meta": 8.338857428822385,
+    "base_five_meta": 8.384425033374326,
+    "heel_v4": 10.142337745221512,
+    "v4_lgb7": 10.273728383834861,
+    "har_physics": 9.03829564855743,
+    "har_lgb": 9.01813262177233,
+    "har_xgb": 9.034217780925227,
+    "pil_blend": 10.557518312187225,
+    "v4_poly2": 10.092388322286821,
+    "v4_poly3": 10.029092130990895
+  },
+  "oracle_family": 5.996065753166598,
+  "hard": 8.392587635568393,
+  "soft": 8.336280382237119,
+  "best": {
+    "method": "soft",
+    "blend": 0.5,
+    "rmse": 8.303491030480162,
+    "fold_gains": [
+      0.09157046795009638,
+      0.032726631288410246,
+      0.053269836463315734,
+      -0.04079127499163526,
+      0.05402296839962162
+    ]
+  },
+  "accept": false,
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 153
+    },
+    {
+      "fold": 1,
+      "wells": 153
+    },
+    {
+      "fold": 2,
+      "wells": 153
+    },
+    {
+      "fold": 3,
+      "wells": 153
+    },
+    {
+      "fold": 4,
+      "wells": 153
+    }
+  ],
+  "protocol": "outer 5-fold whole-well loss prediction; legal compact diagnostics"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/rogii-external-geometry-transfer-gpu-r2",
+  "title": "ROGII External Geometry Transfer GPU R2",
+  "code_file": "rogii-external-pretrain-gpu-r2.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction",
+    "geology-forecast-challenge-open"
+  ],
+  "kernel_sources": []
+}

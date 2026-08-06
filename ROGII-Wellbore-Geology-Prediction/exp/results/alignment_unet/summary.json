@@ -1,0 +1,19 @@
+{
+  "pooled_rmse": 15.992097811521688,
+  "folds": [
+    {
+      "fold": 0,
+      "pooled_rmse": 15.992097811521688,
+      "checkpoint_rmse": 15.992097811521688,
+      "rows": 40070
+    }
+  ],
+  "wells": 200,
+  "exact_original_prefix_mask": true,
+  "stride": 5,
+  "offsets": [
+    -96.0,
+    96.0,
+    2
+  ]
+}

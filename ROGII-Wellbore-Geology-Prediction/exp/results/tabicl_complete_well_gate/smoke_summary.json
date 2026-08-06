@@ -1,0 +1,23 @@
+{
+  "full": false,
+  "folds_completed": 1,
+  "wells": 153,
+  "features": 162,
+  "accepted_base": 8.065468009637183,
+  "best": {
+    "kind": "soft",
+    "temperature": 2.0,
+    "blend": 0.5,
+    "rmse": 8.012968322299818
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "wells": 153,
+      "base": 8.065468009637183,
+      "hard": 8.385427734791936
+    }
+  ],
+  "checkpoint": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/wellbore comp/exp/public_artifacts/tabicl/tabicl-regressor-v2-20260212.ckpt",
+  "protocol": "strict outer whole-well GKF; independent TabICL regret targets; exact Gram scoring"
+}

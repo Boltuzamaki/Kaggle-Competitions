@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-bimodal-cv",
+  "title": "ROGII Bimodal CV",
+  "code_file": "rogii-bimodal-cv.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

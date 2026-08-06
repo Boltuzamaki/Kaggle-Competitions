@@ -1,0 +1,12 @@
+{
+  "baseline": 8.16714075908951,
+  "best": {
+    "min_known": 1.0,
+    "prefix_rmse_limit": 8.0,
+    "wells": 2.0,
+    "rows": 414.0,
+    "rmse": 8.167128660976566
+  },
+  "total_exact_eval_rows": 414,
+  "pairs_with_exact_eval": 2
+}

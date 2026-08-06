@@ -1,0 +1,46 @@
+{
+  "rows": 14151,
+  "columns": [
+    "id",
+    "tvt"
+  ],
+  "unique_ids": 14151,
+  "order_exact": true,
+  "finite": true,
+  "nan": 0,
+  "min": 11592.543783529214,
+  "max": 12242.824699046205,
+  "sha256": "7c06a1a2cc19138a6c0fb384aa6724918f8a1b927c5550ea9981f13170d521e7",
+  "audit": {
+    "rows": 14151,
+    "unique_ids": 14151,
+    "sample_order_exact": true,
+    "finite": true,
+    "weights": {
+      "har_physics": 0.3985925949,
+      "har_lgb": 0.2873064512,
+      "har_xgb": 0.0101013985,
+      "pil_blend": 0.2752512537,
+      "v4_lgb7": 0.2479481257
+    },
+    "weight_sum": 1.219199824,
+    "weight_sum_above_one_intentional": true,
+    "weight_source": "restricted honest nested GroupKFold CV 8.384425; full OOF positive Ridge alpha=100",
+    "fresh_inference": {
+      "harshini": true,
+      "pilkwang": true,
+      "stack_v4_lgb7": true
+    },
+    "prediction_csv_inputs_read": false,
+    "hardcoded_test_ids": false,
+    "pilkwang_models": [
+      "pred_delta_drift_ncc_catboost_alltrain",
+      "pred_delta_drift_ncc_hgb_alltrain",
+      "pred_delta_drift_ncc_lgb_alltrain",
+      "pred_delta_drift_ncc_xgb_alltrain",
+      "pred_delta_sequence_tcn_tcn_residual"
+    ],
+    "tvt_min": 11592.543783529214,
+    "tvt_max": 12242.824699046205
+  }
+}

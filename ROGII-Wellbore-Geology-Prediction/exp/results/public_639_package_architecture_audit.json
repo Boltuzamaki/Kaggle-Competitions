@@ -1,0 +1,53 @@
+{
+  "scope": "architecture and provenance only; no packaged predictions used",
+  "frontier_notebook_public_score": 6.39,
+  "package_training_provenance": {
+    "source_notebook": "ROGII_10_train_prediction_branches.ipynb",
+    "rows": 3783989,
+    "wells": 773,
+    "split": "5-fold GroupKFold",
+    "target": "TVT delta from last known",
+    "package_oof_rmse": 10.670210997493676,
+    "spatial_imputer_caveat": "query well excluded, but imputers globally built and not rebuilt per outer fold"
+  },
+  "package_components": {
+    "tree_models": ["CatBoost", "HistGradientBoosting", "LightGBM", "XGBoost"],
+    "sequence_model": "six-block 64-channel dilated TCN, kernel 5, dilations 1..32, 480 input channels",
+    "sequence_state_shapes": {
+      "first_conv": [64, 480, 5],
+      "first_skip": [64, 480, 1],
+      "remaining_conv": [64, 64, 5],
+      "head": [1, 64, 1]
+    },
+    "feature_count": 480,
+    "feature_families": [
+      "trajectory and normalized suffix position",
+      "causal and centered full-suffix GR context",
+      "typewell candidate-path offset grids",
+      "beam and self-correlation trackers",
+      "formation-plane and dense ANCC spatial imputers",
+      "PF state, uncertainty, and cross-expert disagreement"
+    ],
+    "standalone_sequence_oof_rmse": 11.257960047252787
+  },
+  "v10_attached_artifact": {
+    "feature_count": 172,
+    "dominant_stacker": "TabICL A weight 0.7117",
+    "reported_oof_rmse": 11.033096313476562,
+    "exact_overlap_enabled": true,
+    "exact_overlap_weight": 0.28
+  },
+  "interpretation": "The 6.39 notebook score is not attributable to this model package's honest raw-input CV; it combines multiple external artifact families and overlap/submission branches.",
+  "missing_reproducible_component": "rowwise full-hidden-suffix sequence-to-sequence TCN",
+  "strict_raw_retraining_pilot": {
+    "artifact": "exp/results/package_style_suffix_tcn_pilot_v1",
+    "wells": 200,
+    "rows": 973864,
+    "baseline": 7.590127533964616,
+    "best_rmse": 7.58403141719428,
+    "gain": 0.006096116770336,
+    "best_alpha": 0.1,
+    "fold_wins": 2,
+    "decision": "rejected; below 0.1-ft escalation gate"
+  }
+}

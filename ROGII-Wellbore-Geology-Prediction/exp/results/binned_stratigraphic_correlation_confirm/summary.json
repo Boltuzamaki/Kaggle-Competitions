@@ -1,0 +1,18 @@
+{
+  "protocol": "locked disjoint 200-well error-stratified confirmation",
+  "development_wells": 200,
+  "confirmation_wells": 200,
+  "overlap": 0,
+  "rows": 981716,
+  "frozen": {
+    "metric": "pearson_0.5",
+    "prior": 0.3,
+    "temperature": 0.25,
+    "blend": 0.3
+  },
+  "baseline": 10.600527406871505,
+  "setchell": 10.50009902101642,
+  "gain": 0.10042838585508562,
+  "well_wins": 131,
+  "truth_used_only_for_final_scoring": true
+}

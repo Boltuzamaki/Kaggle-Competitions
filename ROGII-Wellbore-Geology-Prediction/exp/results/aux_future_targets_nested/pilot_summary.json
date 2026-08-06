@@ -1,0 +1,37 @@
+{
+  "wells": 60,
+  "rows": 299379,
+  "baseline": 12.810934073592392,
+  "plain_best": {
+    "model": "plain",
+    "blend": 1.0,
+    "clip": 10.0,
+    "rmse": 12.451674214205937,
+    "gain": 0.3592598593864551,
+    "win_rate": 0.4666666666666667,
+    "p90": 16.842026036211493,
+    "worst": 28.75507367524738,
+    "worst_base": 30.11277435829676
+  },
+  "aux_best": {
+    "model": "aux",
+    "blend": 1.0,
+    "clip": 10.0,
+    "rmse": 12.47925488708962,
+    "gain": 0.33167918650277173,
+    "win_rate": 0.43333333333333335,
+    "p90": 16.107239260829566,
+    "worst": 28.591392878870185,
+    "worst_base": 30.11277435829676
+  },
+  "aux_vs_plain": -0.027580672883683377,
+  "targets": [
+    "aux_y_resmean_32",
+    "aux_y_resmean_128",
+    "aux_y_resmean_512",
+    "aux_y_toe_bias",
+    "aux_y_udelta_32",
+    "aux_y_udelta_128",
+    "aux_y_udelta_512"
+  ]
+}

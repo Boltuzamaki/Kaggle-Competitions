@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/rogii-r5-l1-residual",
+  "title": "ROGII R5 L1 Residual",
+  "code_file": "rogii-r5-l1-residual.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

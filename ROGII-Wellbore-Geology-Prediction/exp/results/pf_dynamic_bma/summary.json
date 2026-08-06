@@ -1,0 +1,33 @@
+{
+  "development_wells": 60,
+  "confirmation_wells": 120,
+  "alphas": [
+    0.8,
+    0.9,
+    0.95,
+    0.98
+  ],
+  "development_scores": {
+    "student10": 10.10383897441961,
+    "a0.80": 9.968001813219598,
+    "a0.90": 10.025614567407755,
+    "a0.95": 10.03574492458776,
+    "a0.98": 9.773907448529087
+  },
+  "locked_alpha": 0.98,
+  "confirmation_student10": 10.228684654822429,
+  "confirmation_dynamic_bma": 9.988321290806025,
+  "confirmation_gain": 0.24036336401640312,
+  "confirmation_well_wins": 69,
+  "mean_final_model_weights": {
+    "gaussian30": 0.27265167895660863,
+    "student3_45": 0.31325628904698205,
+    "student10_45": 0.4140920319964095
+  },
+  "particles": 200,
+  "seeds": 12,
+  "seed0": 53000,
+  "runtime_seconds": 299.26376724243164,
+  "legal": true,
+  "submission_created": false
+}

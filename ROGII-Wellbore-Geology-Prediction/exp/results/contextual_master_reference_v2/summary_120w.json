@@ -1,0 +1,19 @@
+{
+  "wells": 120,
+  "unique_supertypes": 752,
+  "base_rmse": 9.011620118584815,
+  "raw": {
+    "paired_path": 18.74285686676882,
+    "paired_soft": 9.115576099124365,
+    "master_path": 19.340717870518013,
+    "master_soft": 9.166956023151567,
+    "blend_path": 18.92540104424435,
+    "blend_soft": 9.112878319685615
+  },
+  "best": {
+    "kind": "paired_soft",
+    "blend": 0.2,
+    "rmse": 9.000491560376611,
+    "gain": 0.011128558208204353
+  }
+}

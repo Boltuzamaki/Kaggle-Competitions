@@ -1,0 +1,15 @@
+{
+  "id": "boltuzmaki/rogii-e02-multiref-contact",
+  "title": "ROGII E02 Multiref Contact",
+  "code_file": "rogii-e02-multiref-contact.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "rogii-wellbore-geology-prediction"
+  ],
+  "kernel_sources": []
+}

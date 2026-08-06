@@ -1,0 +1,24 @@
+{
+  "input_sha256": "ec3b2e15d7015ab2c05b1e1e1fb1f47b6ff4f35055ecb4ada36c2d1744071ab4",
+  "baseline": 8.086407421551597,
+  "direct_legal": {
+    "rmse": 8.167785015549649,
+    "datum_r2": -0.015236847457283487,
+    "slope_r2": -0.04126407345548233
+  },
+  "predicted_marker_proxy": {
+    "rmse": 8.1033112748706,
+    "datum_r2": -0.01299422211563006,
+    "slope_r2": -0.003919402493310908
+  },
+  "marker_oracle_invalid_diagnostic": {
+    "rmse": 8.162651768243844,
+    "datum_r2": -0.009499006150940348,
+    "slope_r2": -0.028463800407702466
+  },
+  "max_abs_target_marker_corr": 0.12965293720339138,
+  "marker_legal_r2_median": 0.9257165502403111,
+  "marker_legal_r2_max": 0.988601134133991,
+  "n_legal_features": 174,
+  "source_sha256": "a0e3157c5d59a15e35953c7f7aeacf2b4efd624b49f14460fc09520076a0eeea"
+}

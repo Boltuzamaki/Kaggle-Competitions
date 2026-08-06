@@ -1,0 +1,12 @@
+{
+  "model": "ridge",
+  "per_well_rmse": 12.633299070472136,
+  "pooled_rmse": 15.59241707126908,
+  "const_per_well": 12.81253433227539,
+  "beats_const_pct": 56.144890038809834,
+  "n_wells": 773,
+  "shrink": 0.6,
+  "clip": 30,
+  "seconds": 8.4,
+  "family": "tabular"
+}
