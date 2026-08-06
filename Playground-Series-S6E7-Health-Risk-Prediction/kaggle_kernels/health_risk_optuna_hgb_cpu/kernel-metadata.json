@@ -1,0 +1,15 @@
+{
+  "id": "divyanshuboltuzamaki/health-risk-optuna-hgb-cpu",
+  "title": "Health Risk Optuna HGBC CPU",
+  "code_file": "health_risk_optuna_hgb_cpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "models": {
+    "ftt2027": {
+      "path": "kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-ftt-balanced-seed-2027-gpu/testpred_ftt.csv",
+      "weight": 1.5
+    },
+    "realmlp2027": {
+      "path": "kaggle_kernels/realmlp_seed2027_gpu/output/test_preds.csv",
+      "weight": 0.5
+    },
+    "realmlp31415": {
+      "path": "kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-realmlp-seed-31415-gpu/test_preds.csv",
+      "weight": 0.5
+    },
+    "realmlp7777": {
+      "path": "kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-realmlp-variant-7777-gpu/test_preds.csv",
+      "weight": 0.5
+    },
+    "realmlp4242": {
+      "path": "kaggle_kernels/monitor_downloads/divyanshuboltuzamaki/health-risk-realmlp-seed-4242-gpu/test_preds.csv",
+      "weight": 0.5
+    },
+    "hgb_seedbag_b": {
+      "path": "kaggle_kernels/hgbc_seedset_b_cpu/output/tehgbc_test_preds.csv",
+      "weight": 0.75
+    },
+    "hgb_seedbag_c": {
+      "path": "kaggle_kernels/monitor_downloads/divyanshuboltuzamaki/health-risk-te-hgbc-seedset-c-cpu/tehgbc_test_preds.csv",
+      "weight": 0.75
+    },
+    "xgb_rule": {
+      "path": "kaggle_kernels/rule_xgb_gpu/output/test_preds.csv",
+      "weight": 0.75
+    },
+    "xgb_te": {
+      "path": "kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-te-xgb-cpu/test_preds.csv",
+      "weight": 0.75
+    },
+    "catboost_te": {
+      "path": "kaggle_kernels/monitor_downloads/divyanshuboltuzamaki/health-risk-te-catboost-cpu/test_preds.csv",
+      "weight": 0.75
+    },
+    "ebm": {
+      "path": "kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-rule-ebm-cpu/test_preds.csv",
+      "weight": 0.75
+    },
+    "ydf": {
+      "path": "kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-ydf-cpu/test_preds.csv",
+      "weight": 0.75
+    }
+  },
+  "anchor_rows": 295753,
+  "hybrid_changes": 190,
+  "hybrid_change_consensus": {
+    "0.5": 76,
+    "0.75": 63,
+    "0.9": 58,
+    "0.95": 56,
+    "0.999": 56
+  },
+  "candidates": {
+    "anchor_hybrid_plus_unanimous": {
+      "agreement_threshold": 0.999,
+      "margin_threshold": 0.2,
+      "total_changes": 268,
+      "consensus_changes": 133,
+      "new_beyond_hybrid": 78,
+      "hybrid_changes_replaced_by_consensus": 0,
+      "path": "submissions/anchor_hybrid_plus_unanimous.csv"
+    },
+    "anchor_hybrid_plus_consensus95": {
+      "agreement_threshold": 0.95,
+      "margin_threshold": 0.25,
+      "total_changes": 253,
+      "consensus_changes": 117,
+      "new_beyond_hybrid": 63,
+      "hybrid_changes_replaced_by_consensus": 0,
+      "path": "submissions/anchor_hybrid_plus_consensus95.csv"
+    },
+    "anchor_hybrid_plus_consensus90": {
+      "agreement_threshold": 0.9,
+      "margin_threshold": 0.3,
+      "total_changes": 242,
+      "consensus_changes": 106,
+      "new_beyond_hybrid": 52,
+      "hybrid_changes_replaced_by_consensus": 0,
+      "path": "submissions/anchor_hybrid_plus_consensus90.csv"
+    },
+    "anchor_strong_consensus_only": {
+      "agreement_threshold": 0.95,
+      "margin_threshold": 0.25,
+      "total_changes": 117,
+      "consensus_changes": 117,
+      "new_beyond_hybrid": 63,
+      "hybrid_changes_replaced_by_consensus": 0,
+      "path": "submissions/anchor_strong_consensus_only.csv"
+    }
+  }
+}

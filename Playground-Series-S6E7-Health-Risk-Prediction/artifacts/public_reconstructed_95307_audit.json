@@ -1,0 +1,19 @@
+{
+  "class_counts": {
+    "at-risk": 239968,
+    "fit": 21717,
+    "unhealthy": 34068
+  },
+  "cleanup_rows": 29,
+  "effective_changes_vs_95306": 31,
+  "output": "submissions/public_reconstructed_95307.csv",
+  "override_manifest_rows": 452,
+  "rows": 295753,
+  "sha256": "fe6869c6f26b4df1c11be48984cc09e713cb5d4c2b925618de6c76fc1a413a42",
+  "transitions": {
+    "at-risk->fit": 6,
+    "at-risk->unhealthy": 8,
+    "unhealthy->at-risk": 17
+  },
+  "v114_sha256": "4171d46147b36cea16af087fed7be36bfd9b4bd48098b3d5d20a129123afbb81"
+}

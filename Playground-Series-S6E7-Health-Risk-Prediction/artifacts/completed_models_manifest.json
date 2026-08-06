@@ -1,0 +1,52 @@
+[
+  {
+    "name": "ydf_gbt",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-ydf-cpu/oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-ydf-cpu/test_preds.csv"
+  },
+  {
+    "name": "optuna_hgb",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/divyanshuboltuzamaki/health-risk-optuna-hgbc-cpu/oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/divyanshuboltuzamaki/health-risk-optuna-hgbc-cpu/test_preds.csv"
+  },
+  {
+    "name": "te_hgb_seedset",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/hgbc_seedset_b_cpu/output/tehgbc_oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/hgbc_seedset_b_cpu/output/tehgbc_test_preds.csv"
+  },
+  {
+    "name": "tabm",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-rule-tabm-gpu/oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-rule-tabm-gpu/test_preds.csv"
+  },
+  {
+    "name": "realmlp_7777",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-realmlp-variant-7777-gpu/oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-realmlp-variant-7777-gpu/test_preds.csv"
+  },
+  {
+    "name": "te_hgb_regularized",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-te-hgbc-regularized-cpu/tehgbc_oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-te-hgbc-regularized-cpu/tehgbc_test_preds.csv"
+  },
+  {
+    "name": "te_hgb_seedset_c",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/divyanshuboltuzamaki/health-risk-te-hgbc-seedset-c-cpu/tehgbc_oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/divyanshuboltuzamaki/health-risk-te-hgbc-seedset-c-cpu/tehgbc_test_preds.csv"
+  },
+  {
+    "name": "realmlp_31415",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-realmlp-seed-31415-gpu/oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-realmlp-seed-31415-gpu/test_preds.csv"
+  },
+  {
+    "name": "te_xgb",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-te-xgb-cpu/oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/boltuzamaki/health-risk-te-xgb-cpu/test_preds.csv"
+  },
+  {
+    "name": "te_xgb_regularized",
+    "oof": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/divyanshuboltuzamaki/health-risk-te-xgb-regularized-gpu/oof_preds.csv",
+    "test": "/home/boltuzamaki/Work/get_a_job/kaggle_competitions/health risk prediction/kaggle_kernels/monitor_downloads/divyanshuboltuzamaki/health-risk-te-xgb-regularized-gpu/test_preds.csv"
+  }
+]

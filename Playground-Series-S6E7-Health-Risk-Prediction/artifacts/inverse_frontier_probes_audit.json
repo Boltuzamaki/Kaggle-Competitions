@@ -1,0 +1,287 @@
+{
+  "base": "reference_notebooks/students_be_healthy/output/submission.csv",
+  "groups": {
+    "fit": {
+      "path": "submissions/inverse_frontier_support4_fit.csv",
+      "changes": [
+        {
+          "id": "766592",
+          "from": "at-risk",
+          "to": "fit",
+          "ridge_score": 0.00017216074047610164
+        },
+        {
+          "id": "947182",
+          "from": "at-risk",
+          "to": "fit",
+          "ridge_score": 7.06256105331704e-05
+        },
+        {
+          "id": "953440",
+          "from": "at-risk",
+          "to": "fit",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "965778",
+          "from": "at-risk",
+          "to": "fit",
+          "ridge_score": 0.00016191047325264663
+        }
+      ],
+      "count": 4
+    },
+    "unhealthy": {
+      "path": "submissions/inverse_frontier_support4_unhealthy.csv",
+      "changes": [
+        {
+          "id": "691588",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "735608",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00016191047325264663
+        },
+        {
+          "id": "757687",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00017216074047610164
+        },
+        {
+          "id": "855265",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00021303519315551966
+        },
+        {
+          "id": "946833",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "958727",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.0010333610698580742
+        },
+        {
+          "id": "969535",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "982468",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        }
+      ],
+      "count": 8
+    },
+    "union": {
+      "path": "submissions/inverse_frontier_support4_union.csv",
+      "changes": [
+        {
+          "id": "691588",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "735608",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00016191047325264663
+        },
+        {
+          "id": "757687",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00017216074047610164
+        },
+        {
+          "id": "766592",
+          "from": "at-risk",
+          "to": "fit",
+          "ridge_score": 0.00017216074047610164
+        },
+        {
+          "id": "855265",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00021303519315551966
+        },
+        {
+          "id": "946833",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "947182",
+          "from": "at-risk",
+          "to": "fit",
+          "ridge_score": 7.06256105331704e-05
+        },
+        {
+          "id": "953440",
+          "from": "at-risk",
+          "to": "fit",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "958727",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.0010333610698580742
+        },
+        {
+          "id": "965778",
+          "from": "at-risk",
+          "to": "fit",
+          "ridge_score": 0.00016191047325264663
+        },
+        {
+          "id": "969535",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "982468",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        }
+      ],
+      "count": 12
+    },
+    "oracle7": {
+      "path": "submissions/inverse_frontier_support4_oracle7.csv",
+      "changes": [
+        {
+          "id": "848145",
+          "from": "fit",
+          "to": "unhealthy",
+          "ridge_score": 0.0
+        }
+      ],
+      "count": 1
+    },
+    "neural7": {
+      "path": "submissions/inverse_frontier_support4_neural7.csv",
+      "changes": [
+        {
+          "id": "709483",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "803658",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "815849",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "874665",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "908114",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "914955",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "956659",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00021303519315551966
+        }
+      ],
+      "count": 7
+    },
+    "neural_support3": {
+      "path": "submissions/inverse_frontier_support4_neural_support3.csv",
+      "changes": [
+        {
+          "id": "815849",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "956659",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00021303519315551966
+        }
+      ],
+      "count": 2
+    },
+    "neural_support2": {
+      "path": "submissions/inverse_frontier_support4_neural_support2.csv",
+      "changes": [
+        {
+          "id": "803658",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "874665",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "908114",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        },
+        {
+          "id": "914955",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        }
+      ],
+      "count": 4
+    },
+    "neural_support1": {
+      "path": "submissions/inverse_frontier_support4_neural_support1.csv",
+      "changes": [
+        {
+          "id": "709483",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "ridge_score": 0.00022328543127514422
+        }
+      ],
+      "count": 1
+    }
+  }
+}

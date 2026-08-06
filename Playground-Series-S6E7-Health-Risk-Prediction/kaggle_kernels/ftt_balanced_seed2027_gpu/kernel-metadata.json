@@ -1,0 +1,17 @@
+{
+  "id": "boltuzamaki/health-risk-ftt-balanced-seed-2027-gpu",
+  "title": "Health Risk FTT Balanced Seed 2027 GPU",
+  "code_file": "ftt_balanced_seed2027_gpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+  "machine_shape": "NvidiaTeslaT4"
+}

@@ -1,0 +1,35 @@
+# ---- Competition data (download from Kaggle, never commit) ----
+data/
+
+# ---- Run artifacts --------------------------------------------------------
+# Everything under artifacts/ is regenerable, except the results ledger and the
+# small JSON audits that document how each candidate submission was built.
+artifacts/*
+!artifacts/manifest.csv
+!artifacts/*.json
+catboost_info/
+lightning_logs/
+
+# ---- Generated submissions ------------------------------------------------
+submissions/
+
+# ---- Kaggle kernel run outputs (the .ipynb + kernel-metadata.json stay) ----
+kaggle_kernels/*/output/
+kaggle_kernels/monitor_downloads/
+
+# ---- Third-party public notebooks pulled for research ---------------------
+# Other people's work, kept locally only. See README §7 for the kernel slugs.
+reference_notebooks/
+public_research/
+
+# ---- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# ---- Local tooling --------------------------------------------------------
+.claude/
+.DS_Store
+Thumbs.db

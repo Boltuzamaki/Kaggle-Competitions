@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/health-risk-rule-random-forest-cpu",
+  "title": "Health Risk Rule Random Forest CPU",
+  "code_file": "rule_rf_cpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ]
+}

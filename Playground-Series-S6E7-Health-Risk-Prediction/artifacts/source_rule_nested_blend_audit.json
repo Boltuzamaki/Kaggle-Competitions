@@ -1,0 +1,16 @@
+{
+  "alpha": 0.075,
+  "base": "0.60 FTT seed2027 + 0.40 RealMLP seed31415",
+  "base_oof_balanced_accuracy": 0.9508466169098009,
+  "nested_source_blend_balanced_accuracy": 0.950864050773533,
+  "nested_baseline_on_audit_folds": 0.9508527885089949,
+  "nested_delta": 1.126226453810172e-05,
+  "matched_test_rows": 218155,
+  "changes_vs_base": 39,
+  "transitions": {
+    "fit->at-risk": 18,
+    "unhealthy->at-risk": 20,
+    "fit->unhealthy": 1
+  },
+  "submission": "submissions/source_rule_nested_blend.csv"
+}

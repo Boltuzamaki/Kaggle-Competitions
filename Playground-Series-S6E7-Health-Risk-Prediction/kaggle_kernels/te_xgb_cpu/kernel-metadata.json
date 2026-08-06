@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/health-risk-te-xgb-cpu",
+  "title": "Health Risk TE XGB CPU",
+  "code_file": "te_xgb_cpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "boltuzamaki/health-risk-tabpfn3-gpu",
+  "title": "Health Risk TabPFN3 GPU",
+  "code_file": "tabpfn3_gpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "model_sources": [
+    "prior-labsai/tabpfn-3/PyTorch/default/1"
+  ],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ],
+  "machine_shape": "NvidiaTeslaT4"
+}

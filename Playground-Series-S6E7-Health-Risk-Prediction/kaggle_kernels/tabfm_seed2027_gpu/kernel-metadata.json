@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/health-risk-tabfm-seed-2027-gpu",
+  "title": "Health Risk TabFM Seed 2027 GPU",
+  "code_file": "tabfm_seed2027_gpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ],
+  "machine_shape": "NvidiaTeslaT4"
+}

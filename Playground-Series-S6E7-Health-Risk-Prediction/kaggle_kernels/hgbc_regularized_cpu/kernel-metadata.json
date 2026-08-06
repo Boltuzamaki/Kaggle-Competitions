@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/health-risk-te-hgbc-regularized-cpu",
+  "title": "Health Risk TE HGBC Regularized CPU",
+  "code_file": "hgbc_regularized_cpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ]
+}

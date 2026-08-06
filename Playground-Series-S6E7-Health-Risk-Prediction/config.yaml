@@ -1,0 +1,51 @@
+seed: 42
+
+data:
+  dir: data
+  train_file: train.csv
+  test_file: test.csv
+  sample_submission_file: sample_submission.csv
+  id_col: id
+  target_col: health_condition
+  # fixed class order -> fixed column order for OOF/test probability arrays everywhere
+  classes: [fit, at-risk, unhealthy]
+
+cv:
+  n_folds: 5
+  strategy: stratified   # stratified | kfold
+
+# --- GPU / CPU toggle -------------------------------------------------------
+# Flip mode to "gpu" later (when the GPU frees up) and re-run train.py: already
+#-completed models are skipped (see run.manifest_file), only models that are
+# GPU-capable AND whose params depend on device get re-tagged; everything else
+# is untouched. Nothing else in the pipeline needs to change.
+device:
+  mode: cpu          # cpu | gpu
+  gpu_id: 0
+
+paths:
+  artifacts_dir: artifacts
+  features_dir: artifacts/features
+  folds_file: artifacts/folds.npy
+  manifest_file: artifacts/manifest.csv
+  oof_dir: artifacts/oof
+  test_pred_dir: artifacts/test_preds
+  log_dir: artifacts/logs
+  submissions_dir: submissions
+
+run:
+  max_models: null            # cap # of models trained this invocation (null = train everything pending in the registry)
+  time_budget_minutes: null   # stop starting new models after this many minutes this run (null = no limit); finishes the in-flight model. Not enforced when max_parallel_workers > 1.
+  n_jobs: -1                  # threads per model in sequential mode (xgboost/lightgbm/sklearn n_jobs); ignored in parallel mode (see below)
+  verbose: 1
+  fast_dev_run: false         # true -> subsample train for a quick end-to-end smoke test
+  fast_dev_frac: 0.03
+  shuffle_order: true         # shuffle model-registry order each run (keeps partial runs diverse rather than always training family-by-family)
+  # train N models concurrently in separate processes instead of one at a time.
+  # Each worker is capped to cpu_count()//N threads so total thread usage stays
+  # bounded, and feature arrays are memory-mapped (shared, not duplicated per
+  # worker) to keep RAM use in check. 1 = current sequential behavior.
+  # Tune based on free RAM (check with Get-CimInstance Win32_OperatingSystem):
+  # each worker's peak working set on the heavy-FE (450-col) feature set is
+  # roughly 1-2GB during a fold, so free_RAM_GB / 2 is a reasonable ceiling.
+  max_parallel_workers: 2

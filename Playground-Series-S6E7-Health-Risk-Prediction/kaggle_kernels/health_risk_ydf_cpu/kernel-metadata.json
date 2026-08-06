@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/health-risk-ydf-cpu",
+  "title": "Health Risk YDF CPU",
+  "code_file": "health_risk_ydf_cpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ]
+}

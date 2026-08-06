@@ -1,0 +1,16 @@
+{
+  "id": "divyanshuboltuzamaki/health-risk-optuna-xgb-gpu",
+  "title": "Health Risk Optuna XGB GPU",
+  "code_file": "health_risk_optuna_xgb_gpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ],
+  "machine_shape": "NvidiaTeslaT4"
+}

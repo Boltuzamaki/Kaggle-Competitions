@@ -1,0 +1,15 @@
+{
+  "id": "boltuzamaki/health-risk-ordinal-hgbc-cpu",
+  "title": "Health Risk Ordinal HGBC CPU",
+  "code_file": "ordinal_hgbc_cpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ]
+}

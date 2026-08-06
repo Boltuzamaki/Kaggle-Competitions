@@ -1,0 +1,16 @@
+{
+  "id": "boltuzamaki/health-risk-realmlp-seed-31415-gpu",
+  "title": "Health Risk RealMLP Seed 31415 GPU",
+  "code_file": "realmlp_seed31415_gpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ],
+  "machine_shape": "NvidiaTeslaT4"
+}

@@ -1,0 +1,12 @@
+{
+  "file": "submissions/strong_submission_1.csv",
+  "rows": 295753,
+  "classes": {
+    "at-risk": 239915,
+    "unhealthy": 34084,
+    "fit": 21754
+  },
+  "sha256": "702da2cd3d629a6ed1898fd1789c3b20cf4bd35bf288a5046d5569d9de789bb8",
+  "nested_score": 0.9507398630579554,
+  "full_oof_score": 0.9508675798251222
+}

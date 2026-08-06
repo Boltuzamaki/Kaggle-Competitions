@@ -1,0 +1,1014 @@
+{
+  "base": "reference_notebooks/students_be_healthy/output/submission.csv",
+  "weights": {
+    "ftt2027": 0.3,
+    "ftt4242": 0.3,
+    "realmlp2027": 0.08,
+    "realmlp31415": 0.08,
+    "realmlp4242": 0.08,
+    "realmlp7777": 0.08,
+    "realmlp9001": 0.08
+  },
+  "candidates": {
+    "anchor_neural_consensus_m04.csv": {
+      "margin_threshold": 0.4,
+      "changes_vs_anchor": 54,
+      "transitions": {
+        "fit->at-risk": 10,
+        "unhealthy->at-risk": 19,
+        "at-risk->unhealthy": 20,
+        "at-risk->fit": 5
+      },
+      "changes": [
+        {
+          "row": 14658,
+          "id": "704746",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.5997771971672774,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 18464,
+          "id": "708552",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.6715331250522286,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 20870,
+          "id": "710958",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.4559183559566735,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 24717,
+          "id": "714805",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.6116642522998154,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 30828,
+          "id": "720916",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.47495125822722917,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 30884,
+          "id": "720972",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.41842461239546536,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 36035,
+          "id": "726123",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5000927343219518,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 38483,
+          "id": "728571",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.43701467074453826,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 39853,
+          "id": "729941",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.40309694830328224,
+          "realmlp_votes": 4
+        },
+        {
+          "row": 41037,
+          "id": "731125",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.5470056276023388,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 54549,
+          "id": "744637",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.4747532786801458,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 54614,
+          "id": "744702",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.45204574763774874,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 57788,
+          "id": "747876",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.8257115707604681,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 61045,
+          "id": "751133",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.6995550330914556,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 62792,
+          "id": "752880",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.6108409081399441,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 63905,
+          "id": "753993",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.4687805137783289,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 64711,
+          "id": "754799",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5122014180198312,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 69064,
+          "id": "759152",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.4442092058807611,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 70190,
+          "id": "760278",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.4188954123854637,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 72500,
+          "id": "762588",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6202725321426987,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 77842,
+          "id": "767930",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.4708526376634836,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 87392,
+          "id": "777480",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.40555009696632627,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 91706,
+          "id": "781794",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.424009397290647,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 111970,
+          "id": "802058",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6869671468064189,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 115752,
+          "id": "805840",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.4153420133143664,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 117407,
+          "id": "807495",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5723470271378756,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 124150,
+          "id": "814238",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.40703547563403847,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 127313,
+          "id": "817401",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6248144081607461,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 143348,
+          "id": "833436",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.585537099763751,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 172820,
+          "id": "862908",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.7889933786625625,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 173711,
+          "id": "863799",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.43830849025398494,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 184468,
+          "id": "874556",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5221956969425081,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 187698,
+          "id": "877786",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.48767317529767756,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 187867,
+          "id": "877955",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.5586245054472238,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 191523,
+          "id": "881611",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6025063882768154,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 202357,
+          "id": "892445",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8540021394845099,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 202513,
+          "id": "892601",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.4516725227236748,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 213021,
+          "id": "903109",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.458867816105485,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 216122,
+          "id": "906210",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6570654004439711,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 217603,
+          "id": "907691",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.49149624049663543,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 235224,
+          "id": "925312",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6613931868970395,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 239536,
+          "id": "929624",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8246748643461614,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 247798,
+          "id": "937886",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8117226415127516,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 252040,
+          "id": "942128",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.5094634072110058,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 252065,
+          "id": "942153",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5803745147585868,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 257832,
+          "id": "947920",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.5720892444998025,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 262032,
+          "id": "952120",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.41322757311165337,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 267364,
+          "id": "957452",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.4984829555824398,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 273587,
+          "id": "963675",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.4275348820537328,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 278255,
+          "id": "968343",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.43209722548723223,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 282918,
+          "id": "973006",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.4370134997740388,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 290730,
+          "id": "980818",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.5347731958702207,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 291658,
+          "id": "981746",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.4582757148146629,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 292751,
+          "id": "982839",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.5113308042287826,
+          "realmlp_votes": 5
+        }
+      ]
+    },
+    "anchor_neural_consensus_m05.csv": {
+      "margin_threshold": 0.5,
+      "changes_vs_anchor": 28,
+      "transitions": {
+        "fit->at-risk": 6,
+        "unhealthy->at-risk": 8,
+        "at-risk->unhealthy": 12,
+        "at-risk->fit": 2
+      },
+      "changes": [
+        {
+          "row": 14658,
+          "id": "704746",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.5997771971672774,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 18464,
+          "id": "708552",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.6715331250522286,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 24717,
+          "id": "714805",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.6116642522998154,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 36035,
+          "id": "726123",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5000927343219518,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 41037,
+          "id": "731125",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.5470056276023388,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 57788,
+          "id": "747876",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.8257115707604681,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 61045,
+          "id": "751133",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.6995550330914556,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 62792,
+          "id": "752880",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.6108409081399441,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 64711,
+          "id": "754799",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5122014180198312,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 72500,
+          "id": "762588",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6202725321426987,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 111970,
+          "id": "802058",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6869671468064189,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 117407,
+          "id": "807495",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5723470271378756,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 127313,
+          "id": "817401",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6248144081607461,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 143348,
+          "id": "833436",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.585537099763751,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 172820,
+          "id": "862908",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.7889933786625625,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 184468,
+          "id": "874556",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5221956969425081,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 187867,
+          "id": "877955",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.5586245054472238,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 191523,
+          "id": "881611",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6025063882768154,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 202357,
+          "id": "892445",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8540021394845099,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 216122,
+          "id": "906210",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6570654004439711,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 235224,
+          "id": "925312",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6613931868970395,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 239536,
+          "id": "929624",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8246748643461614,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 247798,
+          "id": "937886",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8117226415127516,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 252040,
+          "id": "942128",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.5094634072110058,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 252065,
+          "id": "942153",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.5803745147585868,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 257832,
+          "id": "947920",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.5720892444998025,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 290730,
+          "id": "980818",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.5347731958702207,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 292751,
+          "id": "982839",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.5113308042287826,
+          "realmlp_votes": 5
+        }
+      ]
+    },
+    "anchor_neural_consensus_m06.csv": {
+      "margin_threshold": 0.6,
+      "changes_vs_anchor": 15,
+      "transitions": {
+        "unhealthy->at-risk": 3,
+        "at-risk->fit": 2,
+        "at-risk->unhealthy": 9,
+        "fit->at-risk": 1
+      },
+      "changes": [
+        {
+          "row": 18464,
+          "id": "708552",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.6715331250522286,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 24717,
+          "id": "714805",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.6116642522998154,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 57788,
+          "id": "747876",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.8257115707604681,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 61045,
+          "id": "751133",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.6995550330914556,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 62792,
+          "id": "752880",
+          "from": "unhealthy",
+          "to": "at-risk",
+          "margin": 0.6108409081399441,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 72500,
+          "id": "762588",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6202725321426987,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 111970,
+          "id": "802058",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6869671468064189,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 127313,
+          "id": "817401",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6248144081607461,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 172820,
+          "id": "862908",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.7889933786625625,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 191523,
+          "id": "881611",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6025063882768154,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 202357,
+          "id": "892445",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8540021394845099,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 216122,
+          "id": "906210",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6570654004439711,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 235224,
+          "id": "925312",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.6613931868970395,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 239536,
+          "id": "929624",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8246748643461614,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 247798,
+          "id": "937886",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8117226415127516,
+          "realmlp_votes": 5
+        }
+      ]
+    },
+    "anchor_neural_consensus_m07.csv": {
+      "margin_threshold": 0.7,
+      "changes_vs_anchor": 5,
+      "transitions": {
+        "at-risk->fit": 1,
+        "fit->at-risk": 1,
+        "at-risk->unhealthy": 3
+      },
+      "changes": [
+        {
+          "row": 57788,
+          "id": "747876",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.8257115707604681,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 172820,
+          "id": "862908",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.7889933786625625,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 202357,
+          "id": "892445",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8540021394845099,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 239536,
+          "id": "929624",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8246748643461614,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 247798,
+          "id": "937886",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8117226415127516,
+          "realmlp_votes": 5
+        }
+      ]
+    },
+    "anchor_neural_consensus_m075.csv": {
+      "margin_threshold": 0.75,
+      "changes_vs_anchor": 5,
+      "transitions": {
+        "at-risk->fit": 1,
+        "fit->at-risk": 1,
+        "at-risk->unhealthy": 3
+      },
+      "changes": [
+        {
+          "row": 57788,
+          "id": "747876",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.8257115707604681,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 172820,
+          "id": "862908",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.7889933786625625,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 202357,
+          "id": "892445",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8540021394845099,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 239536,
+          "id": "929624",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8246748643461614,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 247798,
+          "id": "937886",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8117226415127516,
+          "realmlp_votes": 5
+        }
+      ]
+    },
+    "anchor_neural_consensus_m08.csv": {
+      "margin_threshold": 0.8,
+      "changes_vs_anchor": 4,
+      "transitions": {
+        "at-risk->fit": 1,
+        "at-risk->unhealthy": 3
+      },
+      "changes": [
+        {
+          "row": 57788,
+          "id": "747876",
+          "from": "at-risk",
+          "to": "fit",
+          "margin": 0.8257115707604681,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 202357,
+          "id": "892445",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8540021394845099,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 239536,
+          "id": "929624",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8246748643461614,
+          "realmlp_votes": 5
+        },
+        {
+          "row": 247798,
+          "id": "937886",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8117226415127516,
+          "realmlp_votes": 5
+        }
+      ]
+    },
+    "anchor_neural_consensus_m085.csv": {
+      "margin_threshold": 0.85,
+      "changes_vs_anchor": 1,
+      "transitions": {
+        "at-risk->unhealthy": 1
+      },
+      "changes": [
+        {
+          "row": 202357,
+          "id": "892445",
+          "from": "at-risk",
+          "to": "unhealthy",
+          "margin": 0.8540021394845099,
+          "realmlp_votes": 5
+        }
+      ]
+    },
+    "anchor_neural_consensus_m09.csv": {
+      "margin_threshold": 0.9,
+      "changes_vs_anchor": 0,
+      "transitions": {},
+      "changes": []
+    },
+    "anchor_neural_m07_from_unhealthy.csv": {
+      "margin_threshold": 0.7,
+      "source_class": "unhealthy",
+      "changes_vs_anchor": 0,
+      "changes": []
+    },
+    "anchor_neural_m07_from_fit.csv": {
+      "margin_threshold": 0.7,
+      "source_class": "fit",
+      "changes_vs_anchor": 1,
+      "changes": [
+        {
+          "row": 172820,
+          "id": "862908",
+          "from": "fit",
+          "to": "at-risk",
+          "margin": 0.7889933786625625,
+          "realmlp_votes": 5
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "divyanshuboltuzamaki/health-risk-te-xgb-regularized-gpu",
+  "title": "Health Risk TE XGB Regularized GPU",
+  "code_file": "te_xgb_gpu_regularized.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "playground-series-s6e7"
+  ],
+  "machine_shape": "NvidiaTeslaT4"
+}

@@ -1,0 +1,31 @@
+{
+  "changed_rows": 807,
+  "changed_fraction": 0.002728628281031807,
+  "transition_counts": {
+    "at-risk": {
+      "at-risk": 0,
+      "fit": 124,
+      "unhealthy": 373
+    },
+    "fit": {
+      "at-risk": 53,
+      "fit": 0,
+      "unhealthy": 11
+    },
+    "unhealthy": {
+      "at-risk": 215,
+      "fit": 31,
+      "unhealthy": 0
+    }
+  },
+  "baseline_counts": {
+    "at-risk": 239686,
+    "unhealthy": 34222,
+    "fit": 21845
+  },
+  "router_counts": {
+    "at-risk": 239915,
+    "unhealthy": 34084,
+    "fit": 21754
+  }
+}
