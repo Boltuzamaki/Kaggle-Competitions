@@ -1,0 +1,6 @@
+agent_class: LlmAgent
+name: pro_mad_scientist
+model: gemini-3.1-pro-preview
+instruction: !include ../prompts/pro_mad.md
+tools: [get_status, run_command, write_file, edit_file, submit_predictions]
+generate_content_config: !include ../configs/sampling_mad.yaml

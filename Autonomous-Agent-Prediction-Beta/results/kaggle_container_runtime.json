@@ -1,0 +1,58 @@
+[
+  {
+    "task": "train_12",
+    "quick_s": 13.4,
+    "portfolio_s": 197.7,
+    "total_s": 211.1,
+    "quick_rc": 0,
+    "portfolio_rc": 0,
+    "n_candidates": 8,
+    "errors": {
+      "greedy": "BelowMargin:0.788113<=0.788047+0.0005"
+    }
+  },
+  {
+    "task": "train_11",
+    "quick_s": 6.2,
+    "portfolio_s": 189.3,
+    "total_s": 195.4,
+    "quick_rc": 0,
+    "portfolio_rc": 0,
+    "n_candidates": 7,
+    "errors": {}
+  },
+  {
+    "task": "train_14",
+    "quick_s": 13.2,
+    "portfolio_s": 143.2,
+    "total_s": 156.3,
+    "quick_rc": 0,
+    "portfolio_rc": 0,
+    "n_candidates": 8,
+    "errors": {}
+  },
+  {
+    "task": "train_15",
+    "quick_s": 5.1,
+    "portfolio_s": 54.5,
+    "total_s": 59.6,
+    "quick_rc": 0,
+    "portfolio_rc": 0,
+    "n_candidates": 7,
+    "errors": {
+      "greedy": "SkippedSmallTable:500<1500"
+    }
+  },
+  {
+    "task": "train_13",
+    "quick_s": 3.3,
+    "portfolio_s": 19.0,
+    "total_s": 22.3,
+    "quick_rc": 0,
+    "portfolio_rc": 0,
+    "n_candidates": 7,
+    "errors": {
+      "greedy": "SkippedSmallTable:500<1500"
+    }
+  }
+]

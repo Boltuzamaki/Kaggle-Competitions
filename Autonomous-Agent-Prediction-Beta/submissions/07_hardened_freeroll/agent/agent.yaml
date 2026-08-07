@@ -1,0 +1,8 @@
+agent_class: SequentialAgent
+name: persona_chain_pipeline
+sub_agents:
+  - config_path: agents/quick.yaml
+  - config_path: agents/portfolio.yaml
+  - config_path: agents/pro_mad.yaml
+  - config_path: agents/pro_strict.yaml
+  - config_path: agents/pro_balanced.yaml
