@@ -1,0 +1,18 @@
+{
+ "ability": 27871.77828677844,
+ "attach_active": 48.24490400580584,
+ "attach_base": 7454.838258332444,
+ "attach_planned": 445.95592617226725,
+ "attack_other": 1004.9773960421817,
+ "attack_planned": 1274.2031818442379,
+ "evolve": 9956.191688835583,
+ "number_scale": 1.02027696713547,
+ "play_pokemon": 20726.449145643433,
+ "play_trainer": 5645.226100506262,
+ "retreat_plan": 2551.782902192555,
+ "retreat_threat": 3133.4895022030523,
+ "target_active": 194.51518676593014,
+ "target_damaged": 279.449730731244,
+ "target_prize": 96.55951551590937,
+ "yes_generic": 5.03135216419659
+}

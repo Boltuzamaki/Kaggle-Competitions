@@ -1,0 +1,24 @@
+# Simulator package supplied by the competition, not redistributed here
+**/cg/
+libcrn.so
+
+# Downloaded public agents used as evaluation opponents
+references/*
+!references/top_rankers/
+references/top_rankers/*
+!references/top_rankers/decks.py
+
+# Trained checkpoints and replay corpora
+*.pt
+*.pth
+*.ckpt
+*.pkl
+scratchpad/
+data/
+
+# Packaged submissions
+submission*.tar.gz
+
+__pycache__/
+*.py[cod]
+.venv/
