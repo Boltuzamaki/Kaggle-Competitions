@@ -1,0 +1,57 @@
+{
+  "model": "ftt_te_10f",
+  "architecture": "ftt",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "outer_folds_completed": 10,
+  "complete": true,
+  "inner_encoding_folds": 5,
+  "net_seeds_averaged": 1,
+  "epochs": 12,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9674765669666088
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9674708566695527
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.968005447646734
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9662134987845923
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9670678914120052
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.9677484892920183
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9664500278240039
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.9674519872919203
+    },
+    {
+      "fold": 9,
+      "outer_auc": 0.9667837768352606
+    },
+    {
+      "fold": 10,
+      "outer_auc": 0.9686533552924588
+    }
+  ],
+  "oof_auc": 0.9673174708046499,
+  "runtime_seconds": 12430.132704019547,
+  "submission_created": false
+}

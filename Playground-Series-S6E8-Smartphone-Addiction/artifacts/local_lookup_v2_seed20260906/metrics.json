@@ -1,0 +1,39 @@
+{
+  "concept_credit": "Tamerlan Omralinov lookup-transformer concept",
+  "implementation": "independent fold-safe PyTorch source-capacity adaptation",
+  "official_data_only": true,
+  "seed": 20260906,
+  "folds": 5,
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "auc": 0.9690126782804958,
+      "best_ema_auc": 0.9690126782804958
+    },
+    {
+      "fold": 2,
+      "auc": 0.9684511921288428,
+      "best_ema_auc": 0.9684511921288428
+    },
+    {
+      "fold": 3,
+      "auc": 0.9680843092850913,
+      "best_ema_auc": 0.9680843092850913
+    },
+    {
+      "fold": 4,
+      "auc": 0.9673200811353139,
+      "best_ema_auc": 0.9673200811353139
+    },
+    {
+      "fold": 5,
+      "auc": 0.9692005493949857,
+      "best_ema_auc": 0.9692005493949857
+    }
+  ],
+  "fold_mean": 0.9684137620449459,
+  "fold_std": 0.0006758421495641917,
+  "oof_auc": 0.9684011501048131,
+  "runtime_seconds": 2274.0397777557373,
+  "submission_created": false
+}

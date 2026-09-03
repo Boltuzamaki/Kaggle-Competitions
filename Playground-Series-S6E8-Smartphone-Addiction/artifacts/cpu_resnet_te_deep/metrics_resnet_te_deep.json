@@ -1,0 +1,33 @@
+{
+  "model": "resnet_te_deep",
+  "architecture": "resnet",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "outer_folds_completed": 4,
+  "complete": false,
+  "inner_encoding_folds": 5,
+  "net_seeds_averaged": 2,
+  "epochs": 24,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9665334154750067
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9664906326486671
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9668236135528654
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9651642823183368
+    }
+  ],
+  "oof_auc": 0.9662506195213068,
+  "runtime_seconds": 31050.571870326996,
+  "submission_created": false
+}

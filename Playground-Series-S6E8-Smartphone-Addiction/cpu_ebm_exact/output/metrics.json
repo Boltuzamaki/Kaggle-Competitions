@@ -1,0 +1,18 @@
+{
+  "model": "exact-value cross-fitted evidence ExplainableBoosting GAM",
+  "official_data_only": true,
+  "seed": 20260803,
+  "folds": 5,
+  "smooth": 30.0,
+  "fold_auc": [
+    0.9634654499076774,
+    0.9638690343053385,
+    0.9639538294228541,
+    0.9634761589042306,
+    0.96293956301215
+  ],
+  "fold_mean": 0.9635408071104502,
+  "fold_std": 0.0003604644466034736,
+  "oof_auc": 0.9635359849140328,
+  "submission_created": false
+}

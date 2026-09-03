@@ -1,0 +1,11 @@
+{
+  "id": "boltuzamaki/s6e8-fold-safe-exact-deepfm-private",
+  "title": "S6E8 Fold Safe Exact DeepFM Private",
+  "code_file": "experiment.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "competition_sources": ["playground-series-s6e8"]
+}

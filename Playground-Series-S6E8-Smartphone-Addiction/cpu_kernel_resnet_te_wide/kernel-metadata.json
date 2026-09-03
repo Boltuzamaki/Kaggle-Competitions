@@ -1,0 +1,13 @@
+{
+  "id": "boltuzamaki/s6e8-cpu-resnet-te-wide-private",
+  "title": "S6E8 CPU resnet_te_wide Private",
+  "code_file": "experiment.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "competition_sources": [
+    "playground-series-s6e8"
+  ]
+}

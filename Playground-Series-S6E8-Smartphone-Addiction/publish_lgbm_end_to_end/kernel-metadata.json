@@ -1,0 +1,13 @@
+{
+  "id": "boltuzamaki/end-to-end-no-model-blend-public-lb-0-96949",
+  "title": "End to End No Model Blend | Public LB 0.96949",
+  "code_file": "s6e8_end_to_end_no_model_blend.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "competition_sources": [
+    "playground-series-s6e8"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "model": "linear",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "inner_encoding_folds": 5,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9580526123628264
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9577942628953691
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9575829984561377
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9571863195446213
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.958519525768505
+    }
+  ],
+  "oof_auc": 0.9578187266601774,
+  "runtime_seconds": 1036.778105020523,
+  "submission_created": false
+}

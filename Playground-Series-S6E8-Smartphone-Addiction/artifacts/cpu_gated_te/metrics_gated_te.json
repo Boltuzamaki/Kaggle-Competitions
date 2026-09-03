@@ -1,0 +1,49 @@
+{
+  "model": "gated_te",
+  "architecture": "gated",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "outer_folds_completed": 8,
+  "complete": false,
+  "inner_encoding_folds": 5,
+  "net_seeds_averaged": 2,
+  "epochs": 20,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9652356983288661
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9648304803654726
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9651076812125042
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9632904777459111
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9646193202012234
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.9652171442954074
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9637042269560258
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.9650366493073256
+    }
+  ],
+  "oof_auc": 0.9646244885778934,
+  "runtime_seconds": 34639.95912051201,
+  "submission_created": false
+}

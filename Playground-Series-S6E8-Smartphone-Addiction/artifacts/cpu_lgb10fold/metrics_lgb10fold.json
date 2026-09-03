@@ -1,0 +1,52 @@
+{
+  "model": "lgb10fold",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "inner_encoding_folds": 5,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9683962465138112
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9684991698863072
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9689672498321956
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9672744281342254
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9678821361532086
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.9685954593202487
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9676480213618204
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.968205444249222
+    },
+    {
+      "fold": 9,
+      "outer_auc": 0.9674464288847675
+    },
+    {
+      "fold": 10,
+      "outer_auc": 0.9696162828365026
+    }
+  ],
+  "oof_auc": 0.9682514874473616,
+  "runtime_seconds": 4215.799686908722,
+  "submission_created": false
+}

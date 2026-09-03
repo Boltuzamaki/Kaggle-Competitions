@@ -1,0 +1,90 @@
+{
+  "model": "hpo_mlp_te",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "net_seeds_averaged": 2,
+  "search_trials": 15,
+  "search_best_auc": 0.965004581258371,
+  "search_incumbent_auc": 0.9649725947092567,
+  "streams": {
+    "hpo_mlp_te": {
+      "oof_auc": 0.9660810229779828,
+      "complete": true,
+      "folds_completed": 5,
+      "config": {
+        "widths": [
+          1024,
+          614,
+          368,
+          221,
+          132
+        ],
+        "drops": [
+          0.4372,
+          0.3676,
+          0.3091,
+          0.2599,
+          0.2186
+        ],
+        "lr": 0.0006352112013887615,
+        "wd": 5.6259895410235374e-06,
+        "epochs": 27,
+        "batch": 4096
+      },
+      "fold_records": [
+        {
+          "fold": 1,
+          "outer_auc": 0.9661951232224784
+        },
+        {
+          "fold": 2,
+          "outer_auc": 0.9658630573035047
+        },
+        {
+          "fold": 3,
+          "outer_auc": 0.9661091470402605
+        },
+        {
+          "fold": 4,
+          "outer_auc": 0.9657417677941267
+        },
+        {
+          "fold": 5,
+          "outer_auc": 0.9665331545547997
+        }
+      ]
+    },
+    "hpo_mlp_te_alt": {
+      "oof_auc": 0.966165379547809,
+      "complete": false,
+      "folds_completed": 1,
+      "config": {
+        "widths": [
+          1024,
+          768,
+          576,
+          432
+        ],
+        "drops": [
+          0.3666,
+          0.291,
+          0.2309,
+          0.1833
+        ],
+        "lr": 0.0021913188333396562,
+        "wd": 3.8362988801827814e-05,
+        "epochs": 25,
+        "batch": 16384
+      },
+      "fold_records": [
+        {
+          "fold": 1,
+          "outer_auc": 0.966165379547809
+        }
+      ]
+    }
+  },
+  "runtime_seconds": 36995.88387799263,
+  "submission_created": false
+}

@@ -1,0 +1,37 @@
+{
+  "model": "dae_te",
+  "architecture": "dae",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "outer_folds_completed": 5,
+  "complete": true,
+  "inner_encoding_folds": 5,
+  "net_seeds_averaged": 2,
+  "epochs": 20,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9659927398569976
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9655847280524501
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9658993862701933
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9656751462304308
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9663455644275757
+    }
+  ],
+  "oof_auc": 0.965896107667041,
+  "runtime_seconds": 4710.55840754509,
+  "submission_created": false
+}

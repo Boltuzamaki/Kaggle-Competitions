@@ -1,0 +1,51 @@
+{
+  "provenance": "official competition data only; no public predictions",
+  "concept_credit": "Szymon Klapinski / beicicc lattice concept",
+  "folds": 5,
+  "inner_folds": 4,
+  "seed": 20260803,
+  "key_count": 42,
+  "pair_keys": [
+    "pair__daily_screen_time_hours__weekend_screen_time__raw",
+    "pair__daily_screen_time_hours__weekend_screen_time__r1",
+    "pair__daily_screen_time_hours__weekend_screen_time__floor",
+    "pair__social_media_hours__gaming_hours__raw",
+    "pair__social_media_hours__gaming_hours__r1",
+    "pair__social_media_hours__gaming_hours__floor",
+    "pair__daily_screen_time_hours__social_media_hours__raw",
+    "pair__daily_screen_time_hours__social_media_hours__r1",
+    "pair__daily_screen_time_hours__social_media_hours__floor",
+    "pair__stress_level__academic_work_impact__raw",
+    "pair__stress_level__academic_work_impact__r1",
+    "pair__stress_level__academic_work_impact__floor"
+  ],
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "auc": 0.9679072076815292,
+      "best_iteration": 2981
+    },
+    {
+      "fold": 2,
+      "auc": 0.9679647758958715,
+      "best_iteration": 2998
+    },
+    {
+      "fold": 3,
+      "auc": 0.967623204372371,
+      "best_iteration": 2997
+    },
+    {
+      "fold": 4,
+      "auc": 0.9677850802631973,
+      "best_iteration": 2998
+    },
+    {
+      "fold": 5,
+      "auc": 0.9672197531578227,
+      "best_iteration": 2991
+    }
+  ],
+  "oof_auc": 0.9676975402914088,
+  "fold_auc_std": 0.00029866977887702375
+}

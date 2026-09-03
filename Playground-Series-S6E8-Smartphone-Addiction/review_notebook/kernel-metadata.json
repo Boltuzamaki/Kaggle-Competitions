@@ -1,0 +1,19 @@
+{
+  "id": "boltuzamaki/s6e8-attributed-reproduction-and-audit-private",
+  "title": "S6E8 Attributed Reproduction and Audit Private",
+  "code_file": "s6e8_attributed_reproduction_audit.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [
+    "najiama/predicting-smartphone-addiction-oof-submission-csv"
+  ],
+  "kernel_sources": [
+    "riponce/1-public-lb-0-97068-honest-55-model-stack"
+  ],
+  "competition_sources": [
+    "playground-series-s6e8"
+  ]
+}

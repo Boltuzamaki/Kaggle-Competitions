@@ -1,0 +1,17 @@
+{
+  "model": "original TabM-style rank-one 12-head MLP",
+  "official_data_only": true,
+  "seed": 20260803,
+  "folds": 5,
+  "fold_auc": [
+    0.9396017080154311,
+    0.9397482787792886,
+    0.9402434543006061,
+    0.9396055360097805,
+    0.938450215217377
+  ],
+  "oof_auc": 0.9395176977988373,
+  "device": [
+    "/physical_device:GPU:0"
+  ]
+}

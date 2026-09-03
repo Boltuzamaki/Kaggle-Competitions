@@ -1,0 +1,32 @@
+{
+  "model": "extratrees",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "inner_encoding_folds": 5,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9618227459591695
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9615422044001293
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9615446530479149
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9613675770700314
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9623955154243591
+    }
+  ],
+  "oof_auc": 0.9617300782755167,
+  "runtime_seconds": 3330.401101589203,
+  "submission_created": false
+}

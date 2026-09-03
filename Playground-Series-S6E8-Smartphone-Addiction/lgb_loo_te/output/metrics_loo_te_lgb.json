@@ -1,0 +1,82 @@
+{
+  "provenance": "official competition data only; no public predictions",
+  "seed": 20260803,
+  "folds": 5,
+  "smoothing": [
+    10.0,
+    30.0
+  ],
+  "loo_definition": "own y removed from group sum and global prior; count decremented",
+  "verification": "singleton equals leave-one-out global prior; 25 brute-force removals per encoded column passed on fold 1",
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "smooth": 10.0,
+      "auc": 0.24236891102489153,
+      "best_iteration": 1
+    },
+    {
+      "fold": 1,
+      "smooth": 30.0,
+      "auc": 0.24408654154051107,
+      "best_iteration": 1
+    },
+    {
+      "fold": 2,
+      "smooth": 10.0,
+      "auc": 0.4986108509798132,
+      "best_iteration": 6
+    },
+    {
+      "fold": 2,
+      "smooth": 30.0,
+      "auc": 0.49674963395018107,
+      "best_iteration": 6
+    },
+    {
+      "fold": 3,
+      "smooth": 10.0,
+      "auc": 0.5696783552707603,
+      "best_iteration": 9
+    },
+    {
+      "fold": 3,
+      "smooth": 30.0,
+      "auc": 0.5653462205988515,
+      "best_iteration": 9
+    },
+    {
+      "fold": 4,
+      "smooth": 10.0,
+      "auc": 0.3516423735421686,
+      "best_iteration": 1
+    },
+    {
+      "fold": 4,
+      "smooth": 30.0,
+      "auc": 0.3540542142265469,
+      "best_iteration": 1
+    },
+    {
+      "fold": 5,
+      "smooth": 10.0,
+      "auc": 0.3133858150099324,
+      "best_iteration": 1
+    },
+    {
+      "fold": 5,
+      "smooth": 30.0,
+      "auc": 0.29684107177073116,
+      "best_iteration": 1
+    }
+  ],
+  "oof_auc": {
+    "10": 0.4437572159159948,
+    "30": 0.44189875631236136
+  },
+  "fold_auc_std": {
+    "10": 0.13517086439308817,
+    "30": 0.13545588349473822
+  },
+  "selected_by_oof": "10"
+}

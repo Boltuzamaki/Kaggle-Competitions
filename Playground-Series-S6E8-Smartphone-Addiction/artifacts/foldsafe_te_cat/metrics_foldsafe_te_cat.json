@@ -1,0 +1,104 @@
+{
+  "model": "fold-safe OOF target encoding CatBoost, rich composition view",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "inner_encoding_folds": 5,
+  "own_label_excluded_from_fit_encodings": true,
+  "task_type": "GPU",
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9678952970689866,
+      "selected": "d7_regular",
+      "iterations": 3863,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.966991662979126,
+          "iterations": 3863
+        },
+        {
+          "config": "d8_strong",
+          "inner_auc": 0.9667496681213379,
+          "iterations": 3588
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9675830106219923,
+      "selected": "d7_regular",
+      "iterations": 3071,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.9672122001647949,
+          "iterations": 3071
+        },
+        {
+          "config": "d8_strong",
+          "inner_auc": 0.9670568108558655,
+          "iterations": 3491
+        }
+      ]
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9678082197437379,
+      "selected": "d7_regular",
+      "iterations": 3347,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.9663728475570679,
+          "iterations": 3347
+        },
+        {
+          "config": "d8_strong",
+          "inner_auc": 0.9662810564041138,
+          "iterations": 3978
+        }
+      ]
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.967299344759892,
+      "selected": "d7_regular",
+      "iterations": 3251,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.9680899977684021,
+          "iterations": 3251
+        },
+        {
+          "config": "d8_strong",
+          "inner_auc": 0.9678691029548645,
+          "iterations": 3854
+        }
+      ]
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9681051775941762,
+      "selected": "d7_regular",
+      "iterations": 4055,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.9680138528347015,
+          "iterations": 4055
+        },
+        {
+          "config": "d8_strong",
+          "inner_auc": 0.967839241027832,
+          "iterations": 3611
+        }
+      ]
+    }
+  ],
+  "oof_auc": 0.9677370181864797,
+  "runtime_seconds": 1549.6241614818573,
+  "submission_created": false
+}

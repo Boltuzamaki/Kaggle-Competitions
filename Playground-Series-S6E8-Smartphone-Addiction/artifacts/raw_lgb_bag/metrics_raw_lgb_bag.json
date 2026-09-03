@@ -1,0 +1,133 @@
+{
+  "provenance": "independently trained; official competition data only",
+  "folds": 5,
+  "split_seed": 20260803,
+  "model_seeds": [
+    20260803,
+    20260881
+  ],
+  "configs": {
+    "d4_l15": {
+      "num_leaves": 15,
+      "max_depth": 4,
+      "min_child_samples": 220,
+      "reg_lambda": 8.0
+    },
+    "d6_l31": {
+      "num_leaves": 31,
+      "max_depth": 6,
+      "min_child_samples": 320,
+      "reg_lambda": 12.0
+    }
+  },
+  "view": "raw native NaN plus missingness/composition; no target or frequency encoding",
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "config": "d4_l15",
+      "auc": 0.9594390514040474,
+      "best_iterations": [
+        5000,
+        5000
+      ]
+    },
+    {
+      "fold": 1,
+      "config": "d6_l31",
+      "auc": 0.9604355754443638,
+      "best_iterations": [
+        4975,
+        4994
+      ]
+    },
+    {
+      "fold": 2,
+      "config": "d4_l15",
+      "auc": 0.9599349887184407,
+      "best_iterations": [
+        5000,
+        5000
+      ]
+    },
+    {
+      "fold": 2,
+      "config": "d6_l31",
+      "auc": 0.9608016410573085,
+      "best_iterations": [
+        5000,
+        4998
+      ]
+    },
+    {
+      "fold": 3,
+      "config": "d4_l15",
+      "auc": 0.9598381098247608,
+      "best_iterations": [
+        5000,
+        5000
+      ]
+    },
+    {
+      "fold": 3,
+      "config": "d6_l31",
+      "auc": 0.9606206456191624,
+      "best_iterations": [
+        5000,
+        4991
+      ]
+    },
+    {
+      "fold": 4,
+      "config": "d4_l15",
+      "auc": 0.9592564080571493,
+      "best_iterations": [
+        5000,
+        5000
+      ]
+    },
+    {
+      "fold": 4,
+      "config": "d6_l31",
+      "auc": 0.9600941505707877,
+      "best_iterations": [
+        4996,
+        4999
+      ]
+    },
+    {
+      "fold": 5,
+      "config": "d4_l15",
+      "auc": 0.9585276702504453,
+      "best_iterations": [
+        5000,
+        4998
+      ]
+    },
+    {
+      "fold": 5,
+      "config": "d6_l31",
+      "auc": 0.9594539447187569,
+      "best_iterations": [
+        4996,
+        4995
+      ]
+    }
+  ],
+  "oof_auc": {
+    "d4_l15": 0.9593968613730224,
+    "d6_l31": 0.9602790348021767
+  },
+  "fold_auc_std": {
+    "d4_l15": 0.0005615276378697744,
+    "d6_l31": 0.0005313315323961776
+  },
+  "selection_value_auc_minus_0.1std": {
+    "d4_l15": 0.9593407086092354,
+    "d6_l31": 0.9602259016489371
+  },
+  "selected": "d6_l31",
+  "estimated_lb_from_prior_original_lgb_offset": {
+    "point": 0.9612090348021767,
+    "warning": "rough calibration from one prior model; uncertainty is at least several 1e-4 and model-dependent"
+  }
+}

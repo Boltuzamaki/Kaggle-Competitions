@@ -1,0 +1,104 @@
+{
+  "model": "ExtraTrees target-free hierarchical support",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "target_encoding_used": false,
+  "boosting_used": false,
+  "outer_folds": 5,
+  "inner_tuning": "bounded 16% holdout inside outer-fit only",
+  "inner_trees": 180,
+  "final_trees": 650,
+  "configs": {
+    "wide_leaf2": {
+      "max_features": 0.78,
+      "min_samples_leaf": 2,
+      "max_depth": null
+    },
+    "regular_leaf5": {
+      "max_features": 0.62,
+      "min_samples_leaf": 5,
+      "max_depth": 30
+    }
+  },
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9431336784556625,
+      "selected": "wide_leaf2",
+      "inner_trials": [
+        {
+          "config": "wide_leaf2",
+          "inner_auc": 0.942312652611351
+        },
+        {
+          "config": "regular_leaf5",
+          "inner_auc": 0.9422675417993847
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9427235028035716,
+      "selected": "wide_leaf2",
+      "inner_trials": [
+        {
+          "config": "wide_leaf2",
+          "inner_auc": 0.9427036537602111
+        },
+        {
+          "config": "regular_leaf5",
+          "inner_auc": 0.9426150506808073
+        }
+      ]
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9434746353434506,
+      "selected": "regular_leaf5",
+      "inner_trials": [
+        {
+          "config": "wide_leaf2",
+          "inner_auc": 0.9439009963875951
+        },
+        {
+          "config": "regular_leaf5",
+          "inner_auc": 0.943938846977433
+        }
+      ]
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9432544470787176,
+      "selected": "regular_leaf5",
+      "inner_trials": [
+        {
+          "config": "wide_leaf2",
+          "inner_auc": 0.9439905360300788
+        },
+        {
+          "config": "regular_leaf5",
+          "inner_auc": 0.944099528868199
+        }
+      ]
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9435445997080572,
+      "selected": "regular_leaf5",
+      "inner_trials": [
+        {
+          "config": "wide_leaf2",
+          "inner_auc": 0.9432798240220273
+        },
+        {
+          "config": "regular_leaf5",
+          "inner_auc": 0.9433102127685181
+        }
+      ]
+    }
+  ],
+  "oof_auc": 0.9432186998953243,
+  "runtime_seconds": 16147.396488189697,
+  "smoke": false,
+  "submission_created": false
+}

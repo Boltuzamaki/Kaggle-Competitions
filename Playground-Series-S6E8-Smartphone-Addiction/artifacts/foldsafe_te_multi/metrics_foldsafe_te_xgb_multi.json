@@ -1,0 +1,109 @@
+{
+  "model": "fold-safe OOF target encoding XGBoost, multi-smoothing (10/40/150)",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "inner_encoding_folds": 5,
+  "smoothings": [
+    10.0,
+    40.0,
+    150.0
+  ],
+  "own_label_excluded_from_fit_encodings": true,
+  "selection": "two configs on an 18% split inside each outer-fit partition",
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9680537543420256,
+      "selected": "d7_regular",
+      "rounds": 3219,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.968646144719999,
+          "rounds": 3219
+        },
+        {
+          "config": "d9_strong",
+          "inner_auc": 0.9684926578087807,
+          "rounds": 3250
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9689224917485029,
+      "selected": "d7_regular",
+      "rounds": 2344,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.9677155662217454,
+          "rounds": 2344
+        },
+        {
+          "config": "d9_strong",
+          "inner_auc": 0.9675176118924164,
+          "rounds": 2418
+        }
+      ]
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9675053673523455,
+      "selected": "d7_regular",
+      "rounds": 3049,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.9677416306370925,
+          "rounds": 3049
+        },
+        {
+          "config": "d9_strong",
+          "inner_auc": 0.9676348062018255,
+          "rounds": 2934
+        }
+      ]
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9684140918545936,
+      "selected": "d7_regular",
+      "rounds": 3155,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.9679163535705416,
+          "rounds": 3155
+        },
+        {
+          "config": "d9_strong",
+          "inner_auc": 0.9676734093650763,
+          "rounds": 2805
+        }
+      ]
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.967865932295425,
+      "selected": "d7_regular",
+      "rounds": 2883,
+      "inner_trials": [
+        {
+          "config": "d7_regular",
+          "inner_auc": 0.9677897090109999,
+          "rounds": 2883
+        },
+        {
+          "config": "d9_strong",
+          "inner_auc": 0.9676388334110655,
+          "rounds": 3023
+        }
+      ]
+    }
+  ],
+  "oof_auc": 0.968148931952264,
+  "runtime_seconds": 1340.043312072754,
+  "submission_created": false
+}

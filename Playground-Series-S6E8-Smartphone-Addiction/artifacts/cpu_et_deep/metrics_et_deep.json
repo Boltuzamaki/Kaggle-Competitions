@@ -1,0 +1,52 @@
+{
+  "model": "et_deep",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "inner_encoding_folds": 5,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9627269557133616
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9628978449666721
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9636060872292334
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9614584654639813
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9621280156274358
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.9629635770681169
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9617175962191788
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.9630620726111867
+    },
+    {
+      "fold": 9,
+      "outer_auc": 0.9621240810018139
+    },
+    {
+      "fold": 10,
+      "outer_auc": 0.9644687188253632
+    }
+  ],
+  "oof_auc": 0.9627143380966581,
+  "runtime_seconds": 10206.364100456238,
+  "submission_created": false
+}

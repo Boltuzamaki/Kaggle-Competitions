@@ -1,0 +1,32 @@
+{
+  "model": "randomforest",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "inner_encoding_folds": 5,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9632203839294766
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9627066536406521
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9629169048506911
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9627646097922511
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9635374206339327
+    }
+  ],
+  "oof_auc": 0.9630248386913942,
+  "runtime_seconds": 12285.31860089302,
+  "submission_created": false
+}

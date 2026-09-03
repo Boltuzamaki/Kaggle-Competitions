@@ -1,0 +1,64 @@
+{
+  "concept_credit": "Tamerlan Omralinov lookup-transformer concept",
+  "implementation": "independent fold-safe PyTorch source-capacity adaptation",
+  "official_data_only": true,
+  "seed": 20260915,
+  "folds": 10,
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "auc": 0.9685549494360275,
+      "best_ema_auc": 0.9685549494360275
+    },
+    {
+      "fold": 2,
+      "auc": 0.9692330102946958,
+      "best_ema_auc": 0.9692330102946958
+    },
+    {
+      "fold": 3,
+      "auc": 0.9682722889705806,
+      "best_ema_auc": 0.9682722889705806
+    },
+    {
+      "fold": 4,
+      "auc": 0.9686893730662376,
+      "best_ema_auc": 0.9686893730662376
+    },
+    {
+      "fold": 5,
+      "auc": 0.9690622366334187,
+      "best_ema_auc": 0.9690622366334187
+    },
+    {
+      "fold": 6,
+      "auc": 0.9674850733629063,
+      "best_ema_auc": 0.9674850733629063
+    },
+    {
+      "fold": 7,
+      "auc": 0.969306381827782,
+      "best_ema_auc": 0.969306381827782
+    },
+    {
+      "fold": 8,
+      "auc": 0.9682416855306948,
+      "best_ema_auc": 0.9682416855306948
+    },
+    {
+      "fold": 9,
+      "auc": 0.968105335073256,
+      "best_ema_auc": 0.968105335073256
+    },
+    {
+      "fold": 10,
+      "auc": 0.9688541550075253,
+      "best_ema_auc": 0.9688541550075253
+    }
+  ],
+  "fold_mean": 0.9685804489203125,
+  "fold_std": 0.000539227968267364,
+  "oof_auc": 0.9685594957951303,
+  "runtime_seconds": 7584.997859954834,
+  "submission_created": false
+}

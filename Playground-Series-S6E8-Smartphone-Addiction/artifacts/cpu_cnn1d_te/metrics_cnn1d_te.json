@@ -1,0 +1,57 @@
+{
+  "model": "cnn1d_te",
+  "architecture": "cnn1d",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "outer_folds_completed": 10,
+  "complete": true,
+  "inner_encoding_folds": 5,
+  "net_seeds_averaged": 2,
+  "epochs": 20,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9625855760045908
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9628264000316842
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9631381387120252
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.961308362747444
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.962519829036508
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.963419299981084
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9617300156107311
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.9630185943384035
+    },
+    {
+      "fold": 9,
+      "outer_auc": 0.9619178064522035
+    },
+    {
+      "fold": 10,
+      "outer_auc": 0.9643595369172031
+    }
+  ],
+  "oof_auc": 0.9626764108272603,
+  "runtime_seconds": 32376.145642518997,
+  "submission_created": false
+}

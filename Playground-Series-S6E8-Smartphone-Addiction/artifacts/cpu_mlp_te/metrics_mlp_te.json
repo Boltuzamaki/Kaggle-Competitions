@@ -1,0 +1,36 @@
+{
+  "model": "mlp_te",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "outer_folds_completed": 5,
+  "complete": true,
+  "inner_encoding_folds": 5,
+  "net_seeds_averaged": 2,
+  "epochs": 18,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9662633416972886
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9658888981365452
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9660988164664792
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9657899009379889
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9665571699933315
+    }
+  ],
+  "oof_auc": 0.9661121303472473,
+  "runtime_seconds": 3030.717047929764,
+  "submission_created": false
+}

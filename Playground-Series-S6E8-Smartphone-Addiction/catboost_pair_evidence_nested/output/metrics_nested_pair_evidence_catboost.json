@@ -1,0 +1,152 @@
+{
+  "model": "nested-tuned CatBoost single/pair evidence",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "inner_evidence_folds": 4,
+  "tuning": "20% holdout strictly inside each outer-train",
+  "gpu_fit_count": 20,
+  "key_count": 51,
+  "configs": {
+    "pair_d6": {
+      "depth": 6,
+      "learning_rate": 0.035,
+      "l2_leaf_reg": 7.0,
+      "random_strength": 0.25,
+      "bagging_temperature": 0.35
+    },
+    "pair_d7": {
+      "depth": 7,
+      "learning_rate": 0.03,
+      "l2_leaf_reg": 9.0,
+      "random_strength": 0.35,
+      "bagging_temperature": 0.5
+    },
+    "pair_d8": {
+      "depth": 8,
+      "learning_rate": 0.025,
+      "l2_leaf_reg": 12.0,
+      "random_strength": 0.45,
+      "bagging_temperature": 0.65
+    }
+  },
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9662668968162165,
+      "selected_config": "pair_d6",
+      "selected_iterations": 2366,
+      "inner_candidates": [
+        {
+          "config": "pair_d6",
+          "inner_auc": 0.9655120396031728,
+          "iterations": 2366
+        },
+        {
+          "config": "pair_d7",
+          "inner_auc": 0.965447103633841,
+          "iterations": 2397
+        },
+        {
+          "config": "pair_d8",
+          "inner_auc": 0.965474564193333,
+          "iterations": 2381
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9655654775858207,
+      "selected_config": "pair_d8",
+      "selected_iterations": 2387,
+      "inner_candidates": [
+        {
+          "config": "pair_d6",
+          "inner_auc": 0.9659998439265931,
+          "iterations": 2348
+        },
+        {
+          "config": "pair_d7",
+          "inner_auc": 0.9661408526389073,
+          "iterations": 2385
+        },
+        {
+          "config": "pair_d8",
+          "inner_auc": 0.9662148595365424,
+          "iterations": 2387
+        }
+      ]
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9669138284955598,
+      "selected_config": "pair_d7",
+      "selected_iterations": 2385,
+      "inner_candidates": [
+        {
+          "config": "pair_d6",
+          "inner_auc": 0.9655378747614127,
+          "iterations": 2387
+        },
+        {
+          "config": "pair_d7",
+          "inner_auc": 0.9656062914680593,
+          "iterations": 2385
+        },
+        {
+          "config": "pair_d8",
+          "inner_auc": 0.9655333783465347,
+          "iterations": 2392
+        }
+      ]
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9669984647846104,
+      "selected_config": "pair_d7",
+      "selected_iterations": 2319,
+      "inner_candidates": [
+        {
+          "config": "pair_d6",
+          "inner_auc": 0.9656585568399734,
+          "iterations": 2185
+        },
+        {
+          "config": "pair_d7",
+          "inner_auc": 0.9658445725165132,
+          "iterations": 2319
+        },
+        {
+          "config": "pair_d8",
+          "inner_auc": 0.9657786902465015,
+          "iterations": 2371
+        }
+      ]
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9667220151958344,
+      "selected_config": "pair_d6",
+      "selected_iterations": 2398,
+      "inner_candidates": [
+        {
+          "config": "pair_d6",
+          "inner_auc": 0.9663595980703659,
+          "iterations": 2398
+        },
+        {
+          "config": "pair_d7",
+          "inner_auc": 0.9662481377980465,
+          "iterations": 2299
+        },
+        {
+          "config": "pair_d8",
+          "inner_auc": 0.9662531966958688,
+          "iterations": 2374
+        }
+      ]
+    }
+  ],
+  "oof_auc": 0.9664626389801491,
+  "submission_created": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "boltuzamaki/stacking-47-models-public-lb-0-97073",
+  "title": "Stacking 47 Models | Public LB 0.97073",
+  "code_file": "s6e8_47_stream_stack.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "competition_sources": ["playground-series-s6e8"],
+  "dataset_sources": ["boltuzamaki/s6e8-oof-prediction-library"]
+}

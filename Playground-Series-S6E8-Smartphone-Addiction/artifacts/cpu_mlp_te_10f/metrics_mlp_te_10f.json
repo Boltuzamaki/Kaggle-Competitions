@@ -1,0 +1,56 @@
+{
+  "model": "mlp_te_10f",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "outer_folds_completed": 10,
+  "complete": true,
+  "inner_encoding_folds": 5,
+  "net_seeds_averaged": 3,
+  "epochs": 22,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9666540842565539
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9666216335512807
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9668919062293168
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9652720548509387
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9660437191201787
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.9668528443826744
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9655595120345705
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.9665200229566172
+    },
+    {
+      "fold": 9,
+      "outer_auc": 0.9658795137054418
+    },
+    {
+      "fold": 10,
+      "outer_auc": 0.9678308131867404
+    }
+  ],
+  "oof_auc": 0.9664093426100359,
+  "runtime_seconds": 14403.176625490189,
+  "submission_created": false
+}

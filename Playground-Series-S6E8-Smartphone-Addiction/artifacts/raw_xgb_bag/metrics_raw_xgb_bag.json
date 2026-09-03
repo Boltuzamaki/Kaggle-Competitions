@@ -1,0 +1,65 @@
+{
+  "provenance": "independently trained; official competition data only",
+  "folds": 5,
+  "split_seed": 20260803,
+  "model_seeds": [
+    20260803,
+    20260917
+  ],
+  "view": "raw native NaN plus missingness/composition; no target or frequency encoding",
+  "devices": [
+    "cuda",
+    "cuda",
+    "cuda",
+    "cuda",
+    "cuda",
+    "cuda",
+    "cuda",
+    "cuda",
+    "cuda",
+    "cuda"
+  ],
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "auc": 0.9629541763856653,
+      "best_iterations": [
+        4200,
+        4199
+      ]
+    },
+    {
+      "fold": 2,
+      "auc": 0.9634227459825117,
+      "best_iterations": [
+        4200,
+        4200
+      ]
+    },
+    {
+      "fold": 3,
+      "auc": 0.9632252845234027,
+      "best_iterations": [
+        4200,
+        4200
+      ]
+    },
+    {
+      "fold": 4,
+      "auc": 0.9627652249354028,
+      "best_iterations": [
+        4200,
+        4200
+      ]
+    },
+    {
+      "fold": 5,
+      "auc": 0.9622127565480032,
+      "best_iterations": [
+        4200,
+        4200
+      ]
+    }
+  ],
+  "oof_auc": 0.9629127592639459
+}

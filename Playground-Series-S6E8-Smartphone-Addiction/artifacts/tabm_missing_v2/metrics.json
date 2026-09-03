@@ -1,0 +1,44 @@
+{
+  "model": "original missingness-gated 8-head residual MLP",
+  "official_data_only": true,
+  "seed": 20260803,
+  "folds": 5,
+  "fold_auc": [
+    0.9402426033250935,
+    0.9402303498105217,
+    0.9412331337474801,
+    0.9404040879803082,
+    0.9390646180624415
+  ],
+  "oof_auc": 0.9402158529242,
+  "regime_auc": [
+    {
+      "fold": 1,
+      "complete_auc": 0.9516860161884828,
+      "incomplete_auc": 0.932212679189607
+    },
+    {
+      "fold": 2,
+      "complete_auc": 0.952499354441349,
+      "incomplete_auc": 0.9316508161210171
+    },
+    {
+      "fold": 3,
+      "complete_auc": 0.953099357739608,
+      "incomplete_auc": 0.9328726927052979
+    },
+    {
+      "fold": 4,
+      "complete_auc": 0.9514031980400564,
+      "incomplete_auc": 0.9328005573605151
+    },
+    {
+      "fold": 5,
+      "complete_auc": 0.9507936744410416,
+      "incomplete_auc": 0.9307754363599161
+    }
+  ],
+  "device": [
+    "/physical_device:GPU:0"
+  ]
+}

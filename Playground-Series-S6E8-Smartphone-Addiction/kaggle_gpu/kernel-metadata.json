@@ -1,0 +1,13 @@
+{
+  "id": "boltuzamaki/s6e8-cpu-catboost-multiseed-private",
+  "title": "S6E8 CPU CatBoost Multiseed Private",
+  "code_file": "experiment.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "competition_sources": [
+    "playground-series-s6e8"
+  ]
+}

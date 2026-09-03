@@ -1,0 +1,67 @@
+{
+  "provenance": "official competition data only; independently trained",
+  "folds": 5,
+  "seed": 20260803,
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "global_auc": 0.9669915867001818,
+      "expert_auc": 0.9666396380453548,
+      "global_iteration": 1643,
+      "expert_iterations": {
+        "True": 1083,
+        "False": 954
+      }
+    },
+    {
+      "fold": 2,
+      "global_auc": 0.966989810409316,
+      "expert_auc": 0.9666708815833943,
+      "global_iteration": 1403,
+      "expert_iterations": {
+        "True": 1234,
+        "False": 1041
+      }
+    },
+    {
+      "fold": 3,
+      "global_auc": 0.966808462808376,
+      "expert_auc": 0.9664645113950994,
+      "global_iteration": 1496,
+      "expert_iterations": {
+        "True": 1091,
+        "False": 954
+      }
+    },
+    {
+      "fold": 4,
+      "global_auc": 0.9670077638613892,
+      "expert_auc": 0.9665456055049215,
+      "global_iteration": 1484,
+      "expert_iterations": {
+        "True": 1250,
+        "False": 1344
+      }
+    },
+    {
+      "fold": 5,
+      "global_auc": 0.9662807080910841,
+      "expert_auc": 0.9659661950930939,
+      "global_iteration": 1627,
+      "expert_iterations": {
+        "True": 1065,
+        "False": 1180
+      }
+    }
+  ],
+  "oof_auc": {
+    "global": 0.9668143172779793,
+    "regime_experts": 0.9664548665792034,
+    "blend_expert_0.2": 0.9668760148232881,
+    "blend_expert_0.4": 0.9668699290825897,
+    "blend_expert_0.6": 0.966798818906868,
+    "blend_expert_0.8": 0.9666614710370056
+  },
+  "selected": "blend_expert_0.2",
+  "selected_expert_weight": 0.2
+}

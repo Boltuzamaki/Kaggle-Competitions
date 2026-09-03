@@ -1,0 +1,57 @@
+{
+  "model": "dcnv2_te",
+  "architecture": "dcnv2",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "outer_folds_completed": 10,
+  "complete": true,
+  "inner_encoding_folds": 5,
+  "net_seeds_averaged": 2,
+  "epochs": 20,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9489754607654071
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9480134155130043
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9484893004956845
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9462015996074036
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9486100673663317
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.9493926077731457
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9480834603003632
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.9485552738734373
+    },
+    {
+      "fold": 9,
+      "outer_auc": 0.9468670997637063
+    },
+    {
+      "fold": 10,
+      "outer_auc": 0.9508278619295562
+    }
+  ],
+  "oof_auc": 0.948396824685399,
+  "runtime_seconds": 17473.48181271553,
+  "submission_created": false
+}

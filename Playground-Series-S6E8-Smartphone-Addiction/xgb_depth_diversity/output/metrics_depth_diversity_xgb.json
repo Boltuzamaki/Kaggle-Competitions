@@ -1,0 +1,138 @@
+{
+  "provenance": "independently trained; official competition data only; no public predictions",
+  "split_seed": 20260803,
+  "folds": 5,
+  "inner_folds": 4,
+  "configs": {
+    "d4_regular": {
+      "max_depth": 4,
+      "min_child_weight": 18,
+      "reg_alpha": 0.25,
+      "reg_lambda": 8.0,
+      "gamma": 0.01,
+      "learning_rate": 0.025,
+      "colsample_bytree": 0.88
+    },
+    "d5_balanced": {
+      "max_depth": 5,
+      "min_child_weight": 14,
+      "reg_alpha": 0.2,
+      "reg_lambda": 7.0,
+      "gamma": 0.01,
+      "learning_rate": 0.022,
+      "colsample_bytree": 0.85
+    },
+    "d6_strong": {
+      "max_depth": 6,
+      "min_child_weight": 22,
+      "reg_alpha": 0.35,
+      "reg_lambda": 10.0,
+      "gamma": 0.02,
+      "learning_rate": 0.02,
+      "colsample_bytree": 0.82
+    }
+  },
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "config": "d4_regular",
+      "auc": 0.9679987522476401,
+      "best_iteration": 4197
+    },
+    {
+      "fold": 1,
+      "config": "d5_balanced",
+      "auc": 0.9681433500879477,
+      "best_iteration": 4197
+    },
+    {
+      "fold": 1,
+      "config": "d6_strong",
+      "auc": 0.9682162688450655,
+      "best_iteration": 4192
+    },
+    {
+      "fold": 2,
+      "config": "d4_regular",
+      "auc": 0.9680425371451287,
+      "best_iteration": 4178
+    },
+    {
+      "fold": 2,
+      "config": "d5_balanced",
+      "auc": 0.9682360603687256,
+      "best_iteration": 4195
+    },
+    {
+      "fold": 2,
+      "config": "d6_strong",
+      "auc": 0.9683083452074419,
+      "best_iteration": 4173
+    },
+    {
+      "fold": 3,
+      "config": "d4_regular",
+      "auc": 0.9678907959565587,
+      "best_iteration": 4193
+    },
+    {
+      "fold": 3,
+      "config": "d5_balanced",
+      "auc": 0.9680389347074968,
+      "best_iteration": 4200
+    },
+    {
+      "fold": 3,
+      "config": "d6_strong",
+      "auc": 0.9680777619241512,
+      "best_iteration": 4200
+    },
+    {
+      "fold": 4,
+      "config": "d4_regular",
+      "auc": 0.9679674167362484,
+      "best_iteration": 4195
+    },
+    {
+      "fold": 4,
+      "config": "d5_balanced",
+      "auc": 0.9680990185515972,
+      "best_iteration": 4194
+    },
+    {
+      "fold": 4,
+      "config": "d6_strong",
+      "auc": 0.9682183575916093,
+      "best_iteration": 3912
+    },
+    {
+      "fold": 5,
+      "config": "d4_regular",
+      "auc": 0.9673550239957167,
+      "best_iteration": 4200
+    },
+    {
+      "fold": 5,
+      "config": "d5_balanced",
+      "auc": 0.9675585247870531,
+      "best_iteration": 4200
+    },
+    {
+      "fold": 5,
+      "config": "d6_strong",
+      "auc": 0.9676752785997527,
+      "best_iteration": 4010
+    }
+  ],
+  "oof_auc": {
+    "d4_regular": 0.9678483976711869,
+    "d5_balanced": 0.9680121411857949,
+    "d6_strong": 0.9680952760303091
+  },
+  "fold_auc_std": {
+    "d4_regular": 0.00028268619138053206,
+    "d5_balanced": 0.0002652088238917646,
+    "d6_strong": 0.00025090551437402774
+  },
+  "purpose": "configuration diversity relative to depth-7 stream"
+}

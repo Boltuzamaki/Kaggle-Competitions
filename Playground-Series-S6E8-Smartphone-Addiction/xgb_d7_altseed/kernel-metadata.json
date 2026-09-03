@@ -1,0 +1,11 @@
+{
+  "id": "boltuzamaki/s6e8-nested-te-xgb-d7-alt-seed-private",
+  "title": "S6E8 Nested TE XGB D7 Alt Seed Private",
+  "code_file": "experiment.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "competition_sources": ["playground-series-s6e8"]
+}

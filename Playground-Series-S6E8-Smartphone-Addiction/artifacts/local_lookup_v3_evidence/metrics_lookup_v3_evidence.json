@@ -1,0 +1,37 @@
+{
+  "model": "nested-OOF supervised-evidence lookup Transformer",
+  "official_data_only": true,
+  "seed": 20260804,
+  "outer_folds": 5,
+  "inner_folds": 5,
+  "hyperparameter_policy": "single prespecified bounded candidate; fixed epochs; no outer-validation selection",
+  "evidence_contract": "outer-fit inner-OOF; outer-validation/test mapped from complete outer-fit only",
+  "evidence_key_count": 19,
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "auc": 0.9653469921601319
+    },
+    {
+      "fold": 2,
+      "auc": 0.9650804710189043
+    },
+    {
+      "fold": 3,
+      "auc": 0.9652147816714809
+    },
+    {
+      "fold": 4,
+      "auc": 0.9654211925817704
+    },
+    {
+      "fold": 5,
+      "auc": 0.9656799914009291
+    }
+  ],
+  "fold_mean": 0.9653486857666433,
+  "fold_std": 0.0002024317106870234,
+  "oof_auc": 0.9653372490276525,
+  "runtime_seconds": 3026.4573452472687,
+  "submission_created": false
+}

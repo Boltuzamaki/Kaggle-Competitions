@@ -1,0 +1,13 @@
+{
+  "id": "boltuzamaki/s6e8-cpu-hpo-lgb-private",
+  "title": "S6E8 CPU HPO lgb Private",
+  "code_file": "experiment.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "competition_sources": [
+    "playground-series-s6e8"
+  ]
+}

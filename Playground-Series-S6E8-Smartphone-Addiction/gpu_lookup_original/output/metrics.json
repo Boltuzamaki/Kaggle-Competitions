@@ -1,0 +1,21 @@
+{
+  "concept_credit": "Tamerlan Omralinov lookup-transformer concept",
+  "implementation": "original fold-safe TensorFlow adaptation",
+  "official_data_only": true,
+  "seed": 20260803,
+  "folds": 5,
+  "fold_auc": [
+    0.9659622081292746,
+    0.9667142297026048,
+    0.9664042085909909,
+    0.9662877613200322,
+    0.9651018219859182
+  ],
+  "fold_mean": 0.9660940459457642,
+  "fold_std": 0.0005514062025983973,
+  "oof_auc": 0.9654725180519454,
+  "submission_created": false,
+  "device": [
+    "/physical_device:GPU:0"
+  ]
+}

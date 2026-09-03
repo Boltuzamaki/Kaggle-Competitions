@@ -1,0 +1,55 @@
+{
+  "model": "ordered CatBoost on target-free hierarchical support",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "target_encoding_used": false,
+  "outer_folds": 2,
+  "tuning": "bounded 16% holdout wholly inside each outer-fit fold",
+  "configs": {
+    "ordered_d7": {
+      "depth": 7,
+      "learning_rate": 0.045,
+      "l2_leaf_reg": 9.0,
+      "random_strength": 0.35
+    }
+  },
+  "leave_one_out_training_support": true,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9316169599999999,
+      "selected": {
+        "config": "ordered_d7",
+        "inner_auc": 0.932975,
+        "iterations": 30
+      },
+      "inner_trials": [
+        {
+          "config": "ordered_d7",
+          "inner_auc": 0.932975,
+          "iterations": 30
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.924392,
+      "selected": {
+        "config": "ordered_d7",
+        "inner_auc": 0.9365,
+        "iterations": 30
+      },
+      "inner_trials": [
+        {
+          "config": "ordered_d7",
+          "inner_auc": 0.9365,
+          "iterations": 30
+        }
+      ]
+    }
+  ],
+  "oof_auc": 0.9268822400000001,
+  "runtime_seconds": 2.759554147720337,
+  "smoke": true,
+  "submission_created": false
+}

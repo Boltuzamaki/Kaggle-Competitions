@@ -1,0 +1,13 @@
+{
+  "id": "boltuzamaki/s6e8-nested-te-xgboost-private",
+  "title": "S6E8 Nested TE XGBoost Private",
+  "code_file": "experiment.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "competition_sources": [
+    "playground-series-s6e8"
+  ]
+}

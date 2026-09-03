@@ -1,0 +1,23 @@
+{
+  "model": "fe_screen",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "folds": 5,
+  "rounds": 1200,
+  "baseline_oof": 0.9677754865292345,
+  "group_oof": {
+    "peer": 0.9677336552228402,
+    "rank": 0.9677849300526078,
+    "residual": 0.9677487043063812,
+    "dup": 0.9677754876659006
+  },
+  "group_delta": {
+    "peer": -4.183130639434651e-05,
+    "rank": 9.443523373287022e-06,
+    "residual": -2.6782222853349857e-05,
+    "dup": 1.1366660945810736e-09
+  },
+  "follow_up_threshold": 0.0002,
+  "runtime_seconds": 7389.17284989357,
+  "submission_created": false
+}

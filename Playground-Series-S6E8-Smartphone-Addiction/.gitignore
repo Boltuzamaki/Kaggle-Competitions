@@ -1,0 +1,69 @@
+# ---- Competition data (download from Kaggle, never commit) ----------------
+train.csv
+test.csv
+sample_submission.csv
+submission.csv
+*.zip
+external/
+s6e8_official_private/
+
+# ---- Prediction streams and run outputs -----------------------------------
+# Every stream is one OOF CSV over 691k rows plus one test CSV over 296k rows,
+# and there are 78 of them. All regenerable by the kernels; only the JSON
+# metrics and the hyperparameter-search tables are worth keeping.
+artifacts/**
+!artifacts/**/
+!artifacts/**/metrics*.json
+!artifacts/**/search_*.csv
+*/output/*
+!*/output/metrics*.json
+!*/output/provenance.json
+*/artifacts/*
+!*/artifacts/metrics*.json
+oof_*.csv
+test_*.csv
+partial_oof_*.csv
+*_submission.csv
+stack_weights_submission.csv
+checkpoints/
+
+# ---- Binary model artifacts / caches --------------------------------------
+*.pkl
+*.joblib
+*.npz
+*.npy
+*.parquet
+*.h5
+*.pt
+*.pth
+*.ckpt
+*.cbm
+*.onnx
+*.tfevents*
+catboost_info/
+lightning_logs/
+
+# ---- Logs ------------------------------------------------------------------
+*.log
+
+# ---- Third-party public notebooks and predictions pulled for research ------
+# Other people's work, studied locally and credited in EXPERIMENT_LOG.md.
+# Not republished here.
+research_sources/
+research_notebooks/
+public_outputs/
+diagnostics_naji/
+diagnostics_public_oof/
+
+# ---- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+.venv_kaggle/
+venv/
+.ipynb_checkpoints/
+
+# ---- Local tooling ---------------------------------------------------------
+.claude/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,172 @@
+{
+  "model": "hpo_xgb",
+  "learner": "xgb",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "outer_folds_completed": 10,
+  "complete": true,
+  "inner_encoding_folds": 5,
+  "search_trials": 47,
+  "search_best_auc": 0.9673420093876528,
+  "search_note": "phase A scores select and evaluate on the same holdout; they rank configurations and are not OOF estimates",
+  "finalists": [
+    {
+      "name": "search_26",
+      "params": {
+        "eta": 0.03,
+        "max_depth": 6,
+        "min_child_weight": 8.153267746230753,
+        "subsample": 0.8433296018731379,
+        "colsample_bytree": 0.5909110635389992,
+        "reg_lambda": 3.759039834179792,
+        "reg_alpha": 0.008146977021914407,
+        "gamma": 0.2
+      },
+      "rounds": 2664
+    },
+    {
+      "name": "search_19",
+      "params": {
+        "eta": 0.03,
+        "max_depth": 8,
+        "min_child_weight": 13.024010633647368,
+        "subsample": 0.9414000464130952,
+        "colsample_bytree": 0.39499029057390594,
+        "reg_lambda": 0.15363186389577985,
+        "reg_alpha": 0.011588009712703363,
+        "gamma": 0.2
+      },
+      "rounds": 1553
+    },
+    {
+      "name": "incumbent",
+      "params": {
+        "eta": 0.03,
+        "max_depth": 7,
+        "min_child_weight": 20.0,
+        "subsample": 0.85,
+        "colsample_bytree": 0.6,
+        "reg_lambda": 2.5,
+        "reg_alpha": 0.15,
+        "gamma": 0.0
+      },
+      "rounds": 1819
+    }
+  ],
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.968627555408931,
+      "chosen": "search_26",
+      "rounds": 2883,
+      "inner_scores": {
+        "search_26": 0.9689760254515043,
+        "search_19": 0.9689514273445832,
+        "incumbent": 0.9689097493873782
+      }
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9686338299866526,
+      "chosen": "search_26",
+      "rounds": 3167,
+      "inner_scores": {
+        "search_26": 0.9682547979641576,
+        "search_19": 0.9680960683640677,
+        "incumbent": 0.9682098465076514
+      }
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9690574946503554,
+      "chosen": "search_26",
+      "rounds": 3307,
+      "inner_scores": {
+        "search_26": 0.9678395713282361,
+        "search_19": 0.9677789977649862,
+        "incumbent": 0.967749304774649
+      }
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9674441568570668,
+      "chosen": "search_26",
+      "rounds": 3538,
+      "inner_scores": {
+        "search_26": 0.9688213345620724,
+        "search_19": 0.968681326823204,
+        "incumbent": 0.9687220156584697
+      }
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9682026655530772,
+      "chosen": "search_26",
+      "rounds": 2933,
+      "inner_scores": {
+        "search_26": 0.9684148671123656,
+        "search_19": 0.9682471505001022,
+        "incumbent": 0.9683996348302757
+      }
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.9687518259296457,
+      "chosen": "search_26",
+      "rounds": 3002,
+      "inner_scores": {
+        "search_26": 0.9679716105421919,
+        "search_19": 0.967920102788064,
+        "incumbent": 0.9679271277072871
+      }
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9676685373340308,
+      "chosen": "search_19",
+      "rounds": 1665,
+      "inner_scores": {
+        "search_26": 0.9679113276956328,
+        "search_19": 0.967957897181397,
+        "incumbent": 0.9679328404860261
+      }
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.9683856428971742,
+      "chosen": "search_19",
+      "rounds": 2134,
+      "inner_scores": {
+        "search_26": 0.9684750298058145,
+        "search_19": 0.9685099977868776,
+        "incumbent": 0.9684832016855836
+      }
+    },
+    {
+      "fold": 9,
+      "outer_auc": 0.9675413145585219,
+      "chosen": "incumbent",
+      "rounds": 2757,
+      "inner_scores": {
+        "search_26": 0.9682330294507495,
+        "search_19": 0.9682098589879132,
+        "incumbent": 0.9682743961355381
+      }
+    },
+    {
+      "fold": 10,
+      "outer_auc": 0.9697191017414958,
+      "chosen": "search_26",
+      "rounds": 2550,
+      "inner_scores": {
+        "search_26": 0.9685088980555581,
+        "search_19": 0.9684949757115529,
+        "incumbent": 0.9684978664828205
+      }
+    }
+  ],
+  "oof_auc": 0.968398937284877,
+  "runtime_seconds": 25268.20994234085,
+  "submission_created": false
+}

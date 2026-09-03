@@ -1,0 +1,32 @@
+{
+  "model": "lgbdart",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 5,
+  "inner_encoding_folds": 5,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9669609734016098
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9666053478424507
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.966650029765558
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9666267830884894
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9673504906146866
+    }
+  ],
+  "oof_auc": 0.9668350620785918,
+  "runtime_seconds": 7798.262748479843,
+  "submission_created": false
+}

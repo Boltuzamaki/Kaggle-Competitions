@@ -1,0 +1,11 @@
+{
+  "id": "boltuzamaki/s6e8-foldsafe-te-catboost-private",
+  "title": "S6E8 Foldsafe TE CatBoost Private",
+  "code_file": "experiment.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "competition_sources": ["playground-series-s6e8"]
+}

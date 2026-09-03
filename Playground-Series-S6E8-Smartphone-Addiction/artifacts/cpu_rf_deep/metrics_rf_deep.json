@@ -1,0 +1,52 @@
+{
+  "model": "rf_deep",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "inner_encoding_folds": 5,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9637634002550988
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9638216891284608
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9643512523243187
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.962327151190739
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9630494771408248
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.9636144298076439
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9628957354757588
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.963829431168119
+    },
+    {
+      "fold": 9,
+      "outer_auc": 0.9628955299659088
+    },
+    {
+      "fold": 10,
+      "outer_auc": 0.965090128324231
+    }
+  ],
+  "oof_auc": 0.9635627099635966,
+  "runtime_seconds": 39305.31115484238,
+  "submission_created": false
+}

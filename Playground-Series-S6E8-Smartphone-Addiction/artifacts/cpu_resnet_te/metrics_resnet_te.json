@@ -1,0 +1,57 @@
+{
+  "model": "resnet_te",
+  "architecture": "resnet",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "outer_folds": 10,
+  "outer_folds_completed": 10,
+  "complete": true,
+  "inner_encoding_folds": 5,
+  "net_seeds_averaged": 2,
+  "epochs": 20,
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9665079274451007
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9665376186555377
+    },
+    {
+      "fold": 3,
+      "outer_auc": 0.9668261380999066
+    },
+    {
+      "fold": 4,
+      "outer_auc": 0.9652689802317381
+    },
+    {
+      "fold": 5,
+      "outer_auc": 0.9661078280447428
+    },
+    {
+      "fold": 6,
+      "outer_auc": 0.96673196145918
+    },
+    {
+      "fold": 7,
+      "outer_auc": 0.9654244641543782
+    },
+    {
+      "fold": 8,
+      "outer_auc": 0.966567744880945
+    },
+    {
+      "fold": 9,
+      "outer_auc": 0.9659642471926061
+    },
+    {
+      "fold": 10,
+      "outer_auc": 0.9677007991543265
+    }
+  ],
+  "oof_auc": 0.9663594559794019,
+  "runtime_seconds": 27563.336946487427,
+  "submission_created": false
+}

@@ -1,0 +1,38 @@
+{
+  "concept_credit": "Tamerlan Omralinov dual-view CatBoost companion concept",
+  "implementation": "original five-fold official-only adaptation",
+  "official_data_only": true,
+  "seed": 20260803,
+  "folds": 5,
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "auc": 0.9680312905167592,
+      "best_iteration": 3599
+    },
+    {
+      "fold": 2,
+      "auc": 0.968268263601123,
+      "best_iteration": 3578
+    },
+    {
+      "fold": 3,
+      "auc": 0.9677807223754793,
+      "best_iteration": 3527
+    },
+    {
+      "fold": 4,
+      "auc": 0.967924346693711,
+      "best_iteration": 3581
+    },
+    {
+      "fold": 5,
+      "auc": 0.9672637201667482,
+      "best_iteration": 3532
+    }
+  ],
+  "fold_mean": 0.9678536686707642,
+  "fold_std": 0.00033519971920274277,
+  "oof_auc": 0.96785089763632,
+  "submission_created": false
+}

@@ -1,0 +1,46 @@
+{
+  "model": "ExtraTrees target-free hierarchical support",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "target_encoding_used": false,
+  "boosting_used": false,
+  "outer_folds": 2,
+  "inner_tuning": "bounded 16% holdout inside outer-fit only",
+  "inner_trees": 35,
+  "final_trees": 45,
+  "configs": {
+    "wide_leaf2": {
+      "max_features": 0.78,
+      "min_samples_leaf": 2,
+      "max_depth": null
+    }
+  },
+  "fold_records": [
+    {
+      "fold": 1,
+      "outer_auc": 0.9270561983471075,
+      "selected": "wide_leaf2",
+      "inner_trials": [
+        {
+          "config": "wide_leaf2",
+          "inner_auc": 0.9373547262396694
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "outer_auc": 0.9247272727272727,
+      "selected": "wide_leaf2",
+      "inner_trials": [
+        {
+          "config": "wide_leaf2",
+          "inner_auc": 0.913384555785124
+        }
+      ]
+    }
+  ],
+  "oof_auc": 0.9256801652892562,
+  "runtime_seconds": 1.0444512367248535,
+  "smoke": true,
+  "submission_created": false
+}

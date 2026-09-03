@@ -1,0 +1,15 @@
+{
+  "artifact": "submission.csv",
+  "method_owner": "Rayk Kretzschmar",
+  "anchor_owner": "Ripon C. Malo",
+  "residual_owner": "Naji",
+  "our_role": "private reproduction, alignment checks, diagnostics, and provenance audit",
+  "our_trained_models_used": false,
+  "reported_public_auc": 0.97069,
+  "test_id_fingerprint": "e21918e18e73ad88",
+  "rows": 296302,
+  "weights": {
+    "complete": 0.1,
+    "incomplete": 0.4
+  }
+}

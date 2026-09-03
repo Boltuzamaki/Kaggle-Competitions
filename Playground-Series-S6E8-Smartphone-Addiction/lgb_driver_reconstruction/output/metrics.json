@@ -1,0 +1,89 @@
+{
+  "provenance": "official competition data only; no source prediction outputs",
+  "source_credit": [
+    "Georgy Mamarin: missing strong drivers explain part of auxiliary-feature gain",
+    "ryota517: time-allocation generator constraint",
+    "Dariush Afshar: other_screen residual"
+  ],
+  "our_change": "outer-fold-local regressors reconstruct missing daily/social drivers; classifier sees completed drivers and completed constraint residual",
+  "seed": 20260803,
+  "folds": 5,
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "auc": 0.9651366957880052,
+      "best_iteration": 3000,
+      "reconstruction": {
+        "daily_screen_time_hours": {
+          "validation_observed_rmse": 1.1761881712116606,
+          "fit_observed_rows": 476512
+        },
+        "social_media_hours": {
+          "validation_observed_rmse": 0.8205146402413058,
+          "fit_observed_rows": 445880
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "auc": 0.9653451670282445,
+      "best_iteration": 3000,
+      "reconstruction": {
+        "daily_screen_time_hours": {
+          "validation_observed_rmse": 1.1812767141353728,
+          "fit_observed_rows": 476619
+        },
+        "social_media_hours": {
+          "validation_observed_rmse": 0.8219743268594729,
+          "fit_observed_rows": 446075
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "auc": 0.9651189793100312,
+      "best_iteration": 2999,
+      "reconstruction": {
+        "daily_screen_time_hours": {
+          "validation_observed_rmse": 1.1727882951756103,
+          "fit_observed_rows": 476307
+        },
+        "social_media_hours": {
+          "validation_observed_rmse": 0.8197326176740908,
+          "fit_observed_rows": 445839
+        }
+      }
+    },
+    {
+      "fold": 4,
+      "auc": 0.9650830483025232,
+      "best_iteration": 3000,
+      "reconstruction": {
+        "daily_screen_time_hours": {
+          "validation_observed_rmse": 1.1812837695887721,
+          "fit_observed_rows": 476491
+        },
+        "social_media_hours": {
+          "validation_observed_rmse": 0.8183183787510944,
+          "fit_observed_rows": 445984
+        }
+      }
+    },
+    {
+      "fold": 5,
+      "auc": 0.9643588447924257,
+      "best_iteration": 3000,
+      "reconstruction": {
+        "daily_screen_time_hours": {
+          "validation_observed_rmse": 1.172107557679452,
+          "fit_observed_rows": 476131
+        },
+        "social_media_hours": {
+          "validation_observed_rmse": 0.825057709197183,
+          "fit_observed_rows": 445718
+        }
+      }
+    }
+  ],
+  "oof_auc": 0.9650057384085245
+}

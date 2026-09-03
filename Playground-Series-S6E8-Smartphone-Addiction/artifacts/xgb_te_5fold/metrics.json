@@ -1,0 +1,48 @@
+{
+  "provenance": "from scratch; competition train/test only",
+  "outer_folds": 5,
+  "inner_folds": 4,
+  "fold_auc": [
+    0.9682243296433739,
+    0.9682488864015575,
+    0.9679870753108418,
+    0.9681178217105852,
+    0.9675702363491058
+  ],
+  "oof_auc": 0.9680276088516984,
+  "best_iterations": [
+    1793,
+    1584,
+    1500,
+    1628,
+    1699
+  ],
+  "encoded_columns": [
+    "age",
+    "daily_screen_time_hours",
+    "social_media_hours",
+    "gaming_hours",
+    "work_study_hours",
+    "sleep_hours",
+    "notifications_per_day",
+    "app_opens_per_day",
+    "weekend_screen_time",
+    "gender",
+    "stress_level",
+    "academic_work_impact",
+    "missing_count",
+    "missing_pattern",
+    "component_sum",
+    "component_known_count",
+    "screen_residual",
+    "social_media_hours_share",
+    "gaming_hours_share",
+    "work_study_hours_share",
+    "weekend_daily_gap",
+    "weekend_daily_ratio",
+    "screen_sleep_ratio",
+    "notifications_per_open",
+    "opens_per_screen_hour",
+    "notifications_per_screen_hour"
+  ]
+}

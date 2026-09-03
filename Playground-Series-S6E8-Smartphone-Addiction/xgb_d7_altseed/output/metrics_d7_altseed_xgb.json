@@ -1,0 +1,56 @@
+{
+  "provenance": "independently trained; official competition data only; no public predictions",
+  "split_seed": 20260881,
+  "folds": 5,
+  "inner_folds": 4,
+  "configs": {
+    "d7_altseed": {
+      "max_depth": 7,
+      "min_child_weight": 28,
+      "reg_alpha": 0.45,
+      "reg_lambda": 12.0,
+      "gamma": 0.025,
+      "learning_rate": 0.017,
+      "colsample_bytree": 0.78
+    }
+  },
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "config": "d7_altseed",
+      "auc": 0.9678314492947339,
+      "best_iteration": 4117
+    },
+    {
+      "fold": 2,
+      "config": "d7_altseed",
+      "auc": 0.9679562705808373,
+      "best_iteration": 3763
+    },
+    {
+      "fold": 3,
+      "config": "d7_altseed",
+      "auc": 0.9682584871509313,
+      "best_iteration": 4120
+    },
+    {
+      "fold": 4,
+      "config": "d7_altseed",
+      "auc": 0.9684753883514856,
+      "best_iteration": 4173
+    },
+    {
+      "fold": 5,
+      "config": "d7_altseed",
+      "auc": 0.9679956095741643,
+      "best_iteration": 4188
+    }
+  ],
+  "oof_auc": {
+    "d7_altseed": 0.9681004672807608
+  },
+  "fold_auc_std": {
+    "d7_altseed": 0.0002596393544917821
+  },
+  "purpose": "outer-fold and nested-mapping diversity relative to seed 20260803 depth-7 stream"
+}

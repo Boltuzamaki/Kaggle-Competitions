@@ -1,0 +1,20 @@
+{
+  "model": "CatBoost composition/missing-pattern CPU",
+  "seed": 20260803,
+  "fold_auc": [
+    0.9637600031312041,
+    0.9642868584614002,
+    0.9637683568487819,
+    0.9636014385347778,
+    0.9626924703401298
+  ],
+  "oof_auc": 0.9636179430858689,
+  "iterations": [
+    2598,
+    2599,
+    2595,
+    2599,
+    2592
+  ],
+  "provenance": "competition train only"
+}

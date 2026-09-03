@@ -1,0 +1,39 @@
+{
+  "model": "CatBoost GPU on numeric nested exact-value TE/frequency",
+  "official_data_only": true,
+  "seed": 20260803,
+  "folds": 5,
+  "depth": 7,
+  "learning_rate": 0.035,
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "auc": 0.9672754748206449,
+      "best_iteration": 2599
+    },
+    {
+      "fold": 2,
+      "auc": 0.9674507270620987,
+      "best_iteration": 2527
+    },
+    {
+      "fold": 3,
+      "auc": 0.9671879925589271,
+      "best_iteration": 2599
+    },
+    {
+      "fold": 4,
+      "auc": 0.9670636468701994,
+      "best_iteration": 2458
+    },
+    {
+      "fold": 5,
+      "auc": 0.9663458804385495,
+      "best_iteration": 2536
+    }
+  ],
+  "fold_mean": 0.9670647443500838,
+  "fold_std": 0.00038087967494966054,
+  "oof_auc": 0.9670615407319711,
+  "submission_created": false
+}

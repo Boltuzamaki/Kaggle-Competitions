@@ -1,0 +1,167 @@
+{
+  "experiment": "nested-tuned raw-feature XGBoost DART",
+  "official_data_only": true,
+  "public_predictions_used": false,
+  "target_encoding_used": false,
+  "outer_folds": 5,
+  "inner_tuning": "one stratified 20% split within each outer-training partition",
+  "gpu_fit_count": 20,
+  "seed": 20260804,
+  "configs": {
+    "dart_conservative": {
+      "max_depth": 5,
+      "min_child_weight": 18,
+      "learning_rate": 0.025,
+      "subsample": 0.88,
+      "colsample_bytree": 0.86,
+      "reg_alpha": 0.15,
+      "reg_lambda": 9.0,
+      "rate_drop": 0.035,
+      "skip_drop": 0.15
+    },
+    "dart_regularized": {
+      "max_depth": 6,
+      "min_child_weight": 28,
+      "learning_rate": 0.022,
+      "subsample": 0.84,
+      "colsample_bytree": 0.8,
+      "reg_alpha": 0.45,
+      "reg_lambda": 13.0,
+      "rate_drop": 0.07,
+      "skip_drop": 0.1
+    },
+    "dart_shallow": {
+      "max_depth": 4,
+      "min_child_weight": 12,
+      "learning_rate": 0.03,
+      "subsample": 0.9,
+      "colsample_bytree": 0.92,
+      "reg_alpha": 0.08,
+      "reg_lambda": 7.0,
+      "rate_drop": 0.05,
+      "skip_drop": 0.2
+    }
+  },
+  "selection_rule": "highest inner holdout AUC; its best_iteration",
+  "fold_records": [
+    {
+      "fold": 1,
+      "selected_config": "dart_shallow",
+      "selected_rounds": 1800,
+      "outer_auc": 0.9474292721781632,
+      "inner_candidates": [
+        {
+          "config": "dart_conservative",
+          "inner_auc": 0.9454931747839461,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_regularized",
+          "inner_auc": 0.9414554144420599,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_shallow",
+          "inner_auc": 0.9457761862801937,
+          "selected_rounds": 1800
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "selected_config": "dart_shallow",
+      "selected_rounds": 1800,
+      "outer_auc": 0.9464435549433032,
+      "inner_candidates": [
+        {
+          "config": "dart_conservative",
+          "inner_auc": 0.9457534314555455,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_regularized",
+          "inner_auc": 0.9426949565370639,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_shallow",
+          "inner_auc": 0.9461050481653408,
+          "selected_rounds": 1800
+        }
+      ]
+    },
+    {
+      "fold": 3,
+      "selected_config": "dart_shallow",
+      "selected_rounds": 1800,
+      "outer_auc": 0.9467802974218026,
+      "inner_candidates": [
+        {
+          "config": "dart_conservative",
+          "inner_auc": 0.9456159845523895,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_regularized",
+          "inner_auc": 0.9430344598449195,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_shallow",
+          "inner_auc": 0.9458364601230076,
+          "selected_rounds": 1800
+        }
+      ]
+    },
+    {
+      "fold": 4,
+      "selected_config": "dart_conservative",
+      "selected_rounds": 1800,
+      "outer_auc": 0.9474567742402344,
+      "inner_candidates": [
+        {
+          "config": "dart_conservative",
+          "inner_auc": 0.9467812553247252,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_regularized",
+          "inner_auc": 0.942727017973197,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_shallow",
+          "inner_auc": 0.9460830725421954,
+          "selected_rounds": 1800
+        }
+      ]
+    },
+    {
+      "fold": 5,
+      "selected_config": "dart_conservative",
+      "selected_rounds": 1800,
+      "outer_auc": 0.948120075404425,
+      "inner_candidates": [
+        {
+          "config": "dart_conservative",
+          "inner_auc": 0.9476704059176322,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_regularized",
+          "inner_auc": 0.9442488996028053,
+          "selected_rounds": 1800
+        },
+        {
+          "config": "dart_shallow",
+          "inner_auc": 0.9470584291332722,
+          "selected_rounds": 1800
+        }
+      ]
+    }
+  ],
+  "oof_auc": 0.9472387860748648,
+  "fold_auc_mean": 0.9472459948375856,
+  "fold_auc_std": 0.0005835784856348561,
+  "submission_created": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": "boltuzamaki/stacking-three-model-families-cross-fitted",
+  "title": "Stacking Three Model Families, Cross Fitted",
+  "code_file": "s6e8_stacking_three_families.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "competition_sources": [
+    "playground-series-s6e8"
+  ]
+}
