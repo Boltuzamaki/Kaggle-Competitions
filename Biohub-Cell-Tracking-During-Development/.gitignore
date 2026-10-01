@@ -1,0 +1,33 @@
+# Competition data (download from Kaggle)
+data/
+
+# Reference implementation (clone from royerlab/kaggle-cell-tracking-competition)
+third_party/
+
+# Other people's published notebooks, kept locally for study only
+public_kernels/
+
+# Patched or copied forks of public notebooks. scripts/pubfork.py records the
+# changes, which is the part that is ours to publish.
+notebooks/11_pub_repro.ipynb
+notebooks/12_div_probe.ipynb
+notebooks/15_div_rank.ipynb
+notebooks/18_div_rank_tight.ipynb
+notebooks/19_div_rank_fast.ipynb
+notebooks/20_div_open_fast.ipynb
+notebooks/21_div_budget_fast.ipynb
+notebooks/2[2-9]_*.ipynb
+
+# Local run state and scratch
+.kaggle_versions.json
+.claude/
+.pytest_cache/
+viz/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Model weights and generated predictions
+*.pt
+*.pth
+submission*.csv
