@@ -1,0 +1,4 @@
+animal,cost,product,units,fertilizer,wheat_fed,actions,gross_at_base,per_tile_day,per_action
+GOOSE,300,EGG,50,28,28,109,5300,153.6,39.4
+COW,400,MILK,33,28,28,95,8080,249.3,73.5
+SHEEP,500,WOOL,32,28,28,92,9200,285.7,87.0

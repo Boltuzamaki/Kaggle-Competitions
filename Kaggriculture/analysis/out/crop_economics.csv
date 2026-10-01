@@ -1,0 +1,6 @@
+crop,seed,units,units_fert,tile_days,actions,per_tile_day,per_action
+WHEAT,10,4,6,4,6,22.5,15.0
+CARROT,20,3,4,3,5,28.3,17.0
+TOMATO,50,4,8,11,16,17.3,11.9
+STRAWBERRY,100,4,8,16,21,23.8,18.1
+MELON,80,6,6,12,14,118.3,101.4

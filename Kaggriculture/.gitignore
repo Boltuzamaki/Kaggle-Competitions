@@ -1,0 +1,24 @@
+# Virtualenv and caches
+.venv/
+__pycache__/
+*.pyc
+
+# Agents extracted from other people's public notebooks, and downloaded
+# notebooks. These are other authors' work pulled locally for benchmarking
+# only, so they are not committed here.
+gauntlet*/
+research/
+panel_cands/
+champion/
+
+# Run outputs
+.arena_cache.json
+rl_runs/
+kaggle_rl*/
+kaggle_sweep/
+sweep/_routes/
+sweep/_variants/
+sweep/_pairs/
+sweep/dataset/
+sweep/kernels/
+*.html
