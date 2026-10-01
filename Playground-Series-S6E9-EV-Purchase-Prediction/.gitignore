@@ -1,0 +1,19 @@
+# Competition data: download from Kaggle, never commit
+data/
+
+# Generated predictions and run outputs
+submissions/
+artifacts/oof/
+artifacts/preds/
+artifacts/*.log
+artifacts/*publicleaderboard*.csv
+reports/report_data.json
+
+# Local environment and tool droppings
+.venv/
+__pycache__/
+catboost_info/
+.ipynb_checkpoints/
+
+# The root .gitignore excludes *.html; the analysis report is a deliverable.
+!reports/report.html

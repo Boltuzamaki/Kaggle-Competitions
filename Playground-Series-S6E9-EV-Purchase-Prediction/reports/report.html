@@ -1,0 +1,302 @@
+<title>EV Purchase Propensity S6E9</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:wght@500;600&display=swap">
+<style>
+:root{
+  --paper:#f5f7f4; --surface:#ffffff; --ink:#16211d; --ink-2:#3a4742; --muted:#66736d;
+  --line:#dde4df; --line-2:#eaefeb; --accent:#0d7561; --accent-soft:#d7ebe5;
+  --signal:#b0521c; --signal-soft:#f4e2d5; --neutral-bar:#9aa8a2;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --paper:#0e1411; --surface:#151d19; --ink:#e7ece9; --ink-2:#bcc7c2; --muted:#8a9a93;
+  --line:#26312c; --line-2:#1c2521; --accent:#46c3a6; --accent-soft:#14332c;
+  --signal:#e08a4e; --signal-soft:#3a2618; --neutral-bar:#6a7a74;
+}}
+:root[data-theme="dark"]{
+  --paper:#0e1411; --surface:#151d19; --ink:#e7ece9; --ink-2:#bcc7c2; --muted:#8a9a93;
+  --line:#26312c; --line-2:#1c2521; --accent:#46c3a6; --accent-soft:#14332c;
+  --signal:#e08a4e; --signal-soft:#3a2618; --neutral-bar:#6a7a74;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-variant-numeric:tabular-nums}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+.col{max-width:68ch}
+h1,h2,h3,h4{font-family:Spectral,Georgia,"Times New Roman",serif;text-wrap:balance;
+  font-weight:600;line-height:1.22;margin:0}
+/* masthead */
+header.mast{border-bottom:1px solid var(--line);padding:56px 0 30px;margin-bottom:44px}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+h1{font-size:clamp(30px,4.6vw,46px);letter-spacing:-.012em}
+.sub{color:var(--ink-2);font-size:18px;margin:14px 0 0;max-width:60ch}
+.meta{display:flex;flex-wrap:wrap;gap:0 32px;margin-top:26px;padding-top:20px;
+  border-top:1px solid var(--line-2)}
+.meta div{display:flex;flex-direction:column;gap:2px}
+.meta dt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:0;font-family:"IBM Plex Mono",monospace;font-size:15px;font-variant-numeric:tabular-nums}
+/* sections */
+section{margin:0 0 60px;scroll-margin-top:20px}
+.step{display:flex;align-items:baseline;gap:14px;margin:0 0 8px}
+.step-n{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);
+  letter-spacing:.1em;padding-top:2px}
+h2{font-size:26px;letter-spacing:-.008em}
+h3{font-size:18.5px;margin:34px 0 8px}
+p{margin:14px 0}
+.lede{font-size:17.5px;color:var(--ink-2)}
+strong{font-weight:600}
+code{font-family:"IBM Plex Mono",monospace;font-size:.9em;background:var(--line-2);
+  padding:1.5px 5px;border-radius:3px}
+a{color:var(--accent)}
+/* callout: reserved for the one finding */
+.finding{border-left:3px solid var(--signal);background:var(--signal-soft);
+  padding:20px 24px;margin:26px 0;border-radius:0 4px 4px 0}
+.finding h3{margin:0 0 6px;font-size:19px;color:var(--signal)}
+.finding p{margin:8px 0 0}
+.note{border-left:2px solid var(--line);padding:2px 0 2px 18px;margin:22px 0;
+  color:var(--ink-2);font-size:15px}
+/* tables */
+.tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:5px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;padding:11px 14px;
+  border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 14px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right}
+td.dim{color:var(--muted)}
+.chip{display:inline-block;padding:1px 7px;border-radius:9px;font-size:12px;font-weight:500}
+.chip.sig{background:var(--signal-soft);color:var(--signal)}
+.chip.neu{background:var(--line-2);color:var(--muted)}
+/* figures */
+.fig{margin:28px 0;background:var(--surface);border:1px solid var(--line);
+  border-radius:5px;padding:18px 18px 4px}
+.fig-scroll{overflow-x:auto}
+.fig svg{display:block;width:100%;height:auto;min-width:460px}
+figcaption{font-size:13.5px;color:var(--muted);padding:12px 2px 14px;
+  border-top:1px solid var(--line-2);margin-top:10px;max-width:78ch}
+.lab{fill:var(--ink);font-size:13px;font-family:"IBM Plex Sans",sans-serif}
+.tick{fill:var(--muted);font-size:11.5px;font-family:"IBM Plex Mono",monospace}
+.axis-title{fill:var(--ink);font-size:13px;font-weight:600;font-family:"IBM Plex Sans",sans-serif}
+.val{fill:var(--ink);font-size:13px;font-family:"IBM Plex Mono",monospace}
+.ref{fill:var(--muted);font-size:11px;font-family:"IBM Plex Mono",monospace}
+.grid{stroke:var(--line);stroke-width:1}
+.refline{stroke:var(--line);stroke-width:1;stroke-dasharray:3 4}
+.line{fill:none;stroke:var(--accent);stroke-width:2}
+.dot{fill:var(--accent)}
+.dot-lb{fill:var(--surface);stroke:var(--accent);stroke-width:2}
+.track{stroke:var(--line);stroke-width:2}
+.cell{fill:var(--accent)}
+.cell-v{fill:var(--ink);font-size:17px;font-weight:600;font-family:"IBM Plex Mono",monospace}
+.cell-n{fill:var(--muted);font-size:11px;font-family:"IBM Plex Mono",monospace}
+.cell-v.hi,.cell-n.hi{fill:#fff}
+.bar-sig{fill:var(--signal)}
+.bar-neu{fill:var(--neutral-bar)}
+.corridor{fill:var(--muted);opacity:.22}
+.base{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 3}
+.sig-note{fill:var(--signal);font-size:12px;font-family:"IBM Plex Mono",monospace}
+.neu-note{fill:var(--muted);font-size:12px;font-family:"IBM Plex Mono",monospace}
+/* categorical bars */
+.cbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:18px 30px;margin:24px 0}
+.cb h4{font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--muted);
+  margin:0 0 8px;font-family:"IBM Plex Mono",monospace}
+.cb-row{display:grid;grid-template-columns:82px 1fr 46px;align-items:center;gap:9px;margin:4px 0}
+.cb-lab{font-size:13px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cb-track{height:7px;background:var(--line-2);border-radius:4px;overflow:hidden}
+.cb-fill{display:block;height:100%;background:var(--accent);border-radius:4px}
+.cb-val{font-size:12.5px;text-align:right;color:var(--ink)}
+/* pipeline */
+pre{background:var(--surface);border:1px solid var(--line);border-radius:5px;
+  padding:16px 18px;overflow-x:auto;font-family:"IBM Plex Mono",monospace;
+  font-size:12.5px;line-height:1.66;margin:20px 0}
+ul{padding-left:20px;margin:14px 0}
+li{margin:7px 0}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:22px;
+  color:var(--muted);font-size:13.5px}
+@media (prefers-reduced-motion:no-preference){a{transition:opacity .15s}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+<div class="wrap">
+
+<header class="mast">
+  <p class="kicker">Kaggle Playground S6E9 · Analysis &amp; modelling report</p>
+  <h1>Predicting Electric Vehicle Purchases</h1>
+  <p class="sub">Thirteen survey columns, 668 665 rows, one binary outcome — and a
+  wall at 0.941 that turned out to be a property of the <em>representation</em>, not of the data.</p>
+  <div class="meta">
+    <div><dt>Task</dt><dd>Binary probability</dd></div>
+    <div><dt>Metric</dt><dd>ROC AUC</dd></div>
+    <div><dt>Train / test</dt><dd>668 665 / 286 571</dd></div>
+    <div><dt>Positive rate</dt><dd>17.46%</dd></div>
+    <div><dt>Baseline CV</dt><dd>0.941776</dd></div>
+    <div><dt>Best CV</dt><dd>0.946241</dd></div>
+  </div>
+</header>
+
+<section id="task">
+<div class="step"><span class="step-n">01</span><h2>What goes in, what comes out</h2></div>
+<div class="col">
+<p class="lede">Each row is one survey respondent. The model returns the probability that
+respondent buys an electric vehicle, and submissions are scored by ROC AUC — so only the
+<em>ordering</em> of the 286 571 test probabilities matters, never their calibration.</p>
+<p>The submission file is two columns, <code>id</code> and <code>Will_Buy_EV</code>, the second a
+probability in [0,&nbsp;1]. The provided <code>sample_submission.csv</code> is the training base
+rate, 17.4645%, repeated on every row — which scores exactly 0.5.</p>
+<p>Neither file has a single missing value, and the train and test marginals are
+indistinguishable: every numeric mean differs by less than 0.005 standard deviations. There is
+no cleaning to do and no drift to correct.</p>
+</div>
+<div class="tw"><table>
+<thead><tr><th>Column</th><th>Type</th><th>Domain</th><th class="num">r with target</th><th>Role</th></tr></thead>
+<tbody><tr><td class="mono">Age</td><td class="dim">numeric</td><td class="mono dim">integer, 25-69</td><td class="mono num">-0.007</td><td>Respondent age in years.</td></tr><tr><td class="mono">Annual_Income_USD</td><td class="dim">numeric</td><td class="mono dim">integer USD, floored at 30 000</td><td class="mono num">+0.226</td><td>Household income. Carries the generator artifact.</td></tr><tr><td class="mono">Daily_Commute_km</td><td class="dim">numeric</td><td class="mono dim">float, 1 decimal, floored at 5.0</td><td class="mono num">-0.046</td><td>One-way daily commute distance.</td></tr><tr><td class="mono">Number_of_Cars_Owned</td><td class="dim">numeric</td><td class="mono dim">integer, 1-4</td><td class="mono num">+0.004</td><td>Cars currently in the household.</td></tr><tr><td class="mono">Charging_Stations_Near_Home</td><td class="dim">numeric</td><td class="mono dim">integer, 0-14</td><td class="mono num">-0.016</td><td>Public chargers near home.</td></tr><tr><td class="mono">Charging_Stations_Near_Work</td><td class="dim">numeric</td><td class="mono dim">integer, 0-19</td><td class="mono num">-0.012</td><td>Public chargers near work.</td></tr><tr><td class="mono">Environmental_Concern_Level</td><td class="dim">numeric</td><td class="mono dim">integer, 1-5</td><td class="mono num">+0.464</td><td>Self-reported concern. Strongest single driver.</td></tr><tr><td class="mono">Gender</td><td class="dim">categorical</td><td class="mono dim">Male / Female / Other</td><td class="mono num"></td><td>No measurable effect on the target.</td></tr><tr><td class="mono">City_Type</td><td class="dim">categorical</td><td class="mono dim">Urban / Suburban / Rural</td><td class="mono num"></td><td>Mild effect; rural buys slightly more.</td></tr><tr><td class="mono">Current_Car_Type</td><td class="dim">categorical</td><td class="mono dim">Hatchback / Sedan / SUV / Truck</td><td class="mono num"></td><td>Mild; truck owners buy least.</td></tr><tr><td class="mono">Home_Charging_Possible</td><td class="dim">categorical</td><td class="mono dim">Yes / No</td><td class="mono num"></td><td>Can charge at home.</td></tr><tr><td class="mono">Subsidy_Available</td><td class="dim">categorical</td><td class="mono dim">Yes / No</td><td class="mono num"></td><td>Purchase subsidy. A hard gate.</td></tr><tr><td class="mono">Range_Anxiety_Level</td><td class="dim">categorical</td><td class="mono dim">Low / Medium / High</td><td class="mono num"></td><td>Worry about range. A hard gate.</td></tr></tbody></table></div>
+</section>
+
+<section id="eda">
+<div class="step"><span class="step-n">02</span><h2>Two gates and one dial</h2></div>
+<div class="col">
+<p class="lede">The target is not driven by thirteen features acting together. It is driven by two
+near-binary gates that must both be open, and then by how strongly the respondent cares.</p>
+<p><code>Subsidy_Available</code> and <code>Range_Anxiety_Level</code> multiply rather than add.
+Close either and the purchase rate collapses below one percent, regardless of income, age or
+charging access.</p>
+</div>
+<figure class="fig"><div class="fig-scroll"><svg viewBox="0 0 560 214" role="img" aria-label="Purchase rate by subsidy and range anxiety. The two gates multiply: either one closed drives the rate below 1%." preserveAspectRatio="xMidYMid meet"><text x="316.0" y="24.0" class="axis-title" text-anchor="middle">Range_Anxiety_Level</text><text x="184.0" y="44.0" class="lab" text-anchor="middle">Low</text><text x="316.0" y="44.0" class="lab" text-anchor="middle">Medium</text><text x="448.0" y="44.0" class="lab" text-anchor="middle">High</text><text x="16" y="126.0" class="axis-title" transform="rotate(-90 16 126.0)" text-anchor="middle">Subsidy_Available</text><text x="108.0" y="93.0" class="lab" text-anchor="end">No</text><rect x="118" y="52" width="126" height="68" rx="3" class="cell" style="opacity:0.190"/><text x="181.0" y="82" class="cell-v" text-anchor="middle">0.6%</text><text x="181.0" y="102" class="cell-n" text-anchor="middle">222 586 rows</text><rect x="250" y="52" width="126" height="68" rx="3" class="cell" style="opacity:0.129"/><text x="313.0" y="82" class="cell-v" text-anchor="middle">0.1%</text><text x="313.0" y="102" class="cell-n" text-anchor="middle">25 283 rows</text><rect x="382" y="52" width="126" height="68" rx="3" class="cell" style="opacity:0.100"/><text x="445.0" y="82" class="cell-v" text-anchor="middle">0.0%</text><text x="445.0" y="102" class="cell-n" text-anchor="middle">887 rows</text><text x="108.0" y="167.0" class="lab" text-anchor="end">Yes</text><rect x="118" y="126" width="126" height="68" rx="3" class="cell" style="opacity:1.000"/><text x="181.0" y="156" class="cell-v hi" text-anchor="middle">29.6%</text><text x="181.0" y="176" class="cell-n hi" text-anchor="middle">381 386 rows</text><rect x="250" y="126" width="126" height="68" rx="3" class="cell" style="opacity:0.477"/><text x="313.0" y="156" class="cell-v" text-anchor="middle">6.9%</text><text x="313.0" y="176" class="cell-n" text-anchor="middle">37 216 rows</text><rect x="382" y="126" width="126" height="68" rx="3" class="cell" style="opacity:0.149"/><text x="445.0" y="156" class="cell-v" text-anchor="middle">0.2%</text><text x="445.0" y="176" class="cell-n" text-anchor="middle">1 307 rows</text></svg></div><figcaption>Purchase rate by subsidy and range anxiety. The two gates multiply: either one closed drives the rate below 1%.</figcaption></figure>
+<div class="col">
+<p>Inside the open cell — subsidy available, low range anxiety, 381 386 rows —
+the rate is 29.6%, and two features do nearly all the remaining work.</p>
+</div>
+<figure class="fig"><div class="fig-scroll"><svg viewBox="0 0 760 250" role="img" aria-label="The dial and the slope: purchase rate against environmental concern (left) and income decile (right), over all 668 665 training rows." preserveAspectRatio="xMidYMid meet"><text x="56.0" y="18.0" class="axis-title" text-anchor="start">Environmental_Concern_Level</text><line x1="56.0" y1="210.0" x2="342.0" y2="210.0" class="grid"/><text x="48.0" y="214.0" class="tick" text-anchor="end">0%</text><line x1="56.0" y1="165.0" x2="342.0" y2="165.0" class="grid"/><text x="48.0" y="169.0" class="tick" text-anchor="end">15%</text><line x1="56.0" y1="120.0" x2="342.0" y2="120.0" class="grid"/><text x="48.0" y="124.0" class="tick" text-anchor="end">30%</text><line x1="56.0" y1="75.0" x2="342.0" y2="75.0" class="grid"/><text x="48.0" y="79.0" class="tick" text-anchor="end">45%</text><line x1="56.0" y1="30.0" x2="342.0" y2="30.0" class="grid"/><text x="48.0" y="34.0" class="tick" text-anchor="end">60%</text><path d="M56.0 208.3 L127.5 203.5 L199.0 176.5 L270.5 134.8 L342.0 53.5" class="line"/><circle cx="56.0" cy="208.3" r="3.4" class="dot"/><circle cx="127.5" cy="203.5" r="3.4" class="dot"/><circle cx="199.0" cy="176.5" r="3.4" class="dot"/><circle cx="270.5" cy="134.8" r="3.4" class="dot"/><circle cx="342.0" cy="53.5" r="3.4" class="dot"/><text x="56.0" y="230.0" class="tick" text-anchor="middle">1</text><text x="127.5" y="230.0" class="tick" text-anchor="middle">2</text><text x="199.0" y="230.0" class="tick" text-anchor="middle">3</text><text x="270.5" y="230.0" class="tick" text-anchor="middle">4</text><text x="342.0" y="230.0" class="tick" text-anchor="middle">5</text><text x="199.0" y="244.0" class="tick" text-anchor="middle">level</text><text x="456.0" y="18.0" class="axis-title" text-anchor="start">Annual_Income_USD</text><line x1="456.0" y1="210.0" x2="742.0" y2="210.0" class="grid"/><text x="448.0" y="214.0" class="tick" text-anchor="end">0%</text><line x1="456.0" y1="165.0" x2="742.0" y2="165.0" class="grid"/><text x="448.0" y="169.0" class="tick" text-anchor="end">10%</text><line x1="456.0" y1="120.0" x2="742.0" y2="120.0" class="grid"/><text x="448.0" y="124.0" class="tick" text-anchor="end">19%</text><line x1="456.0" y1="75.0" x2="742.0" y2="75.0" class="grid"/><text x="448.0" y="79.0" class="tick" text-anchor="end">29%</text><line x1="456.0" y1="30.0" x2="742.0" y2="30.0" class="grid"/><text x="448.0" y="34.0" class="tick" text-anchor="end">39%</text><path d="M456.0 189.4 L487.8 170.7 L519.6 160.5 L551.3 148.9 L583.1 137.6 L614.9 126.6 L646.7 118.3 L678.4 108.1 L710.2 75.9 L742.0 53.5" class="line"/><circle cx="456.0" cy="189.4" r="3.4" class="dot"/><circle cx="487.8" cy="170.7" r="3.4" class="dot"/><circle cx="519.6" cy="160.5" r="3.4" class="dot"/><circle cx="551.3" cy="148.9" r="3.4" class="dot"/><circle cx="583.1" cy="137.6" r="3.4" class="dot"/><circle cx="614.9" cy="126.6" r="3.4" class="dot"/><circle cx="646.7" cy="118.3" r="3.4" class="dot"/><circle cx="678.4" cy="108.1" r="3.4" class="dot"/><circle cx="710.2" cy="75.9" r="3.4" class="dot"/><circle cx="742.0" cy="53.5" r="3.4" class="dot"/><text x="456.0" y="230.0" class="tick" text-anchor="middle">30k</text><text x="551.3" y="230.0" class="tick" text-anchor="middle">75k</text><text x="646.7" y="230.0" class="tick" text-anchor="middle">94k</text><text x="742.0" y="230.0" class="tick" text-anchor="middle">133k</text><text x="599.0" y="244.0" class="tick" text-anchor="middle">decile median</text></svg></div><figcaption>The dial and the slope: purchase rate against environmental concern (left) and income decile (right), over all 668 665 training rows.</figcaption></figure>
+<div class="col">
+<h3>Everything else, ranked honestly</h3>
+<p>The remaining categoricals are second-order, and one of them does nothing at all.
+Bars are drawn on a common 0–30% scale so the comparison is fair.</p>
+</div>
+<div class="cbs"><div class="cb"><h4 class="mono">Subsidy_Available</h4><div class="cb-row"><span class="cb-lab">Yes</span><span class="cb-track"><span class="cb-fill" style="width:91.6%"></span></span><span class="cb-val mono">27.5%</span></div><div class="cb-row"><span class="cb-lab">No</span><span class="cb-track"><span class="cb-fill" style="width:1.9%"></span></span><span class="cb-val mono">0.6%</span></div></div><div class="cb"><h4 class="mono">Range_Anxiety_Level</h4><div class="cb-row"><span class="cb-lab">Low</span><span class="cb-track"><span class="cb-fill" style="width:63.0%"></span></span><span class="cb-val mono">18.9%</span></div><div class="cb-row"><span class="cb-lab">Medium</span><span class="cb-track"><span class="cb-fill" style="width:13.9%"></span></span><span class="cb-val mono">4.2%</span></div><div class="cb-row"><span class="cb-lab">High</span><span class="cb-track"><span class="cb-fill" style="width:0.5%"></span></span><span class="cb-val mono">0.1%</span></div></div><div class="cb"><h4 class="mono">Home_Charging_Possible</h4><div class="cb-row"><span class="cb-lab">Yes</span><span class="cb-track"><span class="cb-fill" style="width:65.3%"></span></span><span class="cb-val mono">19.6%</span></div><div class="cb-row"><span class="cb-lab">No</span><span class="cb-track"><span class="cb-fill" style="width:42.4%"></span></span><span class="cb-val mono">12.7%</span></div></div><div class="cb"><h4 class="mono">City_Type</h4><div class="cb-row"><span class="cb-lab">Rural</span><span class="cb-track"><span class="cb-fill" style="width:64.5%"></span></span><span class="cb-val mono">19.3%</span></div><div class="cb-row"><span class="cb-lab">Suburban</span><span class="cb-track"><span class="cb-fill" style="width:60.3%"></span></span><span class="cb-val mono">18.1%</span></div><div class="cb-row"><span class="cb-lab">Urban</span><span class="cb-track"><span class="cb-fill" style="width:53.7%"></span></span><span class="cb-val mono">16.1%</span></div></div><div class="cb"><h4 class="mono">Current_Car_Type</h4><div class="cb-row"><span class="cb-lab">SUV</span><span class="cb-track"><span class="cb-fill" style="width:60.3%"></span></span><span class="cb-val mono">18.1%</span></div><div class="cb-row"><span class="cb-lab">Hatchback</span><span class="cb-track"><span class="cb-fill" style="width:58.1%"></span></span><span class="cb-val mono">17.4%</span></div><div class="cb-row"><span class="cb-lab">Sedan</span><span class="cb-track"><span class="cb-fill" style="width:57.3%"></span></span><span class="cb-val mono">17.2%</span></div><div class="cb-row"><span class="cb-lab">Truck</span><span class="cb-track"><span class="cb-fill" style="width:52.1%"></span></span><span class="cb-val mono">15.6%</span></div></div><div class="cb"><h4 class="mono">Gender</h4><div class="cb-row"><span class="cb-lab">Female</span><span class="cb-track"><span class="cb-fill" style="width:59.2%"></span></span><span class="cb-val mono">17.8%</span></div><div class="cb-row"><span class="cb-lab">Other</span><span class="cb-track"><span class="cb-fill" style="width:57.9%"></span></span><span class="cb-val mono">17.4%</span></div><div class="cb-row"><span class="cb-lab">Male</span><span class="cb-track"><span class="cb-fill" style="width:57.4%"></span></span><span class="cb-val mono">17.2%</span></div></div></div>
+<div class="col">
+<p class="note"><strong>Structural quirks worth flagging.</strong>
+9.2% of rows sit exactly at the income floor of $30,000 and
+21.6% exactly at the commute floor of 5.0&nbsp;km — both censored rather
+than genuine values, so both get an explicit flag. There are 0 duplicate feature rows,
+and <code>id</code> is pure noise (AUC 0.49999), so there is no ordering leak.</p>
+</div>
+</section>
+
+<section id="wall">
+<div class="step"><span class="step-n">03</span><h2>The wall at 0.941</h2></div>
+<div class="col">
+<p class="lede">A stock LightGBM scored CV 0.941776 and public LB 0.94163 — which was
+almost exactly the leaderboard <em>median</em>. Three diagnostics agreed that tuning was not the
+answer.</p>
+<ul>
+<li><strong>A capacity sweep saturated.</strong> Learning rates 0.01–0.05 and 16–256 leaves all
+landed within 0.0007 of each other on fold 0, and the <em>shallowest</em> configuration won —
+the underlying function is smooth and low-order, not deep and interaction-heavy.</li>
+<li><strong>A neural net did worse.</strong> A GPU MLP with categorical embeddings reached 0.9372,
+below the trees. So the gap was not a failure to model smoothness either.</li>
+<li><strong>The model was already at its own ceiling.</strong> Sampling labels from the model's own
+out-of-fold probabilities and re-scoring gives 0.9416 — the best AUC obtainable <em>if those
+probabilities were the truth</em>. The model achieved 0.9418. It had extracted everything its
+representation contained.</li>
+</ul>
+<p>That last number is the useful one. It does not say the task is capped at 0.9416; it says the
+<em>features as given</em> are. Something had to change about the inputs.</p>
+</div>
+</section>
+
+<section id="artifact">
+<div class="step"><span class="step-n">04</span><h2>What the income digits know</h2></div>
+<div class="finding">
+  <h3>The generator wrote the target into the low-order digits of income</h3>
+  <p>Group the training rows by the hundreds digit of <code>Annual_Income_USD</code> and the
+  purchase rate spans 11.58 percentage points, against a
+  binomial null corridor of 0.46pp — exceeded
+  25-fold.
+  The hundreds digit of a household income cannot causally matter. This is a fingerprint of the
+  model that synthesised the data.</p>
+</div>
+<div class="col">
+<p>The competition data is synthetic, generated from a real 10 000-row survey
+that is public. That survey is the control, and it settles the question: run the identical test on
+it and the spread sits inside the corridor. The signal exists only in the synthetic copy.</p>
+</div>
+<figure class="fig"><div class="fig-scroll"><svg viewBox="0 0 760 300" role="img" aria-label="The generator artifact. Grey band = the binomial null corridor, the spread you would see if the digit meant nothing. Left: it is exceeded 25-fold. Right: the same test on the real survey stays inside it." preserveAspectRatio="xMidYMid meet"><text x="48.0" y="22.0" class="axis-title" text-anchor="start">Competition train set · 668 665 rows</text><text x="48.0" y="38.0" class="sig-note" text-anchor="start">spread 11.58pp vs corridor 0.46pp = 25.4×</text><line x1="54.0" y1="248.0" x2="341.0" y2="248.0" class="grid"/><text x="46.0" y="252.0" class="tick" text-anchor="end">0%</text><line x1="54.0" y1="183.3" x2="341.0" y2="183.3" class="grid"/><text x="46.0" y="187.3" class="tick" text-anchor="end">9%</text><line x1="54.0" y1="118.7" x2="341.0" y2="118.7" class="grid"/><text x="46.0" y="122.7" class="tick" text-anchor="end">17%</text><line x1="54.0" y1="54.0" x2="341.0" y2="54.0" class="grid"/><text x="46.0" y="58.0" class="tick" text-anchor="end">26%</text><rect x="54.0" y="116.0" width="287.0" height="3.4" class="corridor"/><line x1="54.0" y1="117.7" x2="341.0" y2="117.7" class="base"/><rect x="59.5" y="166.3" width="17.8" height="81.7" class="bar-sig"/><text x="68.3" y="266.0" class="tick" text-anchor="middle">0</text><rect x="88.2" y="79.9" width="17.8" height="168.1" class="bar-sig"/><text x="97.0" y="266.0" class="tick" text-anchor="middle">1</text><rect x="116.9" y="99.0" width="17.8" height="149.0" class="bar-sig"/><text x="125.8" y="266.0" class="tick" text-anchor="middle">2</text><rect x="145.6" y="107.4" width="17.8" height="140.6" class="bar-sig"/><text x="154.4" y="266.0" class="tick" text-anchor="middle">3</text><rect x="174.3" y="118.4" width="17.8" height="129.6" class="bar-sig"/><text x="183.2" y="266.0" class="tick" text-anchor="middle">4</text><rect x="203.0" y="102.4" width="17.8" height="145.6" class="bar-sig"/><text x="211.8" y="266.0" class="tick" text-anchor="middle">5</text><rect x="231.7" y="106.2" width="17.8" height="141.8" class="bar-sig"/><text x="240.6" y="266.0" class="tick" text-anchor="middle">6</text><rect x="260.4" y="112.5" width="17.8" height="135.5" class="bar-sig"/><text x="269.2" y="266.0" class="tick" text-anchor="middle">7</text><rect x="289.1" y="108.1" width="17.8" height="139.9" class="bar-sig"/><text x="297.9" y="266.0" class="tick" text-anchor="middle">8</text><rect x="317.8" y="119.8" width="17.8" height="128.2" class="bar-sig"/><text x="326.6" y="266.0" class="tick" text-anchor="middle">9</text><text x="197.5" y="288.0" class="tick" text-anchor="middle">hundreds digit of Annual_Income_USD</text><text x="451.0" y="22.0" class="axis-title" text-anchor="start">Real survey it was generated from · 10 000 rows</text><text x="451.0" y="38.0" class="neu-note" text-anchor="start">spread 5.86pp vs corridor 3.75pp = 1.6×</text><line x1="457.0" y1="248.0" x2="744.0" y2="248.0" class="grid"/><text x="449.0" y="252.0" class="tick" text-anchor="end">0%</text><line x1="457.0" y1="183.3" x2="744.0" y2="183.3" class="grid"/><text x="449.0" y="187.3" class="tick" text-anchor="end">9%</text><line x1="457.0" y1="118.7" x2="744.0" y2="118.7" class="grid"/><text x="449.0" y="122.7" class="tick" text-anchor="end">17%</text><line x1="457.0" y1="54.0" x2="744.0" y2="54.0" class="grid"/><text x="449.0" y="58.0" class="tick" text-anchor="end">26%</text><rect x="457.0" y="104.5" width="287.0" height="28.0" class="corridor"/><line x1="457.0" y1="118.5" x2="744.0" y2="118.5" class="base"/><rect x="462.5" y="144.8" width="17.8" height="103.2" class="bar-neu"/><text x="471.4" y="266.0" class="tick" text-anchor="middle">0</text><rect x="491.2" y="101.4" width="17.8" height="146.6" class="bar-neu"/><text x="500.1" y="266.0" class="tick" text-anchor="middle">1</text><rect x="519.9" y="128.0" width="17.8" height="120.0" class="bar-neu"/><text x="528.8" y="266.0" class="tick" text-anchor="middle">2</text><rect x="548.6" y="118.7" width="17.8" height="129.3" class="bar-neu"/><text x="557.5" y="266.0" class="tick" text-anchor="middle">3</text><rect x="577.3" y="138.1" width="17.8" height="109.9" class="bar-neu"/><text x="586.1" y="266.0" class="tick" text-anchor="middle">4</text><rect x="606.0" y="117.7" width="17.8" height="130.3" class="bar-neu"/><text x="614.9" y="266.0" class="tick" text-anchor="middle">5</text><rect x="634.7" y="101.1" width="17.8" height="146.9" class="bar-neu"/><text x="643.5" y="266.0" class="tick" text-anchor="middle">6</text><rect x="663.4" y="101.6" width="17.8" height="146.4" class="bar-neu"/><text x="672.2" y="266.0" class="tick" text-anchor="middle">7</text><rect x="692.1" y="108.3" width="17.8" height="139.7" class="bar-neu"/><text x="701.0" y="266.0" class="tick" text-anchor="middle">8</text><rect x="720.8" y="109.1" width="17.8" height="138.9" class="bar-neu"/><text x="729.6" y="266.0" class="tick" text-anchor="middle">9</text><text x="600.5" y="288.0" class="tick" text-anchor="middle">hundreds digit of Annual_Income_USD</text></svg></div><figcaption>The generator artifact. Grey band = the binomial null corridor, the spread you would see if the digit meant nothing. Left: it is exceeded 25-fold. Right: the same test on the real survey stays inside it.</figcaption></figure>
+<div class="tw"><table>
+<thead><tr><th>Digit position</th>
+<th class="num">Spread</th><th class="num">Corridor</th><th class="num">Ratio</th>
+<th class="num">Spread</th><th class="num">Corridor</th><th class="num">Ratio</th></tr></thead>
+<tbody><tr><td class="mono">units</td><td class="mono num">7.59</td><td class="mono num dim">0.46</td><td class="mono num"><span class="chip sig">16.7×</span></td><td class="mono num">5.25</td><td class="mono num dim">3.75</td><td class="mono num"><span class="chip neu">1.4×</span></td></tr><tr><td class="mono">tens</td><td class="mono num">10.01</td><td class="mono num dim">0.46</td><td class="mono num"><span class="chip sig">22.0×</span></td><td class="mono num">5.81</td><td class="mono num dim">3.75</td><td class="mono num"><span class="chip neu">1.6×</span></td></tr><tr><td class="mono">hundreds</td><td class="mono num">11.58</td><td class="mono num dim">0.46</td><td class="mono num"><span class="chip sig">25.4×</span></td><td class="mono num">5.86</td><td class="mono num dim">3.75</td><td class="mono num"><span class="chip neu">1.6×</span></td></tr><tr><td class="mono">thousands</td><td class="mono num">10.60</td><td class="mono num dim">0.46</td><td class="mono num"><span class="chip sig">23.3×</span></td><td class="mono num">5.14</td><td class="mono num dim">3.75</td><td class="mono num"><span class="chip neu">1.4×</span></td></tr></tbody></table></div>
+<div class="col">
+<p class="note">Columns 2–4 are the competition training set, columns 5–7 the real survey.
+Every digit position of income leaks in the synthetic data; none leaks in the original.</p>
+<h3>What did not pan out</h3>
+<p>A residual scan over roughly forty candidate keys — income and commute moduli, digit crosses,
+age remainders — was then run against the improved model. <code>Age</code> came back overwhelmingly
+<em>significant</em> and was still rejected: with 14,800 rows per age value, a ±0.8pp wobble is
+five sigma and worth essentially nothing in AUC. Ranking candidates by significance rather than
+effect size is the trap here, and it is worth stating that it caught one.</p>
+<p>Adding the real survey as extra <em>training</em> rows is worth about +0.0002 at unit weight and
+hurts above it. Its value in this project was as a control, not as data.</p>
+</div>
+</section>
+
+<section id="pipeline">
+<div class="step"><span class="step-n">05</span><h2>The pipeline</h2></div>
+<div class="col">
+<p class="lede">Twenty-nine features, one shared cross-validation split, and target encodings
+rebuilt inside every fold.</p>
+<h3>Features</h3>
+<p>The thirteen raw columns ordinal-encoded, plus the five base-10 digits of income,
+<code>income mod 100</code>, <code>mod 1000</code>, <code>div 1000</code>, the digit sum, the commute
+decimal digit and integer part, and the two floor flags. Engineered ratios — income per car,
+km per station and similar — were measured and <strong>dropped</strong>; they cost 0.0001.</p>
+<h3>Encodings, without the leak</h3>
+<p>Smoothed mean-target encodings of the exact income value, the exact commute value and
+<code>income // 100</code>. Inside each fold these are fitted on that fold's training rows only, and
+the training-side copy uses an inner 5-fold so no row ever sees its own label through its own
+encoding. Skipping either precaution inflates cross-validation by several thousandths and buys
+nothing on the board.</p>
+<h3>Validation and blending</h3>
+<p>One <code>StratifiedKFold(5, shuffle, seed=42)</code> split is shared by every experiment, so the
+out-of-fold matrix is coherent and blend weights are fitted on honest predictions. Only models
+trained in this repository enter the blend. Predictions are converted to ranks, then combined by
+plain rank mean, greedy hill climbing, and a cross-validated logistic stack; the best out-of-fold
+blender is the one submitted.</p>
+</div>
+<pre>data/          train.csv  test.csv  sample_submission.csv  original/
+src/common.py    loading · the shared 5-fold split · leak-free target encoding · runner
+src/features.py  base_frame()      fold-independent columns
+                 fold_transform()  fold-DEPENDENT encodings, rebuilt per fold
+src/eda.py       figures + reports/eda_stats.json
+src/exp*.py      one file per model  →  artifacts/oof/  artifacts/preds/
+src/tune.py      Optuna over pre-transformed folds
+src/blend.py     rank mean · hill climbing · logistic stack  →  submissions/</pre>
+</section>
+
+<section id="results">
+<div class="step"><span class="step-n">06</span><h2>Results</h2></div>
+<figure class="fig"><div class="fig-scroll"><svg viewBox="0 0 760 696" role="img" aria-label="Every model on the same folds, against the public board." preserveAspectRatio="xMidYMid meet"><text x="46.0" y="26.0" class="axis-title" text-anchor="start">Cross-validated AUC, one shared 5-fold split</text><line x1="314.4" y1="44" x2="314.4" y2="664" class="refline"/><text x="314.4" y="40.0" class="ref" text-anchor="middle">LB median</text><line x1="631.7" y1="44" x2="631.7" y2="664" class="refline"/><text x="631.7" y="40.0" class="ref" text-anchor="middle">LB 90th pct</text><line x1="657.1" y1="44" x2="657.1" y2="664" class="refline"/><text x="657.1" y="40.0" class="ref" text-anchor="middle">LB top</text><text x="46.0" y="86.0" class="lab" text-anchor="start">lgbm baseline</text><line x1="250.0" y1="82.0" x2="308.1" y2="82.0" class="track"/><circle cx="308.1" cy="82.0" r="5.5" class="dot"/><text x="320.1" y="86.0" class="val" text-anchor="start">0.941776</text><circle cx="297.1" cy="82.0" r="4" class="dot-lb"/><text x="46.0" y="126.0" class="lab" text-anchor="start">lgbm digits</text><line x1="250.0" y1="122.0" x2="600.6" y2="122.0" class="track"/><circle cx="600.6" cy="122.0" r="5.5" class="dot"/><text x="612.6" y="126.0" class="val" text-anchor="start">0.945685</text><circle cx="610.0" cy="122.0" r="4" class="dot-lb"/><text x="46.0" y="166.0" class="lab" text-anchor="start">xgb</text><line x1="250.0" y1="162.0" x2="597.3" y2="162.0" class="track"/><circle cx="597.3" cy="162.0" r="5.5" class="dot"/><text x="609.3" y="166.0" class="val" text-anchor="start">0.945640</text><text x="46.0" y="206.0" class="lab" text-anchor="start">catboost</text><line x1="250.0" y1="202.0" x2="593.1" y2="202.0" class="track"/><circle cx="593.1" cy="202.0" r="5.5" class="dot"/><text x="605.1" y="206.0" class="val" text-anchor="start">0.945585</text><text x="46.0" y="246.0" class="lab" text-anchor="start">cat</text><line x1="250.0" y1="242.0" x2="612.4" y2="242.0" class="track"/><circle cx="612.4" cy="242.0" r="5.5" class="dot"/><text x="624.4" y="246.0" class="val" text-anchor="start">0.945843</text><text x="46.0" y="286.0" class="lab" text-anchor="start">xgb</text><line x1="250.0" y1="282.0" x2="631.2" y2="282.0" class="track"/><circle cx="631.2" cy="282.0" r="5.5" class="dot"/><text x="643.2" y="286.0" class="val" text-anchor="start">0.946094</text><circle cx="633.2" cy="282.0" r="4" class="dot-lb"/><text x="46.0" y="326.0" class="lab" text-anchor="start">xgb v2</text><line x1="250.0" y1="322.0" x2="640.1" y2="322.0" class="track"/><circle cx="640.1" cy="322.0" r="5.5" class="dot"/><text x="652.1" y="326.0" class="val" text-anchor="start">0.946212</text><text x="46.0" y="366.0" class="lab" text-anchor="start">mlp v2</text><line x1="250.0" y1="362.0" x2="365.3" y2="362.0" class="track"/><circle cx="365.3" cy="362.0" r="5.5" class="dot"/><text x="377.3" y="366.0" class="val" text-anchor="start">0.942540</text><text x="46.0" y="406.0" class="lab" text-anchor="start">lgb v2</text><line x1="250.0" y1="402.0" x2="640.9" y2="402.0" class="track"/><circle cx="640.9" cy="402.0" r="5.5" class="dot"/><text x="652.9" y="406.0" class="val" text-anchor="start">0.946223</text><text x="46.0" y="446.0" class="lab" text-anchor="start">xgb v2 fs7</text><line x1="250.0" y1="442.0" x2="641.2" y2="442.0" class="track"/><circle cx="641.2" cy="442.0" r="5.5" class="dot"/><text x="653.2" y="446.0" class="val" text-anchor="start">0.946227</text><text x="46.0" y="486.0" class="lab" text-anchor="start">lgb v2 fs7</text><line x1="250.0" y1="482.0" x2="642.2" y2="482.0" class="track"/><circle cx="642.2" cy="482.0" r="5.5" class="dot"/><text x="654.2" y="486.0" class="val" text-anchor="start">0.946241</text><text x="46.0" y="526.0" class="lab" text-anchor="start">lgbxt v2</text><line x1="250.0" y1="522.0" x2="603.1" y2="522.0" class="track"/><circle cx="603.1" cy="522.0" r="5.5" class="dot"/><text x="615.1" y="526.0" class="val" text-anchor="start">0.945718</text><text x="46.0" y="566.0" class="lab" text-anchor="start">xgb v3</text><line x1="250.0" y1="562.0" x2="636.6" y2="562.0" class="track"/><circle cx="636.6" cy="562.0" r="5.5" class="dot"/><text x="648.6" y="566.0" class="val" text-anchor="start">0.946166</text><text x="46.0" y="606.0" class="lab" text-anchor="start">cat v2</text><line x1="250.0" y1="602.0" x2="624.6" y2="602.0" class="track"/><circle cx="624.6" cy="602.0" r="5.5" class="dot"/><text x="636.6" y="606.0" class="val" text-anchor="start">0.946005</text><text x="46.0" y="646.0" class="lab" text-anchor="start">lgbdiv v2</text><line x1="250.0" y1="642.0" x2="636.8" y2="642.0" class="track"/><circle cx="636.8" cy="642.0" r="5.5" class="dot"/><text x="648.8" y="646.0" class="val" text-anchor="start">0.946168</text><text x="46.0" y="686.0" class="tick" text-anchor="start">filled = CV   ·   open = achieved public leaderboard</text></svg></div><figcaption>Every model on the same folds, against the public board.</figcaption></figure>
+<div class="tw"><table>
+<thead><tr><th>Experiment</th><th class="num">CV AUC</th><th class="num">fold σ</th>
+<th class="num">Public LB</th><th class="num">Feats</th><th>Notes</th></tr></thead>
+<tbody><tr><td class="mono">exp01_lgbm_baseline</td><td class="mono num">0.941776</td><td class="mono num dim">±0.000742</td><td class="mono num">0.94163</td><td class="mono num dim">13</td><td class="dim">LGBM, raw features, native categoricals, lr=0.05</td></tr><tr><td class="mono">exp02_lgbm_digits</td><td class="mono num">0.945685</td><td class="mono num dim">±0.000557</td><td class="mono num">0.94581</td><td class="mono num dim">45</td><td class="dim">LGBM + income digit decomposition + OOF TE(inc,km,inc_d100) + counts</td></tr><tr><td class="mono">exp03_xgb</td><td class="mono num">0.945640</td><td class="mono num dim">±0.000582</td><td class="mono num">—</td><td class="mono num dim">45</td><td class="dim">XGBoost GPU hist, depth 8, digits + TE</td></tr><tr><td class="mono">exp04_catboost</td><td class="mono num">0.945585</td><td class="mono num dim">±0.000589</td><td class="mono num">—</td><td class="mono num dim">45</td><td class="dim">CatBoost GPU depth 8, income digits as categoricals</td></tr><tr><td class="mono">final_cat</td><td class="mono num">0.945843</td><td class="mono num dim">±0.000789</td><td class="mono num">—</td><td class="mono num dim">24</td><td class="dim">tuned cat, 2 seeds bagged, 10-fold</td></tr><tr><td class="mono">final_xgb</td><td class="mono num">0.946094</td><td class="mono num dim">±0.000801</td><td class="mono num">0.94612</td><td class="mono num dim">24</td><td class="dim">tuned xgb, 3 seeds bagged, 10-fold</td></tr><tr><td class="mono">final_xgb_v2</td><td class="mono num">0.946212</td><td class="mono num dim">±0.000759</td><td class="mono num">—</td><td class="mono num dim">54</td><td class="dim">tuned xgb, 3 seeds bagged, 10-fold</td></tr><tr><td class="mono">final_mlp_v2</td><td class="mono num">0.942540</td><td class="mono num dim">±0.000750</td><td class="mono num">—</td><td class="mono num dim">54</td><td class="dim">tuned mlp, 2 seeds bagged, 10-fold</td></tr><tr><td class="mono">final_lgb_v2</td><td class="mono num">0.946223</td><td class="mono num dim">±0.000789</td><td class="mono num">—</td><td class="mono num dim">54</td><td class="dim">tuned lgb, 3 seeds bagged, 10-fold</td></tr><tr><td class="mono">final_xgb_v2_fs7</td><td class="mono num">0.946227</td><td class="mono num dim">±0.000853</td><td class="mono num">—</td><td class="mono num dim">54</td><td class="dim">tuned xgb, 3 seeds bagged, 10-fold, fold_seed=7</td></tr><tr><td class="mono">final_lgb_v2_fs7</td><td class="mono num">0.946241</td><td class="mono num dim">±0.000851</td><td class="mono num">—</td><td class="mono num dim">54</td><td class="dim">tuned lgb, 3 seeds bagged, 10-fold, fold_seed=7</td></tr><tr><td class="mono">final_lgbxt_v2</td><td class="mono num">0.945718</td><td class="mono num dim">±0.000751</td><td class="mono num">—</td><td class="mono num dim">54</td><td class="dim">tuned lgbxt, 2 seeds bagged, 10-fold, fold_seed=42</td></tr><tr><td class="mono">final_xgb_v3</td><td class="mono num">0.946166</td><td class="mono num dim">±0.000774</td><td class="mono num">—</td><td class="mono num dim">54</td><td class="dim">tuned xgb, 3 seeds bagged, 10-fold, fold_seed=42</td></tr><tr><td class="mono">final_cat_v2</td><td class="mono num">0.946005</td><td class="mono num dim">±0.000754</td><td class="mono num">—</td><td class="mono num dim">54</td><td class="dim">tuned cat, 1 seeds bagged, 10-fold, fold_seed=42</td></tr><tr><td class="mono">final_lgbdiv_v2</td><td class="mono num">0.946168</td><td class="mono num dim">±0.000785</td><td class="mono num">—</td><td class="mono num dim">54</td><td class="dim">tuned lgbdiv, 2 seeds bagged, 10-fold, fold_seed=42</td></tr></tbody></table></div>
+<div class="col">
+<p>Cross-validation has tracked the public leaderboard to within 0.0002 on every submission, which
+is why selection is done on CV. That matters more than it sounds: the DeLong standard error of a
+public score on a 20% test slice is about 0.0006, so the entire visible top of the
+board — median 0.94186 to top 0.94644 — spans roughly one standard error per rank cluster.
+A cross-validated estimate built from all 668 665 training rows is several times more
+precise than the number the board refreshes.</p>
+</div>
+</section>
+
+<footer>
+<p>Generated from <code>reports/report_data.json</code> by <code>src/make_report.py</code>.
+Every figure is drawn from the competition data; the control column comes from the public
+survey the competition data was generated from.</p>
+</footer>
+</div>

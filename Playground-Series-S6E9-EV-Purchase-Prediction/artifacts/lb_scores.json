@@ -1,0 +1,8 @@
+{
+  "exp01_lgbm_baseline": 0.94163,
+  "exp02_lgbm_digits": 0.94581,
+  "final_xgb": 0.94612,
+  "blend_weighted": 0.94633,
+  "blend_6model": 0.94635,
+  "blend_7model": 0.94636
+}

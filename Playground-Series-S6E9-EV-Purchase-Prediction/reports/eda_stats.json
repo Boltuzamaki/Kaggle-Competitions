@@ -1,0 +1,554 @@
+{
+  "shapes": {
+    "train": [
+      668665,
+      15
+    ],
+    "test": [
+      286571,
+      14
+    ],
+    "submission": [
+      286571,
+      2
+    ]
+  },
+  "sample_submission_head": [
+    {
+      "id": 668665,
+      "Will_Buy_EV": 0.1746450016076809
+    },
+    {
+      "id": 668666,
+      "Will_Buy_EV": 0.1746450016076809
+    },
+    {
+      "id": 668667,
+      "Will_Buy_EV": 0.1746450016076809
+    }
+  ],
+  "target_name": "Will_Buy_EV",
+  "target_raw_values": {
+    "No": 551886,
+    "Yes": 116779
+  },
+  "positive_rate": 0.17464500160768098,
+  "features": [
+    "Age",
+    "Annual_Income_USD",
+    "Daily_Commute_km",
+    "Number_of_Cars_Owned",
+    "Charging_Stations_Near_Home",
+    "Charging_Stations_Near_Work",
+    "Environmental_Concern_Level",
+    "Gender",
+    "City_Type",
+    "Current_Car_Type",
+    "Home_Charging_Possible",
+    "Subsidy_Available",
+    "Range_Anxiety_Level"
+  ],
+  "numeric_features": [
+    "Age",
+    "Annual_Income_USD",
+    "Daily_Commute_km",
+    "Number_of_Cars_Owned",
+    "Charging_Stations_Near_Home",
+    "Charging_Stations_Near_Work",
+    "Environmental_Concern_Level"
+  ],
+  "categorical_features": [
+    "Gender",
+    "City_Type",
+    "Current_Car_Type",
+    "Home_Charging_Possible",
+    "Subsidy_Available",
+    "Range_Anxiety_Level"
+  ],
+  "profile": [
+    {
+      "column": "Age",
+      "dtype": "int64",
+      "kind": "numeric",
+      "n_unique_train": 45,
+      "n_unique_test": 45,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "min": 25.0,
+      "p01": 25.0,
+      "p25": 36.0,
+      "median": 47.0,
+      "mean": 47.03917058616796,
+      "p75": 58.0,
+      "p99": 69.0,
+      "max": 69.0,
+      "std": 12.875448251290761,
+      "skew": -0.0037856943461591895,
+      "test_min": 25.0,
+      "test_max": 69.0,
+      "corr_with_target": -0.0074496394167103365
+    },
+    {
+      "column": "Annual_Income_USD",
+      "dtype": "float64",
+      "kind": "numeric",
+      "n_unique_train": 13214,
+      "n_unique_test": 10526,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "min": 30000.0,
+      "p01": 30000.0,
+      "p25": 67376.0,
+      "median": 84880.0,
+      "mean": 84769.26698870136,
+      "p75": 102753.0,
+      "p99": 151159.0,
+      "max": 188549.0,
+      "std": 28648.02904243442,
+      "skew": -0.01308612304754798,
+      "test_min": 30000.0,
+      "test_max": 186936.0,
+      "corr_with_target": 0.22572928904817857
+    },
+    {
+      "column": "Daily_Commute_km",
+      "dtype": "float64",
+      "kind": "numeric",
+      "n_unique_train": 805,
+      "n_unique_test": 781,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "min": 5.0,
+      "p01": 5.0,
+      "p25": 17.2,
+      "median": 33.6,
+      "mean": 32.15829750323405,
+      "p75": 47.4,
+      "p99": 68.5,
+      "max": 98.7,
+      "std": 18.730473878849,
+      "skew": -0.08458945319784834,
+      "test_min": 5.0,
+      "test_max": 103.9,
+      "corr_with_target": -0.045865829953001015
+    },
+    {
+      "column": "Number_of_Cars_Owned",
+      "dtype": "int64",
+      "kind": "numeric",
+      "n_unique_train": 4,
+      "n_unique_test": 4,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "min": 1.0,
+      "p01": 1.0,
+      "p25": 1.0,
+      "median": 2.0,
+      "mean": 1.7126259038532001,
+      "p75": 2.0,
+      "p99": 4.0,
+      "max": 4.0,
+      "std": 0.7292754507260724,
+      "skew": 0.8144971707345114,
+      "test_min": 1.0,
+      "test_max": 4.0,
+      "corr_with_target": 0.003895769532348101
+    },
+    {
+      "column": "Charging_Stations_Near_Home",
+      "dtype": "int64",
+      "kind": "numeric",
+      "n_unique_train": 15,
+      "n_unique_test": 15,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 2.0,
+      "median": 4.0,
+      "mean": 4.9604076779852395,
+      "p75": 7.0,
+      "p99": 14.0,
+      "max": 14.0,
+      "std": 3.9268431517281415,
+      "skew": 0.6987301218816999,
+      "test_min": 0.0,
+      "test_max": 14.0,
+      "corr_with_target": -0.016353191973267484
+    },
+    {
+      "column": "Charging_Stations_Near_Work",
+      "dtype": "int64",
+      "kind": "numeric",
+      "n_unique_train": 20,
+      "n_unique_test": 20,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "min": 0.0,
+      "p01": 0.0,
+      "p25": 3.0,
+      "median": 6.0,
+      "mean": 7.176313998788631,
+      "p75": 10.0,
+      "p99": 19.0,
+      "max": 19.0,
+      "std": 5.186626650148357,
+      "skew": 0.700187506777882,
+      "test_min": 0.0,
+      "test_max": 19.0,
+      "corr_with_target": -0.012228746950191013
+    },
+    {
+      "column": "Environmental_Concern_Level",
+      "dtype": "float64",
+      "kind": "numeric",
+      "n_unique_train": 5,
+      "n_unique_test": 5,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "min": 1.0,
+      "p01": 1.0,
+      "p25": 2.0,
+      "median": 3.0,
+      "mean": 2.935477406474094,
+      "p75": 4.0,
+      "p99": 5.0,
+      "max": 5.0,
+      "std": 1.429118743913988,
+      "skew": 0.0542834234270544,
+      "test_min": 1.0,
+      "test_max": 5.0,
+      "corr_with_target": 0.4640790214951444
+    },
+    {
+      "column": "Gender",
+      "dtype": "str",
+      "kind": "categorical",
+      "n_unique_train": 3,
+      "n_unique_test": 3,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "categories": [
+        "Male",
+        "Female",
+        "Other"
+      ],
+      "category_counts": {
+        "Male": 367954,
+        "Female": 295427,
+        "Other": 5284
+      },
+      "category_pos_rate": {
+        "Female": 0.1776,
+        "Male": 0.1723,
+        "Other": 0.1737
+      }
+    },
+    {
+      "column": "City_Type",
+      "dtype": "str",
+      "kind": "categorical",
+      "n_unique_train": 3,
+      "n_unique_test": 3,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "categories": [
+        "Urban",
+        "Suburban",
+        "Rural"
+      ],
+      "category_counts": {
+        "Urban": 289305,
+        "Suburban": 255377,
+        "Rural": 123983
+      },
+      "category_pos_rate": {
+        "Rural": 0.1934,
+        "Suburban": 0.1809,
+        "Urban": 0.1611
+      }
+    },
+    {
+      "column": "Current_Car_Type",
+      "dtype": "str",
+      "kind": "categorical",
+      "n_unique_train": 4,
+      "n_unique_test": 4,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "categories": [
+        "Sedan",
+        "SUV",
+        "Hatchback",
+        "Truck"
+      ],
+      "category_counts": {
+        "Sedan": 303459,
+        "SUV": 246545,
+        "Hatchback": 79438,
+        "Truck": 39223
+      },
+      "category_pos_rate": {
+        "Hatchback": 0.1743,
+        "SUV": 0.181,
+        "Sedan": 0.172,
+        "Truck": 0.1564
+      }
+    },
+    {
+      "column": "Home_Charging_Possible",
+      "dtype": "str",
+      "kind": "categorical",
+      "n_unique_train": 2,
+      "n_unique_test": 2,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "categories": [
+        "Yes",
+        "No"
+      ],
+      "category_counts": {
+        "Yes": 462677,
+        "No": 205988
+      },
+      "category_pos_rate": {
+        "No": 0.1271,
+        "Yes": 0.1958
+      }
+    },
+    {
+      "column": "Subsidy_Available",
+      "dtype": "str",
+      "kind": "categorical",
+      "n_unique_train": 2,
+      "n_unique_test": 2,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "categories": [
+        "Yes",
+        "No"
+      ],
+      "category_counts": {
+        "Yes": 419909,
+        "No": 248756
+      },
+      "category_pos_rate": {
+        "No": 0.0058,
+        "Yes": 0.2747
+      }
+    },
+    {
+      "column": "Range_Anxiety_Level",
+      "dtype": "str",
+      "kind": "categorical",
+      "n_unique_train": 3,
+      "n_unique_test": 3,
+      "missing_train": 0,
+      "missing_train_pct": 0.0,
+      "missing_test": 0,
+      "missing_test_pct": 0.0,
+      "categories": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "category_counts": {
+        "Low": 603972,
+        "Medium": 62499,
+        "High": 2194
+      },
+      "category_pos_rate": {
+        "High": 0.0014,
+        "Low": 0.189,
+        "Medium": 0.0417
+      }
+    }
+  ],
+  "duplicate_rows_train_excl_id": 0,
+  "duplicate_feature_rows_train": 0,
+  "id_overlap_train_test": 0,
+  "id_range_train": [
+    0,
+    668664
+  ],
+  "id_range_test": [
+    668665,
+    955235
+  ],
+  "contradictory_duplicate_groups": 0,
+  "duplicated_feature_groups": 0,
+  "train_test_shift": [
+    {
+      "column": "Age",
+      "train_mean": 47.03917058616796,
+      "test_mean": 47.07082363532947,
+      "abs_std_diff": 0.0024584036641888446
+    },
+    {
+      "column": "Annual_Income_USD",
+      "train_mean": 84769.26698870136,
+      "test_mean": 84799.50843246526,
+      "abs_std_diff": 0.0010556203960523356
+    },
+    {
+      "column": "Daily_Commute_km",
+      "train_mean": 32.15829750323405,
+      "test_mean": 32.15930502388588,
+      "abs_std_diff": 5.379045176796729e-05
+    },
+    {
+      "column": "Number_of_Cars_Owned",
+      "train_mean": 1.7126259038532001,
+      "test_mean": 1.716094789772866,
+      "abs_std_diff": 0.0047566196167108145
+    },
+    {
+      "column": "Charging_Stations_Near_Home",
+      "train_mean": 4.9604076779852395,
+      "test_mean": 4.950692847496781,
+      "abs_std_diff": 0.0024739542962669463
+    },
+    {
+      "column": "Charging_Stations_Near_Work",
+      "train_mean": 7.176313998788631,
+      "test_mean": 7.155626354376403,
+      "abs_std_diff": 0.003988651160701484
+    },
+    {
+      "column": "Environmental_Concern_Level",
+      "train_mean": 2.935477406474094,
+      "test_mean": 2.9345537406087847,
+      "abs_std_diff": 0.0006463184872471414
+    },
+    {
+      "column": "Gender",
+      "total_variation_distance": 0.000199958607957928
+    },
+    {
+      "column": "City_Type",
+      "total_variation_distance": 0.0013468939989440265
+    },
+    {
+      "column": "Current_Car_Type",
+      "total_variation_distance": 0.0007498103523291798
+    },
+    {
+      "column": "Home_Charging_Possible",
+      "total_variation_distance": 0.0006618235805879169
+    },
+    {
+      "column": "Subsidy_Available",
+      "total_variation_distance": 0.0014545106686335574
+    },
+    {
+      "column": "Range_Anxiety_Level",
+      "total_variation_distance": 0.001710963145337423
+    }
+  ],
+  "correlation_matrix": {
+    "Age": {
+      "Age": 1.0,
+      "Annual_Income_USD": -0.0046,
+      "Daily_Commute_km": -0.0065,
+      "Number_of_Cars_Owned": -0.002,
+      "Charging_Stations_Near_Home": -0.0041,
+      "Charging_Stations_Near_Work": -0.0059,
+      "Environmental_Concern_Level": -0.0037,
+      "Will_Buy_EV": -0.0074
+    },
+    "Annual_Income_USD": {
+      "Age": -0.0046,
+      "Annual_Income_USD": 1.0,
+      "Daily_Commute_km": 0.008,
+      "Number_of_Cars_Owned": -0.0002,
+      "Charging_Stations_Near_Home": -0.0086,
+      "Charging_Stations_Near_Work": -0.0028,
+      "Environmental_Concern_Level": 0.0764,
+      "Will_Buy_EV": 0.2257
+    },
+    "Daily_Commute_km": {
+      "Age": -0.0065,
+      "Annual_Income_USD": 0.008,
+      "Daily_Commute_km": 1.0,
+      "Number_of_Cars_Owned": 0.0027,
+      "Charging_Stations_Near_Home": 0.0452,
+      "Charging_Stations_Near_Work": 0.035,
+      "Environmental_Concern_Level": -0.0189,
+      "Will_Buy_EV": -0.0459
+    },
+    "Number_of_Cars_Owned": {
+      "Age": -0.002,
+      "Annual_Income_USD": -0.0002,
+      "Daily_Commute_km": 0.0027,
+      "Number_of_Cars_Owned": 1.0,
+      "Charging_Stations_Near_Home": 0.0085,
+      "Charging_Stations_Near_Work": 0.0086,
+      "Environmental_Concern_Level": -0.0006,
+      "Will_Buy_EV": 0.0039
+    },
+    "Charging_Stations_Near_Home": {
+      "Age": -0.0041,
+      "Annual_Income_USD": -0.0086,
+      "Daily_Commute_km": 0.0452,
+      "Number_of_Cars_Owned": 0.0085,
+      "Charging_Stations_Near_Home": 1.0,
+      "Charging_Stations_Near_Work": 0.5111,
+      "Environmental_Concern_Level": -0.0113,
+      "Will_Buy_EV": -0.0164
+    },
+    "Charging_Stations_Near_Work": {
+      "Age": -0.0059,
+      "Annual_Income_USD": -0.0028,
+      "Daily_Commute_km": 0.035,
+      "Number_of_Cars_Owned": 0.0086,
+      "Charging_Stations_Near_Home": 0.5111,
+      "Charging_Stations_Near_Work": 1.0,
+      "Environmental_Concern_Level": -0.0078,
+      "Will_Buy_EV": -0.0122
+    },
+    "Environmental_Concern_Level": {
+      "Age": -0.0037,
+      "Annual_Income_USD": 0.0764,
+      "Daily_Commute_km": -0.0189,
+      "Number_of_Cars_Owned": -0.0006,
+      "Charging_Stations_Near_Home": -0.0113,
+      "Charging_Stations_Near_Work": -0.0078,
+      "Environmental_Concern_Level": 1.0,
+      "Will_Buy_EV": 0.4641
+    },
+    "Will_Buy_EV": {
+      "Age": -0.0074,
+      "Annual_Income_USD": 0.2257,
+      "Daily_Commute_km": -0.0459,
+      "Number_of_Cars_Owned": 0.0039,
+      "Charging_Stations_Near_Home": -0.0164,
+      "Charging_Stations_Near_Work": -0.0122,
+      "Environmental_Concern_Level": 0.4641,
+      "Will_Buy_EV": 1.0
+    }
+  }
+}
